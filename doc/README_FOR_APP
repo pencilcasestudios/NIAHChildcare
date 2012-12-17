@@ -3,7 +3,6 @@ Testing
 
 # Guard for testing
 bundle update
-gem cleanup
 rake db:drop
 rake db:setup
 rake db:test:prepare
@@ -37,7 +36,6 @@ http://railscasts.com/episodes/285-spork?view=asciicast
 gem "jquery-rails"
 gem "rb-fsevent"
 
-mkdir spec/support spec/models spec/routing
 
 rails generate rspec:install
 spork --bootstrap
@@ -45,6 +43,8 @@ spork --bootstrap
 guard init spork
 guard init bundler
 guard init rspec
+
+mkdir spec/support spec/models spec/routing
 
 Configure Guardfile (DRB ports etc)
 
