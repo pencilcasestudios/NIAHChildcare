@@ -1,0 +1,2 @@
+# Use this gemset. If it does not exist, create it
+rvm use ruby-1.9.3-p327@niahchildcare-rails.3.2.x --create
