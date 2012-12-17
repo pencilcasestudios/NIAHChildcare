@@ -4,10 +4,10 @@ describe "Assets" do
   # In app/assets/stylesheets/
   describe "app/assets/stylesheets/" do
     it "has stylesheet assets" do
+      get "/assets/styles.css"
+      response.status.should be(200)
+
       #get "/assets/sessions.css"
-      #response.status.should be(200)
-      #
-      #get "/assets/styles.css"
       #response.status.should be(200)
       #
       #get "/assets/users.css"
@@ -31,6 +31,7 @@ describe "Assets" do
   # In app/assets/images/
   describe "app/assets/images/" do
     it "has image assets" do
+      # Favicons
       get "/assets/apple-touch-icon.png"
       response.status.should be(200)
 
@@ -41,6 +42,10 @@ describe "Assets" do
       response.status.should be(200)
 
       get "/assets/favicon.ico"
+      response.status.should be(200)
+
+      # Images
+      get "/assets/NIAHChildcare_logo_with_text-930x539.png"
       response.status.should be(200)
     end
   end
