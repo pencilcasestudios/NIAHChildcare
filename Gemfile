@@ -15,9 +15,11 @@ gem "sqlite3"
 
 
 group :assets do
-  gem "sass-rails"
   gem "coffee-rails"
+  gem "compass-rails"
+  gem "sass-rails"
   gem "uglifier"
+  gem "zurb-foundation"
 end
 
 
