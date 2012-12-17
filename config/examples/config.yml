@@ -1,0 +1,30 @@
+defaults: &defaults
+  http_basic_name: preview
+  http_basic_password: future
+  test_user_password: password
+
+  # Deployment recipe settings
+  application_name: "Needle in a Haystack Special Needs Childcare Agency"
+  deployment_branch: "deployment"
+  gemset_name: "niahchildcare-rails.3.2.x"
+  ruby_version: "ruby-1.9.3-p327"
+  server_name: "niahchildcare.com"
+  user: "silumesii"
+
+
+
+
+development:
+  <<: *defaults
+
+
+
+
+test:
+  <<: *defaults
+
+
+
+
+production:
+  <<: *defaults
