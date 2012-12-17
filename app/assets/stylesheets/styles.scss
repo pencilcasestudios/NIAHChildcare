@@ -1,0 +1,38 @@
+nav dl {
+  background: #ffffff;
+  padding: 0.5em;
+}
+
+section {
+  margin-top: 2em;
+}
+
+section header {
+  padding: 2em;
+  text-align: right;
+}
+
+section header h1 {
+  color: #e9d66b;
+  text-shadow: 0px 2px 2px #333333;
+}
+
+section.content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2em;
+}
+
+footer {
+  background: #950908;
+  color: #e9d66b;
+  margin-top: 3em;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+footer .credits {
+  font-size: 0.75em;
+  line-height: 1.3em;
+}
