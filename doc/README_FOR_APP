@@ -1,2 +1,61 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+Testing
+=======
+
+# Guard for testing
+bundle update
+gem cleanup
+rake db:drop
+rake db:setup
+rake db:test:prepare
+bundle exec guard
+
+
+
+
+
+Gem management
+==============
+
+MAINTAIN GEM BUNDLE
+bundle update
+gem cleanup
+
+DELETE ALL INSTALLED GEMS
+gem list | cut -d" " -f1 | xargs gem uninstall -aIx
+
+
+
+
+Setting up testing
+==================
+
+# Ref
+http://railscasts.com/episodes/275-how-i-test?view=asciicast
+http://railscasts.com/episodes/285-spork?view=asciicast
+
+# Gemfile
+gem "jquery-rails"
+gem "rb-fsevent"
+
+mkdir spec/support spec/models spec/routing
+
+rails generate rspec:install
+spork --bootstrap
+
+guard init spork
+guard init bundler
+guard init rspec
+
+Configure Guardfile (DRB ports etc)
+
+Configure spec_helper.rb
+
+Test!
+
+
+
+
+Generating Tests
+================
+
+
