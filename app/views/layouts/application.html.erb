@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NIAHChildcare</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title><%= render "title" %></title>
+
+  <%= render "viewport" %>
+
+  <%= stylesheet_link_tag    "application" %>
+
   <%= javascript_include_tag "application" %>
+
+  <%= render "favicons" %>
+
   <%= csrf_meta_tags %>
+
+  <%= render "analytics" %>
 </head>
-<body>
-
-<%= yield %>
-
+<body id="<%= body_id %>">
+  <%= render "navigation" %>
+  
+  <%= yield %>
+          
+  <%= render "footer" %>
 </body>
-</html>
