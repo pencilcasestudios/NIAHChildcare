@@ -5,3 +5,17 @@ en:
       url: http://niahchildcare.com
     name: Needle in a Haystack Special Needs Childcare Agency
     tagline_html: "Finding special care for your special child&hellip;"
+
+
+
+
+# Views
+  view:
+    application:
+      _navigation:
+        links:
+          about: about
+      copy:
+        full_stop: "."
+        full_colon: ":"
+
