@@ -110,8 +110,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta-tags (1.2.6)
-      actionpack
     method_source (0.8.1)
     mime-types (1.19)
     modular-scale (1.0.2)
@@ -239,7 +237,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
-  meta-tags
   mysql2
   pcs_vegas
   rack_session_access
