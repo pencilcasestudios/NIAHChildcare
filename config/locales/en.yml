@@ -10,12 +10,19 @@ en:
 
 
 # Views
-  view:
+  views:
     application:
       _navigation:
         links:
-          about: about
+          about: About
+          contact: Contact
+          fees: Fees
+          nannies: Nannies
+          terms: Terms
       copy:
         full_stop: "."
         full_colon: ":"
 
+    welcome:
+      about:
+        title: "About us"

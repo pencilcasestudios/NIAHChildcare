@@ -1,3 +1,24 @@
+<script type="text/javascript">
+  $( function() {
+    $.vegas("slideshow", {
+      delay:15000,
+      backgrounds:[
+        { src:"<%= asset_path("backgrounds/01.jpg") %>", fade:1500 },
+        { src:"<%= asset_path("backgrounds/02.jpg") %>", fade:1500 },
+        { src:"<%= asset_path("backgrounds/03.jpg") %>", fade:1500 },
+        { src:"<%= asset_path("backgrounds/04.jpg") %>", fade:1500 },
+        { src:"<%= asset_path("backgrounds/05.jpg") %>", fade:1500 },
+        { src:"<%= asset_path("backgrounds/06.jpg") %>", fade:1500 },
+      ]
+    })("overlay", {
+      src:"<%= asset_path("overlays/02.png") %>"
+    });
+  });
+</script>
+
+
+
+
 <header>
   <div class="row">
     <div class="nine columns centered">

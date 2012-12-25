@@ -14,4 +14,14 @@ module ApplicationHelper
       end
     end
   end
+
+  def default_meta_tags
+    {
+      #:description => 'Member login page.',
+      #:keywords    => 'Site, Login, Members',
+      :separator   => "&mdash;".html_safe,
+      :site       => t("application.name"),
+      :title       => t("application.tagline_html"),
+    }
+  end
 end

@@ -2,6 +2,7 @@ Testing
 =======
 
 # Guard for testing
+gem cleanup
 bundle update
 rake db:drop
 rake db:setup
