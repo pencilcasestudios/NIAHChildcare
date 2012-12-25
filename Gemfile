@@ -9,6 +9,8 @@ gem "rails"
 
 
 gem "jquery-rails"
+gem "meta-tags", :require => "meta_tags"
+gem "pcs_vegas"
 gem "sqlite3"
 
 
