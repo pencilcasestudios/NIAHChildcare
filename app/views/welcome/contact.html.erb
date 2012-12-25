@@ -1,5 +1,23 @@
+<%= render "background", background: "12" %>
+
 <div class="row">
-  <div class="twelve columns">
-    <h1><%= yield(:title) %></h1>
+  <div class="six columns">
+    <section class="header">
+      <header>
+        <h1><%= yield(:title) %></h1>
+      </header>
+    </section>
+  </div>
+  <div class="six columns">
+    <section class="content">
+      <p>
+        Needle in a Haystack Special Needs Childcare Agency<br />
+        Riverside Center, 275 Grove Street, Suite 2-400<br />
+        Newton, Massachusetts, 02466<br />
+        617-901-2192<br />
+        Info@NIAHChildcare.com<br />
+      </p>
+
+    </section>
   </div><!-- /.twelve .columns -->
 </div><!-- /.row -->
