@@ -1,0 +1,13 @@
+<%= background_image = background || "01" %>
+
+<script type="text/javascript">
+  $( function() {
+    $.vegas({
+      src:"<%= asset_path("backgrounds/#{background_image}.jpg") %>",
+      loading: true
+    });
+    $.vegas("overlay", {
+      src:"<%= asset_path("overlays/02.png") %>",
+    });
+  });
+</script>
