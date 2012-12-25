@@ -1,10 +1,12 @@
+<% title t("views.welcome.about.title") %>
+
 <%= render "background" %>
 
 <div class="row">
   <div class="six columns">
     <section class="header">
       <header>
-        <h1><%= title t("views.welcome.about.title") %></h1>
+        <h1><%= yield(:title) %></h1>
       </header>
     </section>
   </div>

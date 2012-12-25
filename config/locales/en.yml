@@ -25,4 +25,12 @@ en:
 
     welcome:
       about:
-        title: "About us"
+        title: "About Us"
+      nannies:
+        title: "Information for Nannies"
+      terms:
+        title: "Terms"
+      contact:
+        title: "Contact Us"
+      fees:
+        title: "Fees"
