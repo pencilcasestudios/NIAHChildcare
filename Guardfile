@@ -5,7 +5,7 @@
 
 
 # Configuration variables
-wait_time = 90
+wait_time = 180
 port_number = 6001
 
 
@@ -55,4 +55,3 @@ guard 'rspec', cli: "--drb --drb-port #{port_number}" do
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
-
