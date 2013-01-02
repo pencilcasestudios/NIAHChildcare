@@ -8,9 +8,21 @@ gem "rails"
 
 
 
+gem "bcrypt-ruby"
+gem "builder"
+gem "cancan"
+gem "delayed_job_active_record"
+gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "jquery-rails"
+gem "mail"
+gem "nested_form"
+gem "paper_trail"
 gem "pcs_vegas"
+gem "settingslogic"
+gem "sprockets"
 gem "sqlite3"
+gem "state_machine"
+
 
 
 
