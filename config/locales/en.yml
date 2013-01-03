@@ -9,6 +9,16 @@ en:
 
 
 
+# Validators
+  validators:
+    cell_phone_number_format:
+      error: does not look like a phone number
+    email_format:
+      error: does not look like an email address
+
+
+
+
 # Views
   views:
     application:
