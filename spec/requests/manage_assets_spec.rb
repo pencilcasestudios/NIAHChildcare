@@ -7,17 +7,11 @@ describe "Assets" do
       get "/assets/styles.css"
       response.status.should be(200)
 
-      #get "/assets/sessions.css"
-      #response.status.should be(200)
-      #
-      #get "/assets/users.css"
-      #response.status.should be(200)
-      #
-      #get "/assets/jobs.css"
-      #response.status.should be(200)
-      #
-      #get "/assets/organisations.css"
-      #response.status.should be(200)
+      get "/assets/users.css"
+      response.status.should be(200)
+
+      get "/assets/sessions.css"
+      response.status.should be(200)
     end
   end
 
