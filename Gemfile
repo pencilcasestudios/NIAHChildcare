@@ -38,10 +38,12 @@ end
 
 
 
-group :test, :development do
-  gem "rb-fsevent"
-  gem "rb-inotify"
-  gem "rspec-rails"
+
+group :development do
+  gem "capistrano"
+  gem "capistrano-ext"
+  gem "letter_opener"
+  gem "rvm-capistrano"
 end
 
 group :test do
@@ -55,12 +57,14 @@ group :test do
   gem "spork-rails"
 end
 
-group :development do
-  gem "capistrano"
-  gem "capistrano-ext"
-  gem "letter_opener"
-  gem "rvm-capistrano"
+group :test, :development do
+  gem "rb-fsevent"
+  gem "rb-inotify"
+  gem "rspec-rails"
 end
+
+
+
 
 group :production do
   gem "mysql2"
