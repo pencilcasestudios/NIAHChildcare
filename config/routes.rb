@@ -1,6 +1,4 @@
 NIAHChildcare::Application.routes.draw do
-  get "sessions/new"
-
   get "welcome/about"
   get "welcome/contact"
   get "welcome/fees"
@@ -21,7 +19,7 @@ NIAHChildcare::Application.routes.draw do
 
 
 
-
+  resources :sessions
   resources :users
 
 
