@@ -1,0 +1,18 @@
+<% title t("views.users.new.title") %>
+
+<%= render "background" %>
+
+<div class="row">
+  <div class="three columns">
+    <section class="header">
+      <header>
+        <h1><%= yield :title %></h1>
+      </header>
+    </section>
+  </div><!-- /.three .columns -->
+  <div class="nine columns">
+    <section class="content">
+      <%= render "form" %>
+    </section><!-- /.content -->
+ </div><!-- /.nine .columns -->
+</div><!-- /.row -->

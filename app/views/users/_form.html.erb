@@ -1,0 +1,81 @@
+<%= form_for(@user) do |f| %>
+  <%= render "errors", user: @user %>
+
+  <div class="row">
+    <fieldset>
+      <legend><%= t("views.users._form.legends.names") %></legend>
+      <div class="four columns">
+        <%= f.label :first_name, t("views.users._form.labels.first_name") %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="four columns">
+        <%= f.label :middle_name, t("views.users._form.labels.middle_name") %>
+        <%= f.text_field :middle_name %>
+      </div>
+      <div class="four columns">
+        <%= f.label :last_name, t("views.users._form.labels.last_name") %>
+        <%= f.text_field :last_name %>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="row">
+    <fieldset>
+      <legend><%= t("views.users._form.legends.contact_details") %></legend>
+      <div class="six columns">
+        <%= f.label :email, t("views.users._form.labels.email") %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="six columns">
+        <%= f.label :cell_phone_number, t("views.users._form.labels.cell_phone_number") %>
+        <%= f.text_field :cell_phone_number %>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="row">
+    <fieldset>
+      <legend><%= t("views.users._form.legends.password") %></legend>
+      <div class="six columns">
+        <%= f.label :password, t("views.users._form.labels.password") %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="six columns">
+        <%= f.label :password_confirmation, t("views.users._form.labels.password_confirmation") %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="row">
+    <fieldset>
+      <legend><%= t("views.users._form.legends.preferences") %></legend>
+      <div class="six columns">
+        <%= f.label :language, t("views.users._form.labels.language") %>
+        <%= f.select :language, Language::NAMES, { select: t("models.language.names.eng") } %>
+      </div>
+      <div class="six columns">
+        <%= f.label :time_zone, t("views.users._form.labels.time_zone") %>
+        <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: "Eastern Time (US & Canada)" %>
+      </div>
+    </fieldset>
+  </div>
+
+  <% if new_or_create_action? %>
+    <div class="row">
+      <fieldset>
+        <legend><%= t("views.users._form.legends.confirmation") %></legend>
+        <div class="six columns">
+          <%= f.label :terms_of_use, t("views.users._form.labels.terms_of_use") %>
+          <%= t("views.users._form.copy.terms_of_use") %>
+          <%= f.check_box :terms_of_use %>
+        </div>
+        <div class="six columns">
+          <%= show_simple_captcha(object: "user") %>
+        </div>
+      </fieldset>
+    </div>
+  <% end %>
+
+  <%= f.submit class: "button" %>
+<% end %>

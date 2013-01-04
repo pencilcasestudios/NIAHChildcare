@@ -1,0 +1,9 @@
+<%= form_tag sessions_path, class: "form-stacked" do %>
+  <%= label_tag :identifier, t("views.sessions._form.labels.identifier") %>
+  <%= text_field_tag :identifier, params[:identifier] %>
+
+  <%= label_tag :password, t("views.sessions._form.labels.password") %>
+  <%= password_field_tag :password, params[:password] %>
+
+  <%= submit_tag t("views.sessions._form.buttons.submit"), class: "button" %>
+<% end %>

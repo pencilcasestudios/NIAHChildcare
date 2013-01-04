@@ -7,7 +7,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <title><%= render "title" %></title>
-  
+
   <%= render "viewport" %>
 
   <%= stylesheet_link_tag    "application" %>
@@ -24,8 +24,10 @@
   <%= render "logo" %>
 
   <%= render "navigation" %>
-  
+
+  <%= render "notifications" %>
+
   <%= yield %>
-          
+
   <%= render "footer" %>
 </body>

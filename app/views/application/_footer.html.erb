@@ -3,18 +3,20 @@
     <div class="nine columns centered">
       <div class="links">
         <p>
-          | <%= link_to t("views.application._footer.links.home"), root_path %>
-          | <%= link_to t("views.application._footer.links.about"), about_path %>
-          | <%= link_to t("views.application._footer.links.fees"), fees_path %>
-          | <%= link_to t("views.application._footer.links.nannies"), nannies_path %>
-          | <%= link_to t("views.application._footer.links.terms"), terms_path %>
-          | <%= link_to t("views.application._footer.links.contact"), contact_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.home"), root_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.about"), about_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.fees"), fees_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.nannies"), nannies_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.terms"), terms_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.contact"), contact_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.sign_up"), sign_up_path %>
+          | <%= link_to_unless_current t("views.application._footer.links.sign_in"), sign_in_path %>
           |
         </p>
       </div>
       <p class="credits">
-          &copy; <%= Time.now.year %> <%= link_to t("application.name"), root_path %><br />
-          <%= link_to t("application.developer.name"), t("application.developer.url") %>
+          &copy; <%= Time.now.year %> <%= link_to_unless_current t("application.name"), root_path %><br />
+          <%= link_to_unless_current t("application.developer.name"), t("application.developer.url") %>
       </p>
     </div>
   </div>

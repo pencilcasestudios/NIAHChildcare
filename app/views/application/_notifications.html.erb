@@ -1,0 +1,16 @@
+<% flash.each do |name, msg| %>
+  <div class="row">
+    <div class="twelve columns">
+      <section>
+        <div class="notifications">
+          <% if msg.is_a?(String) %>
+            <%= content_tag :div, class: "alert-box #{alert_name(name)}" do %>
+              <a class="close" href="#">&times;</a>
+              <%= msg %>
+            <% end %>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+<% end %>
