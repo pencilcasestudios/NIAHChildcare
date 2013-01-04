@@ -1,30 +1,27 @@
 defaults: &defaults
   http_basic_name: preview
-  http_basic_password: future
+  http_basic_password: future # Update this in production
   test_user_password: password
 
-  # Deployment recipe settings
-  application_name: "NIAHChildcare"
-  deployment_branch: "deployment"
-  gemset_name: "niahchildcare-rails.3.2.x"
-  ruby_version: "ruby-1.9.3-p327"
-  server_name: "niahchildcare.com"
-  user: "silumesii"
-
-
-
+  # Multi-stage recipe settings
+  application_name: NIAHChildcare
+  deployment_path_production: production
+  deployment_path_staging: staging
+  gemset_name: niahchildcare-rails.3.2.x
+  repository_deployment_branch: master
+  repository_server_name: niahchildcare.com
+  ruby_version: ruby-1.9.3-p327
+  server_name_production: niahchildcare.com
+  server_name_staging: niahchildcare.clientcase.net
+  stage_name_production: production
+  stage_name_staging: staging
+  user: silumesii
 
 development:
   <<: *defaults
 
-
-
-
 test:
   <<: *defaults
-
-
-
 
 production:
   <<: *defaults
