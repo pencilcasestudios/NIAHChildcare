@@ -1,3 +1,8 @@
+fieldset legend {
+  background: transparent;
+  padding: 0.5em;
+}
+
 nav dl {
   background: #ffffff;
   padding: 0.5em;
@@ -40,4 +45,31 @@ footer {
 footer .credits {
   font-size: 0.75em;
   line-height: 1.5em;
+}
+
+#navigation_pane {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#user_links {
+  color: #eeeeee;
+  padding: 1em 1em 0 1em;
+  text-align: right;
+}
+
+#user_links a {
+  color: #e9d66b;
+}
+
+#user_links a:hover {
+  text-decoration: underline;
+}
+
+.translation_missing {
+  background: #ff0000;
+}
+
+.simple_captcha_image {
+  padding: 0.5em;
+  text-align: center;
 }
