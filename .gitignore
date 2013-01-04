@@ -18,8 +18,11 @@
 
 
 # Ignore all logfiles and tempfiles.
+*~
+.DS_Store
 /log/*.log
 /tmp
+
 
 
 
@@ -27,3 +30,4 @@
 # Ignore config files
 config/config.yml
 config/database.yml
+config/deploy.rb
