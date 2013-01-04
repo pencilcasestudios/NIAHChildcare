@@ -9,6 +9,62 @@ en:
 
 
 
+# Controllers
+  controllers:
+    application_controller:
+      flash:
+        sign_in_required: "Please sign in first and then you will be sent right along."
+        admin_required: "You do not have the access to perform that function."
+
+    sessions_controller:
+      actions:
+        create:
+          success: Welcome
+          error: Sign in failed. Please check your details try again.
+        destroy:
+          success: You have successfully signed out.
+
+    users_controller:
+      actions:
+        create:
+          success: Your account was successfully created. You may now sign in.
+
+
+
+
+# Helpers
+  helpers:
+    submit:
+      user_session:
+        create: "Sign in"
+      user:
+        create: "Sign up"
+        update: "Save"
+      create: "Create this %{model}"
+      update: "Save changes to this %{model}"
+
+
+
+
+# Models
+  models:
+    language:
+      names:
+        eng: English
+
+
+
+
+# simple_captcha
+  simple_captcha:
+    label: Enter below the text you see above
+    message:
+      default: "The security check text did not match the image"
+      user: "The security check text did not match the image"
+
+
+
+
 # Validators
   validators:
     cell_phone_number_format:
@@ -25,13 +81,69 @@ en:
       _navigation:
         links:
           about: About
+          account_settings: Account Settings
           contact: Contact
           fees: Fees
           nannies: Nannies
+          sign_in: Sign in
+          sign_out: Sign out
+          sign_up: Sign up
+          terms: Terms
+      _footer:
+        links:
+          about: About
+          contact: Contact
+          fees: Fees
+          home: Home
+          nannies: Nannies
+          sign_in: Sign in
+          sign_up: Sign up
           terms: Terms
       copy:
         full_stop: "."
         full_colon: ":"
+
+    users:
+      _errors:
+        fields:
+          cell_phone_number: Cell phone number
+          email: Email
+          password: Password
+          terms_of_use: Terms of use
+      _form:
+        copy:
+          terms_of_use: Accept the terms of use
+        labels:
+          cell_phone_number: Cell phone number
+          email: Email
+          first_name: First name
+          language: Language
+          last_name: Last name
+          middle_name: Middle name
+          password: Password
+          password_confirmation: Confirm password
+          terms_of_use: Terms of use
+          time_zone: Time zone
+        legends:
+          confirmation: Confirmation
+          contact_details: Contact Details
+          names: Names
+          password: Password
+          preferences: Preferences
+      new:
+        title: Sign up
+      edit:
+        title: Account Settings
+
+    sessions:
+      _form:
+        buttons:
+          submit: Sign in
+        labels:
+          identifier: Email or cell phone number
+          password: Password
+      new:
+        title: Sign in
 
     welcome:
       about:
