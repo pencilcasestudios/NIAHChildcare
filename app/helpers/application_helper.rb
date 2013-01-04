@@ -15,13 +15,16 @@ module ApplicationHelper
     end
   end
 
-  def default_meta_tags
-    {
-      #:description => 'Member login page.',
-      #:keywords    => 'Site, Login, Members',
-      :separator   => "&mdash;".html_safe,
-      :site       => t("application.name"),
-      :title       => t("application.tagline_html"),
-    }
+  def new_or_create_action?
+    (controller.action_name == "new") || (controller.action_name == "create")
+  end
+
+  def alert_name(alert)
+    level = ""
+    if alert.to_s == "error"
+      level = "alert"
+    elsif alert.to_s == "success"
+      level = "success"
+    end
   end
 end
