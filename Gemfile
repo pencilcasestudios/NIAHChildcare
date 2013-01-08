@@ -8,22 +8,18 @@ gem "rails"
 
 
 
+# Used accross environments
 gem "bcrypt-ruby"
-gem "builder"
 gem "cancan"
 gem "daemons"
 gem "delayed_job_active_record"
-gem "galetahub-simple_captcha", require: "simple_captcha", git: "git://github.com/galetahub/simple-captcha.git"
+gem "galetahub-simple_captcha", require: "simple_captcha"#, git: "git://github.com/galetahub/simple-captcha.git"
 gem "jquery-rails"
-gem "mail"
 gem "nested_form"
 gem "paper_trail"
 gem "pcs_vegas"
 gem "settingslogic"
-gem "sprockets"
-gem "sqlite3"
 gem "state_machine"
-
 
 
 
@@ -35,7 +31,6 @@ group :assets do
   gem "uglifier"
   gem "zurb-foundation"
 end
-
 
 
 
@@ -62,11 +57,13 @@ group :test, :development do
   gem "rb-fsevent"
   gem "rb-inotify"
   gem "rspec-rails"
+  gem "sqlite3"
 end
 
 
 
 
 group :production do
+  gem "exception_notification"
   gem "mysql2"
 end
