@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
+  before_filter :sign_in_required, except: [:new, :create]
+  before_filter :sign_out_required, only: [:new, :create]
+  before_filter :admin_required, only: [:index]
+
+  load_and_authorize_resource
+
   def new
-    @user = User.new
+    if params[:query] && params[:query].in?(["family","nanny"])
+      session[:registration_type] = params[:query]
+    else
+      redirect_to register_path
+    end
   end
 
   def create
-    @user = User.new(params[:user])
-    @user.role = User::ROLES[I18n.t("models.user.roles.user")] # Set default role as "user"
     if @user.save_with_captcha
       #Emailer.registration_confirmation(@user).deliver
       #Emailer.delay.registration_confirmation(@user)

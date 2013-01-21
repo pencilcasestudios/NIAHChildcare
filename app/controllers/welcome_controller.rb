@@ -13,6 +13,9 @@ class WelcomeController < ApplicationController
   def nannies
   end
 
+  def register
+  end
+
   def terms
   end
 

@@ -7,7 +7,7 @@
           | <%= link_to_unless_current t("views.application._navigation.links.account_settings"), account_settings_path %>
           | <%= link_to_unless_current t("views.application._navigation.links.sign_out"), sign_out_path %>
         <% else %>
-          <%= link_to_unless_current t("views.application._navigation.links.sign_up"), sign_up_path %>
+          <%= link_to_unless_current t("views.application._navigation.links.register"), register_path %>
           | <%= link_to_unless_current t("views.application._navigation.links.sign_in"), sign_in_path %>
         <% end %>
       </p><!-- /#user_links -->

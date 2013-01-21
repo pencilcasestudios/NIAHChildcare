@@ -62,6 +62,8 @@
   </div>
 
   <% if new_or_create_action? %>
+    <%= f.hidden_field :role, value: session[:registration_type] %>
+
     <div class="row">
       <fieldset>
         <legend><%= t("views.users._form.legends.confirmation") %></legend>

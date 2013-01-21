@@ -1,29 +1,40 @@
-<script type="text/javascript">
-  $( function() {
-    $.vegas("slideshow", {
-      delay:10000,
-      backgrounds:[
-        { src:"<%= asset_path("backgrounds/01.jpg") %>", fade:1500 },
-        { src:"<%= asset_path("backgrounds/02.jpg") %>", fade:1500 },
-        { src:"<%= asset_path("backgrounds/03.jpg") %>", fade:1500 },
-        { src:"<%= asset_path("backgrounds/04.jpg") %>", fade:1500 },
-        { src:"<%= asset_path("backgrounds/05.jpg") %>", fade:1500 },
-        { src:"<%= asset_path("backgrounds/06.jpg") %>", fade:1500 },
-      ]
-    })("overlay", {
-      src:"<%= asset_path("overlays/02.png") %>"
-    });
-  });
-</script>
+<% if user_signed_in? %>
+  <%= render "background" %>
 
-
-
-
-<header class="logo">
   <div class="row">
-    <div class="twelve columns centered">
-      <%= image_tag("NIAHChildcare_logo_with_text-930x539.png") %>
-      <h1><%= title t("application.tagline_html") %></h1>
+    <div class="twelve columns">
+      <section class="content">
+      </section>
     </div>
-  </div><!-- /.row -->
-</header>
+  </div>
+<% else %>
+  <script type="text/javascript">
+    $( function() {
+      $.vegas("slideshow", {
+        delay:10000,
+        backgrounds:[
+          { src:"<%= asset_path("backgrounds/01.jpg") %>", fade:1500 },
+          { src:"<%= asset_path("backgrounds/02.jpg") %>", fade:1500 },
+          { src:"<%= asset_path("backgrounds/03.jpg") %>", fade:1500 },
+          { src:"<%= asset_path("backgrounds/04.jpg") %>", fade:1500 },
+          { src:"<%= asset_path("backgrounds/05.jpg") %>", fade:1500 },
+          { src:"<%= asset_path("backgrounds/06.jpg") %>", fade:1500 },
+        ]
+      })("overlay", {
+        src:"<%= asset_path("overlays/02.png") %>"
+      });
+    });
+  </script>
+
+
+
+
+  <header class="logo">
+    <div class="row">
+      <div class="twelve columns centered">
+        <%= image_tag("NIAHChildcare_logo_with_text-930x539.png") %>
+        <h1><%= title t("application.tagline_html") %></h1>
+      </div>
+    </div><!-- /.row -->
+  </header>
+<% end %>

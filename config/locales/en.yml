@@ -41,7 +41,7 @@ en:
       user_session:
         create: "Sign in"
       user:
-        create: "Sign up"
+        create: "Register"
         update: "Save"
       create: "Create this %{model}"
       update: "Save changes to this %{model}"
@@ -88,11 +88,13 @@ en:
           contact: Contact
           fees: Fees
           nannies: Nannies
+          register: Register
           sign_in: Sign in
           sign_out: Sign out
-          sign_up: Sign up
           terms: Terms
       _footer:
+        copy:
+          website_by: Website by
         links:
           about: About
           contact: Contact
@@ -100,7 +102,7 @@ en:
           home: Home
           nannies: Nannies
           sign_in: Sign in
-          sign_up: Sign up
+          register: Register
           terms: Terms
       copy:
         full_stop: "."
@@ -134,7 +136,7 @@ en:
           password: Password
           preferences: Preferences
       new:
-        title: Sign up
+        title: "%{registration_type} registration"
       edit:
         title: Account Settings
 
@@ -150,12 +152,17 @@ en:
 
     welcome:
       about:
-        title: "About Us"
+        title: About Us
       nannies:
-        title: "Information for Nannies"
+        title: Information for Nannies
       terms:
-        title: "Terms"
+        title: Terms
       contact:
-        title: "Contact Us"
+        title: Contact Us
       fees:
-        title: "Fees"
+        title: Fees
+      register:
+        links:
+          family_registration: Family Registration
+          nanny_registration: Nanny Registration
+        title: Register

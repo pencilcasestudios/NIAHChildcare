@@ -1,0 +1,23 @@
+<%= render "background" %>
+
+<div class="row">
+  <div class="four columns">
+    <section class="header">
+      <header>
+        <h1><%= title t("views.welcome.register.title") %></h1>
+      </header>
+    </section>
+  </div>
+  <div class="eight columns">
+    <section class="content">
+      <div class="row">
+        <div class="six columns">
+          <%= link_to t("views.welcome.register.links.family_registration"), registration_path(query: "family"), class: "button" %>
+        </div>
+        <div class="six columns">
+          <%= link_to t("views.welcome.register.links.nanny_registration"), registration_path(query: "nanny"), class: "button" %>
+        </div>
+      </div>
+    </section>
+  </div><!-- /.twelve .columns -->
+</div><!-- /.row -->

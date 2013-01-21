@@ -1,16 +1,14 @@
-<% title t("views.users.new.title") %>
-
 <%= render "background" %>
 
 <div class="row">
-  <div class="three columns">
+  <div class="four columns">
     <section class="header">
       <header>
-        <h1><%= yield :title %></h1>
+        <h1><%= title t("views.users.new.title", registration_type: session[:registration_type].titleize) %></h1>
       </header>
     </section>
   </div><!-- /.three .columns -->
-  <div class="nine columns">
+  <div class="eight columns">
     <section class="content">
       <%= render "form" %>
     </section><!-- /.content -->

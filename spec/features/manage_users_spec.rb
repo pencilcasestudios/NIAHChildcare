@@ -3,13 +3,17 @@ require "support/authentication_helper"
 
 describe "User management" do
   describe "when not signed in" do
+
+    before(:each) do
+      visit register_path
+    end
+
     # users#new
     describe "requesting sign up" do
-      it "allows sign up with acceptable input" do
+      it "as a Family allows sign up with acceptable input" do
         Delayed::Worker.delay_jobs = false
-        #expected_delayed_jobs = Delayed::Job.count + 1
 
-        visit sign_up_path
+        click_link I18n.t("views.welcome.register.links.family_registration")
 
         first_name = "First"
         fill_in I18n.t("views.users._form.labels.first_name"), with: first_name
@@ -49,7 +53,7 @@ describe "User management" do
       end
 
       it "rejects sign up with missing email" do
-        visit sign_up_path
+        visit registration_path
 
         # Not filled in: fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
@@ -72,7 +76,7 @@ describe "User management" do
       end
 
       it "rejects sign up with missing cell_phone_number" do
-        visit sign_up_path
+        visit registration_path
 
         fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
@@ -95,7 +99,7 @@ describe "User management" do
       end
 
       it "rejects sign up with missing password" do
-        visit sign_up_path
+        visit registration_path
 
         fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
@@ -118,7 +122,7 @@ describe "User management" do
       end
 
       it "rejects sign up with missing password_confirmation" do
-        visit sign_up_path
+        visit registration_path
 
         fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
@@ -141,7 +145,7 @@ describe "User management" do
       end
 
       it "rejects sign up with missmatched password and password_confirmation" do
-        visit sign_up_path
+        visit registration_path
 
         fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
@@ -163,7 +167,7 @@ describe "User management" do
       end
 
       it "rejects sign up without acceptance of terms_of_use" do
-        visit sign_up_path
+        visit registration_path
 
         fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
