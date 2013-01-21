@@ -119,11 +119,14 @@ en:
     family_profiles:
       _form:
         labels:
-          interests_description_html: "Describe your family&rsquo;s main interests and activities"
-          pets_description: What animals do you keep as pets?
-          occupation: Occupation
+          born_at: Date of birth
           full_name: Full name
+          interests_description_html: "Describe your family&rsquo;s main interests and activities"
+          occupation: Occupation
+          pets_description: What animals do you keep as pets?
+          special_needs_description: Any special accommodations (please be specific)?
         legends:
+          children: Children
           guardians: Parents (or Guardians)
           interests_description: Interests
           pets_description: Pets
