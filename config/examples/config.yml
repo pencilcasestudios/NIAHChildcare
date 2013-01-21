@@ -17,6 +17,11 @@ defaults: &defaults
   stage_name_staging: staging
   user: silumesii
 
+  # Application mode:
+  # 1. protected    - Authenticate with HTTP basic
+  # 2. unprotected  - Don't authenticate with HTTP basic
+  mode: protected
+
 development:
   <<: *defaults
 
