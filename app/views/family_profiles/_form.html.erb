@@ -2,9 +2,19 @@
   <%= render "errors", family_profile: @family_profile %>
 
   <fieldset>
+    <legend><%= t("views.family_profiles._form.legends.guardians") %></legend>
+    <%= f.fields_for :guardians %>
+    <p class="add_field"><%= f.link_to_add "Add a Parent (or Guardian)", :guardians %></p>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.family_profiles._form.legends.interests_description") %></legend>
     <%= f.label :interests_description, t("views.family_profiles._form.labels.interests_description_html") %>
     <%= f.text_area :interests_description %>
+  </fieldset>
 
+  <fieldset>
+    <legend><%= t("views.family_profiles._form.legends.pets_description") %></legend>
     <%= f.label :pets_description, t("views.family_profiles._form.labels.pets_description") %>
     <%= f.text_area :pets_description %>
   </fieldset>

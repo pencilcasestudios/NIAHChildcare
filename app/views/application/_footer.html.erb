@@ -9,8 +9,13 @@
           | <%= link_to_unless_current t("views.application._footer.links.terms"), terms_path %>
           | <%= link_to_unless_current t("views.application._footer.links.contact"), contact_path %>
           | <%= link_to_unless_current t("views.application._footer.links.fees"), fees_path %>
-          | <%= link_to_unless_current t("views.application._footer.links.register"), register_path %>
-          | <%= link_to_unless_current t("views.application._footer.links.sign_in"), sign_in_path %>
+          <% if user_signed_in? %>
+            | <%= link_to_unless_current t("views.application._footer.links.account_settings"), account_settings_path %>
+            | <%= link_to_unless_current t("views.application._footer.links.sign_out"), sign_out_path %>
+          <% else %>
+            | <%= link_to_unless_current t("views.application._footer.links.register"), register_path %>
+            | <%= link_to_unless_current t("views.application._footer.links.sign_in"), sign_in_path %>
+          <% end %>
           |
         </p>
       </div>

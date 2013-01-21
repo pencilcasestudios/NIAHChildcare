@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121153333) do
+ActiveRecord::Schema.define(:version => 20130121162438) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(:version => 20130121153333) do
   end
 
   add_index "family_profiles", ["user_id"], :name => "index_family_profiles_on_user_id"
+
+  create_table "guardians", :force => true do |t|
+    t.string   "role"
+    t.string   "full_name"
+    t.string   "occupation"
+    t.integer  "family_profile_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "guardians", ["family_profile_id"], :name => "index_guardians_on_family_profile_id"
 
   create_table "simple_captcha_data", :force => true do |t|
     t.string   "key",        :limit => 40

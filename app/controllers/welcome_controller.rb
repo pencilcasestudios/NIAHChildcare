@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  before_filter :sign_out_required, only: [:register]
+
   skip_authorization_check
 
   def index

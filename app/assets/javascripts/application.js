@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= require vegas
+//= require jquery_nested_form
 //= require_tree .

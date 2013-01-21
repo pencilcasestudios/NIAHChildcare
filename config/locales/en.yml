@@ -103,12 +103,14 @@ en:
           website_by: Website by
         links:
           about: About
+          account_settings: Account Settings
           contact: Contact
           fees: Fees
           home: Home
           nannies: Nannies
-          sign_in: Sign in
           register: Register
+          sign_in: Sign in
+          sign_out: Sign out
           terms: Terms
       copy:
         full_stop: "."
@@ -119,6 +121,12 @@ en:
         labels:
           interests_description_html: "Describe your family&rsquo;s main interests and activities"
           pets_description: What animals do you keep as pets?
+          occupation: Occupation
+          full_name: Full name
+        legends:
+          guardians: Parents (or Guardians)
+          interests_description: Interests
+          pets_description: Pets
       new:
         title: New Family Profile
 

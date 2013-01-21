@@ -4,5 +4,6 @@ class FamilyProfilesController < ApplicationController
   load_and_authorize_resource
 
   def new
+    @family_profile.guardians.build
   end
 end
