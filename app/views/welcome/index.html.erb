@@ -1,12 +1,17 @@
 <% if user_signed_in? %>
   <%= render "background" %>
 
-  <div class="row">
-    <div class="twelve columns">
-      <section class="content">
-      </section>
-    </div>
-  </div>
+  <% if current_user.admin? %>
+    <% render "admin" %>
+  <% end %>
+
+  <% if current_user.family? %>
+    <% render "family" %>
+  <% end %>
+
+  <% if current_user.nanny? %>
+    <% render "nanny" %>
+  <% end %>
 <% else %>
   <script type="text/javascript">
     $( function() {

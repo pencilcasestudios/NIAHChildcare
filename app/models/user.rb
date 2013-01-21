@@ -40,4 +40,16 @@ class User < ActiveRecord::Base
   def self.random_role
     ROLES[ROLES.to_a[rand ROLES.size].first]
   end
+
+  def admin?
+    self.role == "admin"
+  end
+
+  def family?
+    self.role == "family"
+  end
+
+  def nanny?
+    self.role == "nanny"
+  end
 end
