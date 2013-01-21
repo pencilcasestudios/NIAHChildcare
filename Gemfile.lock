@@ -129,6 +129,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.2.6)
+      actionpack
     method_source (0.8.1)
     mime-types (1.19)
     modular-scale (1.0.4)
@@ -181,7 +183,6 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.3)
-    rb-fsevent (0.9.3)
     rb-inotify (0.8.8)
       ffi (>= 0.5.0)
     rdoc (3.12)
@@ -283,13 +284,13 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  meta-tags
   mysql2
   nested_form
   paper_trail
   pcs_vegas
   rack_session_access
   rails
-  rb-fsevent
   rb-inotify
   rspec-rails
   rvm-capistrano

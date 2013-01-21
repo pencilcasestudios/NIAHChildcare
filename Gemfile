@@ -15,6 +15,7 @@ gem "daemons"
 gem "delayed_job_active_record"
 gem "galetahub-simple_captcha", require: "simple_captcha"#, git: "git://github.com/galetahub/simple-captcha.git"
 gem "jquery-rails"
+gem "meta-tags", require: "meta_tags"
 gem "nested_form"
 gem "paper_trail"
 gem "pcs_vegas"
@@ -54,7 +55,6 @@ group :test do
 end
 
 group :test, :development do
-  gem "rb-fsevent"
   gem "rb-inotify"
   gem "rspec-rails"
   gem "sqlite3"
