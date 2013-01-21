@@ -25,7 +25,7 @@ describe "Assets" do
   # In app/assets/images/
   describe "app/assets/images/" do
     it "has image assets" do
-      # Favicons
+      # Favicons and meta-tags images
       get "/assets/apple-touch-icon.png"
       response.status.should be(200)
 
@@ -37,6 +37,10 @@ describe "Assets" do
 
       get "/assets/favicon.ico"
       response.status.should be(200)
+
+      get "/assets/logo-340x340.png"
+      response.status.should be(200)
+
 
       # Images
       get "/assets/NIAHChildcare_logo_with_text-930x539.png"
