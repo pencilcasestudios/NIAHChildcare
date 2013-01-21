@@ -2,10 +2,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # guest user (not logged in)
+    # Guests (not logged in)
     user ||= User.new
 
-    # Application users
+    # Users
     can :manage, User, id: user.id
+
+    # Family Profiles
+    can :manage, FamilyProfile, id: user.id
   end
 end

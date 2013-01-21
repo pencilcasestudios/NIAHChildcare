@@ -1,0 +1,13 @@
+<%= nested_form_for(@family_profile) do |f| %>
+  <%= render "errors", family_profile: @family_profile %>
+
+  <fieldset>
+    <%= f.label :interests_description, t("views.family_profiles._form.labels.interests_description_html") %>
+    <%= f.text_area :interests_description %>
+
+    <%= f.label :pets_description, t("views.family_profiles._form.labels.pets_description") %>
+    <%= f.text_area :pets_description %>
+  </fieldset>
+
+  <%= f.submit class: "button" %>
+<% end %>

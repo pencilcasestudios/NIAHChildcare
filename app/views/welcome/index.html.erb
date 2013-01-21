@@ -2,15 +2,15 @@
   <%= render "background" %>
 
   <% if current_user.admin? %>
-    <% render "admin" %>
+    <%= render "admin" %>
   <% end %>
 
   <% if current_user.family? %>
-    <% render "family" %>
+    <%= render "family" %>
   <% end %>
 
   <% if current_user.nanny? %>
-    <% render "nanny" %>
+    <%= render "nanny" %>
   <% end %>
 <% else %>
   <script type="text/javascript">

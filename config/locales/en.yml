@@ -16,6 +16,11 @@ en:
   controllers:
     application_controller:
       flash:
+        access_denied: "Access denied"
+
+  controllers:
+    application_controller:
+      flash:
         sign_in_required: "Please sign in first and then you will be sent right along."
         admin_required: "You do not have the access to perform that function."
 
@@ -43,7 +48,7 @@ en:
       user:
         create: "Register"
         update: "Save"
-      create: "Create this %{model}"
+      create: "Save this %{model}"
       update: "Save changes to this %{model}"
 
 
@@ -87,6 +92,7 @@ en:
           account_settings: Account Settings
           contact: Contact
           fees: Fees
+          home: Home
           nannies: Nannies
           register: Register
           sign_in: Sign in
@@ -107,6 +113,14 @@ en:
       copy:
         full_stop: "."
         full_colon: ":"
+
+    family_profiles:
+      _form:
+        labels:
+          interests_description_html: "Describe your family&rsquo;s main interests and activities"
+          pets_description: What animals do you keep as pets?
+      new:
+        title: New Family Profile
 
     users:
       _errors:
@@ -136,7 +150,7 @@ en:
           password: Password
           preferences: Preferences
       new:
-        title: "%{registration_type} registration"
+        title: "%{registration_type} account registration"
       edit:
         title: Account Settings
 
@@ -151,6 +165,11 @@ en:
         title: Sign in
 
     welcome:
+      _family:
+        copy:
+          getting_started_html: "<p><strong>Hello %{user_name}</strong>,<br />Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
+        links:
+          step_1: "Create a Family Profile"
       about:
         title: About Us
       nannies:

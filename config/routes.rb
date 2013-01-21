@@ -1,13 +1,4 @@
 NIAHChildcare::Application.routes.draw do
-  get "welcome/about"
-  get "welcome/contact"
-  get "welcome/fees"
-  get "welcome/nannies"
-  get "welcome/terms"
-
-
-
-
   # Welcome
   match "about", to: "welcome#about", as: "about"
   match "contact", to: "welcome#contact", as: "contact"
@@ -25,6 +16,7 @@ NIAHChildcare::Application.routes.draw do
 
 
 
+  resources :family_profiles
   resources :sessions
   resources :users
 
