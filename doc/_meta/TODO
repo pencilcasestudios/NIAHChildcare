@@ -8,3 +8,4 @@ TODO - Exception notification
 TODO - Mailer configuration
 TODO - Sign up email confirmation
 TODO - Pass "query" parameter in cases where registration leads to an error
+TODO - Family profile tests
