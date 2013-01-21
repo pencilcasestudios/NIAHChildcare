@@ -7,6 +7,13 @@
     <p class="add_field"><%= f.link_to_add "Add a Parent (or Guardian)", :guardians %></p>
   </fieldset>
 
+
+  <fieldset>
+    <legend><%= t("views.family_profiles._form.legends.children") %></legend>
+    <%= f.fields_for :children %>
+    <p class="add_field"><%= f.link_to_add "Add a Child", :children %></p>
+  </fieldset>
+
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.interests_description") %></legend>
     <%= f.label :interests_description, t("views.family_profiles._form.labels.interests_description_html") %>

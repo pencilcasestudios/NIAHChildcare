@@ -1,0 +1,17 @@
+<fieldset>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :full_name, t("views.family_profiles._form.labels.full_name") %>
+      <%= f.text_field :full_name %>
+    </div>
+    <div class="six columns">
+      <%= f.label :born_at, t("views.family_profiles._form.labels.born_at") %>
+      <%= f.date_select :born_at %>
+    </div>
+  </div>
+
+  <%= f.label :special_needs_description, t("views.family_profiles._form.labels.special_needs_description") %>
+  <%= f.text_area :special_needs_description %>
+
+  <p class="remove_field"><%= f.link_to_remove "Remove this Child" %></p>
+</fieldset>

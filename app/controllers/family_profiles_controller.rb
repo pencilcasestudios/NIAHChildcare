@@ -5,5 +5,6 @@ class FamilyProfilesController < ApplicationController
 
   def new
     @family_profile.guardians.build
+    @family_profile.children.build
   end
 end

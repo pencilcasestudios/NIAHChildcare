@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121162438) do
+ActiveRecord::Schema.define(:version => 20130121183836) do
+
+  create_table "children", :force => true do |t|
+    t.string   "full_name"
+    t.datetime "born_at"
+    t.text     "interests_description"
+    t.text     "special_needs_description"
+    t.integer  "family_profile_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "children", ["family_profile_id"], :name => "index_children_on_family_profile_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
