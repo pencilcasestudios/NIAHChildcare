@@ -56,6 +56,9 @@ module NIAHChildcare
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    # Ref: http://stackoverflow.com/questions/6510006/add-a-new-asset-path-in-rails-3-1
+    # Ref: http://stackoverflow.com/questions/10905905/using-fonts-with-rails-asset-pipeline
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

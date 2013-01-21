@@ -19,6 +19,8 @@ describe "Assets" do
   describe "app/assets/fonts/" do
     it "has font assets" do
       # Test that fonts are present
+      get "/assets/Just_Me_Again_Down_Here/Just_Me_Again_Down_Here.ttf"
+      response.status.should be(200)
     end
   end
 

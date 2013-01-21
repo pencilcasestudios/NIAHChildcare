@@ -16,6 +16,7 @@
       </div>
       <p class="credits">
           &copy; <%= Time.now.year %> <%= link_to_unless_current t("application.name"), root_path %><br />
+          <%=  t("views.application._footer.copy.website_by") %>
           <%= link_to_unless_current t("application.developer.name"), t("application.developer.url") %>
       </p>
     </div>
