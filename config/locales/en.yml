@@ -122,14 +122,18 @@ en:
           born_at: Date of birth
           full_name: Full name
           interests_description_html: "Describe your family&rsquo;s main interests and activities"
+          known_since: Known since
           occupation: Occupation
           pets_description: What animals do you keep as pets?
+          relationship: Relationship
           special_needs_description: Any special accommodations (please be specific)?
         legends:
           children: Children
           guardians: Parents (or Guardians)
           interests_description: Interests
           pets_description: Pets
+          reference: Reference
+          references: References
       new:
         title: New Family Profile
 

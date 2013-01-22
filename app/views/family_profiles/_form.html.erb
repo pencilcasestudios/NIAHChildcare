@@ -26,5 +26,11 @@
     <%= f.text_area :pets_description %>
   </fieldset>
 
+  <fieldset>
+    <legend><%= t("views.family_profiles._form.legends.references") %></legend>
+    <%= f.fields_for :references %>
+    <p class="add_field"><%= f.link_to_add "Add a Reference", :references %></p>
+  </fieldset>
+
   <%= f.submit class: "button" %>
 <% end %>

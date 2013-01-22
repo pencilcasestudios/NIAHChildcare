@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121183836) do
+ActiveRecord::Schema.define(:version => 20130122042405) do
 
   create_table "children", :force => true do |t|
     t.string   "full_name"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(:version => 20130121183836) do
   end
 
   add_index "guardians", ["family_profile_id"], :name => "index_guardians_on_family_profile_id"
+
+  create_table "references", :force => true do |t|
+    t.string   "full_name"
+    t.datetime "known_since"
+    t.string   "relationship"
+    t.integer  "referenceable_id"
+    t.string   "referenceable_type"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "references", ["referenceable_id"], :name => "index_references_on_referenceable_id"
 
   create_table "simple_captcha_data", :force => true do |t|
     t.string   "key",        :limit => 40
