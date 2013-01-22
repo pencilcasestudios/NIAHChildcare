@@ -1,10 +1,10 @@
 class CreateReferences < ActiveRecord::Migration
   def change
     create_table :references do |t|
-      t.string :full_name
       t.datetime :known_since
-      t.string :relationship
       t.references :referenceable, polymorphic: true
+      t.string :full_name
+      t.string :relationship
 
       t.timestamps
     end
