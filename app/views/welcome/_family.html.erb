@@ -8,7 +8,7 @@
         <%= t("views.welcome._family.copy.getting_started_html", user_name: current_user.first_name) %>
 
         <ol>
-          <li><%= link_to t("views.welcome._family.links.step_1"), new_family_profile_path %></li>
+          <% if current_user.family_profiles.blank? %><li><%= link_to t("views.welcome._family.links.step_1"), new_family_profile_path %></li><% end %>
         </ol>
       <% end %>
     </section>

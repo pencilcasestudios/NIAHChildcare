@@ -24,6 +24,11 @@ en:
         sign_in_required: "Please sign in first and then you will be sent right along."
         admin_required: "You do not have the access to perform that function."
 
+    family_profiles_controller:
+      actions:
+        create:
+          success: Your family profile was successfully created.
+
     sessions_controller:
       actions:
         create:

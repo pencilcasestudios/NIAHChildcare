@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122050405) do
+ActiveRecord::Schema.define(:version => 20130122072626) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addresseable_id"
@@ -76,6 +76,26 @@ ActiveRecord::Schema.define(:version => 20130122050405) do
   end
 
   add_index "guardians", ["family_profile_id"], :name => "index_guardians_on_family_profile_id"
+
+  create_table "nanny_portraits", :force => true do |t|
+    t.integer  "family_profile_id"
+    t.string   "commitment_requirement"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.text     "accomodation_description"
+    t.boolean  "is_car_provided"
+    t.boolean  "is_car_provided_available_after_hours"
+    t.datetime "commitment_start_at"
+    t.text     "work_hours_description"
+    t.text     "job_description"
+    t.text     "qualities_description"
+    t.text     "fit_description"
+    t.text     "vacation_description"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  add_index "nanny_portraits", ["family_profile_id"], :name => "index_nanny_portraits_on_family_profile_id"
 
   create_table "references", :force => true do |t|
     t.string   "full_name"
