@@ -10,5 +10,8 @@ class Ability
 
     # Family Profiles
     can :manage, FamilyProfile, id: user.id
+
+    # Nanny Portrait
+    can :manage, NannyPortrait, id: user.id
   end
 end

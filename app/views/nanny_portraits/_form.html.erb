@@ -1,0 +1,86 @@
+<%= nested_form_for(@nanny_portrait) do |f| %>
+  <%= render "errors", nanny_portrait: @nanny_portrait %>
+
+  <%= f.hidden_field :family_profile_id %>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.commitment")%></legend>
+    <%= f.label :commitment_requirement, t("views.nanny_portraits._form.labels.commitment_requirement") %>
+    <%= f.select :commitment_requirement, NannyPortrait::COMMITMENTS, prompt: true %>
+
+    <div class="row">
+      <div class="six columns">
+        <%= f.label :start_at, t("views.nanny_portraits._form.labels.start_at") %>
+        <%= f.date_select :start_at %>
+      </div>
+      <div class="six columns">
+        <%= f.label :end_at, t("views.nanny_portraits._form.labels.end_at") %>
+        <%= f.date_select :end_at %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.accommodation")%></legend>
+    <%= f.label :accomodation_description, t("views.nanny_portraits._form.labels.accomodation_description") %>
+    <%= f.text_area :accomodation_description %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.transport")%></legend>
+    <div class="row">
+      <div class="six columns">
+        <%= f.label :is_car_provided, t("views.nanny_portraits._form.labels.is_car_provided") %>
+        <%= f.check_box :is_car_provided %>
+      </div>
+      <div class="six columns">
+        <%= f.label :is_car_provided_available_after_hours, t("views.nanny_portraits._form.labels.is_car_provided_available_after_hours") %>
+        <%= f.check_box :is_car_provided_available_after_hours %>
+      </div>
+    </div>
+
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.commitment_start_at")%></legend>
+    <%= f.label :commitment_start_at, t("views.nanny_portraits._form.labels.commitment_start_at") %>
+    <%= f.date_select :commitment_start_at %>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.work_hours_description")%></legend>
+    <%= f.label :work_hours_description, t("views.nanny_portraits._form.labels.work_hours_description") %>
+    <%= f.text_area :work_hours_description %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.job_description")%></legend>
+    <%= f.label :job_description, t("views.nanny_portraits._form.labels.job_description") %>
+    <%= f.text_area :job_description %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.qualities_description")%></legend>
+    <%= f.label :qualities_description, t("views.nanny_portraits._form.labels.qualities_description") %>
+    <%= f.text_area :qualities_description %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.fit_description")%></legend>
+    <%= f.label :fit_description, t("views.nanny_portraits._form.labels.fit_description") %>
+    <%= f.text_area :fit_description %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.vacation_description")%></legend>
+    <%= f.label :vacation_description, t("views.nanny_portraits._form.labels.vacation_description") %>
+    <%= f.text_area :vacation_description %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.references")%></legend>
+    <%= f.fields_for :references %>
+    <p class="add_field"><%= f.link_to_add "Add a Reference", :references %></p>
+  </fieldset>
+
+  <%= f.submit class: "button" %>
+<% end %>

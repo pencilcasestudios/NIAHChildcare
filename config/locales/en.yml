@@ -16,18 +16,19 @@ en:
   controllers:
     application_controller:
       flash:
-        access_denied: "Access denied"
-
-  controllers:
-    application_controller:
-      flash:
-        sign_in_required: "Please sign in first and then you will be sent right along."
-        admin_required: "You do not have the access to perform that function."
+        access_denied: Access denied.
+        admin_required: You do not have the access to perform that function.
+        sign_in_required: Please sign in first and then you will be sent right along.
 
     family_profiles_controller:
       actions:
         create:
           success: Your family profile was successfully created.
+
+    nanny_portraits_controller:
+      actions:
+        create:
+          success: Your nanny profile was successfully created.
 
     sessions_controller:
       actions:
@@ -64,6 +65,13 @@ en:
     language:
       names:
         eng: English
+
+    nanny_portrait:
+      commitments:
+        live_in: Full-time live in
+        live_out: Full-time live out
+        seasonal: Seasonal
+        temporary: Temporary
 
 
 
@@ -148,6 +156,37 @@ en:
           references: References
       new:
         title: New Family Profile
+
+    nanny_portraits:
+      _form:
+        labels:
+          accomodation_description: Accomodation description
+          commitment_requirement: Required commitment
+          commitment_start_at: Desired start date
+          end_at: End date of employment
+          fit_description: Preferences and fit
+          is_car_provided: Car available
+          is_car_provided_available_after_hours: Car available outside working hours
+          job_description: Job description
+          qualities_description: Qualities
+          references: References
+          start_at: Start date of employment
+          vacation_description: Paid vacation
+          work_hours_description: Work hours description
+        legends:
+          accommodation: Accomodation
+          commitment: Commitment
+          commitment_requirement: Required commitment
+          commitment_start_at: Desired start date
+          fit_description: Preferences and fit
+          job_description: Job description
+          qualities_description: Qualities
+          references: References
+          transport: Car Provided
+          vacation_description: Paid vacation
+          work_hours_description: Work hours description
+      new:
+        title: New Nanny Portrait
 
     users:
       _errors:
