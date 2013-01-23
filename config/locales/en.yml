@@ -30,6 +30,11 @@ en:
         create:
           success: Your nanny profile was successfully created.
 
+    nanny_profiles_controller:
+      actions:
+        create:
+          success: Your nanny profile was successfully created.
+
     sessions_controller:
       actions:
         create:
@@ -188,6 +193,31 @@ en:
       new:
         title: New Nanny Portrait
 
+    nanny_profiles:
+      _form:
+        labels:
+          city: City
+          contact_preference: Preferred method of contact
+          current_address_since_at: At current address since
+          email: Email
+          full_name: Full name
+          phone: Phone
+          previous_full_names: Previous full names
+          state: State
+          street_address: Street address
+          zip_code: ZIP Code
+        legends:
+          current_address: Current address
+          names: Names
+          previous_addresses: Previous addresses
+          references: References
+        links:
+          add_a_reference: Add a reference
+          add_an_address: Add an address
+          remove_this_address: Remove this address
+      new:
+        title: New Nanny Profile
+
     users:
       _errors:
         fields:
@@ -236,6 +266,11 @@ en:
           getting_started_html: "<p><strong>Hello %{user_name}</strong>,<br />Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
         links:
           step_1: "Create a Family Profile"
+      _nanny:
+        copy:
+          getting_started_html: "<p><strong>Hello %{user_name}</strong>,<br />Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
+        links:
+          step_1: "Create a Nanny Profile"
       about:
         title: About Us
       nannies:

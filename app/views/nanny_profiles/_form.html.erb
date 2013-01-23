@@ -1,0 +1,198 @@
+<%= nested_form_for(@nanny_profile) do |f| %>
+  <%= render "errors", nanny_profile: @nanny_profile %>
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.names") %></legend>
+    <%= f.label :full_name, t("views.nanny_profiles._form.labels.full_name") %>
+    <%= f.text_field :full_name %>
+
+    <%= f.label :previous_full_names, t("views.nanny_profiles._form.labels.previous_full_names") %>
+    <%= f.text_area :previous_full_names %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.current_address") %></legend>
+    <%= f.fields_for :addresses do |address_form| %>
+      <div class="row">
+        <div class="six columns">
+          <%= address_form.label :street_address, t("views.nanny_profiles._form.labels.street_address") %>
+          <%= address_form.text_area :street_address %>
+        </div>
+        <div class="six columns">
+          <%= address_form.label :city, t("views.nanny_profiles._form.labels.city") %>
+          <%= address_form.text_field :city %>
+
+          <%= address_form.label :state, t("views.nanny_profiles._form.labels.state") %>
+          <%= address_form.text_field :state %>
+
+          <%= address_form.label :zip_code, t("views.nanny_profiles._form.labels.zip_code") %>
+          <%= address_form.text_field :zip_code %>
+
+          <%= address_form.label :phone, t("views.nanny_profiles._form.labels.phone") %>
+          <%= address_form.text_field :phone %>
+
+          <%= address_form.label :email, t("views.nanny_profiles._form.labels.email") %>
+          <%= address_form.text_field :email %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.label :current_address_since_at, t("views.nanny_profiles._form.labels.current_address_since_at") %>
+    <%= f.date_select :current_address_since_at, start_year: (Time.now.year - 50), end_year: Time.now.year, discard_day: true %>
+
+    <%= f.label :contact_preference, t("views.nanny_profiles._form.labels.contact_preference") %>
+    <%= f.text_field :contact_preference %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.previous_addresses") %></legend>
+    <%= f.fields_for :addresses %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_address"), :addresses %></p>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.previous_addresses") %></legend>
+    <%= f.fields_for :addresses %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_address"), :addresses %></p>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.licenses_and_certification")%></legend>
+
+    <div class="row">
+      <div class="six columns">
+        <%= f.label :is_authorised_to_work_in_the_united_states, t("views.nanny_profiles._form.labels.is_authorised_to_work_in_the_united_states") %>
+        <%= f.check_box :is_authorised_to_work_in_the_united_states %>
+      </div>
+      <div class="six columns">
+        <%= f.label :has_a_valid_drivers_license, t("views.nanny_profiles._form.labels.has_a_valid_drivers_license") %>
+        <%= f.check_box :has_a_valid_drivers_license %>
+      </div>
+    </div>
+
+    <fieldset>
+      <legend><%= t("views.nanny_profiles._form.legends.first_aid")%></legend>
+      <div class="row">
+        <div class="four columns">
+          <%= f.label :is_certified_in_child_first_aid, t("views.nanny_profiles._form.labels.is_certified_in_child_first_aid") %>
+          <%= f.check_box :is_certified_in_child_first_aid %>
+        </div>
+        <div class="four columns">
+          <%= f.label :first_aid_certification_expires_at, t("views.nanny_profiles._form.labels.first_aid_certification_expires_at") %>
+          <%= f.check_box :first_aid_certification_expires_at %>
+        </div>
+        <div class="four columns">
+          <%= f.label :is_willing_to_become_first_aid_certified, t("views.nanny_profiles._form.labels.is_willing_to_become_first_aid_certified") %>
+          <%= f.check_box :is_willing_to_become_first_aid_certified %>
+        </div>
+      </div>
+    </fieldset>
+
+
+
+
+    <fieldset>
+      <legend><%= t("views.nanny_profiles._form.legends.cpr")%></legend>
+      <div class="row">
+        <div class="four columns">
+          <%= f.label :is_certified_in_child_cpr, t("views.nanny_profiles._form.labels.is_certified_in_child_cpr") %>
+          <%= f.check_box :is_certified_in_child_cpr %>
+        </div>
+        <div class="four columns">
+          <%= f.label :cpr_certification_expires_at, t("views.nanny_profiles._form.labels.cpr_certification_expires_at") %>
+          <%= f.check_box :cpr_certification_expires_at %>
+        </div>
+        <div class="four columns">
+          <%= f.label :is_willing_to_become_cpr_certified, t("views.nanny_profiles._form.labels.is_willing_to_become_cpr_certified") %>
+          <%= f.check_box :is_willing_to_become_cpr_certified %>
+        </div>
+      </div>
+    </fieldset>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.convictions")%></legend>
+    <%= f.label :has_been_convicted_of_a_felony, t("views.nanny_profiles._form.labels.has_been_convicted_of_a_felony") %>
+    <%= f.check_box :has_been_convicted_of_a_felony %>
+
+    <%= f.label :felony_conviction_description, t("views.nanny_profiles._form.labels.felony_conviction_description") %>
+    <%= f.text_area :felony_conviction_description %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.languages_spoken")%></legend>
+    <%= f.label :languages_spoken, t("views.nanny_profiles._form.labels.languages_spoken") %>
+    <%= f.text_area :languages_spoken %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.childcare_experience_description")%></legend>
+    <%= f.label :childcare_experience_description, t("views.nanny_profiles._form.labels.childcare_experience_description") %>
+    <%= f.text_area :childcare_experience_description %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.hobbies_description")%></legend>
+    <%= f.label :hobbies_description, t("views.nanny_profiles._form.labels.hobbies_description") %>
+    <%= f.text_area :hobbies_description %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.ideal_work_description")%></legend>
+    <%= f.label :available_to_start_at, t("views.nanny_profiles._form.labels.available_to_start_at") %>
+    <%= f.text_area :available_to_start_at %>
+
+    <%= f.label :ideal_work_description, t("views.nanny_profiles._form.labels.ideal_work_description") %>
+    <%= f.text_area :ideal_work_description %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.work_location_preference_description")%></legend>
+    <%= f.label :work_location_preference_description, t("views.nanny_profiles._form.labels.work_location_preference_description") %>
+    <%= f.text_area :work_location_preference_description %>
+  </fieldset>
+
+
+
+
+  <%= f.submit class: "button" %>
+<% end %>
+
+
+<!--
+:
+:can_contact_current_employer
+:commitment_preference
+:date_of_birth
+:work_accomodation_preference
+-->

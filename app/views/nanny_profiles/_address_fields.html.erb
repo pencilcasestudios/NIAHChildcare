@@ -1,0 +1,27 @@
+<fieldset>
+
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :street_address, t("views.nanny_profiles._form.labels.street_address") %>
+      <%= f.text_area :street_address %>
+    </div>
+    <div class="six columns">
+      <%= f.label :city, t("views.nanny_profiles._form.labels.city") %>
+      <%= f.text_field :city %>
+
+      <%= f.label :state, t("views.nanny_profiles._form.labels.state") %>
+      <%= f.text_field :state %>
+
+      <%= f.label :zip_code, t("views.nanny_profiles._form.labels.zip_code") %>
+      <%= f.text_field :zip_code %>
+
+      <%= f.label :phone, t("views.nanny_profiles._form.labels.phone") %>
+      <%= f.text_field :phone %>
+
+      <%= f.label :email, t("views.nanny_profiles._form.labels.email") %>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <p class="remove_field"><%= f.link_to_remove t("views.nanny_profiles._form.links.remove_this_address") %></p>
+</fieldset>

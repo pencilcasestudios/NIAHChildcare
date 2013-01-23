@@ -18,6 +18,7 @@ NIAHChildcare::Application.routes.draw do
 
   resources :family_profiles
   resources :nanny_portraits
+  resources :nanny_profiles
   resources :sessions
   resources :users
 
