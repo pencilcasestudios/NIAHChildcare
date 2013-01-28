@@ -317,6 +317,7 @@ en:
           already_setup:
             here_you_go_0_html: "<p>Hope you are having an incredible day!</p>"
             here_you_go_1_html: "<p>Welcome back!</p>"
+          getting_started_html: Looks like you are just getting started
           welcome_html: "<p class=\"lead\">Hello <strong>%{user_name}</strong>,</p>"
           what_kind_of_nanny_do_you_need: to describe the kind of nanny you need
         links:

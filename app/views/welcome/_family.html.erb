@@ -6,7 +6,7 @@
     <section class="content">
       <% if current_user.family_profiles.blank? %>
         <%= t("views.welcome._family.copy.welcome_html", user_name: current_user.first_name) %>
-        <%= t("views.welcome._family.copy.getting_started_html") %>
+        <%= t("views.welcome._family.copy.getting_started_html") %><%= t("views.application.copy.full_colon") %>
 
         <ol>
           <% if current_user.family_profiles.blank? %>
@@ -32,7 +32,7 @@
             <div class="six columns">
               <% if current_user.nanny_profiles.blank? %>
                 <p>
-                  <%= link_to t("views.welcome._family.links.nanny_step_1"), new_nanny_portrait_path %>
+                  <%= link_to t("views.welcome._family.links.nanny_step_1"), new_family_profile_nanny_portrait_path(profile) %>
                   <%= t("views.welcome._family.copy.what_kind_of_nanny_do_you_need") %><%= t("views.application.copy.full_stop") %>
                 <% else %>
                 <% end %>
