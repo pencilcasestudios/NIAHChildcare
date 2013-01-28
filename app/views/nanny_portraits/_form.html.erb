@@ -1,6 +1,4 @@
-<%= nested_form_for(@nanny_portrait) do |f| %>
-
-  <%= render "errors", nanny_portrait: @nanny_portrait %>
+<%= nested_form_for([@family_profile, @nanny_portrait]) do |f| %>
 
   <fieldset>
     <legend><%= t("views.nanny_portraits._form.legends.commitment")%></legend>

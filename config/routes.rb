@@ -16,13 +16,16 @@ NIAHChildcare::Application.routes.draw do
 
 
 
-  resources :family_profiles, shallow: true do
-    resources :nanny_portraits
-  end
-
+  resources :family_profiles
+  resources :nanny_portraits
   resources :nanny_profiles
   resources :sessions
   resources :users
+
+  resources :family_profiles do
+    resources :nanny_portraits
+  end
+
 
 
 

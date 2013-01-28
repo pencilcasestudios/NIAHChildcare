@@ -29,6 +29,8 @@ en:
       actions:
         create:
           success: Your nanny profile was successfully created.
+        update:
+          success: Your nanny portrait was successfully updated.
 
     nanny_profiles_controller:
       actions:
@@ -210,8 +212,14 @@ en:
           work_hours_description: Work hours description
         links:
           add_a_guardian: Add a Parent (or Guardian)
+      edit:
+        title: Edit your nanny profile
       new:
         title: New Nanny Portrait
+      show:
+        title: Nanny portrait
+        links:
+          edit: Edit
 
     nanny_profiles:
       _form:
@@ -323,6 +331,7 @@ en:
         links:
           edit: Edit
           family_step_1: Create a family profile
+          nanny_portrait: Your nanny portrait
           nanny_step_1: Create a nanny portrait
           profile: Your family profile
           view: View

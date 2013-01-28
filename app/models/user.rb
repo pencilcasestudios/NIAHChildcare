@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   has_paper_trail
 
   has_many :family_profiles
-  has_many :nanny_profiles
 
   validates :cell_phone_number, presence: true, uniqueness: true, cell_phone_number_format: true
   validates :email, presence: true, uniqueness: true, email_format: true
