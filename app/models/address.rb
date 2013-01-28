@@ -7,4 +7,10 @@ class Address < ActiveRecord::Base
   attr_accessible :state
   attr_accessible :street_address
   attr_accessible :zip_code
+
+  CONTACT_METHODS = {
+    # Translation                                            # Database key
+    I18n.t("models.address.contact_methods.phone")     =>    "phone",
+    I18n.t("models.address.contact_methods.email")     =>    "email",
+  }
 end

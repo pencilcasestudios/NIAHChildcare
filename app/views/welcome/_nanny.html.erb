@@ -5,11 +5,23 @@
   <div class="eight columns">
     <section class="content">
       <% if current_user.nanny_profiles.blank? %>
+        <%= t("views.welcome._nanny.copy.welcome_html", user_name: current_user.first_name) %>
         <%= t("views.welcome._nanny.copy.getting_started_html", user_name: current_user.first_name) %>
-
         <ol>
           <% if current_user.nanny_profiles.blank? %><li><%= link_to t("views.welcome._nanny.links.step_1"), new_nanny_profile_path %></li><% end %>
         </ol>
+      <% else %>
+        <%= t("views.welcome._nanny.copy.welcome_html", user_name: current_user.first_name) %>
+        <%= t("views.welcome._nanny.copy.already_setup.here_you_go_#{rand(2)}_html") %>
+        <ul>
+        <% current_user.nanny_profiles.each do |profile| %>
+          <li>
+            <%= link_to t("views.welcome._nanny.links.profile"), profile %>
+            <small>
+              | <%= link_to t("views.welcome._nanny.links.edit"), edit_nanny_profile_path(profile) %>
+            </small>
+        <% end %>
+        <ul>
       <% end %>
     </section>
   </div>

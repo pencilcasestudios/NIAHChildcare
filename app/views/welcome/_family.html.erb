@@ -5,11 +5,41 @@
   <div class="eight columns">
     <section class="content">
       <% if current_user.family_profiles.blank? %>
-        <%= t("views.welcome._family.copy.getting_started_html", user_name: current_user.first_name) %>
+        <%= t("views.welcome._family.copy.welcome_html", user_name: current_user.first_name) %>
+        <%= t("views.welcome._family.copy.getting_started_html") %>
 
         <ol>
-          <% if current_user.family_profiles.blank? %><li><%= link_to t("views.welcome._family.links.step_1"), new_family_profile_path %></li><% end %>
+          <% if current_user.family_profiles.blank? %>
+            <li><%= link_to t("views.welcome._family.links.family_step_1"), new_family_profile_path %></li>
+          <% end %>
         </ol>
+      <% else %>
+        <%= t("views.welcome._family.copy.welcome_html", user_name: current_user.first_name) %>
+        <%= t("views.welcome._family.copy.already_setup.here_you_go_#{rand(2)}_html") %>
+
+        <hr />
+
+        <% current_user.family_profiles.each do |profile| %>
+          <div class="row">
+            <div class="six columns">
+              <p>
+                <%= link_to t("views.welcome._family.links.profile"), profile %>
+                <small>
+                  | <%= link_to t("views.welcome._family.links.edit"), edit_family_profile_path(profile) %>
+                </small>
+              </p>
+            </div>
+            <div class="six columns">
+              <% if current_user.nanny_profiles.blank? %>
+                <p>
+                  <%= link_to t("views.welcome._family.links.nanny_step_1"), new_nanny_portrait_path %>
+                  <%= t("views.welcome._family.copy.what_kind_of_nanny_do_you_need") %><%= t("views.application.copy.full_stop") %>
+                <% else %>
+                <% end %>
+                </p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </section>
   </div>

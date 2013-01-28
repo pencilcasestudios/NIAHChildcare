@@ -67,6 +67,11 @@ en:
 
 # Models
   models:
+    address:
+      contact_methods:
+        email: Email
+        phone: Phone
+
     language:
       names:
         eng: English
@@ -159,8 +164,21 @@ en:
           pets_description: Pets
           reference: Reference
           references: References
+        links:
+          add_a_child: Add a child
+          add_a_guardian: Add a guardian (or parent)
+          add_a_reference: Add a reference
+          add_an_address: Add an address
+          remove_this_reference: Remove this reference
+          remove_this_child: Remove this child
+      edit:
+        title: Edit your family profile
       new:
         title: New Family Profile
+      show:
+        title: Your family profile
+        links:
+          edit: Edit
 
     nanny_portraits:
       _form:
@@ -190,33 +208,66 @@ en:
           transport: Car Provided
           vacation_description: Paid vacation
           work_hours_description: Work hours description
+        links:
+          add_a_guardian: Add a Parent (or Guardian)
       new:
         title: New Nanny Portrait
 
     nanny_profiles:
       _form:
         labels:
+          available_to_start_at: I am available to start on
+          childcare_experience_description: My special needs childcare experience
           city: City
           contact_preference: Preferred method of contact
+          cpr_certification_expires_at: My Child CPR certification expires on
           current_address_since_at: At current address since
           email: Email
+          felony_conviction_description: Conviction description
+          first_aid_certification_expires_at: My Child First Aid certification expires on
           full_name: Full name
+          has_a_valid_drivers_license_html: "I have a valid driver&rsquo;s license"
+          has_been_convicted_of_a_felony: I have been convicted of a felony
+          hobbies_description: My hobbies and interests
+          ideal_work_description: My ideal work situation would look like this
+          is_authorised_to_work_in_the_united_states: I am authorised to work in the USA
+          is_certified_in_child_cpr: I am certified in Child CPR
+          is_certified_in_child_first_aid: I am certified in Child First Aid
+          is_willing_to_become_cpr_certified: I am not but am willing to become certified in Child CPR
+          is_willing_to_become_first_aid_certified: I am not but am willing to become certified in Child First Aid
+          languages_spoken: Languages I speak fluently
           phone: Phone
           previous_full_names: Previous full names
           state: State
           street_address: Street address
+          work_location_preference_description: These are the cities and states I would prefer to work in
           zip_code: ZIP Code
         legends:
+          childcare_experience_description: Childcare experience
+          convictions: Convictions
+          cpr: CPR certification
           current_address: Current address
+          first_aid: First Aid certification
+          hobbies_description: Hobbies and interests
+          ideal_work_description: Work description
+          languages_spoken: Languages
+          licenses_and_certification: Licenses and certification
           names: Names
           previous_addresses: Previous addresses
           references: References
+          work_location_preference_description: Location preferences
         links:
           add_a_reference: Add a reference
           add_an_address: Add an address
           remove_this_address: Remove this address
+      edit:
+        title: Edit your profile
       new:
-        title: New Nanny Profile
+        title: New nanny profile
+      show:
+        title: Your nanny profile
+        links:
+          edit: Edit
 
     users:
       _errors:
@@ -263,14 +314,29 @@ en:
     welcome:
       _family:
         copy:
-          getting_started_html: "<p><strong>Hello %{user_name}</strong>,<br />Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
+          already_setup:
+            here_you_go_0_html: "<p>Hope you are having an incredible day!</p>"
+            here_you_go_1_html: "<p>Welcome back!</p>"
+          welcome_html: "<p class=\"lead\">Hello <strong>%{user_name}</strong>,</p>"
+          what_kind_of_nanny_do_you_need: to describe the kind of nanny you need
         links:
-          step_1: "Create a Family Profile"
+          edit: Edit
+          family_step_1: Create a family profile
+          nanny_step_1: Create a nanny portrait
+          profile: Your family profile
+          view: View
       _nanny:
         copy:
-          getting_started_html: "<p><strong>Hello %{user_name}</strong>,<br />Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
+          already_setup:
+            here_you_go_0_html: "<p>Hope you are having an incredible day!</p>"
+            here_you_go_1_html: "<p>Welcome back!</p>"
+          getting_started_html: "<p>Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
+          welcome_html: "<p class=\"lead\">Hello <strong>%{user_name}</strong>,</p>"
         links:
           step_1: "Create a Nanny Profile"
+          profile: Your nanny profile
+          view: View
+          edit: Edit
       about:
         title: About Us
       nannies:

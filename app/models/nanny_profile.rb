@@ -4,8 +4,8 @@ class NannyProfile < ActiveRecord::Base
   has_many :addresses, as: :addresseable
   has_many :references, as: :referenceable
 
-  accepts_nested_attributes_for :addresses, allow_destroy: true
-  accepts_nested_attributes_for :references, allow_destroy: true
+  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :references, reject_if: :all_blank, allow_destroy: true
 
   attr_accessible :available_to_start_at
   attr_accessible :can_contact_current_employer
@@ -35,10 +35,4 @@ class NannyProfile < ActiveRecord::Base
   # Nested attributes
   attr_accessible :addresses_attributes
   attr_accessible :references_attributes
-
-  CONTACT_METHODS = {
-    # Translation                                                   # Database key
-    I18n.t("models.nanny_profiles.contact_methods.phone")     =>    "phone",
-    I18n.t("models.nanny_profiles.contact_methods.email")     =>    "email",
-  }
 end

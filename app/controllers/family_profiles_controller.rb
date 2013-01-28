@@ -3,10 +3,16 @@ class FamilyProfilesController < ApplicationController
 
   load_and_authorize_resource
 
+  def index
+  end
+
+  def show
+  end
+
   def new
-    @family_profile.addresses.build
+    @family_profile.addresses.build(email: current_user.email, phone: current_user.cell_phone_number)
     @family_profile.children.build
-    @family_profile.guardians.build
+    @family_profile.guardians.build(full_name: current_user.full_name)
     @family_profile.references.build
   end
 
@@ -18,5 +24,8 @@ class FamilyProfilesController < ApplicationController
     else
       render action: "new"
     end
+  end
+
+  def edit
   end
 end

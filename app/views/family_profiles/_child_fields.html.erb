@@ -11,7 +11,7 @@
   </div>
 
   <%= f.label :special_needs_description, t("views.family_profiles._form.labels.special_needs_description") %>
-  <%= f.text_area :special_needs_description %>
+  <%= f.text_area :special_needs_description, rows: 8 %>
 
-  <p class="remove_field"><%= f.link_to_remove "Remove this Child" %></p>
+  <p class="remove_field"><%= f.link_to_remove t("views.family_profiles._form.links.remove_this_child") %></p>
 </fieldset>

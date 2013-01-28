@@ -4,37 +4,39 @@
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.guardians") %></legend>
     <%= f.fields_for :guardians %>
-    <p class="add_field"><%= f.link_to_add "Add a Parent (or Guardian)", :guardians %></p>
+    <p class="add_field"><%= f.link_to_add t("views.family_profiles._form.links.add_a_guardian"), :guardians %></p>
   </fieldset>
 
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.address") %></legend>
     <%= f.fields_for :addresses %>
-    <!-- <p class="add_field"><%= f.link_to_add "Add an Address", :addresses %></p> -->
+    <!--
+    <p class="add_field"><%= f.link_to_add t("views.family_profiles._form.links.add_an_address"), :addresses %></p>
+    -->
   </fieldset>
 
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.children") %></legend>
     <%= f.fields_for :children %>
-    <p class="add_field"><%= f.link_to_add "Add a Child", :children %></p>
+    <p class="add_field"><%= f.link_to_add t("views.family_profiles._form.links.add_a_child"), :children %></p>
   </fieldset>
 
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.interests_description") %></legend>
     <%= f.label :interests_description, t("views.family_profiles._form.labels.interests_description_html") %>
-    <%= f.text_area :interests_description %>
+    <%= f.text_area :interests_description, rows: 8 %>
   </fieldset>
 
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.pets_description") %></legend>
     <%= f.label :pets_description, t("views.family_profiles._form.labels.pets_description") %>
-    <%= f.text_area :pets_description %>
+    <%= f.text_area :pets_description, rows: 8 %>
   </fieldset>
 
   <fieldset>
     <legend><%= t("views.family_profiles._form.legends.references") %></legend>
     <%= f.fields_for :references %>
-    <p class="add_field"><%= f.link_to_add "Add a Reference", :references %></p>
+    <p class="add_field"><%= f.link_to_add t("views.family_profiles._form.links.add_a_reference"), :references %></p>
   </fieldset>
 
   <%= f.submit class: "button" %>

@@ -9,6 +9,7 @@ class NannyPortrait < ActiveRecord::Base
   attr_accessible :commitment_requirement
   attr_accessible :commitment_start_at
   attr_accessible :end_at
+  attr_accessible :family_profile_id
   attr_accessible :fit_description
   attr_accessible :is_car_provided
   attr_accessible :is_car_provided_available_after_hours

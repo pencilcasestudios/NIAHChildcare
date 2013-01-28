@@ -4,6 +4,7 @@ class NannyProfilesController < ApplicationController
   load_and_authorize_resource
 
   def new
+    @nanny_profile.full_name = current_user.full_name
     @nanny_profile.addresses.build
     @nanny_profile.references.build
   end

@@ -55,4 +55,8 @@ class User < ActiveRecord::Base
   def nanny?
     self.role == "nanny"
   end
+
+  def full_name
+    [self.first_name, self.middle_name, self.last_name].reject{|element| element.empty?}.compact.join(" ")
+  end
 end

@@ -1,7 +1,6 @@
 <%= nested_form_for(@nanny_portrait) do |f| %>
-  <%= render "errors", nanny_portrait: @nanny_portrait %>
 
-  <%= f.hidden_field :family_profile_id %>
+  <%= render "errors", nanny_portrait: @nanny_portrait %>
 
   <fieldset>
     <legend><%= t("views.nanny_portraits._form.legends.commitment")%></legend>
@@ -11,11 +10,11 @@
     <div class="row">
       <div class="six columns">
         <%= f.label :start_at, t("views.nanny_portraits._form.labels.start_at") %>
-        <%= f.date_select :start_at %>
+        <%= f.date_select :start_at, prompt: true %>
       </div>
       <div class="six columns">
         <%= f.label :end_at, t("views.nanny_portraits._form.labels.end_at") %>
-        <%= f.date_select :end_at %>
+        <%= f.date_select :end_at, prompt: true %>
       </div>
     </div>
   </fieldset>
@@ -38,13 +37,13 @@
         <%= f.check_box :is_car_provided_available_after_hours %>
       </div>
     </div>
-
   </fieldset>
 
   <fieldset>
     <legend><%= t("views.nanny_portraits._form.legends.commitment_start_at")%></legend>
     <%= f.label :commitment_start_at, t("views.nanny_portraits._form.labels.commitment_start_at") %>
-    <%= f.date_select :commitment_start_at %>
+    <%= f.date_select :commitment_start_at, prompt: true %>
+  </fieldset>
 
   <fieldset>
     <legend><%= t("views.nanny_portraits._form.legends.work_hours_description")%></legend>
