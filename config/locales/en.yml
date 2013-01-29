@@ -38,6 +38,8 @@ en:
       actions:
         create:
           success: Your nanny profile was successfully created.
+        update:
+          success: Your nanny profile was successfully updated.
 
     sessions_controller:
       actions:
@@ -303,6 +305,7 @@ en:
           work_location_preference_description: These are the cities and states I would prefer to work in
           zip_code: ZIP Code
         legends:
+          addresses: Addresses
           childcare_experience_description: Childcare experience
           convictions: Convictions
           cpr: CPR certification
@@ -313,7 +316,6 @@ en:
           languages_spoken: Languages
           licenses_and_certification: Licenses and certification
           names: Names
-          previous_addresses: Previous addresses
           references: References
           work_location_preference_description: Location preferences
         links:
@@ -325,6 +327,26 @@ en:
       new:
         title: New nanny profile
       show:
+        copy:
+          does_not_have_a_valid_drivers_license_html: "I do <em>not</em> have a valid driver&rsquo;s license"
+          has_a_valid_drivers_license_html: "I have a valid driver&rsquo;s license"
+          has_been_convicted_of_a_felony: I have been convicted of of a felony
+          is_authorised_to_work_in_the_united_states: I am authorised to work in the United States
+          is_certified_in_child_first_aid: "I am certified in Child First Aid"
+          is_not_authorised_to_work_in_the_united_states_html: "I am <em>not</em> authorised to work in the United States"
+          is_not_certified_in_child_cpr_html: "I am <em>not</em> certified in Child CPR"
+          is_not_certified_in_child_first_aid_html: "I am <em>not</em> certified in Child First Aid"
+        headers:
+          address: Address
+          childcare_experience_description: Childcare experience
+          has_been_convicted_of_a_felony: Felony convictions
+          hobbies_description: Hobbies and interests
+          ideal_work_description: My ideal work situation
+          languages_spoken: Languages I speak
+          licenses_and_certification: Licenses and certification
+          names: Names
+          previous_full_names: Previous full names
+          work_location_preference_description: Cities and states where I would like to work
         title: Your nanny profile
         links:
           edit: Edit

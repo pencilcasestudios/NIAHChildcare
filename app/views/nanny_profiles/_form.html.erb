@@ -14,53 +14,7 @@
 
 
   <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.current_address") %></legend>
-    <%= f.fields_for :addresses do |address_form| %>
-      <div class="row">
-        <div class="six columns">
-          <%= address_form.label :street_address, t("views.nanny_profiles._form.labels.street_address") %>
-          <%= address_form.text_area :street_address %>
-        </div>
-        <div class="six columns">
-          <%= address_form.label :city, t("views.nanny_profiles._form.labels.city") %>
-          <%= address_form.text_field :city %>
-
-          <%= address_form.label :state, t("views.nanny_profiles._form.labels.state") %>
-          <%= address_form.text_field :state %>
-
-          <%= address_form.label :zip_code, t("views.nanny_profiles._form.labels.zip_code") %>
-          <%= address_form.text_field :zip_code %>
-
-          <%= address_form.label :phone, t("views.nanny_profiles._form.labels.phone") %>
-          <%= address_form.text_field :phone, value: current_user.cell_phone_number %>
-
-          <%= address_form.label :email, t("views.nanny_profiles._form.labels.email") %>
-          <%= address_form.text_field :email, value: current_user.email %>
-        </div>
-      </div>
-    <% end %>
-
-    <%= f.label :current_address_since_at, t("views.nanny_profiles._form.labels.current_address_since_at") %>
-    <%= f.date_select :current_address_since_at, start_year: (Time.now.year - 50), end_year: Time.now.year, discard_day: true, prompt: true %>
-
-    <%= f.label :contact_preference, t("views.nanny_profiles._form.labels.contact_preference") %>
-    <%= f.select :contact_preference, Address::CONTACT_METHODS, prompt: true %>
-  </fieldset>
-
-
-
-
-  <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.previous_addresses") %></legend>
-    <%= f.fields_for :addresses %>
-    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_address"), :addresses %></p>
-  </fieldset>
-
-
-
-
-  <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.previous_addresses") %></legend>
+    <legend><%= t("views.nanny_profiles._form.legends.addresses") %></legend>
     <%= f.fields_for :addresses %>
     <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_address"), :addresses %></p>
   </fieldset>

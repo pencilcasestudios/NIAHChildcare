@@ -11,7 +11,229 @@
   <div class="eight columns">
     <section class="content">
       <p class="right"><%= link_to t("views.nanny_profiles.show.links.edit"), edit_nanny_profile_path(@nanny_profile) %></p>
+
+
+
+
+      <% if @nanny_profile.full_name.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.names") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <p><strong><%= @nanny_profile.full_name %></strong></p>
+
+            <% if @nanny_profile.previous_full_names.present? %>
+              <p><strong class="heading"><%= t("views.nanny_profiles.show.headers.previous_full_names") %></strong></p>
+              <%= simple_format @nanny_profile.previous_full_names %>
+            <% end %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.addresses.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.address") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <% @nanny_profile.addresses.each do |address| %>
+              <div class="row">
+                <div class="six columns">
+                  <p>
+                    <% if address.street_address.present? %><%= address.street_address %><br /><% end %>
+                    <% if address.city.present? %><%= address.city %><br /><% end %>
+                    <% if address.state.present? %><%= address.state %><br /><% end %>
+                    <% if address.zip_code.present? %><%= address.zip_code %><br /><% end %>
+                  </p>
+                </div><!-- .six .columns -->
+                <div class="six columns">
+                  <p>
+                    <% if address.email.present? %><%= address.email %><br /><% end %>
+                    <% if address.phone.present? %><%= address.phone %><br /><% end %>
+                  </p>
+                </div><!-- /.six .columns -->
+              </div><!-- /.row -->
+            <% end %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
       <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.nanny_profiles.show.headers.licenses_and_certification") %></p>
+        </div><!-- /.three .columns .heading -->
+        <div class="nine columns">
+          <p>
+            <% if @nanny_profile.is_authorised_to_work_in_the_united_states? %>
+              <%= t("views.nanny_profiles.show.copy.is_authorised_to_work_in_the_united_states") %><%= t("views.application.copy.full_stop") %>
+            <% else %>
+              <%= t("views.nanny_profiles.show.copy.is_not_authorised_to_work_in_the_united_states_html") %><%= t("views.application.copy.full_stop") %>
+            <% end %>
+          </p>
+
+
+
+
+          <p>
+            <% if @nanny_profile.has_a_valid_drivers_license? %>
+              <%= t("views.nanny_profiles.show.copy.has_a_valid_drivers_license_html") %><%= t("views.application.copy.full_stop") %>
+            <% else %>
+              <%= t("views.nanny_profiles.show.copy.does_not_have_a_valid_drivers_license_html") %><%= t("views.application.copy.full_stop") %>
+            <% end %>
+          </p>
+
+
+
+
+          <p>
+            <% if @nanny_profile.is_certified_in_child_first_aid? %>
+              <%= t("views.nanny_profiles.show.copy.is_certified_in_child_first_aid") %><%= t("views.application.copy.full_stop") %>
+              <% if @nanny_profile.first_aid_certification_expires_at.present? %>
+                <br />
+                <%= t("views.nanny_profiles.show.copy.first_aid_certification_expires_at") %><%= @nanny_profile.first_aid_certification_expires_at %>
+              <% end %>
+            <% else %>
+              <% if @nanny_profile.is_willing_to_become_first_aid_certified? %>
+                <%= t("views.nanny_profiles.show.copy.is_willing_to_become_first_aid_certified") %><%= t("views.application.copy.full_stop") %>
+              <% else %>
+                <%= t("views.nanny_profiles.show.copy.is_not_certified_in_child_first_aid_html") %><%= t("views.application.copy.full_stop") %>
+              <% end %>
+            <% end %>
+          </p>
+
+
+
+
+          <p>
+            <% if @nanny_profile.is_certified_in_child_cpr? %>
+              <%= t("views.nanny_profiles.show.copy.is_certified_in_child_cpr") %><%= t("views.application.copy.full_stop") %>
+              <% if @nanny_profile.cpr_certification_expires_at.present? %>
+                <br />
+                <%= t("views.nanny_profiles.show.copy.cpr_certification_expires_at") %><%= @nanny_profile.cpr_certification_expires_at %>
+              <% end %>
+            <% else %>
+              <% if @nanny_profile.is_willing_to_become_cpr_certified? %>
+                <%= t("views.nanny_profiles.show.copy.is_willing_to_become_cpr_certified") %><%= t("views.application.copy.full_stop") %>
+              <% else %>
+                <%= t("views.nanny_profiles.show.copy.is_not_certified_in_child_cpr_html") %><%= t("views.application.copy.full_stop") %>
+              <% end %>
+            <% end %>
+          </p>
+
+        </div><!-- /.nine .columns -->
+      </div><!-- /.row -->
+
+
+
+
+      <% if @nanny_profile.has_been_convicted_of_a_felony? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.has_been_convicted_of_a_felony") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <p><%= t("views.nanny_profiles.show.copy.has_been_convicted_of_a_felony") %><%= t("views.application.copy.full_stop") %></p>
+            <%= simple_format @nanny_profile.felony_conviction_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.languages_spoken.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.languages_spoken") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= simple_format @nanny_profile.languages_spoken %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.childcare_experience_description.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.childcare_experience_description") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= simple_format @nanny_profile.childcare_experience_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.hobbies_description.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.hobbies_description") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= simple_format @nanny_profile.hobbies_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.ideal_work_description.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.ideal_work_description") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <% if @nanny_profile.available_to_start_at.present? %><p><%= @nanny_profile.available_to_start_at %></p><% end %>
+            <%= simple_format @nanny_profile.ideal_work_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.work_location_preference_description.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.work_location_preference_description") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= simple_format @nanny_profile.work_location_preference_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
     </section><!-- /.content -->
  </div><!-- /.nine .columns -->
 </div><!-- /.row -->
