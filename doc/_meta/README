@@ -3,7 +3,8 @@ Setup after cloning the repository
 After cloning the repository
 1. Copy .yml files from config/examples to config/
 2. Copy .rb files from config/examples/deploy to config/deploy/
-
+3. Copy the deployment (.rb) configuration from config/examples to config
+4. Set up the remotes to the production repository
 
 
 
