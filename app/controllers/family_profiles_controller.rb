@@ -28,4 +28,13 @@ class FamilyProfilesController < ApplicationController
 
   def edit
   end
+
+  def update
+    if @family_profile.update_attributes(params[:family_profile])
+      flash[:success] = t("controllers.family_profiles_controller.actions.update.success")
+      redirect_to @family_profile
+    else
+      render action: "edit"
+    end
+  end
 end

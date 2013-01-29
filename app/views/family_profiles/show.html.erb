@@ -11,7 +11,111 @@
   <div class="eight columns">
     <section class="content">
       <p class="right"><%= link_to t("views.family_profiles.show.links.edit"), edit_family_profile_path(@family_profile) %></p>
+
       <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.family_profiles.show.headers.guardians") %></p>
+        </div>
+        <div class="nine columns">
+          <% @family_profile.guardians.each do |guardian| %>
+            <p>
+              <strong><%= guardian.full_name %></strong>
+              <% if guardian.occupation.present? %><small><em><%= guardian.occupation %></em></small><% end %><br />
+              <% if guardian.role.present? %><%= t("views.family_profiles.show.copy.#{ guardian.role.downcase }") %><% end %>
+            </p>
+          <% end %>
+        </div><!-- /.nine .columns -->
+      </div><!-- /.row -->
+
+      <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.family_profiles.show.headers.address") %></p>
+        </div>
+        <div class="nine columns">
+          <% @family_profile.addresses.each do |address| %>
+            <div class="row">
+              <div class="six columns">
+                <p>
+                  <% if address.street_address.present? %><%= address.street_address %><br /><% end %>
+                  <% if address.city.present? %><%= address.city %><br /><% end %>
+                  <% if address.state.present? %><%= address.state %><br /><% end %>
+                  <% if address.zip_code.present? %><%= address.zip_code %><br /><% end %>
+                </p>
+              </div><!-- .six .columns -->
+              <div class="six columns">
+                <p>
+                  <% if address.email.present? %><%= address.email %><br /><% end %>
+                  <% if address.phone.present? %><%= address.phone %><br /><% end %>
+                </p>
+              </div><!-- /.six .columns -->
+            </div><!-- /.row -->
+          <% end %>
+        </div><!-- /.nine .columns -->
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.family_profiles.show.headers.family") %></p>
+        </div>
+        <div class="nine columns">
+          <% @family_profile.children.each_with_index do |child, index| %>
+            <p>
+              <% if child.full_name.present? %><strong><%= child.full_name %></strong><% end %>
+              <% if child.born_at.present? %>(<%= Time.now.year - child.born_at.year %>)<% end %>
+            </p>
+
+            <% if child.interests_description.present? %>
+              <p>
+                <strong class="heading"><%= t("views.family_profiles.show.headers.child_interests_description") %></strong><br />
+                <%= child.interests_description %>
+              </p>
+            <% end %>
+
+            <% if child.special_needs_description.present? %>
+              <p>
+                <strong class="heading"><%= t("views.family_profiles.show.headers.child_special_needs_description") %></strong><br />
+                <%= child.special_needs_description %>
+              </p>
+            <% end %>
+
+            <% if (index + 1) != @family_profile.children.size %>
+              <hr />
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <hr />
+
+      <% if @family_profile.pets_description.present? %>
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.family_profiles.show.headers.pets_description") %></p>
+          </div>
+          <div class="nine columns">
+            <p><%= @family_profile.pets_description %></p>
+          </div>
+        </div>
+      <% end %>
+
+      <hr />
+
+      <% if @family_profile.interests_description.present? %>
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.family_profiles.show.headers.interests_description") %></p>
+          </div>
+          <div class="nine columns">
+            <p><%= @family_profile.interests_description %></p>
+          </div>
+        </div>
+      <% end %>
     </section><!-- /.content -->
- </div><!-- /.nine .columns -->
+  </div><!-- /.eight .columns -->
 </div><!-- /.row -->

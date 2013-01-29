@@ -24,6 +24,8 @@ en:
       actions:
         create:
           success: Your family profile was successfully created.
+        update:
+          success: Your family profile was successfully updated.
 
     nanny_portraits_controller:
       actions:
@@ -84,6 +86,12 @@ en:
         live_out: Full-time live out
         seasonal: Seasonal
         temporary: Temporary
+
+    guardian:
+      roles:
+        father: Father
+        guardian: Guardian
+        mother: Mother
 
 
 
@@ -148,12 +156,14 @@ en:
           city: City
           email: Email
           full_name: Full name
+          interests_description: Interests
           interests_description_html: "Describe your family&rsquo;s main interests and activities"
           known_since: Known since
           occupation: Occupation
           pets_description: What animals do you keep as pets?
           phone: Phone
           relationship: Relationship
+          role: Relationship
           special_needs_description: Any special accommodations (please be specific)?
           state: State
           street_address: Street Address
@@ -178,6 +188,18 @@ en:
       new:
         title: New Family Profile
       show:
+        copy:
+          father: Father
+          guardian: Guardian
+          mother: Mother
+        headers:
+          address: Address
+          child_interests_description: Interests
+          child_special_needs_description: Special accommodations
+          family: Family
+          guardians: Parents or guardians
+          interests_description: Interests
+          pets_description: Pets
         title: Your family profile
         links:
           edit: Edit

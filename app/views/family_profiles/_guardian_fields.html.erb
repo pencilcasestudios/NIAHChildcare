@@ -1,12 +1,16 @@
 <fieldset>
   <div class="row">
-    <div class="six columns">
+    <div class="four columns">
       <%= f.label :full_name, t("views.family_profiles._form.labels.full_name") %>
       <%= f.text_field :full_name %>
     </div>
-    <div class="six columns">
+    <div class="four columns">
       <%= f.label :occupation, t("views.family_profiles._form.labels.occupation") %>
       <%= f.text_field :occupation %>
+    </div>
+    <div class="four columns">
+      <%= f.label :role, t("views.family_profiles._form.labels.role") %>
+      <%= f.select :role, Guardian::ROLES, prompt: true %>
     </div>
   </div>
   <p class="remove_field"><%= f.link_to_remove "Remove this Parent (or Guardian)" %></p>
