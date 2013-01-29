@@ -395,7 +395,7 @@ en:
           getting_started_html: "<p>Welcome to Needle in a Haystack. Looks like you are just getting started!</p>"
           welcome_html: "<p class=\"lead\">Hello <strong>%{user_name}</strong>,</p>"
         links:
-          step_1: "Create a Nanny Profile"
+          step_1: "Create a nanny profile"
           profile: Your nanny profile
           view: View
           edit: Edit
