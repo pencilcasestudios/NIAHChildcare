@@ -196,10 +196,10 @@ en:
           address: Address
           child_interests_description: Interests
           child_special_needs_description: Special accommodations
-          family: Family
+          family: Children
           guardians: Parents or guardians
-          interests_description: Interests
-          pets_description: Pets
+          interests_description: Family interests
+          pets_description: Family pets
         title: Your family profile
         links:
           edit: Edit
