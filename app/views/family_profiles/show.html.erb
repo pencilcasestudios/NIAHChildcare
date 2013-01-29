@@ -67,7 +67,11 @@
           <% @family_profile.children.each_with_index do |child, index| %>
             <p>
               <% if child.full_name.present? %><strong><%= child.full_name %></strong><% end %>
-              <% if child.born_at.present? %>(<%= Time.now.year - child.born_at.year %>)<% end %>
+              <% if child.born_at.present? %>
+                (<%= Time.now.year - child.born_at.year %>
+                <%= t("pluralise.years", count: (Time.now.year - child.born_at.year)) %>
+                <%= t("views.family_profiles.show.copy.old") %>)
+              <% end %>
             </p>
 
             <% if child.interests_description.present? %>

@@ -11,7 +11,135 @@
   <div class="eight columns">
     <section class="content">
       <p class="right"><%= link_to t("views.nanny_portraits.show.links.edit"), edit_nanny_portrait_path(@nanny_portrait) %></p>
+
       <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.nanny_portraits.show.headings.commitment_requirement") %></p>
+        </div>
+        <div class="nine columns">
+          <% if @nanny_portrait.commitment_requirement.present? %>
+            <p><%= t("views.nanny_portraits.show.copy.#{@nanny_portrait.commitment_requirement}") %></p>
+
+            <% if @nanny_portrait.commitment_requirement.in? ["temporary", "seasonal"] %>
+              <p>
+                <%= @nanny_portrait.start_at.strftime("%A, %d %B %Y") %>
+                &mdash;
+                <%= @nanny_portrait.end_at.strftime("%A, %d %B %Y") %>
+              </p>
+            <% end %>
+
+            <% if @nanny_portrait.commitment_requirement == "live_in" %>
+              <p>
+                <strong class="heading"><%= t("views.nanny_portraits.show.headings.accomodation_description") %></strong><br />
+                <%= @nanny_portrait.accomodation_description %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.nanny_portraits.show.headings.car") %></p>
+        </div>
+        <div class="nine columns">
+          <% if @nanny_portrait.is_car_provided? %>
+            <% if @nanny_portrait.is_car_provided_available_after_hours? %>
+              <p><%= t("views.nanny_portraits.show.copy.a_car_is_provided_after_hours") %></p>
+            <% else %>
+              <p><%= t("views.nanny_portraits.show.copy.a_car_is_provided") %></p>
+            <% end %>
+          <% else %>
+            <p><%= t("views.nanny_portraits.show.copy.a_car_is_not_provided") %></p>
+          <% end %>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="three columns heading">
+          <p><%= t("views.nanny_portraits.show.headings.job_description_hours_and_vacation") %></p>
+        </div><!-- /.three .columns .heading -->
+        <div class="nine columns">
+          <% if @nanny_portrait.commitment_start_at.present? %>
+            <p>
+              <strong class="heading"><%= t("views.nanny_portraits.show.headings.commitment_start_at") %></strong><br />
+              <%= t("views.nanny_portraits.show.copy.commitment_start_at") %>
+              <%= @nanny_portrait.commitment_start_at.strftime("%A, %d %B %Y") %>
+            </p>
+          <% end %>
+
+          <% if @nanny_portrait.work_hours_description.present? %>
+            <p><strong class="heading"><%= t("views.nanny_portraits.show.headings.work_hours_description") %></strong></p>
+            <%= simple_format @nanny_portrait.work_hours_description %>
+          <% end %>
+
+          <% if @nanny_portrait.job_description.present? %>
+            <p><strong class="heading"><%= t("views.nanny_portraits.show.headings.job_description") %></strong></p>
+            <%= simple_format @nanny_portrait.job_description %>
+          <% end %>
+
+          <% if @nanny_portrait.vacation_description.present? %>
+            <p><strong class="heading"><%= t("views.nanny_portraits.show.headings.vacation_description") %></strong></p>
+            <%= simple_format @nanny_portrait.vacation_description %>
+          <% end %>
+        </div><!-- /.nine .columns -->
+      </div>
+
+      <% if @nanny_portrait.qualities_description.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_portraits.show.headings.qualities_description") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= simple_format @nanny_portrait.qualities_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+      <% if @nanny_portrait.fit_description.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_portraits.show.headings.fit_description") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= simple_format @nanny_portrait.fit_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+      <% if @nanny_portrait.references.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_portraits.show.headings.references") %></p>
+          </div>
+          <div class="nine columns">
+            <% @nanny_portrait.references.each do |reference| %>
+              <p>
+                <% if reference.full_name.present? %><strong><%= reference.full_name %></strong><% end %>
+                <% if reference.relationship.present? %><small><%= reference.relationship %></small><% end %>
+                <br />
+                <% if reference.known_since.present? %>
+                  <%= t("views.nanny_portraits.show.copy.known_for") %>
+                  <%= Time.now.year - reference.known_since.year %>
+                  <%= t("pluralise.years", count: (Time.now.year - reference.known_since.year)) %>
+                <% end %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </section><!-- /.content -->
  </div><!-- /.nine .columns -->
 </div><!-- /.row -->

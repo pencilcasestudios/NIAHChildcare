@@ -96,6 +96,13 @@ en:
 
 
 
+# Pluralisation
+  pluralise:
+    years:
+      one: year
+      other: years
+      zero: years
+
 # simple_captcha
   simple_captcha:
     label: Enter below the text you see above
@@ -192,6 +199,7 @@ en:
           father: Father
           guardian: Guardian
           mother: Mother
+          old: old
         headers:
           address: Address
           child_interests_description: Interests
@@ -239,6 +247,28 @@ en:
       new:
         title: New Nanny Portrait
       show:
+        copy:
+          a_car_is_not_provided: A car is not provided
+          a_car_is_provided: A car provided
+          a_car_is_provided_after_hours: A car is provided after hours
+          commitment_start_at: The nanny should start on
+          known_for: Known for
+          live_in: Full-time live in
+          live_out: Full-time live out
+          seasonal: Seasonal
+          temporary: Temporary
+        headings:
+          accomodation_description: Accomodation description
+          car: Car
+          commitment_requirement: Commitment required
+          commitment_start_at: Desired nanny start date
+          fit_description: Fit
+          job_description: Job description
+          job_description_hours_and_vacation: "Job description, hours and vacation"
+          qualities_description: Qualities
+          references: References
+          vacation_description: Vacation description
+          work_hours_description: Work days and hours
         title: Nanny portrait
         links:
           edit: Edit

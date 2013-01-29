@@ -56,6 +56,12 @@
   </fieldset>
 
   <fieldset>
+    <legend><%= t("views.nanny_portraits._form.legends.vacation_description")%></legend>
+    <%= f.label :vacation_description, t("views.nanny_portraits._form.labels.vacation_description") %>
+    <%= f.text_area :vacation_description, rows: 5 %>
+  </fieldset>
+
+  <fieldset>
     <legend><%= t("views.nanny_portraits._form.legends.qualities_description")%></legend>
     <%= f.label :qualities_description, t("views.nanny_portraits._form.labels.qualities_description") %>
     <%= f.text_area :qualities_description %>
@@ -65,12 +71,6 @@
     <legend><%= t("views.nanny_portraits._form.legends.fit_description")%></legend>
     <%= f.label :fit_description, t("views.nanny_portraits._form.labels.fit_description") %>
     <%= f.text_area :fit_description %>
-  </fieldset>
-
-  <fieldset>
-    <legend><%= t("views.nanny_portraits._form.legends.vacation_description")%></legend>
-    <%= f.label :vacation_description, t("views.nanny_portraits._form.labels.vacation_description") %>
-    <%= f.text_area :vacation_description %>
   </fieldset>
 
   <fieldset>

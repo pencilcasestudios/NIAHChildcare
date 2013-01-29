@@ -10,7 +10,7 @@ class NannyPortraitsController < ApplicationController
   def new
     @family_profile = FamilyProfile.find(params[:family_profile_id])
     @nanny_portrait = @family_profile.nanny_portraits.new
-    @nanny_portrait.references.build
+    #@nanny_portrait.references.build
   end
 
   def create
@@ -32,7 +32,7 @@ class NannyPortraitsController < ApplicationController
   def update
     if @nanny_portrait.update_attributes(params[:nanny_portrait])
       flash[:success] = t("controllers.nanny_portraits_controller.actions.update.success")
-      redirect_to root_path
+      redirect_to @nanny_portrait
     else
       render action: "edit"
     end
