@@ -69,7 +69,8 @@
         <legend><%= t("views.users._form.legends.confirmation") %></legend>
         <div class="six columns">
           <%= f.label :terms_of_use, t("views.users._form.labels.terms_of_use") %>
-          <%= t("views.users._form.copy.terms_of_use") %>
+          <%= t("views.users._form.copy.accept") %>
+          <%= link_to t("views.users._form.copy.terms_of_use"), terms_path %>
           <%= f.check_box :terms_of_use %>
         </div>
         <div class="six columns">

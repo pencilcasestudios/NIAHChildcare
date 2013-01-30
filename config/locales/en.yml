@@ -360,7 +360,8 @@ en:
           terms_of_use: Terms of use
       _form:
         copy:
-          terms_of_use: Accept the terms of use
+          accept: Accept the
+          terms_of_use: terms of use
         labels:
           cell_phone_number: Cell phone number
           email: Email
