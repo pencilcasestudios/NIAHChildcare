@@ -5,16 +5,16 @@
     <fieldset>
       <legend><%= t("views.users._form.legends.names") %></legend>
       <div class="four columns">
-        <%= f.label :first_name, t("views.users._form.labels.first_name") %>
-        <%= f.text_field :first_name %>
+        <!-- <%= f.label :first_name, t("views.users._form.labels.first_name") %> -->
+        <%= f.text_field :first_name, placeholder: t("views.users._form.placeholders.first_name") %>
       </div>
       <div class="four columns">
-        <%= f.label :middle_name, t("views.users._form.labels.middle_name") %>
-        <%= f.text_field :middle_name %>
+        <!-- <%= f.label :middle_name, t("views.users._form.labels.middle_name") %> -->
+        <%= f.text_field :middle_name, placeholder: t("views.users._form.placeholders.middle_name") %>
       </div>
       <div class="four columns">
-        <%= f.label :last_name, t("views.users._form.labels.last_name") %>
-        <%= f.text_field :last_name %>
+        <!-- <%= f.label :last_name, t("views.users._form.labels.last_name") %> -->
+        <%= f.text_field :last_name, placeholder: t("views.users._form.placeholders.last_name") %>
       </div>
     </fieldset>
   </div>
@@ -23,12 +23,13 @@
     <fieldset>
       <legend><%= t("views.users._form.legends.contact_details") %></legend>
       <div class="six columns">
-        <%= f.label :email, t("views.users._form.labels.email") %>
-        <%= f.text_field :email %>
+        <!-- <%= f.label :email, t("views.users._form.labels.email") %> -->
+        <%= f.text_field :email, placeholder: t("views.users._form.placeholders.email") %>
       </div>
       <div class="six columns">
-        <%= f.label :cell_phone_number, t("views.users._form.labels.cell_phone_number") %>
-        <%= f.text_field :cell_phone_number %>
+        <!-- <%= f.label :cell_phone_number, t("views.users._form.labels.cell_phone_number") %> -->
+        <%= f.text_field :cell_phone_number, placeholder: t("views.users._form.placeholders.cell_phone_number") %>
+        <span class="hint"><%= t("views.users._form.hints.cell_phone_number") %></span>
       </div>
     </fieldset>
   </div>
@@ -37,12 +38,12 @@
     <fieldset>
       <legend><%= t("views.users._form.legends.password") %></legend>
       <div class="six columns">
-        <%= f.label :password, t("views.users._form.labels.password") %>
-        <%= f.password_field :password %>
+        <!-- <%= f.label :password, t("views.users._form.labels.password") %> -->
+        <%= f.password_field :password, placeholder: t("views.users._form.placeholders.password") %>
       </div>
       <div class="six columns">
-        <%= f.label :password_confirmation, t("views.users._form.labels.password_confirmation") %>
-        <%= f.password_field :password_confirmation %>
+        <!-- <%= f.label :password_confirmation, t("views.users._form.labels.password_confirmation") %> -->
+        <%= f.password_field :password_confirmation, placeholder: t("views.users._form.placeholders.password_confirmation") %>
       </div>
     </fieldset>
   </div>
@@ -70,7 +71,7 @@
         <div class="six columns">
           <%= f.label :terms_of_use, t("views.users._form.labels.terms_of_use") %>
           <%= t("views.users._form.copy.accept") %>
-          <%= link_to t("views.users._form.copy.terms_of_use"), terms_path %>
+          <%= link_to t("views.users._form.copy.terms_of_use"), terms_path %><%= t("views.application.copy.full_colon") %>
           <%= f.check_box :terms_of_use %>
         </div>
         <div class="six columns">

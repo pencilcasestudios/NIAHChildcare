@@ -360,8 +360,10 @@ en:
           terms_of_use: Terms of use
       _form:
         copy:
-          accept: Accept the
+          accept: I accept the
           terms_of_use: terms of use
+        hints:
+          cell_phone_number: "Use digits with no spaces, just like you would dial them on your phone."
         labels:
           cell_phone_number: Cell phone number
           email: Email
@@ -379,6 +381,18 @@ en:
           names: Names
           password: Password
           preferences: Preferences
+        placeholders:
+          first_name: First name
+          last_name: Last name
+          middle_name: Middle name
+          cell_phone_number: Cell phone number
+          email: Email
+
+          language: Language
+          password: Password
+          password_confirmation: Confirm password
+          terms_of_use: Terms of use
+          time_zone: Time zone
       new:
         title: "%{registration_type} account registration"
       edit:
