@@ -292,6 +292,14 @@ en:
           edit: Edit
 
     nanny_profiles:
+      _address_fields:
+        placeholders:
+          city: City
+          email: Email
+          phone: Phone
+          state: State
+          street_address: Street and address
+          zip_code: ZIP
       _form:
         labels:
           available_to_start_at: I am available to start on

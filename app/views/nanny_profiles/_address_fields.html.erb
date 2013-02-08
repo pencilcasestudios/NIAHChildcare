@@ -1,27 +1,33 @@
 <fieldset>
 
+  <!-- <%= f.label :street_address, t("views.nanny_profiles._form.labels.street_address") %> -->
+  <%= f.text_area :street_address, rows: 3, placeholder: t("views.nanny_profiles._address_fields.placeholders.street_address") %>
+
+  <div class="row">
+    <div class="five columns">
+      <!-- <%= f.label :city, t("views.nanny_profiles._form.labels.city") %> -->
+      <%= f.text_field :city, placeholder: t("views.nanny_profiles._address_fields.placeholders.city") %>
+    </div>
+    <div class="five columns">
+      <!-- <%= f.label :state, t("views.nanny_profiles._form.labels.state") %> -->
+      <%= f.text_field :state, placeholder: t("views.nanny_profiles._address_fields.placeholders.state") %>
+    </div>
+    <div class="two columns">
+      <!-- <%= f.label :zip_code, t("views.nanny_profiles._form.labels.zip_code") %> -->
+      <%= f.text_field :zip_code, placeholder: t("views.nanny_profiles._address_fields.placeholders.zip_code") %>
+    </div>
+  </div><!-- /.row -->
+
   <div class="row">
     <div class="six columns">
-      <%= f.label :street_address, t("views.nanny_profiles._form.labels.street_address") %>
-      <%= f.text_area :street_address %>
+      <!-- <%= f.label :phone, t("views.nanny_profiles._form.labels.phone") %> -->
+      <%= f.text_field :phone, placeholder: t("views.nanny_profiles._address_fields.placeholders.phone") %>
     </div>
     <div class="six columns">
-      <%= f.label :city, t("views.nanny_profiles._form.labels.city") %>
-      <%= f.text_field :city %>
-
-      <%= f.label :state, t("views.nanny_profiles._form.labels.state") %>
-      <%= f.text_field :state %>
-
-      <%= f.label :zip_code, t("views.nanny_profiles._form.labels.zip_code") %>
-      <%= f.text_field :zip_code %>
-
-      <%= f.label :phone, t("views.nanny_profiles._form.labels.phone") %>
-      <%= f.text_field :phone %>
-
-      <%= f.label :email, t("views.nanny_profiles._form.labels.email") %>
-      <%= f.text_field :email %>
+      <!-- <%= f.label :email, t("views.nanny_profiles._form.labels.email") %> -->
+      <%= f.text_field :email, placeholder: t("views.nanny_profiles._address_fields.placeholders.email") %>
     </div>
   </div>
 
-  <p class="remove_field"><%= f.link_to_remove t("views.nanny_profiles._form.links.remove_this_address") %></p>
+  <!-- <p class="remove_field"><%= f.link_to_remove "Remove this Address" %></p> -->
 </fieldset>
