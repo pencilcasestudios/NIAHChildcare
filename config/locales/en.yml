@@ -161,7 +161,12 @@ en:
     family_profiles:
       _address_fields:
         placeholders:
+          city: City
+          email: Email
+          phone: Phone
+          state: State
           street_address: Street and address
+          zip_code: ZIP
       _form:
         labels:
           born_at: Date of birth
