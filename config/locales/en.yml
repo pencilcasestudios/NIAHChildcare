@@ -168,6 +168,11 @@ en:
           street_address: Street and address
           zip_code: ZIP
       _form:
+        copy:
+          reference_check_html: "<p><strong>Reference check policy</strong><br />\nTo ensure the safety of the nanny as well as the family, Needle in a Haystack Childcare makes it a policy to check all references supplied.<br />\nWe guarantee that all information attained from the reference and background check process will only be used as part of the nanny selection and engagement process and kept strictly confidential.</p>"
+          references: List at least 3 references that know your family well. Please do not list relatives.
+          statement_of_truth_html: "<p>I hereby certify that the information I have provided above is true and correct. I also certify that I have read and agree to follow Needle in a Haystack Childcare&rsquo;s Terms and Conditions as set forth."
+          terms_of_use: Terms and Conditions
         labels:
           born_at: Date of birth
           city: City
@@ -180,9 +185,10 @@ en:
           pets_description: What animals do you keep as pets?
           phone: Phone
           relationship: Relationship
-          role: Relationship
-          special_needs_description: Any special accommodations (please be specific)?
+          role: Relationship to children
+          special_needs_description: Any special accommodations? Please be specific.
           state: State
+          statement_of_truth: The information provided in this profile is true and I agree with the Terms and Conditions
           street_address: Street Address
           zip_code: Zip Code
         legends:
@@ -193,13 +199,15 @@ en:
           pets_description: Pets
           reference: Reference
           references: References
+          statement_of_truth: Statement of truth
         links:
           add_a_child: Add a child
-          add_a_guardian: Add a guardian (or parent)
+          add_a_guardian: Add a parent (or guardian)
           add_a_reference: Add a reference
           add_an_address: Add an address
-          remove_this_reference: Remove this reference
           remove_this_child: Remove this child
+          remove_this_guardian: Remove this parent (or guardian)
+          remove_this_reference: Remove this reference
       edit:
         title: Edit your family profile
       new:

@@ -34,9 +34,25 @@
   </fieldset>
 
   <fieldset>
+    <p><%= t("views.family_profiles._form.copy.references") %></p>
     <legend><%= t("views.family_profiles._form.legends.references") %></legend>
     <%= f.fields_for :references %>
     <p class="add_field"><%= f.link_to_add t("views.family_profiles._form.links.add_a_reference"), :references %></p>
+
+    <hr />
+
+    <%= t("views.family_profiles._form.copy.reference_check_html") %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("views.family_profiles._form.legends.statement_of_truth") %></legend>
+
+    <p>
+      <%= t("views.family_profiles._form.copy.statement_of_truth_html") %>
+      (<%= f.check_box :statement_of_truth %>)
+    </p>
+
+    <p><%= link_to t("views.family_profiles._form.copy.terms_of_use"), terms_path %><%= t("views.application.copy.full_stop") %><p>
   </fieldset>
 
   <%= f.submit class: "button" %>

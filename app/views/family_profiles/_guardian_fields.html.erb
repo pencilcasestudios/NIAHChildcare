@@ -13,5 +13,5 @@
       <%= f.select :role, Guardian::ROLES, prompt: true %>
     </div>
   </div>
-  <p class="remove_field"><%= f.link_to_remove "Remove this Parent (or Guardian)" %></p>
+  <p class="remove_field"><%= f.link_to_remove t("views.family_profiles._form.links.remove_this_guardian") %></p>
 </fieldset>
