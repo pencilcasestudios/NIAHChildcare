@@ -159,6 +159,9 @@ en:
         full_colon: ":"
 
     family_profiles:
+      _address_fields:
+        placeholders:
+          street_address: Street and address
       _form:
         labels:
           born_at: Date of birth
@@ -407,6 +410,10 @@ en:
       new:
         title: Sign in
 
+    simple_captcha:
+      _simple_captcha:
+        hints:
+          no_robots: This helps stop robots who are pretending to be people from registering.
     welcome:
       _family:
         copy:

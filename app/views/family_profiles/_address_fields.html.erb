@@ -1,9 +1,10 @@
 <fieldset>
 
+  <!-- <%= f.label :street_address, t("views.family_profiles._form.labels.street_address") %> -->
+  <%= f.text_area :street_address, rows: 3, placeholder: t("views.family_profiles._address_fields.placeholders.street_address") %>
+
   <div class="row">
-    <div class="six columns">
-      <%= f.label :street_address, t("views.family_profiles._form.labels.street_address") %>
-      <%= f.text_area :street_address %>
+    <div class="twelve columns">
     </div>
     <div class="six columns">
       <%= f.label :city, t("views.family_profiles._form.labels.city") %>
@@ -11,6 +12,7 @@
 
       <%= f.label :state, t("views.family_profiles._form.labels.state") %>
       <%= f.text_field :state %>
+
 
       <%= f.label :zip_code, t("views.family_profiles._form.labels.zip_code") %>
       <%= f.text_field :zip_code %>
