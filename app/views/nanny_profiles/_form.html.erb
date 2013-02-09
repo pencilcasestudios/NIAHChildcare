@@ -120,6 +120,20 @@
 
 
   <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.employers") %></legend>
+
+    <%= t("views.nanny_profiles._form.copy.employers_html") %>
+
+    <p><%= f.check_box :can_contact_current_employer %> <%= t("views.nanny_profiles._form.copy.can_contact_current_employer") %></p>
+
+    <%= f.fields_for :employers %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_employer"), :employers %></p>
+  </fieldset>
+
+
+
+
+  <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.childcare_experience_description")%></legend>
     <%= f.label :childcare_experience_description, t("views.nanny_profiles._form.labels.childcare_experience_description") %>
     <%= f.text_area :childcare_experience_description %>
@@ -200,7 +214,7 @@
 
 
 <!--
-:can_contact_current_employer
+:
 :commitment_preference
 :date_of_birth
 :work_accomodation_preference

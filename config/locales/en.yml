@@ -300,17 +300,30 @@ en:
           state: State
           street_address: Street and address
           zip_code: ZIP
+      _employer_fields:
+        labels:
+          ended_at: Ended
+          started_at: Started
+        links:
+          remove_this_employer: Remove this employer
+          add_an_address: Add an address for this company or organisation
+        placeholders:
+          name: Company or organisation name
+          supervisor_name: Name of my supervisor
+          reason_for_leaving: Resons for leaving this employment
       _form:
         copy:
           authorisation_to_work_in_the_united_states_documentation_required_html: "<p>Proper documentation will be required.</p>"
           background_checks_html: "<p><strong>Background checks</strong><br />\nNeedle in a Haystack Childcare, believes that engaging qualified individuals contributes to the overall strategic success of the company. Background checks serve as an important part of the selection process at Needle in a Haystack Childcare, LLC. This type of information is collected as a means of promoting a safe work environment for current and future employees and clients.</p>"
-          driving_record_checks_html: "<p><strong>Driving record checks</strong><br />\nNeedle in a Haystack Childcare, LLC will check the motor vehicle records of any nanny applicant where driving is an essential job function or where a car must be used for business travel purposes. The driving record check will include review of any appropriate state records based on the employee's application and resume. If driving is an essential job function or where a car must be used for business travel purposes and the applicant does not have a valid driver's license, the applicant will be eliminated from consideration. If an applicant has an unacceptable driving record, the applicant will be eliminated from consideration as well.</p>"
+          driving_record_checks_html: "<p><strong>Driving record checks</strong><br />\nNeedle in a Haystack Childcare, LLC, will check the motor vehicle records of any nanny applicant where driving is an essential job function or where a car must be used for business travel purposes. The driving record check will include review of any appropriate state records based on the employee's application and resume. If driving is an essential job function or where a car must be used for business travel purposes and the applicant does not have a valid driver's license, the applicant will be eliminated from consideration. If an applicant has an unacceptable driving record, the applicant will be eliminated from consideration as well.</p>"
           drug_screens_html: "<p><strong>Drug screens</strong><br />\nAll candidates who have received a written offer of engagement may be required to undergo testing for commonly-abused controlled substances. If asked to undergo a screening any candidate who fails the controlled substances testing will be eliminated from consideration.</p>"
+          employers_html: "<p>Please list your employment history. Start with your current or most recent job first.</p>"
           previous_addresses_html: "<p>Please list your addresses starting with your current one and going back ten (10) years.</p>"
           recordkeeping_html: "<p><strong>Recordkeeping</strong><br />\nWe guarantee that all information obtained from the reference and background check process will only be used as part of the nanny selection and engagement process and will be kept strictly confidential. We will maintain a log that will include the position you are applying for, your name, and the date of the background check. Be aware, only appropriate personnel at Needle in a Haystack Childcare, LLC will have access to this information.</p>"
           reference_check_html: "<p><strong>Reference check policy</strong><br />\nTo ensure that individuals who sign with Needle in a Haystack Childcare, LLC are well-qualified and have a strong potential to be successful, it is the policy of the company to check all the employment references of applicants prior to extending a job offer.</p>"
           references: "List three personal references that know you well. Please exclude relatives and former employers/supervisors listed above."
           statement_of_truth_html: "I hereby certify that the information I have provided above is true and correct to best of my knowledge. I have read the policies and procedures set forth in this application. I understand and agree to abide by them."
+          can_contact_current_employer: "I give Needle in a Haystack Childcare, LLC, permission to contact my current employer."
         labels:
           available_to_start_at: I am available to start on
           childcare_experience_description: My special needs childcare experience
@@ -341,11 +354,11 @@ en:
           zip_code: ZIP Code
         legends:
           addresses: Addresses
-          statement_of_truth: Statement of truth
           childcare_experience_description: Childcare experience
           convictions: Convictions
           cpr: CPR certification
           current_address: Current address
+          employers: Work history
           first_aid: First Aid certification
           hobbies_description: Hobbies and interests
           ideal_work_description: Work description
@@ -353,10 +366,12 @@ en:
           licenses_and_certification: Licenses and certification
           names: Names
           references: References
+          statement_of_truth: Statement of truth
           work_location_preference_description: Location preferences
         links:
           add_a_reference: Add a reference
           add_an_address: Add an address
+          add_an_employer: Add an employer to my work history
           remove_this_address: Remove this address
           terms_of_use: Terms and Conditions
       edit:
