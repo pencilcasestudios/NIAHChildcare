@@ -47,17 +47,15 @@ class NannyProfile < ActiveRecord::Base
   accepts_nested_attributes_for :employers, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :references, reject_if: :all_blank, allow_destroy: true
 
-  COMMITMENT_PREFERENCES = {
-    # Translation                                                              # Database key
-    I18n.t("models.nanny_profile.commitment_preferences.full_time")     =>     "full_time",
-    I18n.t("models.nanny_profile.commitment_preferences.part_time")     =>     "part_time",
-  }
-
   ACCOMMODATION_PREFERENCES = {
     # Translation                                                   # Database key
     I18n.t("models.nanny_profile.accommodation_preferences.live_in")      =>     "live_in",
     I18n.t("models.nanny_profile.accommodation_preferences.live_out")     =>     "live_out",
-    I18n.t("models.nanny_profile.accommodation_preferences.seasonal")     =>     "seasonal",
-    I18n.t("models.nanny_profile.accommodation_preferences.temporary")    =>     "temporary",
+  }
+
+  COMMITMENT_PREFERENCES = {
+    # Translation                                                              # Database key
+    I18n.t("models.nanny_profile.commitment_preferences.full_time")     =>     "full_time",
+    I18n.t("models.nanny_profile.commitment_preferences.part_time")     =>     "part_time",
   }
 end

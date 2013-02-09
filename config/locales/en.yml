@@ -89,6 +89,14 @@ en:
         seasonal: Seasonal
         temporary: Temporary
 
+    nanny_profile:
+      accommodation_preferences:
+        live_in: "Live-in"
+        live_out: "Live-out"
+      commitment_preferences:
+        full_time: "Full-time"
+        part_time: "Part-time"
+
     guardian:
       roles:
         father: Father
@@ -342,6 +350,7 @@ en:
           available_to_start_at: I am available to start on
           childcare_experience_description: My special needs childcare experience
           city: City
+          commitment_preference: My preferred employment commitment would be
           contact_preference: I prefer to be contacted by
           cpr_certification_expires_at: My Child CPR certification expires on
           current_address_since_at: At current address since
@@ -365,6 +374,7 @@ en:
           previous_full_names: I have previously been known by the following full names
           state: State
           street_address: Street address
+          work_accommodation_preference: My preferred accommodation situation would be
           work_location_preference_description: These are the cities and states I would prefer to work in
           zip_code: ZIP Code
         legends:

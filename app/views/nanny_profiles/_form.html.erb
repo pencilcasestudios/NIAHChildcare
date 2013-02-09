@@ -172,17 +172,19 @@
   <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.ideal_work_description")%></legend>
     <p>
-      <%= t("views.nanny_profiles._form.copy.commitment_preference") %>
+      <%= t("views.nanny_profiles._form.labels.commitment_preference") %>
       <%= f.select :commitment_preference, NannyProfile::COMMITMENT_PREFERENCES, prompt: true %>
     </p>
 
     <p>
-      <%= t("views.nanny_profiles._form.copy.work_accommodation_preference") %>
+      <%= t("views.nanny_profiles._form.labels.work_accommodation_preference") %>
       <%= f.select :work_accommodation_preference, NannyProfile::ACCOMMODATION_PREFERENCES, prompt: true %>
     </p>
 
-    <%= f.label :available_to_start_at, t("views.nanny_profiles._form.labels.available_to_start_at") %>
-    <%= f.date_select :available_to_start_at, prompt: true %>
+    <p>
+      <%= f.label :available_to_start_at, t("views.nanny_profiles._form.labels.available_to_start_at") %>
+      <%= f.date_select :available_to_start_at, prompt: true %>
+    </p>
 
     <%= f.label :ideal_work_description, t("views.nanny_profiles._form.labels.ideal_work_description") %>
     <%= f.text_area :ideal_work_description %>
