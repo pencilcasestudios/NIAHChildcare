@@ -73,11 +73,5 @@
     <%= f.text_area :fit_description %>
   </fieldset>
 
-  <fieldset>
-    <legend><%= t("views.nanny_portraits._form.legends.references")%></legend>
-    <%= f.fields_for :references %>
-    <p class="add_field"><%= f.link_to_add "Add a Reference", :references %></p>
-  </fieldset>
-
   <%= f.submit class: "button" %>
 <% end %>
