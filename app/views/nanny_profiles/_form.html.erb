@@ -15,6 +15,20 @@
 
   <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.addresses") %></legend>
+
+    <%= t("views.nanny_profiles._form.copy.previous_addresses_html") %>
+
+    <div class="row">
+      <div class="six columns">
+        <%= f.label :current_address_since_at, t("views.nanny_profiles._form.labels.current_address_since_at") %>
+        <%= f.date_select :current_address_since_at, prompt: true %>
+      </div>
+      <div class="six columns">
+        <%= f.label :contact_preference, t("views.nanny_profiles._form.labels.contact_preference") %>
+        <%= f.select :contact_preference, Address::CONTACT_METHODS, prompt: true %>
+      </div>
+    </div>
+
     <%= f.fields_for :addresses %>
     <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_address"), :addresses %></p>
   </fieldset>
@@ -30,12 +44,17 @@
         <div class="six columns">
           <%= f.label :is_authorised_to_work_in_the_united_states, t("views.nanny_profiles._form.labels.is_authorised_to_work_in_the_united_states") %>
           <%= f.check_box :is_authorised_to_work_in_the_united_states %>
+
+          <%= t("views.nanny_profiles._form.copy.authorisation_to_work_in_the_united_states_documentation_required_html") %>
         </div>
         <div class="six columns">
           <%= f.label :has_a_valid_drivers_license, t("views.nanny_profiles._form.labels.has_a_valid_drivers_license_html") %>
           <%= f.check_box :has_a_valid_drivers_license %>
+
+          <%= t("views.nanny_profiles._form.copy.driving_record_checks_html") %>
         </div>
       </div>
+
     </fieldset>
 
     <fieldset>
@@ -138,6 +157,43 @@
 
 
 
+
+  <fieldset>
+    <p><%= t("views.nanny_profiles._form.copy.references") %></p>
+
+    <legend><%= t("views.nanny_profiles._form.legends.references") %></legend>
+    <%= f.fields_for :references %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_a_reference"), :references %></p>
+
+    <hr />
+
+    <%= t("views.nanny_profiles._form.copy.reference_check_html") %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <%= t("views.nanny_profiles._form.copy.background_checks_html") %>
+
+    <%= t("views.nanny_profiles._form.copy.recordkeeping_html") %>
+
+    <%= t("views.nanny_profiles._form.copy.drug_screens_html") %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.statement_of_truth") %></legend>
+
+    <p>
+      <%= t("views.nanny_profiles._form.copy.statement_of_truth_html") %>
+      (<%= f.check_box :statement_of_truth %>)
+    </p>
+
+    <p><%= link_to t("views.nanny_profiles._form.links.terms_of_use"), terms_path %><%= t("views.application.copy.full_stop") %><p>
+  </fieldset>
 
   <%= f.submit class: "button" %>
 <% end %>

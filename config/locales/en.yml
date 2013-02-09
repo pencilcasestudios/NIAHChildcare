@@ -301,13 +301,24 @@ en:
           street_address: Street and address
           zip_code: ZIP
       _form:
+        copy:
+          authorisation_to_work_in_the_united_states_documentation_required_html: "<p>Proper documentation will be required.</p>"
+          background_checks_html: "<p><strong>Background checks</strong><br />\nNeedle in a Haystack Childcare, believes that engaging qualified individuals contributes to the overall strategic success of the company. Background checks serve as an important part of the selection process at Needle in a Haystack Childcare, LLC. This type of information is collected as a means of promoting a safe work environment for current and future employees and clients.</p>"
+          driving_record_checks_html: "<p><strong>Driving record checks</strong><br />\nNeedle in a Haystack Childcare, LLC will check the motor vehicle records of any nanny applicant where driving is an essential job function or where a car must be used for business travel purposes. The driving record check will include review of any appropriate state records based on the employee's application and resume. If driving is an essential job function or where a car must be used for business travel purposes and the applicant does not have a valid driver's license, the applicant will be eliminated from consideration. If an applicant has an unacceptable driving record, the applicant will be eliminated from consideration as well.</p>"
+          drug_screens_html: "<p><strong>Drug screens</strong><br />\nAll candidates who have received a written offer of engagement may be required to undergo testing for commonly-abused controlled substances. If asked to undergo a screening any candidate who fails the controlled substances testing will be eliminated from consideration.</p>"
+          previous_addresses_html: "<p>Please list your addresses starting with your current one and going back ten (10) years.</p>"
+          recordkeeping_html: "<p><strong>Recordkeeping</strong><br />\nWe guarantee that all information obtained from the reference and background check process will only be used as part of the nanny selection and engagement process and will be kept strictly confidential. We will maintain a log that will include the position you are applying for, your name, and the date of the background check. Be aware, only appropriate personnel at Needle in a Haystack Childcare, LLC will have access to this information.</p>"
+          reference_check_html: "<p><strong>Reference check policy</strong><br />\nTo ensure that individuals who sign with Needle in a Haystack Childcare, LLC are well-qualified and have a strong potential to be successful, it is the policy of the company to check all the employment references of applicants prior to extending a job offer.</p>"
+          references: "List three personal references that know you well. Please exclude relatives and former employers/supervisors listed above."
+          statement_of_truth_html: "I hereby certify that the information I have provided above is true and correct to best of my knowledge. I have read the policies and procedures set forth in this application. I understand and agree to abide by them."
         labels:
           available_to_start_at: I am available to start on
           childcare_experience_description: My special needs childcare experience
           city: City
-          contact_preference: Preferred method of contact
+          contact_preference: I prefer to be contacted by
           cpr_certification_expires_at: My Child CPR certification expires on
           current_address_since_at: At current address since
+          current_address_since_at: I have lived at my current address since
           email: Email
           felony_conviction_description: Conviction description
           first_aid_certification_expires_at: My Child First Aid certification expires on
@@ -323,13 +334,14 @@ en:
           is_willing_to_become_first_aid_certified: I am not but am willing to become certified in Child First Aid
           languages_spoken: Languages I speak fluently
           phone: Phone
-          previous_full_names: Previous full names
+          previous_full_names: I have previously been known by the following full names
           state: State
           street_address: Street address
           work_location_preference_description: These are the cities and states I would prefer to work in
           zip_code: ZIP Code
         legends:
           addresses: Addresses
+          statement_of_truth: Statement of truth
           childcare_experience_description: Childcare experience
           convictions: Convictions
           cpr: CPR certification
@@ -346,6 +358,7 @@ en:
           add_a_reference: Add a reference
           add_an_address: Add an address
           remove_this_address: Remove this address
+          terms_of_use: Terms and Conditions
       edit:
         title: Edit your profile
       new:

@@ -10,7 +10,7 @@ class NannyPortraitsController < ApplicationController
   def new
     @family_profile = FamilyProfile.find(params[:family_profile_id])
     @nanny_portrait = @family_profile.nanny_portraits.new
-    #@nanny_portrait.references.build
+    @nanny_portrait.references.build
   end
 
   def create

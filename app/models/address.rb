@@ -10,7 +10,7 @@ class Address < ActiveRecord::Base
 
   CONTACT_METHODS = {
     # Translation                                            # Database key
-    I18n.t("models.address.contact_methods.phone")     =>    "phone",
     I18n.t("models.address.contact_methods.email")     =>    "email",
+    I18n.t("models.address.contact_methods.phone")     =>    "phone",
   }
 end

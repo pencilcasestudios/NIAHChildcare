@@ -4,8 +4,9 @@ class NannyProfile < ActiveRecord::Base
   has_many :addresses, as: :addresseable
   has_many :references, as: :referenceable
 
-  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :references, reject_if: :all_blank, allow_destroy: true
+  validates :statement_of_truth, acceptance: true
+
+  attr_accessor :statement_of_truth
 
   attr_accessible :available_to_start_at
   attr_accessible :can_contact_current_employer
@@ -29,10 +30,14 @@ class NannyProfile < ActiveRecord::Base
   attr_accessible :is_willing_to_become_first_aid_certified
   attr_accessible :languages_spoken
   attr_accessible :previous_full_names
+  attr_accessible :statement_of_truth
   attr_accessible :work_accomodation_preference
   attr_accessible :work_location_preference_description
 
   # Nested attributes
   attr_accessible :addresses_attributes
   attr_accessible :references_attributes
+
+  accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :references, reject_if: :all_blank, allow_destroy: true
 end
