@@ -14,6 +14,15 @@
 
 
   <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.date_of_birth") %></legend>
+    <%= f.label :date_of_birth, t("views.nanny_profiles._form.labels.date_of_birth") %>
+    <%= f.date_select :date_of_birth, prompt: true, discard_day: true, discard_month: true, start_year: (Time.now.year - 50), end_year: (Time.now.year - 10) %>
+  </fieldset>
+
+
+
+
+  <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.addresses") %></legend>
 
     <%= t("views.nanny_profiles._form.copy.previous_addresses_html") %>
@@ -162,18 +171,22 @@
 
   <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.ideal_work_description")%></legend>
+    <p>
+      <%= t("views.nanny_profiles._form.copy.commitment_preference") %>
+      <%= f.select :commitment_preference, NannyProfile::COMMITMENT_PREFERENCES, prompt: true %>
+    </p>
+
+    <p>
+      <%= t("views.nanny_profiles._form.copy.work_accommodation_preference") %>
+      <%= f.select :work_accommodation_preference, NannyProfile::ACCOMMODATION_PREFERENCES, prompt: true %>
+    </p>
+
     <%= f.label :available_to_start_at, t("views.nanny_profiles._form.labels.available_to_start_at") %>
     <%= f.date_select :available_to_start_at, prompt: true %>
 
     <%= f.label :ideal_work_description, t("views.nanny_profiles._form.labels.ideal_work_description") %>
     <%= f.text_area :ideal_work_description %>
-  </fieldset>
 
-
-
-
-  <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.work_location_preference_description")%></legend>
     <%= f.label :work_location_preference_description, t("views.nanny_profiles._form.labels.work_location_preference_description") %>
     <%= f.text_area :work_location_preference_description, rows: 5 %>
   </fieldset>
@@ -220,11 +233,3 @@
 
   <%= f.submit class: "button" %>
 <% end %>
-
-
-<!--
-:
-:commitment_preference
-:date_of_birth
-:work_accomodation_preference
--->

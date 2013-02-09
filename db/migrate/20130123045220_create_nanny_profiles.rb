@@ -18,7 +18,7 @@ class CreateNannyProfiles < ActiveRecord::Migration
       t.string :commitment_preference
       t.string :contact_preference
       t.string :full_name
-      t.string :work_accomodation_preference
+      t.string :work_accommodation_preference
       t.text :childcare_experience_description
       t.text :felony_conviction_description
       t.text :hobbies_description

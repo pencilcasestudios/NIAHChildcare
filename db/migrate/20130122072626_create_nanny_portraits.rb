@@ -8,7 +8,7 @@ class CreateNannyPortraits < ActiveRecord::Migration
       t.datetime :start_at
       t.references :family_profile
       t.string :commitment_requirement
-      t.text :accomodation_description
+      t.text :accommodation_description
       t.text :fit_description
       t.text :job_description
       t.text :qualities_description

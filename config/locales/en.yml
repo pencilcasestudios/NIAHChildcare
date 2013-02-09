@@ -233,7 +233,7 @@ en:
     nanny_portraits:
       _form:
         labels:
-          accomodation_description: Accomodation description
+          accommodation_description: Accommodation description
           commitment_requirement: Required commitment
           commitment_start_at: Desired start date
           end_at: End date of employment
@@ -247,7 +247,7 @@ en:
           vacation_description: Paid vacation
           work_hours_description: Work hours description
         legends:
-          accommodation: Accomodation
+          accommodation: Accommodation
           commitment: Commitment
           commitment_requirement: Required commitment
           commitment_start_at: Desired start date
@@ -276,7 +276,7 @@ en:
           seasonal: Seasonal
           temporary: Temporary
         headings:
-          accomodation_description: Accomodation description
+          accommodation_description: Accommodation description
           car: Car
           commitment_requirement: Commitment required
           commitment_start_at: Desired nanny start date
@@ -346,6 +346,7 @@ en:
           cpr_certification_expires_at: My Child CPR certification expires on
           current_address_since_at: At current address since
           current_address_since_at: I have lived at my current address since
+          date_of_birth: I was born in
           email: Email
           felony_conviction_description: Conviction description
           first_aid_certification_expires_at: My Child First Aid certification expires on
@@ -372,6 +373,7 @@ en:
           convictions: Convictions
           cpr: CPR certification
           current_address: Current address
+          date_of_birth: Age
           educations: Education history
           employers: Work history
           first_aid: First Aid certification

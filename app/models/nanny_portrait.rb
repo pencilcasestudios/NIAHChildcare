@@ -5,7 +5,7 @@ class NannyPortrait < ActiveRecord::Base
 
   accepts_nested_attributes_for :references, allow_destroy: true
 
-  attr_accessible :accomodation_description
+  attr_accessible :accommodation_description
   attr_accessible :commitment_requirement
   attr_accessible :commitment_start_at
   attr_accessible :end_at
