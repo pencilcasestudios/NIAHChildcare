@@ -1,0 +1,34 @@
+<fieldset>
+  <!-- <%= f.label :name, t("views.nanny_profiles._education_fields.labels.name") %> -->
+  <%= f.text_field :name, placeholder: t("views.nanny_profiles._education_fields.placeholders.name") %>
+
+  <div class="row">
+    <div class="three columns">
+      <p>
+        <!-- <%= f.label :is_a_graduate, t("views.nanny_profiles._education_fields.labels.is_a_graduate") %> -->
+        <%= f.check_box :is_a_graduate %>
+        <%= t("views.nanny_profiles._education_fields.copy.is_a_graduate") %>
+      </p>
+    </div>
+    <div class="nine columns">
+      <!-- <%= f.label :qualification, t("views.nanny_profiles._education_fields.labels.qualification") %> -->
+      <%= f.text_field :qualification, placeholder: t("views.nanny_profiles._education_fields.placeholders.qualification") %>
+    </div>
+  </div>
+
+  <%= f.fields_for :addresses %>
+  <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._education_fields.links.add_an_address"), :addresses %></p>
+
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :started_at, t("views.nanny_profiles._education_fields.labels.started_at") %>
+      <%= f.date_select :started_at, prompt: true %>
+    </div><!-- /.#columns -->
+    <div class="six columns">
+      <%= f.label :ended_at, t("views.nanny_profiles._education_fields.labels.ended_at") %>
+      <%= f.date_select :ended_at, prompt: true %>
+    </div><!-- /.#columns -->
+  </div><!-- /.row -->
+
+  <p class="remove_field"><%= f.link_to_remove t("views.nanny_profiles._education_fields.links.remove_this_school") %></p>
+</fieldset>

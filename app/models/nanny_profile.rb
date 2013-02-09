@@ -2,6 +2,7 @@ class NannyProfile < ActiveRecord::Base
   belongs_to :user
 
   has_many :addresses, as: :addresseable
+  has_many :educations, as: :educatable
   has_many :employers, as: :employable
   has_many :references, as: :referenceable
 
@@ -37,10 +38,12 @@ class NannyProfile < ActiveRecord::Base
 
   # Nested attributes
   attr_accessible :addresses_attributes
+  attr_accessible :educations_attributes
   attr_accessible :employers_attributes
   attr_accessible :references_attributes
 
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :educations, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :employers, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :references, reject_if: :all_blank, allow_destroy: true
 end

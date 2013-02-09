@@ -134,6 +134,15 @@
 
 
   <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.educations") %></legend>
+    <%= f.fields_for :educations %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_a_school"), :educations %></p>
+  </fieldset>
+
+
+
+
+  <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.childcare_experience_description")%></legend>
     <%= f.label :childcare_experience_description, t("views.nanny_profiles._form.labels.childcare_experience_description") %>
     <%= f.text_area :childcare_experience_description %>

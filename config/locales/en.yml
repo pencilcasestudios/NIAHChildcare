@@ -300,6 +300,20 @@ en:
           state: State
           street_address: Street and address
           zip_code: ZIP
+      _education_fields:
+        copy:
+          is_a_graduate: I graduated.
+        labels:
+          ended_at: Ended
+          name: School name
+          qualification: Qualification received
+          started_at: Started
+        links:
+          add_an_address: Add an address for this school
+          remove_this_school: Remove this school
+        placeholders:
+          name: School name
+          qualification: Qualification received
       _employer_fields:
         labels:
           ended_at: Ended
@@ -358,6 +372,7 @@ en:
           convictions: Convictions
           cpr: CPR certification
           current_address: Current address
+          educations: Education history
           employers: Work history
           first_aid: First Aid certification
           hobbies_description: Hobbies and interests
@@ -370,6 +385,7 @@ en:
           work_location_preference_description: Location preferences
         links:
           add_a_reference: Add a reference
+          add_a_school: Add a school
           add_an_address: Add an address
           add_an_employer: Add an employer to my work history
           remove_this_address: Remove this address

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209051341) do
+ActiveRecord::Schema.define(:version => 20130209080534) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addresseable_id"
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(:version => 20130209051341) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "educations", :force => true do |t|
+    t.boolean  "is_a_graduate"
+    t.datetime "ended_at"
+    t.datetime "started_at"
+    t.integer  "educatable_id"
+    t.string   "educatable_type"
+    t.string   "name"
+    t.string   "qualification"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "educations", ["educatable_id"], :name => "index_educations_on_educatable_id"
 
   create_table "employers", :force => true do |t|
     t.datetime "ended_at"

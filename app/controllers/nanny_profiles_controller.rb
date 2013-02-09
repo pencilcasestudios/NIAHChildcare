@@ -7,6 +7,7 @@ class NannyProfilesController < ApplicationController
     @nanny_profile.full_name = current_user.full_name
 
     @nanny_profile.addresses.build(phone: current_user.cell_phone_number, email: current_user.email)
+    @nanny_profile.educations.build
     @nanny_profile.employers.build
     @nanny_profile.references.build
   end
