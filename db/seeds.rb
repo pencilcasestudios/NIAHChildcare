@@ -11,7 +11,7 @@ User.create(
 
 User.create(
   cell_phone_number: "1111111111",
-  email: "intelchef@aol.com",
+  email: "Intelcheff@aol.com",
   first_name: "Robert",
   last_name: "Jones",
   password: "password",
