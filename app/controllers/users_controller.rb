@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   load_and_authorize_resource
 
+  def index
+  end
+
   def new
     if params[:query] && params[:query].in?(["family","nanny"])
       session[:registration_type] = params[:query]

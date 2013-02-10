@@ -6,15 +6,16 @@ class Ability
     user ||= User.new
 
     # Users
+    can :manage, FamilyProfile, id: user.id
+    can :manage, NannyPortrait, id: user.id
+    can :manage, NannyProfile, id: user.id
     can :manage, User, id: user.id
 
-    # Family Profiles
-    can :manage, FamilyProfile, id: user.id
-
-    # Nanny Portrait
-    can :manage, NannyPortrait, id: user.id
-
-    # Nanny Profile
-    can :manage, NannyProfile, id: user.id
+    # Administrators
+    if user.admin?
+      can :manage, :all
+    else
+      can :read, :all
+    end
   end
 end

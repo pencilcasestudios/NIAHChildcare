@@ -1,0 +1,35 @@
+<%= render "background" %>
+
+<div class="row">
+  <div class="four columns">
+    <section class="header">
+      <header>
+        <h1><%= title t("views.users.index.title") %></h1>
+      </header>
+    </section>
+  </div><!-- /.three .columns -->
+  <div class="eight columns">
+    <section class="content">
+      <table>
+        <thead>
+          <tr>
+            <th><%= t("views.users.index.table.headings.number") %></th>
+            <th><%= t("views.users.index.table.headings.role") %></th>
+            <th><%= t("views.users.index.table.headings.full_name") %></th>
+            <th><%= t("views.users.index.table.headings.since") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each_with_index do |user, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= t("models.user.roles.#{ user.role }") %></td>
+              <td><%= link_to user.full_name, user %></td>
+              <td><%= user.created_at.strftime("%d/%b/%Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section><!-- /.content -->
+ </div><!-- /.nine .columns -->
+</div><!-- /.row -->

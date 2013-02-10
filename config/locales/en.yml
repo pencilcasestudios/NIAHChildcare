@@ -103,6 +103,12 @@ en:
         guardian: Guardian
         mother: Mother
 
+    user:
+      roles:
+        administrator: Administrator
+        family: Family
+        nanny: Nanny
+
 
 
 
@@ -141,13 +147,17 @@ en:
           about: About
           account_settings: Account Settings
           contact: Contact
+          family_profiles: Family Profiles
           fees: Fees
           home: Home
           nannies: Nannies
+          nanny_portraits: Nanny Portraits
+          nanny_profiles: Nanny Profiles
           register: Register
           sign_in: Sign in
           sign_out: Sign out
           terms: Terms
+          users: Users
       _footer:
         copy:
           website_by: Website by
@@ -469,6 +479,14 @@ en:
           middle_name: Middle name
           password: Password
           password_confirmation: Confirm password
+      index:
+        table:
+          headings:
+            full_name: Full name
+            number: "#"
+            role: Registration type
+            since: Registered on
+        title: Registered users
       new:
         title: "%{registration_type} account registration"
       edit:

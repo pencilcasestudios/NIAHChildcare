@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   validates :cell_phone_number, presence: true, uniqueness: true, cell_phone_number_format: true
   validates :email, presence: true, uniqueness: true, email_format: true
   validates :first_name, presence: true
-  validates :language, presence: true
+  #validates :language, presence: true
   validates :last_name, presence: true
   validates :role, presence: true
   validates :terms_of_use, acceptance: true, on: :create
-  validates :time_zone, presence: true
+  #validates :time_zone, presence: true
 
   attr_accessor :terms_of_use
 
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.role == "admin"
+    self.role == "administrator"
   end
 
   def family?
@@ -57,6 +57,6 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    [self.first_name, self.middle_name, self.last_name].reject{|element| element.empty?}.compact.join(" ")
+    [self.first_name, self.middle_name, self.last_name].compact.reject{|element| element.empty?}.join(" ")
   end
 end
