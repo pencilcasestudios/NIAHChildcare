@@ -16,7 +16,7 @@
   <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.date_of_birth") %></legend>
     <%= f.label :date_of_birth, t("views.nanny_profiles._form.labels.date_of_birth") %>
-    <%= f.date_select :date_of_birth, prompt: true, discard_day: true, discard_month: true, start_year: (Time.now.year - 50), end_year: (Time.now.year - 10) %>
+    <%= f.date_select :date_of_birth, prompt: true, start_year: (Time.now.year - 70), end_year: (Time.now.year - 10) %>
   </fieldset>
 
 
