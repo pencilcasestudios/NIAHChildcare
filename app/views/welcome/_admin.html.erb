@@ -3,9 +3,9 @@
     <section class="content">
 
       <dl class="tabs contained">
-        <dd  class="active"><a href="#users"><%= t("views.welcome._admin.headings.users") %></a></dd>
-        <dd><a href="#family_profiles"><%= t("views.welcome._admin.headings.family_profiles") %></a></dd>
-        <dd><a href="#nanny_profiles"><%= t("views.welcome._admin.headings.nanny_profiles") %></a></dd>
+        <dd id="tab_for_users"><a href="#users"><%= t("views.welcome._admin.headings.users") %></a></dd>
+        <dd id="tab_for_family_profiles"><a href="#family_profiles"><%= t("views.welcome._admin.headings.family_profiles") %></a></dd>
+        <dd id="tab_for_nanny_profiles"><a href="#nanny_profiles"><%= t("views.welcome._admin.headings.nanny_profiles") %></a></dd>
       </dl>
 
       <ul class="tabs-content contained">
@@ -88,3 +88,15 @@
     </section><!-- /.content -->
   </div><!-- /.twelve .columns -->
 </div>
+
+
+
+
+<script type="text/javascript">
+  var identifier = window.location.hash; //gets everything after the hashtag ("#")
+
+  if (identifier == "") {
+    $("#tab_for_users").addClass("active");
+    $("#usersTab").addClass("active");
+  }
+</script>
