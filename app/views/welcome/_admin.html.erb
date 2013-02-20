@@ -31,7 +31,7 @@
                   <td><%= link_to user.first_name, user %></td>
                   <td><%= link_to user.middle_name, user if user.middle_name.present? %></td>
                   <td><%= link_to user.last_name, user %></td>
-                  <td><%= link_to t("views.welcome._admin.copy.actions.edit"), edit_user_path(user) %></td>
+                  <td><%= link_to t("views.welcome._admin.links.edit"), edit_user_path(user) %></td>
                 </tr>
               <% end %>
             </tbody>

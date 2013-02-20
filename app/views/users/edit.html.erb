@@ -1,12 +1,14 @@
-<% title t("views.users.edit.title") %>
-
 <%= render "background" %>
 
 <div class="row">
   <div class="three columns">
     <section class="header">
       <header>
-        <h1><%= yield :title %></h1>
+        <% if current_user.admin? && @user != current_user %>
+          <h1><%= title t("views.users.edit.title_admin") %></h1>
+        <% else %>
+          <h1><%= title t("views.users.edit.title") %></h1>
+        <% end %>
       </header>
     </section>
   </div><!-- /.three .columns -->

@@ -1,0 +1,39 @@
+<%= render "background" %>
+
+<div class="row">
+  <div class="four columns">
+    <section class="header">
+      <header>
+        <% if current_user.admin? && @user != current_user %>
+          <h1><%= title t("views.users.show.title_admin") %></h1>
+        <% else %>
+          <h1><%= title t("views.users.show.title") %></h1>
+        <% end %>
+      </header>
+    </section>
+  </div><!-- /.three .columns -->
+  <div class="eight columns">
+    <section class="content">
+      <p class="right"><%= link_to t("views.users.show.links.edit"), edit_user_path(@user) %></p>
+
+      <hr />
+
+      <% if current_user.admin? %>
+        <p>
+          <%= t("views.users.show.copy.id") %><%= t("views.application.copy.full_colon") %>
+          <%= @user.id %>
+        </p>
+      <% end %>
+
+      <h2>
+        <%= @user.full_name %><br />
+        <small><%= t("models.user.roles.#{@user.role}") %></small>
+      </h2>
+
+      <p>
+        <strong><%= t("views.users.show.copy.cell_phone_number") %><%= t("views.application.copy.full_colon") %></strong> <%= @user.cell_phone_number %><br />
+        <strong><%= t("views.users.show.copy.email") %><%= t("views.application.copy.full_colon") %></strong> <%= @user.email %><br />
+      </p>
+    </section>
+  </div><!-- /.# .colummns -->
+</div><!-- /.row -->

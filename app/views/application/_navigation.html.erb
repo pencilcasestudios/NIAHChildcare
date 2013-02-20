@@ -4,7 +4,7 @@
       <p id="user_links">
         <% if user_signed_in? %>
           <%= current_user.first_name %>
-          | <%= link_to_unless_current t("views.application._navigation.links.account_settings"), account_settings_path %>
+          | <%= link_to_unless_current t("views.application._navigation.links.account_settings"), edit_user_path(current_user) %>
           | <%= link_to_unless_current t("views.application._navigation.links.sign_out"), sign_out_path %>
         <% else %>
           <%= link_to_unless_current t("views.application._navigation.links.register"), register_path %>

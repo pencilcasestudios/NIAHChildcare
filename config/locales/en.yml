@@ -53,6 +53,8 @@ en:
       actions:
         create:
           success: Your account was successfully created. You may now sign in.
+        update:
+          success: Your account was successfully updated.
 
 
 
@@ -157,7 +159,7 @@ en:
       _navigation:
         links:
           about: About
-          account_settings: Account Settings
+          account_settings: Account settings
           contact: Contact
           family_profiles: Family Profiles
           fees: Fees
@@ -499,10 +501,20 @@ en:
             role: Registration type
             since: Registered on
         title: Registered users
+      edit:
+        title: Account settings
+        title_admin: Edit user profile
       new:
         title: "%{registration_type} account registration"
-      edit:
-        title: Account Settings
+      show:
+        copy:
+          id: User ID
+          cell_phone_number: Phone
+          email: Email
+        links:
+          edit: Edit
+        title: My profile
+        title_admin: User profile
 
     sessions:
       _form:
@@ -524,13 +536,13 @@ en:
     welcome:
       _admin:
         copy:
-          actions:
-            edit: Edit
           nanny_portrait: "%{family} family nanny portrait"
         headings:
           users: Users
           family_profiles: Family profiles
           nanny_profiles: Nanny profiles
+        links:
+          edit: Edit
         table:
           headings:
             actions: Actions

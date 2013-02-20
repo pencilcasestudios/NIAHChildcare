@@ -8,6 +8,14 @@ class UsersController < ApplicationController
   def index
   end
 
+  def show
+    if current_user.admin?
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+  end
+
   def new
     if params[:query] && params[:query].in?(["family","nanny"])
       session[:registration_type] = params[:query]
@@ -28,14 +36,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    if current_user.admin?
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:success] = t("controllers.users_controller.actions.update.success")
-      redirect_to(account_settings_path)
+      redirect_to(@user)
     else
       render action: "edit"
     end

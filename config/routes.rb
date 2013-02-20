@@ -8,7 +8,6 @@ NIAHChildcare::Application.routes.draw do
   match "terms", to: "welcome#terms", as: "terms"
 
   # User
-  match "account_settings", to: "users#edit", as: "account_settings"
   match "registration", to: "users#new", as: "registration"
   match "sign_in", to: "sessions#new", as: "sign_in"
   match "sign_out", to: "sessions#destroy", as: "sign_out"
