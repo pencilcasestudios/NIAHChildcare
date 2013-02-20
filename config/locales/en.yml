@@ -513,7 +513,7 @@ en:
           email: Email
         links:
           edit: Edit
-        title: My profile
+        title: Your profile
         title_admin: User profile
 
     sessions:
