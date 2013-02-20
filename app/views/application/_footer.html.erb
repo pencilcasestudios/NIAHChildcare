@@ -10,7 +10,7 @@
           | <%= link_to_unless_current t("views.application._footer.links.contact"), contact_path %>
           | <%= link_to_unless_current t("views.application._footer.links.fees"), fees_path %>
           <% if user_signed_in? %>
-            | <%= link_to_unless_current t("views.application._footer.links.account_settings"), account_settings_path %>
+            | <%= link_to_unless_current t("views.application._footer.links.account_settings"), edit_user_path(current_user) %>
             | <%= link_to_unless_current t("views.application._footer.links.sign_out"), sign_out_path %>
           <% else %>
             | <%= link_to_unless_current t("views.application._footer.links.register"), register_path %>
