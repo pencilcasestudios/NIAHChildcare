@@ -12,6 +12,22 @@
     <section class="content">
       <p class="right"><%= link_to t("views.nanny_portraits.show.links.edit"), edit_nanny_portrait_path(@nanny_portrait) %></p>
 
+      <% if current_user.admin? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_portraits.show.headings.family") %></p>
+          </div>
+          <div class="nine columns">
+            <p><%= link_to @nanny_portrait.family_profile.user.full_name, @nanny_portrait.family_profile %></p>
+          </div>
+        </div>
+      <% end %>
+
+
+
+
       <hr />
 
       <div class="row">

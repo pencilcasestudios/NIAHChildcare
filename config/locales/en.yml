@@ -282,6 +282,7 @@ en:
           interests_description: Family interests
           pets_description: Family pets
         title: Your family profile
+        title_admin: Family profile
         links:
           edit: Edit
 
@@ -335,6 +336,7 @@ en:
           car: Car
           commitment_requirement: Commitment required
           commitment_start_at: Desired nanny start date
+          family: Family
           fit_description: Fit
           job_description: Job description
           job_description_hours_and_vacation: "Job description, hours and vacation"
@@ -475,6 +477,7 @@ en:
           previous_full_names: Previous full names
           work_location_preference_description: Cities and states where I would like to work
         title: Your nanny profile
+        title_admin: Nanny profile
         links:
           edit: Edit
 

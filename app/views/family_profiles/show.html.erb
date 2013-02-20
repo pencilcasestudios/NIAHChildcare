@@ -4,7 +4,11 @@
   <div class="four columns">
     <section class="header">
       <header>
-        <h1><%= title t("views.family_profiles.show.title") %></h1>
+        <% if current_user.admin? && @user != current_user %>
+          <h1><%= title t("views.family_profiles.show.title_admin") %></h1>
+        <% else %>
+          <h1><%= title t("views.family_profiles.show.title") %></h1>
+        <% end %>
       </header>
     </section>
   </div><!-- /.three .columns -->
