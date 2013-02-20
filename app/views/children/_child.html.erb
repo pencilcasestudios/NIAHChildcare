@@ -1,0 +1,32 @@
+<p>
+  <% if child.full_name.present? %>
+    <strong><%= child.full_name %></strong>
+  <% end %>
+
+  <% if child.gender.present? && child.born_at.present? %>
+    <%= t("views.children._child.copy.is_a") %>
+    <%= t("models.child.genders.#{child.gender}").downcase %>
+    <%= t("views.children._child.copy.who_is") %>
+    <%= t("pluralise.year", count: (Time.now.year - child.born_at.year)) %>
+    <%= t("views.children._child.copy.old") %><%= t("views.application.copy.full_stop") %>
+  <% elsif child.gender.present? && child.born_at.blank? %>
+    <%= t("views.children._child.copy.is_a") %>
+    <%= t("models.child.genders.#{child.gender}").downcase %><%= t("views.application.copy.full_stop") %>
+  <% elsif child.gender.blank? && child.born_at.present? %>
+    <%= t("views.children._child.copy.is") %>
+    <%= t("pluralise.year", count: (Time.now.year - child.born_at.year)) %>
+    <%= t("views.children._child.copy.old") %><%= t("views.application.copy.full_stop") %>
+  <% end %>
+</p>
+
+<% if child.interests_description.present? %>
+  <p><strong class="heading"><%= t("views.children._child.headers.interests_description") %></strong></p>
+  <%= simple_format child.interests_description %>
+  <br />
+<% end %>
+
+<% if child.special_needs_description.present? %>
+  <p><strong class="heading"><%= t("views.children._child.headers.special_needs_description") %></strong></p>
+  <%= simple_format child.special_needs_description %>
+  <br />
+<% end %>

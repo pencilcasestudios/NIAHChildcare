@@ -80,6 +80,11 @@ en:
         email: Email
         phone: Phone
 
+    child:
+      genders:
+        female: Girl
+        male: Boy
+
     language:
       names:
         eng: English
@@ -190,6 +195,17 @@ en:
         full_stop: "."
         full_colon: ":"
 
+    children:
+      _child:
+        copy:
+          is: is
+          is_a: is a
+          old: old
+          who_is: who is
+        headers:
+          interests_description: Interests
+          special_needs_description: Special needs
+
     family_profiles:
       _address_fields:
         placeholders:
@@ -199,6 +215,15 @@ en:
           state: State
           street_address: Street and address
           zip_code: ZIP
+      _child_fields:
+        labels:
+          full_name: Full name
+          gender: Gender
+          special_needs_description: Any special accommodations? Please be specific.
+          interests_description: Interests
+          born_at: Date of birth
+        links:
+          remove_this_child: Remove this child
       _form:
         copy:
           reference_check_html: "<p><strong>Reference check policy</strong><br />\nTo ensure the safety of the nanny as well as the family, Needle in a Haystack Childcare makes it a policy to check all references supplied.<br />\nWe guarantee that all information attained from the reference and background check process will only be used as part of the nanny selection and engagement process and kept strictly confidential.</p>"
@@ -218,7 +243,6 @@ en:
           phone: Phone
           relationship: Relationship
           role: Relationship to children
-          special_needs_description: Any special accommodations? Please be specific.
           state: State
           statement_of_truth: The information provided in this profile is true and I agree with the Terms and Conditions
           street_address: Street Address
@@ -237,7 +261,6 @@ en:
           add_a_guardian: Add a parent (or guardian)
           add_a_reference: Add a reference
           add_an_address: Add an address
-          remove_this_child: Remove this child
           remove_this_guardian: Remove this parent (or guardian)
           remove_this_reference: Remove this reference
       edit:

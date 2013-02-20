@@ -57,45 +57,34 @@
         </div><!-- /.nine .columns -->
       </div>
 
-      <hr />
 
-      <div class="row">
-        <div class="three columns heading">
-          <p><%= t("views.family_profiles.show.headers.family") %></p>
-        </div>
-        <div class="nine columns">
-          <% @family_profile.children.each_with_index do |child, index| %>
-            <p>
-              <% if child.full_name.present? %><strong><%= child.full_name %></strong><% end %>
-              <% if child.born_at.present? %>
-                (<%= t("pluralise.year", count: (Time.now.year - child.born_at.year)) %>)
+
+
+      <% if @family_profile.children.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.family_profiles.show.headers.family") %></p>
+          </div>
+          <div class="nine columns">
+            <% @family_profile.children.each_with_index do |child, index| %>
+              <%= render child %>
+
+              <% if (index + 1) < @family_profile.children.size %>
+                <hr />
               <% end %>
-            </p>
-
-            <% if child.interests_description.present? %>
-              <p>
-                <strong class="heading"><%= t("views.family_profiles.show.headers.child_interests_description") %></strong><br />
-                <%= child.interests_description %>
-              </p>
             <% end %>
-
-            <% if child.special_needs_description.present? %>
-              <p>
-                <strong class="heading"><%= t("views.family_profiles.show.headers.child_special_needs_description") %></strong><br />
-                <%= child.special_needs_description %>
-              </p>
-            <% end %>
-
-            <% if (index + 1) != @family_profile.children.size %>
-              <hr />
-            <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
-      <hr />
+
+
 
       <% if @family_profile.pets_description.present? %>
+        <hr />
+
         <div class="row">
           <div class="three columns heading">
             <p><%= t("views.family_profiles.show.headers.pets_description") %></p>
@@ -106,9 +95,12 @@
         </div>
       <% end %>
 
-      <hr />
+
+
 
       <% if @family_profile.interests_description.present? %>
+        <hr />
+
         <div class="row">
           <div class="three columns heading">
             <p><%= t("views.family_profiles.show.headers.interests_description") %></p>
@@ -118,6 +110,10 @@
           </div>
         </div>
       <% end %>
+
+
+
+
     </section><!-- /.content -->
   </div><!-- /.eight .columns -->
 </div><!-- /.row -->

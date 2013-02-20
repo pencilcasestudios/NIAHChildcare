@@ -1,20 +1,23 @@
 <fieldset>
+    <%= f.label :full_name, t("views.family_profiles._child_fields.labels.full_name") %>
+    <%= f.text_field :full_name %>
+
   <div class="row">
     <div class="six columns">
-      <%= f.label :full_name, t("views.family_profiles._form.labels.full_name") %>
-      <%= f.text_field :full_name %>
+      <%= f.label :gender, t("views.family_profiles._child_fields.labels.gender") %>
+        <%= f.select :gender, Child::GENDERS, prompt: true %>
     </div>
     <div class="six columns">
-      <%= f.label :born_at, t("views.family_profiles._form.labels.born_at") %>
+      <%= f.label :born_at, t("views.family_profiles._child_fields.labels.born_at") %>
       <%= f.date_select :born_at, prompt: true, start_year: (Time.now.year - 20), end_year: Time.now.year %>
     </div>
   </div>
 
-  <%= f.label :interests_description, t("views.family_profiles._form.labels.interests_description") %>
+  <%= f.label :interests_description, t("views.family_profiles._child_fields.labels.interests_description") %>
   <%= f.text_area :interests_description, rows: 8 %>
 
-  <%= f.label :special_needs_description, t("views.family_profiles._form.labels.special_needs_description") %>
+  <%= f.label :special_needs_description, t("views.family_profiles._child_fields.labels.special_needs_description") %>
   <%= f.text_area :special_needs_description, rows: 8 %>
 
-  <p class="remove_field"><%= f.link_to_remove t("views.family_profiles._form.links.remove_this_child") %></p>
+  <p class="remove_field"><%= f.link_to_remove t("views.family_profiles._child_fields.links.remove_this_child") %></p>
 </fieldset>
