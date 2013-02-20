@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="twelve columns">
+    <section class="content">
+
+      <h2><%= t("pluralise.user", count: @users_size) %></h2>
+      <table class="twelve">
+        <thead>
+          <tr>
+            <th><%= t("views.welcome._admin.table.headings.number") %></th>
+            <th><%= t("views.welcome._admin.table.headings.role") %></th>
+            <th><%= t("views.welcome._admin.table.headings.full_name") %></th>
+            <th><%= t("views.welcome._admin.table.headings.since") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each_with_index do |user, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= t("models.user.roles.#{ user.role }") %></td>
+              <td><%= link_to user.full_name, user %></td>
+              <td><%= user.created_at.strftime("%d/%b/%Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+
+      <h2><%= t("pluralise.family_profile", count: @family_profiles_size) %></h2>
+      <table class="twelve">
+        <thead>
+          <tr>
+            <th><%= t("views.welcome._admin.table.headings.number") %></th>
+            <th><%= t("views.welcome._admin.table.headings.family") %></th>
+            <th><%= t("views.welcome._admin.table.headings.nanny_portrait") %></th>
+            <th><%= t("views.welcome._admin.table.headings.since") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @family_profiles.each_with_index do |profile, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= link_to profile.user.full_name , profile %></td>
+              <td>
+                <% profile.nanny_portraits.each_with_index do |portrait, index| %>
+                  <%= link_to t("views.welcome._admin.copy.nanny_portrait", family: profile.user.last_name), portrait %>
+                <% end %>
+              </td>
+              <td><%= profile.created_at.strftime("%d/%b/%Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+
+      <h2><%= t("pluralise.nanny_profile", count: @nanny_profiles_size) %></h2>
+      <table class="twelve">
+        <thead>
+          <tr>
+            <th><%= t("views.welcome._admin.table.headings.number") %></th>
+            <th><%= t("views.welcome._admin.table.headings.full_name") %></th>
+            <th><%= t("views.welcome._admin.table.headings.since") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @nanny_profiles.each_with_index do |profile, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= link_to profile.user.full_name, profile %></td>
+              <td><%= profile.created_at.strftime("%d/%b/%Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+
+    </section><!-- /.content -->
+  </div><!-- /.twelve .columns -->
+</div>

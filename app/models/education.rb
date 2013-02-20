@@ -4,6 +4,7 @@ class Education < ActiveRecord::Base
   has_many :addresses, as: :addresseable
 
   attr_accessible :ended_at
+  attr_accessible :is_a_graduate
   attr_accessible :name
   attr_accessible :qualification
   attr_accessible :started_at

@@ -114,10 +114,22 @@ en:
 
 # Pluralisation
   pluralise:
-    years:
-      one: year
-      other: years
-      zero: years
+    family_profile:
+      one: "%{count} family profile"
+      other: "%{count} family profiles"
+      zero: "%{count} family profiles"
+    nanny_profile:
+      one: "%{count} nanny profile"
+      other: "%{count} nanny profiles"
+      zero: "%{count} nanny profiles"
+    user:
+      one: "%{count} user"
+      other: "%{count} users"
+      zero: "%{count} users"
+    year:
+      one: "%{count} year"
+      other: "%{count} years"
+      zero: "%{count} years"
 
 # simple_captcha
   simple_captcha:
@@ -508,8 +520,23 @@ en:
     simple_captcha:
       _simple_captcha:
         hints:
-          no_robots: This helps stop robots who are pretending to be people from registering.
+          no_robots: This stops robots pretending to be people from registering.
     welcome:
+      _admin:
+        copy:
+          nanny_portrait: "%{family} family nanny portrait"
+        headings:
+          users: Users
+          family_profiles: Family profiles
+          nanny_profiles: Nanny profiles
+        table:
+          headings:
+            family: Family of
+            full_name: Full name
+            nanny_portrait: Nanny portrait
+            number: "#"
+            role: Registration type
+            since: Created on
       _family:
         copy:
           already_setup:
