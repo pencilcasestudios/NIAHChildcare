@@ -524,6 +524,8 @@ en:
     welcome:
       _admin:
         copy:
+          actions:
+            edit: Edit
           nanny_portrait: "%{family} family nanny portrait"
         headings:
           users: Users
@@ -531,12 +533,15 @@ en:
           nanny_profiles: Nanny profiles
         table:
           headings:
+            actions: Actions
             family: Family of
+            first_name: First name
             full_name: Full name
+            last_name: Last name
+            middle_name: Middle name
             nanny_portrait: Nanny portrait
             number: "#"
             role: Registration type
-            since: Created on
       _family:
         copy:
           already_setup:
