@@ -33,4 +33,13 @@ class NannyProfilesController < ApplicationController
       render action: "edit"
     end
   end
+
+  def resume
+    nanny_profile = NannyProfile.find(params[:id])
+
+    send_file(
+      nanny_profile.resume_url,
+      filename: "#{t("controllers.nanny_profiles_controller.actions.resume.copy.resume")} - #{nanny_profile.user.full_name} (#{Time.now.strftime("%d %B %Y %H%M")}).pdf"
+    )
+   end
 end

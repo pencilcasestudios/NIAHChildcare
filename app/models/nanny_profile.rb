@@ -1,4 +1,6 @@
 class NannyProfile < ActiveRecord::Base
+  mount_uploader :resume, ResumeUploader
+
   belongs_to :user
 
   has_many :addresses, as: :addresseable
@@ -32,6 +34,8 @@ class NannyProfile < ActiveRecord::Base
   attr_accessible :is_willing_to_become_first_aid_certified
   attr_accessible :languages_spoken
   attr_accessible :previous_full_names
+  attr_accessible :resume
+  attr_accessible :resume_cache
   attr_accessible :statement_of_truth
   attr_accessible :work_accommodation_preference
   attr_accessible :work_location_preference_description

@@ -46,6 +46,39 @@
 
 
   <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.resume_html") %></legend>
+    <%= f.label :resume, t("views.nanny_profiles._form.labels.resume_html") %>
+    <%= f.file_field :resume %>
+    <%= f.hidden_field :resume_cache %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.educations") %></legend>
+    <%= f.fields_for :educations %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_a_school"), :educations %></p>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.employers") %></legend>
+
+    <%= t("views.nanny_profiles._form.copy.employers_html") %>
+
+    <p><%= f.check_box :can_contact_current_employer %> <%= t("views.nanny_profiles._form.copy.can_contact_current_employer") %></p>
+
+    <%= f.fields_for :employers %>
+    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_employer"), :employers %></p>
+  </fieldset>
+
+
+
+
+  <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.licenses_and_certification")%></legend>
 
     <fieldset>
@@ -63,8 +96,10 @@
           <%= t("views.nanny_profiles._form.copy.driving_record_checks_html") %>
         </div>
       </div>
-
     </fieldset>
+
+
+
 
     <fieldset>
       <legend><%= t("views.nanny_profiles._form.legends.first_aid")%></legend>
@@ -108,44 +143,9 @@
 
 
   <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.convictions")%></legend>
-    <%= f.label :has_been_convicted_of_a_felony, t("views.nanny_profiles._form.labels.has_been_convicted_of_a_felony") %>
-    <%= f.check_box :has_been_convicted_of_a_felony %>
-
-    <%= f.label :felony_conviction_description, t("views.nanny_profiles._form.labels.felony_conviction_description") %>
-    <%= f.text_area :felony_conviction_description, rows: 8 %>
-  </fieldset>
-
-
-
-
-  <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.languages_spoken")%></legend>
     <%= f.label :languages_spoken, t("views.nanny_profiles._form.labels.languages_spoken") %>
     <%= f.text_area :languages_spoken, rows: 4 %>
-  </fieldset>
-
-
-
-
-  <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.employers") %></legend>
-
-    <%= t("views.nanny_profiles._form.copy.employers_html") %>
-
-    <p><%= f.check_box :can_contact_current_employer %> <%= t("views.nanny_profiles._form.copy.can_contact_current_employer") %></p>
-
-    <%= f.fields_for :employers %>
-    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_an_employer"), :employers %></p>
-  </fieldset>
-
-
-
-
-  <fieldset>
-    <legend><%= t("views.nanny_profiles._form.legends.educations") %></legend>
-    <%= f.fields_for :educations %>
-    <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._form.links.add_a_school"), :educations %></p>
   </fieldset>
 
 
@@ -191,6 +191,18 @@
 
     <%= f.label :work_location_preference_description, t("views.nanny_profiles._form.labels.work_location_preference_description") %>
     <%= f.text_area :work_location_preference_description, rows: 5 %>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.convictions")%></legend>
+    <%= f.label :has_been_convicted_of_a_felony, t("views.nanny_profiles._form.labels.has_been_convicted_of_a_felony") %>
+    <%= f.check_box :has_been_convicted_of_a_felony %>
+
+    <%= f.label :felony_conviction_description, t("views.nanny_profiles._form.labels.felony_conviction_description") %>
+    <%= f.text_area :felony_conviction_description, rows: 8 %>
   </fieldset>
 
 

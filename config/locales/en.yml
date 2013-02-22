@@ -46,6 +46,9 @@ en:
           success: Your nanny profile was successfully created.
         update:
           success: Your nanny profile was successfully updated.
+        resume:
+          copy:
+            resume: "Resume"
 
     sessions_controller:
       actions:
@@ -427,6 +430,7 @@ en:
           languages_spoken: Languages I speak fluently
           phone: Phone
           previous_full_names: I have previously been known by the following full names
+          resume_html: "Resum&eacute; upload"
           state: State
           street_address: Street address
           work_accommodation_preference: My preferred accommodation situation would be
@@ -448,6 +452,7 @@ en:
           licenses_and_certification: Licenses and certification
           names: Names
           references: References
+          resume_html: "Resum&eacute;"
           statement_of_truth: Statement of truth
           work_location_preference_description: Location preferences
         links:
@@ -481,11 +486,13 @@ en:
           licenses_and_certification: Licenses and certification
           names: Names
           previous_full_names: Previous full names
+          resume_html: "Resum&eacute;"
           work_location_preference_description: Cities and states where I would like to work
-        title: Your nanny profile
-        title_admin: Nanny profile
         links:
           edit: Edit
+          resume_html: "Download resum&eacute;"
+        title: Your nanny profile
+        title_admin: Nanny profile
 
     users:
       _errors:

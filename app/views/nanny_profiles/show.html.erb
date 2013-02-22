@@ -19,6 +19,7 @@
 
 
 
+      <!-- Name -->
       <% if @nanny_profile.full_name.present? %>
         <hr />
 
@@ -40,6 +41,7 @@
 
 
 
+      <!-- Address -->
       <% if @nanny_profile.addresses.present? %>
         <hr />
 
@@ -73,6 +75,25 @@
 
 
 
+      <!-- Resume -->
+      <% if @nanny_profile.resume? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headers.resume_html") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <p>
+              <%= link_to t("views.nanny_profiles.show.links.resume_html"), resume_nanny_profile_path(@nanny_profile) %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+
+
+
+
       <hr />
 
       <div class="row">
@@ -88,9 +109,6 @@
             <% end %>
           </p>
 
-
-
-
           <p>
             <% if @nanny_profile.has_a_valid_drivers_license? %>
               <%= t("views.nanny_profiles.show.copy.has_a_valid_drivers_license_html") %><%= t("views.application.copy.full_stop") %>
@@ -98,9 +116,6 @@
               <%= t("views.nanny_profiles.show.copy.does_not_have_a_valid_drivers_license_html") %><%= t("views.application.copy.full_stop") %>
             <% end %>
           </p>
-
-
-
 
           <p>
             <% if @nanny_profile.is_certified_in_child_first_aid? %>
@@ -117,9 +132,6 @@
               <% end %>
             <% end %>
           </p>
-
-
-
 
           <p>
             <% if @nanny_profile.is_certified_in_child_cpr? %>
