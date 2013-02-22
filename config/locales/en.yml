@@ -1,5 +1,11 @@
 en:
   application:
+    client:
+      contacts:
+        email: "Info@NIAHChildcare.com"
+        mail_html: "<p>Needle in a Haystack Special Needs Childcare Agency<br />\nRiverside Center<br />\n275 Grove Street<br />\nSuite 2-400<br />\nNewton<br />\nMassachusetts<br />\n02466\n</p>"
+        phone: "617-798-6200"
+        facebook: "http://www.facebook.com/NIAHChildcare"
     developer:
       name: Pencil Case Studios
       url: http://niahchildcare.com
@@ -728,6 +734,12 @@ en:
         headings:
           conditions_of_guarantee_or_refund: Conditions of Guarantee/Refund
       contact:
+        copy:
+          contact_us_by_email: send us an email
+          contact_us_by_phone: "Call us on %{phone_number}"
+          facebook: Facebook
+          find_us_on_facebook_html: "You can also find us on %{facebook_page}."
+          or: or
         title: Contact Us
       fees:
         title: Fees

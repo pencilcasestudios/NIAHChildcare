@@ -4,25 +4,32 @@
   <div class="six columns">
     <section class="header">
       <header>
-        <h1><%= title t("views.welcome.contact.title") %>
-</h1>
+        <h1><%= title t("views.welcome.contact.title") %></h1>
       </header>
     </section>
   </div>
   <div class="six columns">
     <section class="content">
-      <p>
-        Needle in a Haystack Special Needs Childcare Agency<br />
-        Riverside Center<br />
-        275 Grove Street<br />
-        Suite 2-400<br />
-        Newton<br />
-        Massachusetts<br />
-        02466<br />
-        <br />
-        617-798-6200<br />
-        Info@NIAHChildcare.com<br />
-      </p>
+
+      <!-- Contact information -->
+      <section>
+        <address>
+          <%= t("application.client.contacts.mail_html") %>
+          <p>
+            <%= t("views.welcome.contact.copy.contact_us_by_phone", phone_number: t("application.client.contacts.phone")) %>
+            <%= t("views.welcome.contact.copy.or") %>
+            <%= mail_to t("application.client.contacts.email"), t("views.welcome.contact.copy.contact_us_by_email"), encode: "hex" %><%= t("views.application.copy.full_stop") %>
+          </p>
+
+          <p>
+            <%= t("views.welcome.contact.copy.find_us_on_facebook_html", facebook_page: link_to(t("views.welcome.contact.copy.facebook"), t("application.client.contacts.facebook"))) %>
+          </p>
+        </address>
+      </section>
+
+      <!-- Google map -->
+      <section>
+      </section>
 
     </section>
   </div><!-- /.twelve .columns -->
