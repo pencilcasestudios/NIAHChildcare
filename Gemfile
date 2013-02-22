@@ -11,6 +11,7 @@ gem "rails"
 # Used accross environments
 gem "bcrypt-ruby"
 gem "cancan"
+gem "carrierwave"
 gem "daemons"
 gem "delayed_job_active_record"
 gem "galetahub-simple_captcha", require: "simple_captcha"#, git: "git://github.com/galetahub/simple-captcha.git"
@@ -21,6 +22,7 @@ gem "paper_trail"
 gem "pcs_vegas"
 gem "settingslogic"
 gem "state_machine"
+
 
 
 
