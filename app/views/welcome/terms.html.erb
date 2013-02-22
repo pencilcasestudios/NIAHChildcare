@@ -4,54 +4,53 @@
   <div class="six columns">
     <section class="header">
       <header>
-        <h1><%= title t("views.welcome.terms.title") %>
-</h1>
+        <h1><%= title t("views.welcome.terms.title") %></h1>
       </header>
     </section>
   </div>
 
   <div class="six columns">
+    <!-- Overview -->
     <section class="content">
-      <ol>
-        <li>In these terms and conditions an "Employer" means a person or company that employs or seeks to employ a nanny through the services of Needle in a Haystack Childcare, and an "Employee" means a nanny, carer or a childcare worker introduced by Needle in a Haystack Childcare.</li>
-        <li>Needle in a Haystack Childcare is a referral service only. Any contract of employment will be entered into between the Employer and Employee. Our involvement in any contract is in an advisory capacity only.</li>
-        <li>Needle in a Haystack Childcare will invoice the Employer when an Employee has accepted the position offered and not on the first day of employment. Agency fees are payable within 5 days. Late payment will be subject to a surcharge of 5% of the total invoice, per month.</li>
-        <li>In the following situation the deposit of $250.00 will be non-refundable: If Needle in a Haystack has identified suitable applicant(s) based on the information provided about the position and sent details of those applicants to the Employer, but the Employer has changed the details of the position to such an extent, that the identified applicant(s) is/are no longer suitable. This also includes the complete withdrawal of a position. When a placement is confirmed the deposit paid will be deducted from any subsequent permanent placement fee. </li>
-        <li>Should an Employee&rsquo;s temporary or part-time position be extended the Employer shall notify Needle in a Haystack Childcare in writing within 7 days of any such change, and be liable to pay any additional fee commensurate with the additional employment.</li>
-        <li>All information that is passed by Needle in a Haystack Childcare in the course of an introduction shall be treated as confidential by the Employer, such information to include (but not be limited to) resumes, addresses, the fact of introduction, and all other personal details.</li>
-        <li>Where an Employer has requested the services of Needle in a Haystack Childcare, they are deemed to have accepted Needle in a Haystack Childcare terms conditions and fees.</li>
-        <li>No Employer who has received information from Needle in a Haystack Childcare about a proposed Employee shall introduce that Employee to any third party other than through Needle in a Haystack Childcare. If an introduction is made contrary to this condition the Employer shall be liable to Needle in a Haystack Childcare for the full extent of the fee payable had the introduction been made by Needle in a Haystack Childcare. Such liability for payment shall be in addition to any other fees payable by the Employer.</li>
-        <li>Needle in a Haystack Childcare makes every reasonable effort to ensure the suitability of Employees, we cannot accept responsibility for loss, damage or personal injury arising out of any introduction, nor give any warranty concerning history, character, age or capability.</li>
-        <li>If a position is offered to and accepted by the nanny, but then subsequently withdrawn by the employer, the employer will still be liable to pay the full placement fee.</li>
-        <li>If a permanent nanny is required, and the employer accepts a temporary nanny until a more suitable permanent candidate is available, we will deduct 50% of the temporary fee paid from any subsequent permanent placement fee.</li>
-        <li>Where a position has been offered and accepted, but the details of the position have changed so as to make the position untenable, the employer will be liable for the full placement fee.</li>
-      </ol>
+      <section>
+        <ol>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_1_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_2_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_3_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_4_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_5_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_6_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_7_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_8_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_9_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_10_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_11_html") %></li>
+          <li><%= t("views.welcome.terms.copy.overview.list.item_12_html") %></li>
+        </ol>
 
-      <p>Needle in a Haystack Childcare offers a one time replacement guarantee period. Should a placement not work out during this time, we will attempt to find a replacement within two weeks of receiving confirmation of employment termination. Should no replacement be found, Needle in a Haystack Childcare will issue a refund as follows:</p>
+        <%= t("views.welcome.terms.copy.overview.paragraph_1_html") %>
+        <%= t("views.welcome.terms.copy.overview.paragraph_2_html") %>
+      </section>
 
-      <p>
-        Up to 2 months after the original placement: 75%<br />
-        2 to 3 months: 45%<br />
-        3 to 4 months: 20%
-      </p>
+      <!-- Conditions of Guarantee/Refund -->
+      <section>
+        <h2><%= t("views.welcome.terms.headings.conditions_of_guarantee_or_refund") %></h2>
 
-      <h2>Conditions of Guarantee/Refund</h2>
+        <%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.paragraph_1_html") %>
 
-      <p>Needle in a Haystack Childcare&rsquo;s guarantee does not apply if one or more of the following conditions apply:</p>
-
-      <ol>
-        <li>Needle in a Haystack Childcare has not received confirmation of the termination of employment within five working days of the agency being initially informed.</li>
-        <li>The placement fee due has not been paid in full within 5 days of date of invoice.</li>
-        <li>Suitable replacement(s) are unreasonably refused within the 2-week replacement period.</li>
-        <li>Another agency or other source is used during the 2-week replacement period.</li>
-        <li>The Employee has left or not started the position because of unreasonable conditions</li>
-        <li>The job description has changed or the contract has been breached.</li>
-        <li>Needle in a Haystack Childcare&rsquo;s Terms and Conditions have not been adhered to.</li>
-        <li>The job has been withdrawn or the employer informs Needle in a Haystack Childcare within the two week period they no longer require the services of Needle in a Haystack Childcare. </li>
-        <li>The job description has been changed to such an extent that it is an entirely new position.</li>
-      </ol>
+        <ol>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_1_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_2_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_3_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_4_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_5_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_6_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_7_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_8_html") %></li>
+          <li><%= t("views.welcome.terms.copy.conditions_of_guarantee_or_refund.list.item_9_html") %></li>
+        </ol>
+      </section>
     </section>
-
   </div><!-- /.twelve .columns -->
 </div><!-- /.row -->
 
