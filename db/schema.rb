@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20130209080534) do
     t.string   "commitment_preference"
     t.string   "contact_preference"
     t.string   "full_name"
+    t.string   "resume"
     t.string   "work_accommodation_preference"
     t.text     "childcare_experience_description"
     t.text     "felony_conviction_description"
