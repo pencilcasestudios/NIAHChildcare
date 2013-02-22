@@ -742,6 +742,16 @@ en:
           or: or
         title: Contact Us
       fees:
+        table:
+          data:
+            consultation_deposit: Consultation Deposit
+            consultation_deposit_fee_html: $250.00 (Non-refundable).
+            full_time_placements: Full-time Placements
+            full_time_placements_fee_html: "12% of the employee&rsquo;s gross annual salary."
+            part_time_placement: Part-time Placement
+            part_time_placement_fee_html: "13% of the employee&rsquo;s gross annual salary. Minimum placement fee is $1,500.00."
+            temporary_positions: Temporary Positions
+            temporary_positions_fee_html: "Temporary fees are 100.00 per week, $35.00 per day (up to 2 days)."
         title: Fees
       register:
         links:

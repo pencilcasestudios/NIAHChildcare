@@ -4,35 +4,30 @@
   <div class="six columns">
     <section class="header">
       <header>
-        <h1><%= title t("views.welcome.fees.title") %>
-</h1>
+        <h1><%= title t("views.welcome.fees.title") %></h1>
       </header>
     </section>
   </div>
   <div class="six columns">
     <section class="content">
-      <table>
+      <section>
+
+       <table>
         <tr>
-          <td>Consultation Deposit</td>
-          <td>$250.00 (Non-refundable)</td>
+          <td><%= t("views.welcome.fees.table.data.consultation_deposit") %></td>
+          <td><%= t("views.welcome.fees.table.data.consultation_deposit_fee_html") %></td>
         </tr>
         <tr>
-          <td>Full-time Placements</td>
-          <td>12% of the employee's gross annual salary</td>
+          <td><%= t("views.welcome.fees.table.data.full_time_placements") %></td>
+          <td><%= t("views.welcome.fees.table.data.full_time_placements_fee_html") %></td>
         </tr>
         <tr>
-          <td>Part-time Placement</td>
-          <td>
-            13% of the employee's gross annual salary.<br />
-            Minimum placement fee is $1500.00.
-          </td>
+          <td><%= t("views.welcome.fees.table.data.part_time_placement") %></td>
+          <td><%= t("views.welcome.fees.table.data.part_time_placement_fee_html") %></td>
         </tr>
         <tr>
-          <td>Temporary Positions</td>
-          <td>
-            Temporary fees are 100.00 per week<br />
-            $35.00 per day (Up to 2 days)
-           </td>
+          <td><%= t("views.welcome.fees.table.data.temporary_positions") %></td>
+          <td><%= t("views.welcome.fees.table.data.temporary_positions_fee_html") %></td>
         </tr>
         <!--
         <tr>
@@ -41,6 +36,8 @@
         </tr>
         -->
       </table>
+
+     </section>
     </section>
   </div><!-- /.twelve .columns -->
 </div><!-- /.row -->
