@@ -17,12 +17,12 @@ gem "delayed_job_active_record"
 gem "galetahub-simple_captcha", require: "simple_captcha"#, git: "git://github.com/galetahub/simple-captcha.git"
 gem "jquery-rails"
 gem "meta-tags", require: "meta_tags"
+gem "mime-types" # Ref: https://github.com/jnicklas/carrierwave#setting-the-content-type
 gem "nested_form"
 gem "paper_trail"
 gem "pcs_vegas"
 gem "settingslogic"
 gem "state_machine"
-
 
 
 
