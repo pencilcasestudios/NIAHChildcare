@@ -41,14 +41,19 @@ class NannyProfilesController < ApplicationController
     resume = t("controllers.nanny_profiles_controller.actions.resume.copy.resume")
     owner_name = nanny_profile.user.full_name
     timestamp = Time.now.strftime("%d %B %Y %H%M")
-    extension = nanny_profile.resume.file.extension
+    extension = nanny_profile.resume.file.extension.downcase
+
+    # Determine the MIME type
+    mime = MIME::Types.type_for(nanny_profile.resume.url).first.content_type
+
 
     filename = "#{resume} - #{owner_name} (#{timestamp}).#{extension}"
 
     # Let the user download it
-    send_file(
-      nanny_profile.resume_url,
+    send_file( nanny_profile.resume.url,
+      disposition: "attachment", # Download the file instead of showing it in the browser
       filename: filename,
+      type: mime,
       x_sendfile: true,
     )
    end
