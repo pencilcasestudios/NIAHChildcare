@@ -39,7 +39,8 @@ class NannyProfilesController < ApplicationController
 
     send_file(
       nanny_profile.resume_url,
-      filename: "#{t("controllers.nanny_profiles_controller.actions.resume.copy.resume")} - #{nanny_profile.user.full_name} (#{Time.now.strftime("%d %B %Y %H%M")}).pdf"
+      filename: "#{t("controllers.nanny_profiles_controller.actions.resume.copy.resume")} - #{nanny_profile.user.full_name} (#{Time.now.strftime("%d %B %Y %H%M")}).pdf",
+      x_sendfile: true,
     )
    end
 end
