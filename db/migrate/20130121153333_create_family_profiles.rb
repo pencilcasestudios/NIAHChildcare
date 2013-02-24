@@ -1,9 +1,11 @@
 class CreateFamilyProfiles < ActiveRecord::Migration
   def change
     create_table :family_profiles do |t|
-      t.text :pets_description
-      t.text :interests_description
       t.references :user
+
+      t.text :best_time_to_contact
+      t.text :interests_description
+      t.text :pets_description
 
       t.timestamps
     end

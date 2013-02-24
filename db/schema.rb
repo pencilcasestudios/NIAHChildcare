@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209080534) do
+ActiveRecord::Schema.define(:version => 20130224114702) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addresseable_id"
@@ -86,9 +86,10 @@ ActiveRecord::Schema.define(:version => 20130209080534) do
   add_index "employers", ["employable_id"], :name => "index_employers_on_employable_id"
 
   create_table "family_profiles", :force => true do |t|
-    t.text     "pets_description"
-    t.text     "interests_description"
     t.integer  "user_id"
+    t.text     "best_time_to_contact"
+    t.text     "interests_description"
+    t.text     "pets_description"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130209080534) do
   add_index "nanny_portraits", ["family_profile_id"], :name => "index_nanny_portraits_on_family_profile_id"
 
   create_table "nanny_profiles", :force => true do |t|
+    t.integer  "user_id"
     t.boolean  "can_contact_current_employer"
     t.boolean  "has_a_valid_drivers_license"
     t.boolean  "has_been_convicted_of_a_felony"
@@ -140,12 +142,12 @@ ActiveRecord::Schema.define(:version => 20130209080534) do
     t.datetime "current_address_since_at"
     t.datetime "date_of_birth"
     t.datetime "first_aid_certification_expires_at"
-    t.integer  "user_id"
     t.string   "commitment_preference"
     t.string   "contact_preference"
     t.string   "full_name"
     t.string   "resume"
     t.string   "work_accommodation_preference"
+    t.text     "best_time_to_contact"
     t.text     "childcare_experience_description"
     t.text     "felony_conviction_description"
     t.text     "hobbies_description"
@@ -158,6 +160,18 @@ ActiveRecord::Schema.define(:version => 20130209080534) do
   end
 
   add_index "nanny_profiles", ["user_id"], :name => "index_nanny_profiles_on_user_id"
+
+  create_table "notes", :force => true do |t|
+    t.integer  "noteable_id"
+    t.string   "noteable_type"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "notes", ["noteable_id"], :name => "index_notes_on_noteable_id"
+  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
 
   create_table "references", :force => true do |t|
     t.datetime "known_since"

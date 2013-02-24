@@ -46,6 +46,15 @@
 
 
   <fieldset>
+    <legend><%= t("views.nanny_profiles._form.legends.best_time_to_contact") %></legend>
+    <%= f.label :best_time_to_contact, t("views.nanny_profiles._form.labels.best_time_to_contact") %>
+    <%= f.text_field :best_time_to_contact %>
+  </fieldset>
+
+
+
+
+  <fieldset>
     <legend><%= t("views.nanny_profiles._form.legends.resume_html") %></legend>
     <%= f.label :resume, t("views.nanny_profiles._form.labels.resume_html") %>
     <%= f.file_field :resume %>

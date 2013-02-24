@@ -5,6 +5,7 @@ class FamilyProfile < ActiveRecord::Base
   has_many :children
   has_many :guardians
   has_many :nanny_portraits
+  has_many :notes, as: :noteable
   has_many :references, as: :referenceable
 
   validates :statement_of_truth, acceptance: true

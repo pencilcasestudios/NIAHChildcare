@@ -1,6 +1,7 @@
 class NannyPortrait < ActiveRecord::Base
   belongs_to :family_profile
 
+  has_many :notes, as: :noteable
   has_many :references, as: :referenceable
 
   accepts_nested_attributes_for :references, allow_destroy: true

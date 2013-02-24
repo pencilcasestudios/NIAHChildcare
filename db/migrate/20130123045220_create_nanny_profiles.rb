@@ -1,6 +1,8 @@
 class CreateNannyProfiles < ActiveRecord::Migration
   def change
     create_table :nanny_profiles do |t|
+      t.references :user
+
       t.boolean :can_contact_current_employer
       t.boolean :has_a_valid_drivers_license
       t.boolean :has_been_convicted_of_a_felony
@@ -14,12 +16,12 @@ class CreateNannyProfiles < ActiveRecord::Migration
       t.datetime :current_address_since_at
       t.datetime :date_of_birth
       t.datetime :first_aid_certification_expires_at
-      t.references :user
       t.string :commitment_preference
       t.string :contact_preference
       t.string :full_name
       t.string :resume
       t.string :work_accommodation_preference
+      t.text :best_time_to_contact
       t.text :childcare_experience_description
       t.text :felony_conviction_description
       t.text :hobbies_description

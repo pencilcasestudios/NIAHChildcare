@@ -6,6 +6,7 @@ class NannyProfile < ActiveRecord::Base
   has_many :addresses, as: :addresseable
   has_many :educations, as: :educatable
   has_many :employers, as: :employable
+  has_many :notes, as: :noteable
   has_many :references, as: :referenceable
 
   validates :statement_of_truth, acceptance: true
