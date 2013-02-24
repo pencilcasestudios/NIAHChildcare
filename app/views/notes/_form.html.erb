@@ -1,0 +1,11 @@
+<%= form_for([@noteable, @note]) do |f| %>
+  <%= render "errors", note: @note %>
+
+  <fieldset>
+    <legend><%= t("views.notes._form.legends.body") %></legend>
+    <%= f.label :body, t("views.notes._form.labels.body") %>
+    <%= f.text_area :body, rows: 8 %>
+  </fieldset>
+
+  <%= f.submit class: "button" %>
+<% end %>

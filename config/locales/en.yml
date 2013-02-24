@@ -50,6 +50,11 @@ en:
           copy:
             resume: "Resume"
 
+    notes_controller:
+      actions:
+        create:
+          success: Your note was successfully created.
+
     sessions_controller:
       actions:
         create:
@@ -294,6 +299,7 @@ en:
         title_admin: Family profile
         links:
           edit: Edit
+          note: Note
 
     nanny_portraits:
       _form:
@@ -495,6 +501,16 @@ en:
           resume_html: "Download resum&eacute;"
         title: Your nanny profile
         title_admin: Nanny profile
+
+    notes:
+      _form:
+        labels:
+          body: Note
+        legends:
+          body: Note
+
+      new:
+        title: New note
 
     users:
       _errors:

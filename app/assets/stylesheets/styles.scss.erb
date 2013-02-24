@@ -1,3 +1,5 @@
+@import "_common";
+
 html {
   /* Force the vertical scrollbar */
   overflow-y: scroll;
@@ -97,6 +99,21 @@ footer .credits {
 
 #user_links a:hover {
   text-decoration: underline;
+}
+
+.note {
+  margin-bottom: 2em;
+  background: $yellow;
+  border: 1px solid $dark_yellow;
+
+  .body {
+    padding: 0.25em;
+  }
+
+  .metadata {
+    padding: 0.25em;
+    background: $dark_yellow;
+  }
 }
 
 .remove_field {

@@ -23,6 +23,7 @@ NIAHChildcare::Application.routes.draw do
 
   resources :family_profiles do
     resources :nanny_portraits
+    resources :notes
   end
 
   resources :nanny_profiles do
@@ -30,7 +31,6 @@ NIAHChildcare::Application.routes.draw do
       get "resume"
     end
   end
-
 
 
 
