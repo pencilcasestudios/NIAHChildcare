@@ -17,11 +17,11 @@
         <% end %>
 
         <% if @noteable.is_a?(NannyPortrait) %>
-          <%= link_to t("views.notes.index.links.back_to", back_to: @noteable.user.full_name), @noteable %>
+          <%= link_to t("views.notes.index.links.back_to_nanny_portrait", nanny_portrait: @noteable.family_profile.user.full_name), @noteable %>
         <% end %>
 
         <% if @noteable.is_a?(NannyProfile) %>
-          <%= link_to t("views.notes.index.links.back_to", back_to: @noteable.user.full_name), @noteable %>
+          <%= link_to t("views.notes.index.links.back_to_nanny_profile", nanny_profile: @noteable.user.full_name), @noteable %>
         <% end %>
       </p>
 
@@ -32,11 +32,11 @@
       <% end %>
 
       <% if @noteable.is_a?(NannyPortrait) %>
-        <%= link_to t("views.notes.index.links.back_to", back_to: @noteable.user.full_name), @noteable %>
+        <h2><%= t("views.notes.index.headings.nanny_portrait", family: @noteable.family_profile.user.full_name) %></h2>
       <% end %>
 
       <% if @noteable.is_a?(NannyProfile) %>
-        <%= link_to t("views.notes.index.links.back_to", back_to: @noteable.user.full_name), @noteable %>
+        <h2><%= t("views.notes.index.headings.nanny_portrait", nanny: @noteable.user.full_name) %></h2>
       <% end %>
 
       <%= render "form" %>

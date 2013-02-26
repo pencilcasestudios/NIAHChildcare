@@ -14,17 +14,21 @@
   </div><!-- /.three .columns -->
   <div class="eight columns">
     <section class="content">
-      <ul class="sub-nav" data-magellan-expedition="fixed">
-        <li><%= link_to t("views.family_profiles.show.links.note"), new_family_profile_note_path(@family_profile) %></li>
-        <li><%= link_to t("views.family_profiles.show.links.notes"), family_profile_notes_path(@family_profile) %></li>
-        <li><%= link_to t("views.family_profiles.show.links.edit"), edit_family_profile_path(@family_profile) %></li>
-      </ul>
+      <% if current_user.admin? %>
+        <ul class="sub-nav" data-magellan-expedition="fixed">
+          <li><%= link_to t("views.family_profiles.show.links.note"), new_family_profile_note_path(@family_profile) %></li>
+          <li><%= link_to t("views.family_profiles.show.links.notes"), family_profile_notes_path(@family_profile) %></li>
+          <li><%= link_to t("views.family_profiles.show.links.edit"), edit_family_profile_path(@family_profile) %></li>
+        </ul>
+      <% else %>
+        <p class="right"><%= link_to t("views.family_profiles.show.links.edit"), edit_family_profile_path(@family_profile) %></p>
+      <% end %>
 
       <hr />
 
       <div class="row">
         <div class="three columns heading">
-          <p><%= t("views.family_profiles.show.headers.guardians") %></p>
+          <p><%= t("views.family_profiles.show.headings.guardians") %></p>
         </div>
         <div class="nine columns">
           <% @family_profile.guardians.each do |guardian| %>
@@ -41,7 +45,7 @@
 
       <div class="row">
         <div class="three columns heading">
-          <p><%= t("views.family_profiles.show.headers.address") %></p>
+          <p><%= t("views.family_profiles.show.headings.address") %></p>
         </div>
         <div class="nine columns">
           <% @family_profile.addresses.each do |address| %>
@@ -73,7 +77,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.family_profiles.show.headers.family") %></p>
+            <p><%= t("views.family_profiles.show.headings.family") %></p>
           </div>
           <div class="nine columns">
             <% @family_profile.children.each_with_index do |child, index| %>
@@ -95,7 +99,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.family_profiles.show.headers.pets_description") %></p>
+            <p><%= t("views.family_profiles.show.headings.pets_description") %></p>
           </div>
           <div class="nine columns">
             <p><%= @family_profile.pets_description %></p>
@@ -111,7 +115,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.family_profiles.show.headers.interests_description") %></p>
+            <p><%= t("views.family_profiles.show.headings.interests_description") %></p>
           </div>
           <div class="nine columns">
             <p><%= @family_profile.interests_description %></p>

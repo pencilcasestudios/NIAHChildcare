@@ -10,9 +10,14 @@
   </div><!-- /.three .columns -->
   <div class="eight columns">
     <section class="content">
-      <p class="right"><%= link_to t("views.nanny_portraits.show.links.edit"), edit_nanny_portrait_path(@nanny_portrait) %></p>
 
       <% if current_user.admin? %>
+        <ul class="sub-nav" data-magellan-expedition="fixed">
+          <li><%= link_to t("views.nanny_portraits.show.links.note"), new_nanny_portrait_note_path(@nanny_portrait) %></li>
+          <li><%= link_to t("views.nanny_portraits.show.links.notes"), nanny_portrait_notes_path(@nanny_portrait) %></li>
+          <li><%= link_to t("views.nanny_portraits.show.links.edit"), edit_nanny_portrait_path(@nanny_portrait) %></li>
+        </ul>
+
         <hr />
 
         <div class="row">
@@ -23,6 +28,8 @@
             <p><%= link_to @nanny_portrait.family_profile.user.full_name, @nanny_portrait.family_profile %></p>
           </div>
         </div>
+      <% else %>
+        <p class="right"><%= link_to t("views.nanny_portraits.show.links.edit"), edit_nanny_portrait_path(@nanny_portrait) %></p>
       <% end %>
 
 

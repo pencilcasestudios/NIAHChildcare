@@ -299,7 +299,7 @@ en:
         title_admin: Family profile
         links:
           edit: Edit
-          note: Add a note
+          note: New note
           notes: Notes
 
     nanny_portraits:
@@ -363,6 +363,8 @@ en:
         title: Nanny portrait
         links:
           edit: Edit
+          note: New note
+          notes: Notes
 
     nanny_profiles:
       _address_fields:
@@ -499,12 +501,17 @@ en:
           work_location_preference_description: Cities and states where I would like to work
         links:
           edit: Edit
+          note: New note
+          notes: Notes
           resume_html: "Download resum&eacute;"
         title: Your nanny profile
         title_admin: Nanny profile
 
     notes:
       _form:
+        headings:
+          new_nanny_portrait_note: "%{family} family portrait note"
+          new_nanny_profile_note: "%{nanny} nanny profile note"
         labels:
           body: Note
         legends:
@@ -516,8 +523,11 @@ en:
       index:
         headings:
           family_profile: "%{family} family profile notes"
+          nanny_portrait: "%{nanny} nanny portrait notes"
         links:
-          back_to_family_profile: "%{family} family profile"
+          back_to_family_profile: "Back to: %{family} family profile"
+          back_to_nanny_portrait: "Back to: %{nanny_portrait} nanny portrait"
+          back_to_nanny_profile: "Back to: %{nanny_profile} nanny profile"
         title: Notes
       new:
         title: New note

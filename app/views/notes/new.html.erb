@@ -10,6 +10,21 @@
   </div><!-- /.three .columns -->
   <div class="eight columns">
     <section class="content">
+
+      <h2>
+        <% if @noteable.is_a?(FamilyProfile) %>
+          <%= t("views.notes._form.headings.new_family_profile_note", family: @noteable.user.full_name) %>
+        <% end %>
+
+        <% if @noteable.is_a?(NannyPortrait) %>
+          <%= t("views.notes._form.headings.new_nanny_portrait_note", family: @noteable.family_profile.user.full_name) %>
+        <% end %>
+
+        <% if @noteable.is_a?(NannyProfile) %>
+          <%= t("views.notes._form.headings.new_nanny_profile_note", nanny: @noteable.user.full_name) %>
+        <% end %>
+      </h2>
+
       <%= render "form" %>
     </section><!-- /.content -->
  </div><!-- /.nine .columns -->

@@ -14,6 +14,7 @@ class NannyProfile < ActiveRecord::Base
   attr_accessor :statement_of_truth
 
   attr_accessible :available_to_start_at
+  attr_accessible :best_time_to_contact
   attr_accessible :can_contact_current_employer
   attr_accessible :childcare_experience_description
   attr_accessible :commitment_preference

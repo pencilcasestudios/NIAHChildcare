@@ -14,10 +14,15 @@
   </div><!-- /.three .columns -->
   <div class="eight columns">
     <section class="content">
-      <p class="right"><%= link_to t("views.nanny_profiles.show.links.edit"), edit_nanny_profile_path(@nanny_profile) %></p>
-
-
-
+      <% if current_user.admin? %>
+        <ul class="sub-nav" data-magellan-expedition="fixed">
+          <li><%= link_to t("views.nanny_profiles.show.links.note"), new_nanny_profile_note_path(@nanny_profile) %></li>
+          <li><%= link_to t("views.nanny_profiles.show.links.notes"), nanny_profile_notes_path(@nanny_profile) %></li>
+          <li><%= link_to t("views.nanny_profiles.show.links.edit"), edit_nanny_profile_path(@nanny_profile) %></li>
+        </ul>
+      <% else %>
+        <p class="right"><%= link_to t("views.nanny_profiles.show.links.edit"), edit_nanny_profile_path(@nanny_profile) %></p>
+      <% end %>
 
       <!-- Name -->
       <% if @nanny_profile.full_name.present? %>
@@ -25,13 +30,13 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.names") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.names") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <p><strong><%= @nanny_profile.full_name %></strong></p>
 
             <% if @nanny_profile.previous_full_names.present? %>
-              <p><strong class="heading"><%= t("views.nanny_profiles.show.headers.previous_full_names") %></strong></p>
+              <p><strong class="heading"><%= t("views.nanny_profiles.show.headings.previous_full_names") %></strong></p>
               <%= simple_format @nanny_profile.previous_full_names %>
             <% end %>
           </div><!-- /.nine .columns -->
@@ -47,7 +52,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.address") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.address") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <% @nanny_profile.addresses.each do |address| %>
@@ -81,7 +86,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.resume_html") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.resume_html") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <p>
@@ -98,7 +103,7 @@
 
       <div class="row">
         <div class="three columns heading">
-          <p><%= t("views.nanny_profiles.show.headers.licenses_and_certification") %></p>
+          <p><%= t("views.nanny_profiles.show.headings.licenses_and_certification") %></p>
         </div><!-- /.three .columns .heading -->
         <div class="nine columns">
           <p>
@@ -160,7 +165,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.has_been_convicted_of_a_felony") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.has_been_convicted_of_a_felony") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <p><%= t("views.nanny_profiles.show.copy.has_been_convicted_of_a_felony") %><%= t("views.application.copy.full_stop") %></p>
@@ -177,7 +182,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.languages_spoken") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.languages_spoken") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <%= simple_format @nanny_profile.languages_spoken %>
@@ -193,7 +198,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.childcare_experience_description") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.childcare_experience_description") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <%= simple_format @nanny_profile.childcare_experience_description %>
@@ -209,7 +214,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.hobbies_description") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.hobbies_description") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <%= simple_format @nanny_profile.hobbies_description %>
@@ -225,7 +230,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.ideal_work_description") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.ideal_work_description") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <% if @nanny_profile.available_to_start_at.present? %><p><%= @nanny_profile.available_to_start_at %></p><% end %>
@@ -242,7 +247,7 @@
 
         <div class="row">
           <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headers.work_location_preference_description") %></p>
+            <p><%= t("views.nanny_profiles.show.headings.work_location_preference_description") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <%= simple_format @nanny_profile.work_location_preference_description %>
