@@ -19,7 +19,7 @@ class WelcomeController < ApplicationController
   def about
   end
 
-  def fees
+  def services_and_fees
   end
 
   def nannies

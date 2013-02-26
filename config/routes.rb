@@ -2,7 +2,7 @@ NIAHChildcare::Application.routes.draw do
   # Welcome
   match "about", to: "welcome#about", as: "about"
   match "contact", to: "welcome#contact", as: "contact"
-  match "fees", to: "welcome#fees", as: "fees"
+  match "services_and_fees", to: "welcome#services_and_fees", as: "services_and_fees"
   match "nannies", to: "welcome#nannies", as: "nannies"
   match "register", to: "welcome#register", as: "register"
   match "terms", to: "welcome#terms", as: "terms"
