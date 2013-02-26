@@ -3,6 +3,12 @@
     <%= simple_format note.body %>
   </div>
   <div class="metadata">
-    <%= note.updated_at.strftime("%d %B %Y %H:%M:%S") %>
+    <% if ( Time.now - note.updated_at ) > 604800 # More than 7 days ago %>
+      <%= note.updated_at.strftime("%d %B %Y %H:%M:%S") %>
+    <% else %>
+      <%= t("views.notes._note.copy.created") %>
+      <%= time_ago_in_words note.updated_at %>
+      <%= t("views.notes._note.copy.ago") %>
+  <% end %>
   </div>
 </div>

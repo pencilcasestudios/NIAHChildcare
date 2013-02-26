@@ -299,7 +299,8 @@ en:
         title_admin: Family profile
         links:
           edit: Edit
-          note: Note
+          note: Add a note
+          notes: Notes
 
     nanny_portraits:
       _form:
@@ -508,7 +509,12 @@ en:
           body: Note
         legends:
           body: Note
-
+      _note:
+        copy:
+          ago: ago
+          created: Created
+      index:
+        title: Notes
       new:
         title: New note
 

@@ -20,7 +20,20 @@
           </ul>
           <section>
             <ul class="right">
-              <li id="tab_home"><%= link_to t("views.application._navigation.links.home"), root_path %></li>
+              <% if user_signed_in? && current_user.admin? %>
+                <li id="tab_home" class="has-dropdown">
+                  <%= link_to t("views.application._navigation.links.home"), root_path %>
+                  <ul class="dropdown">
+                    <li><%= link_to t("views.application._navigation.links.users"), root_path(anchor: "users") %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to t("views.application._navigation.links.family_profiles"), root_path(anchor: "family_profiles") %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to t("views.application._navigation.links.nanny_profiles"), root_path(anchor: "nanny_profiles") %></li>
+                  </ul>
+                </li>
+              <% else %>
+                <li id="tab_home"><%= link_to t("views.application._navigation.links.home"), root_path %></li>
+              <% end %>
               <li id="tab_about"><%= link_to t("views.application._navigation.links.about"), about_path %></li>
               <li id="tab_nannies"><%= link_to t("views.application._navigation.links.nannies"), nannies_path %></li>
               <li id="tab_terms"><%= link_to t("views.application._navigation.links.terms"), terms_path %></li>
