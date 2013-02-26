@@ -58,7 +58,7 @@
       <section>
         <h2><%= t("views.welcome.nannies.headings.becoming_part_of_our_team") %></h2>
 
-        <%= t("views.welcome.nannies.copy.becoming_part_of_our_team.paragraph_1_html") %>
+        <%= t("views.welcome.nannies.copy.becoming_part_of_our_team.paragraph_1.text_html", register: link_to(t("views.welcome.nannies.copy.becoming_part_of_our_team.paragraph_1.complete_a_nanny_registration_form"), registration_path)) %>
         <%= t("views.welcome.nannies.copy.becoming_part_of_our_team.paragraph_2_html") %>
         <%= t("views.welcome.nannies.copy.becoming_part_of_our_team.paragraph_3_html") %>
         <%= t("views.welcome.nannies.copy.becoming_part_of_our_team.paragraph_4_html") %>
