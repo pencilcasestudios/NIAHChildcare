@@ -14,15 +14,15 @@
       <!-- Contact information -->
       <section>
         <address>
-          <%= t("application.client.contacts.mail_html") %>
+          <%= t("application.client.mail_html") %>
           <p>
-            <%= t("views.welcome.contact.copy.contact_us_by_phone", phone_number: t("application.client.contacts.phone")) %>
+            <%= t("views.welcome.contact.copy.contact_us_by_phone", phone_number: t("application.client.phone")) %>
             <%= t("views.welcome.contact.copy.or") %>
-            <%= mail_to t("application.client.contacts.email"), t("views.welcome.contact.copy.contact_us_by_email"), encode: "hex" %><%= t("views.application.copy.full_stop") %>
+            <%= mail_to t("application.client.email"), t("views.welcome.contact.copy.contact_us_by_email"), encode: "hex" %><%= t("views.application.copy.full_stop") %>
           </p>
 
           <p>
-            <%= t("views.welcome.contact.copy.find_us_on_facebook_html", facebook_page: link_to(t("views.welcome.contact.copy.facebook"), t("application.client.contacts.facebook"))) %>
+            <%= t("views.welcome.contact.copy.find_us_on_facebook_html", facebook_page: link_to(t("views.welcome.contact.copy.facebook"), t("application.client.social_media.facebook.url"))) %>
           </p>
         </address>
       </section>
