@@ -15,6 +15,7 @@
           <% else %>
             | <%= link_to_unless_current t("views.application._footer.links.register"), register_path %>
             | <%= link_to_unless_current t("views.application._footer.links.sign_in"), sign_in_path %>
+            | <%= link_to_unless_current image_tag("social_media/f_logo-16x16.png", alt: t("application.client.social_media.facebook.alt_text")), t("application.client.social_media.facebook.url") %>
           <% end %>
           |
         </p>
