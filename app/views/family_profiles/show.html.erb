@@ -14,10 +14,11 @@
   </div><!-- /.three .columns -->
   <div class="eight columns">
     <section class="content">
-      <p class="right">
-        <%= link_to t("views.family_profiles.show.links.note"), new_family_profile_note_path(@family_profile) %> |
-        <%= link_to t("views.family_profiles.show.links.edit"), edit_family_profile_path(@family_profile) %>
-      </p>
+      <ul class="sub-nav" data-magellan-expedition="fixed">
+        <li><%= link_to t("views.family_profiles.show.links.note"), new_family_profile_note_path(@family_profile) %></li>
+        <li><%= link_to t("views.family_profiles.show.links.notes"), family_profile_notes_path(@family_profile) %></li>
+        <li><%= link_to t("views.family_profiles.show.links.edit"), edit_family_profile_path(@family_profile) %></li>
+      </ul>
 
       <hr />
 
