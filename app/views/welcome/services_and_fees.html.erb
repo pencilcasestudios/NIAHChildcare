@@ -4,30 +4,80 @@
   <div class="six columns">
     <section class="header">
       <header>
-        <h1><%= title t("views.welcome.fees.title") %></h1>
+        <h1><%= title t("views.welcome.services_and_fees.title") %></h1>
       </header>
     </section>
   </div>
   <div class="six columns">
     <section class="content">
+      <!-- Services -->
       <section>
+        <h2><%= t("views.welcome.services_and_fees.headings.services") %></h2>
+
+        <%= t("views.welcome.services_and_fees.copy.services.paragraph_1_html") %>
+        <%= t("views.welcome.services_and_fees.copy.services.paragraph_2_html") %>
+        <%= t("views.welcome.services_and_fees.copy.services.paragraph_3_html") %>
+        <%= t("views.welcome.services_and_fees.copy.services.paragraph_4_html") %>
+      </section>
+
+
+
+
+      <!-- How we work -->
+      <section>
+        <h2><%= t("views.welcome.services_and_fees.headings.how_we_work") %></h2>
+
+        <%= t("views.welcome.services_and_fees.copy.how_we_work.paragraph_1_html") %>
+        <%= t("views.welcome.services_and_fees.copy.how_we_work.paragraph_2_html") %>
+        <%= t("views.welcome.services_and_fees.copy.how_we_work.paragraph_3_html") %>
+      </section>
+
+
+
+
+      <!-- What Type of Screenings Do We Complete? -->
+      <section>
+        <h2><%= t("views.welcome.services_and_fees.headings.what_type_of_screenings_do_we_complete") %></h2>
+
+        <%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.paragraph_1_html") %>
+
+        <ol>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_1") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_2") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_3") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_4") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_5") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_6") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_7") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_8") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_9") %></li>
+          <li><%= t("views.welcome.services_and_fees.copy.what_type_of_screenings_do_we_complete.list.item_10") %></li>
+        </ol>
+      </section>
+
+
+
+
+      <!-- Fees -->
+      <section>
+        <h2><%= t("views.welcome.services_and_fees.headings.fees") %></h2>
 
        <table>
         <tr>
-          <td><%= t("views.welcome.fees.table.data.consultation_deposit") %></td>
-          <td><%= t("views.welcome.fees.table.data.consultation_deposit_fee_html") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.consultation_deposit") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.consultation_deposit_fee_html") %></td>
         </tr>
         <tr>
-          <td><%= t("views.welcome.fees.table.data.full_time_placements") %></td>
-          <td><%= t("views.welcome.fees.table.data.full_time_placements_fee_html") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.full_time_placements") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.full_time_placements_fee_html") %></td>
         </tr>
         <tr>
-          <td><%= t("views.welcome.fees.table.data.part_time_placement") %></td>
-          <td><%= t("views.welcome.fees.table.data.part_time_placement_fee_html") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.part_time_placement") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.part_time_placement_fee_html") %></td>
         </tr>
         <tr>
-          <td><%= t("views.welcome.fees.table.data.temporary_positions") %></td>
-          <td><%= t("views.welcome.fees.table.data.temporary_positions_fee_html") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.temporary_positions") %></td>
+          <td><%= t("views.welcome.services_and_fees.table.data.temporary_positions_fee_html") %></td>
         </tr>
         <!--
         <tr>
