@@ -216,7 +216,7 @@ en:
           is_a: is a
           old: old
           who_is: who is
-        headers:
+        headings:
           interests_description: Interests
           special_needs_description: Special needs
 
@@ -287,7 +287,7 @@ en:
           guardian: Guardian
           mother: Mother
           old: old
-        headers:
+        headings:
           address: Address
           child_interests_description: Interests
           child_special_needs_description: Special accommodations
@@ -485,7 +485,7 @@ en:
           is_not_authorised_to_work_in_the_united_states_html: "I am <em>not</em> authorised to work in the United States"
           is_not_certified_in_child_cpr_html: "I am <em>not</em> certified in Child CPR"
           is_not_certified_in_child_first_aid_html: "I am <em>not</em> certified in Child First Aid"
-        headers:
+        headings:
           address: Address
           childcare_experience_description: Childcare experience
           has_been_convicted_of_a_felony: Felony convictions
@@ -514,6 +514,10 @@ en:
           ago: ago
           created: Created
       index:
+        headings:
+          family_profile: "%{family} family profile notes"
+        links:
+          back_to_family_profile: "%{family} family profile"
         title: Notes
       new:
         title: New note
