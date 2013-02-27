@@ -10,7 +10,7 @@ defaults: &defaults
   gemset_name: niahchildcare-rails.3.2.x
   repository_deployment_branch: master
   repository_server_name: niahchildcare.com
-  ruby_version: ruby-1.9.3-p362
+  ruby_version: ruby-1.9.3-p392
   server_name_production: niahchildcare.com
   server_name_staging: niahchildcare.clientcase.net
   stage_name_production: production
