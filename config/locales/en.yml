@@ -698,7 +698,7 @@ en:
               complete_a_nanny_registration_form: "complete a nanny registration form"
             paragraph_2_html: "<p>Please make sure your resum&eacute; has no gaps and includes the months of employment as well as years.</p>"
             paragraph_3_html: "<p>Please make sure that all the references you provide have a current telephone number and full address. It may be a good idea to call them yourself to make sure their contact information is up to-date, and to inform them that Needle In A Haystack will contact them in regards to your employment application.</p>"
-            paragraph_4_html: "<p>Once we have your form and resum&eacute;, we will need to interview you. Please bring the following document with you to the interview.</p>"
+            paragraph_4_html: "<p>Once we have your form and resum&eacute;, we will need to interview you. Please bring the following documents with you to the interview.</p>"
             list:
               item_1_html: "A recent passport sized photograph of yourself"
               item_2_html: "Resum&eacute;"
