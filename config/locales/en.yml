@@ -782,7 +782,7 @@ en:
               complete_the_family_registration: complete the family registration
             paragraph_2_html: "<p>Please be as specific as possible when discussing your needs; we use this information when interviewing potential candidates. Once we receive your information, we will call you to set up a family interview. A consultant will come to your house and discuss further about your specific needs, meet your children and take a tour of the home. Any information gathered during the family interview is solely used for the purpose of matching your family with the perfect nanny and will not be used for any other purpose.</p>"
             paragraph_3_html: "<p>After the family interview and the payment of the registration fee/deposit, we begin our search and start interviewing potential candidates. We then complete all necessary background and reference checks. Once we are satisfied with our selected candidates, we will contact you for interview times and ensure all the candidates are available at the time as well. After the interview, we’ll discuss your opinions and impressions, feedback, and other related issues. Once the match is complete and you are satisfied with your selection, we require the placement fee within 5 days of the nanny accepting employment with your family.</p>"
-          what_type_of_screenings_do_we_complete:
+          our_screening_process:
             paragraph_1_html: <p>Each candidate for childcare service undergoes extensive background checks after the face-to-face interview including:</p>
             list:
               item_1: SSN Trace
@@ -799,7 +799,7 @@ en:
           fees: Fees
           how_we_work: How We Work
           services: Services
-          what_type_of_screenings_do_we_complete: What Kind Of Screenings Do We Complete?
+          our_screening_process: Our Screening Process
         table:
           data:
             consultation_deposit: Consultation Deposit
