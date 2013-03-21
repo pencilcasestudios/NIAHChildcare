@@ -627,14 +627,11 @@ en:
         table:
           headings:
             actions: Actions
-            family: Family of
-            first_name: First name
+            cell_phone_number: Phone
+            email: Email
             full_name: Full name
-            last_name: Last name
-            middle_name: Middle name
-            nanny_portrait: Nanny portrait
             number: "#"
-            role: Registration type
+            role: Role
       _family:
         copy:
           already_setup:

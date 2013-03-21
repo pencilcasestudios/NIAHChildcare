@@ -31,8 +31,8 @@
       </h2>
 
       <p>
-        <strong><%= t("views.users.show.copy.cell_phone_number") %><%= t("views.application.copy.full_colon") %></strong> <%= @user.cell_phone_number %><br />
-        <strong><%= t("views.users.show.copy.email") %><%= t("views.application.copy.full_colon") %></strong> <%= @user.email %><br />
+        <strong><%= t("views.users.show.copy.cell_phone_number") %><%= t("views.application.copy.full_colon") %></strong> <%= link_to @user.cell_phone_number, "tel:#{@user.cell_phone_number}" %><br />
+        <strong><%= t("views.users.show.copy.email") %><%= t("views.application.copy.full_colon") %></strong> <%= mail_to @user.email, @user.email, encrypt: "hex" %><br />
       </p>
     </section>
   </div><!-- /.# .colummns -->
