@@ -629,7 +629,9 @@ en:
             actions: Actions
             cell_phone_number: Phone
             email: Email
+            family: Family
             full_name: Full name
+            nanny_portrait: Nanny portrait
             number: "#"
             role: Role
       _family:
