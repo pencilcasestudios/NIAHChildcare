@@ -9,11 +9,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.admin?
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
   end
 
   def new
@@ -36,11 +31,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if current_user.admin?
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
   end
 
   def update
