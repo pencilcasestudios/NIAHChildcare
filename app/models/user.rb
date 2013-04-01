@@ -8,15 +8,6 @@ class User < ActiveRecord::Base
   has_many :family_profiles
   has_many :nanny_profiles
 
-  validates :cell_phone_number, presence: true, uniqueness: true, cell_phone_number_format: true
-  validates :email, presence: true, uniqueness: true, email_format: true
-  validates :first_name, presence: true
-  #validates :language, presence: true
-  validates :last_name, presence: true
-  validates :role, presence: true
-  validates :terms_of_use, acceptance: true, on: :create
-  #validates :time_zone, presence: true
-
   attr_accessor :terms_of_use
 
   attr_accessible :captcha
@@ -33,6 +24,18 @@ class User < ActiveRecord::Base
   attr_accessible :state
   attr_accessible :terms_of_use
   attr_accessible :time_zone
+
+  validates :cell_phone_number, presence: true, uniqueness: true, cell_phone_number_format: true
+  validates :email, presence: true, uniqueness: true, email_format: true
+  validates :first_name, presence: true
+  validates :language, presence: true
+  validates :last_name, presence: true
+  validates :role, presence: true
+  validates :terms_of_use, acceptance: true, on: :create
+  validates :time_zone, presence: true
+
+
+
 
   ROLES = {
     # Translation                                   # Database key
