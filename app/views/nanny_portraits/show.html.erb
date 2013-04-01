@@ -45,11 +45,11 @@
           <% if @nanny_portrait.commitment_requirement.present? %>
             <p><%= t("views.nanny_portraits.show.copy.#{@nanny_portrait.commitment_requirement}") %></p>
 
-            <% if @nanny_portrait.commitment_requirement.in? ["temporary", "seasonal"] %>
+            <% if @nanny_portrait.start_at.present? || @nanny_portrait.end_at.present? %>
               <p>
-                <%= @nanny_portrait.start_at.strftime("%A, %d %B %Y") %>
+                <%= @nanny_portrait.start_at.strftime("%e %B %Y") %>
                 &mdash;
-                <%= @nanny_portrait.end_at.strftime("%A, %d %B %Y") %>
+                <%= @nanny_portrait.end_at.strftime("%e %B %Y") %>
               </p>
             <% end %>
 
