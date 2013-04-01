@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-  <div id="error_explanation" class="alert-message block-message error">
+  <div id="error_explanation" class="alert-box alert">
     <a class="close" data-dismiss="alert" href="#">&times;</a>
 
     <h2><%= t("views.users._errors.title") %></h2>
@@ -20,6 +20,12 @@
       <% if @user.errors[:password].present? %>
         <% @user.errors[:password].each do |message| %>
           <li><%= t("views.users._errors.fields.password") %> <%= message %></li>
+        <% end %>
+      <% end %>
+
+      <% if @user.errors[:password_digest].present? %>
+        <% @user.errors[:password_digest].each do |message| %>
+          <li><%= t("views.users._errors.fields.password_digest") %> <%= message %></li>
         <% end %>
       <% end %>
 
