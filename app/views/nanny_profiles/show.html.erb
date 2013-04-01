@@ -46,6 +46,23 @@
 
 
 
+      <!-- Date of Birth -->
+      <% if @nanny_profile.date_of_birth.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headings.date_of_birth") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <p><%= @nanny_profile.date_of_birth.strftime("%A, %e %B %Y") %></p>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
       <!-- Address -->
       <% if @nanny_profile.addresses.present? %>
         <hr />

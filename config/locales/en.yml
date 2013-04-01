@@ -408,6 +408,10 @@ en:
           name: Company or organisation name
           supervisor_name: Name of my supervisor
           reason_for_leaving: Resons for leaving this employment
+      _errors:
+        title: Please check your details
+        fields:
+          statement_of_truth: Statement of truth
       _form:
         copy:
           authorisation_to_work_in_the_united_states_documentation_required_html: "<p>Proper documentation will be required.</p>"
@@ -498,6 +502,7 @@ en:
         headings:
           address: Address
           childcare_experience_description: Childcare experience
+          date_of_birth: Date of birth
           has_been_convicted_of_a_felony: Felony convictions
           hobbies_description: Hobbies and interests
           ideal_work_description: My ideal work situation
