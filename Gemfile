@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 
 
-gem "rails"
+gem "rails", "~> 3.2.13"
 
 
 
@@ -32,7 +32,7 @@ group :assets do
   gem "compass-rails"
   gem "sass-rails"
   gem "uglifier"
-  gem "zurb-foundation"
+  gem "zurb-foundation", "~> 3.2.5"
 end
 
 
