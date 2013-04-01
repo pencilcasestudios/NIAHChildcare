@@ -40,7 +40,7 @@ en:
     nanny_portraits_controller:
       actions:
         create:
-          success: Your nanny profile was successfully created.
+          success: Your nanny portrait was successfully created.
         update:
           success: Your nanny portrait was successfully updated.
 
