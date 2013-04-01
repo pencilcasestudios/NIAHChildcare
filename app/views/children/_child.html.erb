@@ -20,13 +20,13 @@
 </p>
 
 <% if child.interests_description.present? %>
-  <p><strong class="heading"><%= t("views.children._child.headers.interests_description") %></strong></p>
+  <p><strong class="heading"><%= t("views.children._child.headings.interests_description") %></strong></p>
   <%= simple_format child.interests_description %>
   <br />
 <% end %>
 
 <% if child.special_needs_description.present? %>
-  <p><strong class="heading"><%= t("views.children._child.headers.special_needs_description") %></strong></p>
+  <p><strong class="heading"><%= t("views.children._child.headings.special_needs_description") %></strong></p>
   <%= simple_format child.special_needs_description %>
   <br />
 <% end %>

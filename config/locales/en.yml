@@ -242,6 +242,10 @@ en:
           born_at: Date of birth
         links:
           remove_this_child: Remove this child
+      _errors:
+        title: Please check your details
+        fields:
+          statement_of_truth: Statement of truth
       _form:
         copy:
           reference_check_html: "<p><strong>Reference check policy</strong><br />\nTo ensure the safety of the nanny as well as the family, Needle in a Haystack Childcare makes it a policy to check all references supplied.<br />\nWe guarantee that all information attained from the reference and background check process will only be used as part of the nanny selection and engagement process and kept strictly confidential.</p>"

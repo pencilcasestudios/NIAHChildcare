@@ -1,0 +1,15 @@
+<% if @family_profile.errors.any? %>
+  <div id="error_explanation" class="alert-box alert">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+
+    <h2><%= t("views.family_profiles._errors.title") %></h2>
+
+    <ul>
+      <% if @family_profile.errors[:statement_of_truth].present? %>
+        <% @family_profile.errors[:statement_of_truth].each do |message| %>
+          <li><%= t("views.family_profiles._errors.fields.statement_of_truth") %> <%= message %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
