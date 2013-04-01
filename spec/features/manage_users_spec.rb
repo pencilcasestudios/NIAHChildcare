@@ -10,194 +10,341 @@ describe "User management" do
 
     # users#new
     describe "requesting sign up" do
-      it "as a Family allows sign up with acceptable input" do
-        Delayed::Worker.delay_jobs = false
+      describe "as a Family" do
 
-        click_link I18n.t("views.welcome.register.links.family_registration")
+        before(:each) do
+          click_link I18n.t("views.welcome.register.links.family_registration")
+        end
 
-        first_name = "First"
-        fill_in I18n.t("views.users._form.labels.first_name"), with: first_name
+        it "sign up with acceptable input" do
+          first_name = "First"
+          fill_in I18n.t("views.users._form.labels.first_name"), with: first_name
 
-        middle_name = "Middle"
-        fill_in I18n.t("views.users._form.labels.middle_name"), with: middle_name
+          middle_name = "Middle"
+          fill_in I18n.t("views.users._form.labels.middle_name"), with: middle_name
 
-        last_name = "Last"
-        fill_in I18n.t("views.users._form.labels.last_name"), with: last_name
+          last_name = "Last"
+          fill_in I18n.t("views.users._form.labels.last_name"), with: last_name
 
-        email = "rose@example.com"
-        fill_in I18n.t("views.users._form.labels.email"), with: email
+          email = "rose@example.com"
+          fill_in I18n.t("views.users._form.labels.email"), with: email
 
-        cell_phone_number = CellPhoneNumber.random
-        fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        password = "password"
-        fill_in I18n.t("views.users._form.labels.password"), with: password
-        fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-        captcha = User.connection.execute("select * from simple_captcha_data").last
-        fill_in "user_captcha", with: captcha["value"]
+          captcha = User.connection.execute("select * from simple_captcha_data").last
+          fill_in "user_captcha", with: captcha["value"]
 
-        click_button I18n.t("helpers.submit.user.create")
+          click_button I18n.t("helpers.submit.user.create")
 
-        current_path.should eq(sign_in_path)
-        page.should have_content(I18n.t("controllers.users_controller.actions.create.success"))
+          current_path.should eq(sign_in_path)
+          page.should have_content(I18n.t("controllers.users_controller.actions.create.success"))
+        end
 
-        # TODO last_email.to.should include(email)
-        # TODO last_email.subject.should eq(I18n.t("mailers.emailer.registration_confirmation.subject", application_name: I18n.t("application.name")))
-        # TODO expected_delayed_jobs.should eq(Delayed::Job.count)
+        it "rejects sign up with missing email" do
+          blank_field = ""
+          fill_in I18n.t("views.users._form.labels.email"), with: blank_field
+
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.email")} can't be blank")
+        end
+
+        it "rejects sign up with missing cell_phone_number" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+
+          cell_phone_number = CellPhoneNumber.random
+          # Not filled in: fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.cell_phone_number")} can't be blank")
+        end
+
+        it "rejects sign up with missing password" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          password = "password"
+          # Not filled in: fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
+        end
+
+        it "rejects sign up with missing password_confirmation" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          #Not filled in: fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
+        end
+
+        it "rejects sign up with missmatched password and password_confirmation" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          fill_in I18n.t("views.users._form.labels.password"), with: "mbelele"
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: "ifinkubala"
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
+        end
+
+        it "rejects sign up without acceptance of terms_of_use" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          # Not filled in: check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.terms_of_use")} must be accepted")
+        end
       end
 
-      it "rejects sign up with missing email" do
-        visit registration_path
+      describe "as a Nanny" do
 
-        # Not filled in: fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+        before(:each) do
+          click_link I18n.t("views.welcome.register.links.nanny_registration")
+        end
 
-        cell_phone_number = CellPhoneNumber.random
-        fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+        it "sign up with acceptable input" do
+          first_name = "First"
+          fill_in I18n.t("views.users._form.labels.first_name"), with: first_name
 
-        password = "password"
-        fill_in I18n.t("views.users._form.labels.password"), with: password
-        fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+          middle_name = "Middle"
+          fill_in I18n.t("views.users._form.labels.middle_name"), with: middle_name
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+          last_name = "Last"
+          fill_in I18n.t("views.users._form.labels.last_name"), with: last_name
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+          email = "rose@example.com"
+          fill_in I18n.t("views.users._form.labels.email"), with: email
 
-        click_button I18n.t("helpers.submit.user.create")
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        current_path.should eq(users_path)
-        page.should have_content("#{I18n.t("views.users._errors.fields.email")} can't be blank")
-      end
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-      it "rejects sign up with missing cell_phone_number" do
-        visit registration_path
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-        fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-        cell_phone_number = CellPhoneNumber.random
-        # Not filled in: fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+          captcha = User.connection.execute("select * from simple_captcha_data").last
+          fill_in "user_captcha", with: captcha["value"]
 
-        password = "password"
-        fill_in I18n.t("views.users._form.labels.password"), with: password
-        fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+          click_button I18n.t("helpers.submit.user.create")
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+          current_path.should eq(sign_in_path)
+          page.should have_content(I18n.t("controllers.users_controller.actions.create.success"))
+        end
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+        it "rejects sign up with missing email" do
+          empty_field = ""
+          fill_in I18n.t("views.users._form.labels.email"), with: empty_field
 
-        click_button I18n.t("helpers.submit.user.create")
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        current_path.should eq(users_path)
-        page.should have_content("#{I18n.t("views.users._errors.fields.cell_phone_number")} can't be blank")
-      end
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-      it "rejects sign up with missing password" do
-        visit registration_path
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-        fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-        cell_phone_number = CellPhoneNumber.random
-        fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+          click_button I18n.t("helpers.submit.user.create")
 
-        password = "password"
-        # Not filled in: fill_in I18n.t("views.users._form.labels.password"), with: password
-        fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.email")} can't be blank")
+        end
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+        it "rejects sign up with missing cell_phone_number" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+          cell_phone_number = CellPhoneNumber.random
+          # Not filled in: fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        click_button I18n.t("helpers.submit.user.create")
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-        current_path.should eq(users_path)
-        page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
-      end
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-      it "rejects sign up with missing password_confirmation" do
-        visit registration_path
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-        fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+          click_button I18n.t("helpers.submit.user.create")
 
-        cell_phone_number = CellPhoneNumber.random
-        fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.cell_phone_number")} can't be blank")
+        end
 
-        password = "password"
-        fill_in I18n.t("views.users._form.labels.password"), with: password
-        #Not filled in: fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+        it "rejects sign up with missing password" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+          password = "password"
+          # Not filled in: fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-        click_button I18n.t("helpers.submit.user.create")
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-        current_path.should eq(users_path)
-        page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
-      end
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-      it "rejects sign up with missmatched password and password_confirmation" do
-        visit registration_path
+          click_button I18n.t("helpers.submit.user.create")
 
-        fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
+        end
 
-        cell_phone_number = CellPhoneNumber.random
-        fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+        it "rejects sign up with missing password_confirmation" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
-        fill_in I18n.t("views.users._form.labels.password"), with: "mbelele"
-        fill_in I18n.t("views.users._form.labels.password_confirmation"), with: "ifinkubala"
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          #Not filled in: fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
 
-        check I18n.t("views.users._form.labels.terms_of_use")
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-        click_button I18n.t("helpers.submit.user.create")
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-        current_path.should eq(users_path)
-        page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
-      end
+          click_button I18n.t("helpers.submit.user.create")
 
-      it "rejects sign up without acceptance of terms_of_use" do
-        visit registration_path
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
+        end
 
-        fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+        it "rejects sign up with missmatched password and password_confirmation" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
 
-        cell_phone_number = CellPhoneNumber.random
-        fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
 
-        password = "password"
-        fill_in I18n.t("views.users._form.labels.password"), with: password
-        fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+          length = rand(26) # Length of random password string
+          fill_in I18n.t("views.users._form.labels.password"), with: rand(36**length).to_s(36)
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: rand(36**length).to_s(36)
 
-        select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
-        select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
 
-        # Not filled in: check I18n.t("views.users._form.labels.terms_of_use")
+          check I18n.t("views.users._form.labels.terms_of_use")
 
-        click_button I18n.t("helpers.submit.user.create")
+          click_button I18n.t("helpers.submit.user.create")
 
-        current_path.should eq(users_path)
-        page.should have_content("#{I18n.t("views.users._errors.fields.terms_of_use")} must be accepted")
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.password")} doesn't match confirmation")
+        end
+
+        it "rejects sign up without acceptance of terms_of_use" do
+          fill_in I18n.t("views.users._form.labels.email"), with: "rose@example.com"
+
+          cell_phone_number = CellPhoneNumber.random
+          fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: cell_phone_number
+
+          password = "password"
+          fill_in I18n.t("views.users._form.labels.password"), with: password
+          fill_in I18n.t("views.users._form.labels.password_confirmation"), with: password
+
+          select I18n.t("models.language.names.eng"), from: I18n.t("views.users._form.labels.language")
+          select "(GMT-05:00) Eastern Time (US & Canada)", from: I18n.t("views.users._form.labels.time_zone")
+
+          # Not filled in: check I18n.t("views.users._form.labels.terms_of_use")
+
+          click_button I18n.t("helpers.submit.user.create")
+
+          current_path.should eq(users_path)
+          page.should have_content("#{I18n.t("views.users._errors.fields.terms_of_use")} must be accepted")
+        end
       end
     end
-
-    #describe "requesting edit user account" do
-    #  it "should ask the user to sign in first" do
-    #    visit account_settings_path
-    #
-    #    current_path.should eq(sign_in_path)
-    #    page.should have_content(I18n.t("controllers.application_controller.flash.sign_in_required"))
-    #  end
-    #end
   end
 
   describe "when signed in" do
@@ -210,34 +357,42 @@ describe "User management" do
 
     describe "requesting edit user account" do
       it "allows the user to edit their email" do
-        visit account_settings_path
+        visit edit_user_path(@current_user)
 
         updated_field = "rose#{Time.now.strftime("%s")}@example.com"
         fill_in I18n.t("views.users._form.labels.email"), with: updated_field
 
         click_button I18n.t("helpers.submit.user.update")
 
-        current_path.should eq(account_settings_path)
+        current_path.should eq(user_path(@current_user))
         page.should have_content(I18n.t("controllers.users_controller.actions.update.success"))
-        find_field(I18n.t("views.users._form.labels.email")).value.should eq(updated_field)
+        page.should have_content(updated_field)
       end
 
       it "allows the user to edit their cell_phone_number" do
-        visit account_settings_path
+        visit edit_user_path(@current_user)
 
         updated_field = CellPhoneNumber.random
         fill_in I18n.t("views.users._form.labels.cell_phone_number"), with: updated_field
 
         click_button I18n.t("helpers.submit.user.update")
 
-        current_path.should eq(account_settings_path)
+        current_path.should eq(user_path(@current_user))
         page.should have_content(I18n.t("controllers.users_controller.actions.update.success"))
-        find_field(I18n.t("views.users._form.labels.cell_phone_number")).value.should eq(updated_field)
+        page.should have_content(updated_field)
       end
 
-      # TODO - Update password
-      # TODO - Update language
-      # TODO - Update time zone
+      it "allows the user to edit their password" do
+        pending "add tests for user password editing"
+      end
+
+      it "allows the user to edit their language" do
+        pending "add tests for user language editing"
+      end
+
+      it "allows the user to edit their time zone" do
+        pending "add tests for user time zone editing"
+      end
     end
   end
 end
