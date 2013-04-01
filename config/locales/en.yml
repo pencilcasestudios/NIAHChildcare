@@ -544,7 +544,7 @@ en:
           password: Password
           password_digest: Password
           terms_of_use: Terms of use
-        title: This registration could not be completed
+        title: Please check your details
       _form:
         copy:
           accept: I accept the
