@@ -98,7 +98,7 @@ GEM
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
-    guard-rspec (2.5.1)
+    guard-rspec (2.5.2)
       guard (>= 1.1)
       rspec (~> 2.11)
     guard-spork (1.5.0)
