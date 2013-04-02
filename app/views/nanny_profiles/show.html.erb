@@ -190,8 +190,7 @@
             <% if @nanny_profile.is_certified_in_child_first_aid? %>
               <%= t("views.nanny_profiles.show.copy.is_certified_in_child_first_aid") %><%= t("views.application.copy.full_stop") %>
               <% if @nanny_profile.first_aid_certification_expires_at.present? %>
-                <br />
-                <%= t("views.nanny_profiles.show.copy.first_aid_certification_expires_at") %><%= @nanny_profile.first_aid_certification_expires_at %>
+                <%= t("views.nanny_profiles.show.copy.first_aid_certification_expires_at", expiration_date: @nanny_profile.first_aid_certification_expires_at.strftime("%e %B %Y")) %><%= t("views.application.copy.full_stop") %>
               <% end %>
             <% else %>
               <% if @nanny_profile.is_willing_to_become_first_aid_certified? %>
