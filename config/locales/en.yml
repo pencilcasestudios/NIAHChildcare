@@ -508,12 +508,14 @@ en:
           contact_preferences:
             email: By email
             phone: By phone
+          cpr_certification_expires_at: "Expires on %{expiration_date}"
           current_address_since_at: "I have lived at my current address since %{date}"
-          first_aid_certification_expires_at: "Expires on %{expiration_date}"
           does_not_have_a_valid_drivers_license_html: "I do <em>not</em> have a valid driver&rsquo;s license"
+          first_aid_certification_expires_at: "Expires on %{expiration_date}"
           has_a_valid_drivers_license_html: "I have a valid driver&rsquo;s license"
           has_been_convicted_of_a_felony: I have been convicted of of a felony
           is_authorised_to_work_in_the_united_states: I am authorized to work in the United States
+          is_certified_in_child_cpr: "I am certified in Child CPR"
           is_certified_in_child_first_aid: "I am certified in Child First Aid"
           is_not_authorised_to_work_in_the_united_states_html: "I am <em>not</em> authorized to work in the United States"
           is_not_certified_in_child_cpr_html: "I am <em>not</em> certified in Child CPR"
