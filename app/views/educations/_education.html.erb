@@ -1,0 +1,22 @@
+<div class="education">
+  <p>
+    <% if education.qualification.present? %>
+      <em><%= education.qualification %></em><br />
+    <% end %>
+
+    <strong class="name"><%= education.name %></strong><br />
+
+    <% if education.started_at.present? || education.ended_at.present? %>
+      <% if education.started_at.present? %>
+        <%= education.started_at.strftime("%B %Y") %>
+      <% end %>
+      &mdash;
+      <% if education.ended_at.present? %>
+        <%= education.ended_at.strftime("%B %Y") %>
+      <% end %>
+      <br />
+    <% end %>
+  </p>
+
+  <%= render education.addresses %>
+</div>

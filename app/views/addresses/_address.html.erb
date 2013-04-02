@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="six columns">
+    <p>
+      <% if address.street_address.present? %><%= address.street_address %><br /><% end %>
+      <% if address.city.present? %><%= address.city %><br /><% end %>
+      <% if address.state.present? %><%= address.state %><br /><% end %>
+      <% if address.zip_code.present? %><%= address.zip_code %><br /><% end %>
+    </p>
+  </div><!-- .six .columns -->
+  <div class="six columns">
+    <p>
+      <% if address.email.present? %><%= address.email %><br /><% end %>
+      <% if address.phone.present? %><%= address.phone %><br /><% end %>
+    </p>
+  </div><!-- /.six .columns -->
+</div><!-- /.row -->
