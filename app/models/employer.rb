@@ -4,6 +4,7 @@ class Employer < ActiveRecord::Base
   has_many :addresses, as: :addresseable
 
   attr_accessible :ended_at
+  attr_accessible :job_title
   attr_accessible :name
   attr_accessible :reason_for_leaving
   attr_accessible :started_at

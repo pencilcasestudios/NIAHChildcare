@@ -406,14 +406,21 @@ en:
       _employer_fields:
         labels:
           ended_at: Ended
+          job_title: Job title
+          name: Company or organisation name
+          reason_for_leaving: Reason for leaving this employment
           started_at: Started
+          supervisor_name: Name of my supervisor
         links:
           remove_this_employer: Remove this employer
           add_an_address: Add an address for this company or organisation
         placeholders:
+          ended_at: Ended
+          job_title: Job title
           name: Company or organisation name
+          reason_for_leaving: Reason for leaving this employment
+          started_at: Started
           supervisor_name: Name of my supervisor
-          reason_for_leaving: Resons for leaving this employment
       _errors:
         title: Please check your details
         fields:

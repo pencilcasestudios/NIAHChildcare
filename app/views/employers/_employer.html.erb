@@ -1,5 +1,6 @@
 <div class="employer">
   <p>
+    <em><%= employer.job_title %></em><br />
     <strong class="name"><%= employer.name %></strong><br />
 
     <% if employer.started_at.present? || employer.ended_at.present? %>

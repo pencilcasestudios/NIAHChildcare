@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224114702) do
+ActiveRecord::Schema.define(:version => 20130402043334) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addresseable_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130224114702) do
     t.text     "reason_for_leaving"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "job_title"
   end
 
   add_index "employers", ["employable_id"], :name => "index_employers_on_employable_id"

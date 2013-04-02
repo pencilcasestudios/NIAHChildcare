@@ -1,4 +1,7 @@
 <fieldset>
+  <%= f.label :job_title, t("views.nanny_profiles._employer_fields.labels.job_title") %>
+  <%= f.text_field :job_title, placeholder: t("views.nanny_profiles._employer_fields.placeholders.job_title") %>
+
   <%= f.label :name, t("views.nanny_profiles._employer_fields.labels.name") %>
   <%= f.text_field :name, placeholder: t("views.nanny_profiles._employer_fields.placeholders.name") %>
 
