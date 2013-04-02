@@ -9,8 +9,8 @@
   </div><!-- .six .columns -->
   <div class="six columns">
     <p>
-      <% if address.email.present? %><%= address.email %><br /><% end %>
-      <% if address.phone.present? %><%= address.phone %><br /><% end %>
+      <% if address.email.present? %><%= mail_to address.email, address.email, encode: "hex" %><br /><% end %>
+      <% if address.phone.present? %><%= link_to address.phone, "tel:#{address.phone}" %><br /><% end %>
     </p>
   </div><!-- /.six .columns -->
 </div><!-- /.row -->
