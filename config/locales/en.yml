@@ -425,6 +425,10 @@ en:
         title: Please check your details
         fields:
           statement_of_truth: Statement of truth
+      _reference_fields:
+        links:
+          add_an_address: Add an address for reference
+          remove_this_reference: Remove this reference
       _form:
         copy:
           authorisation_to_work_in_the_united_states_documentation_required_html: "<p>Proper documentation will be required.</p>"

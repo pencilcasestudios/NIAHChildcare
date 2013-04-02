@@ -4,4 +4,7 @@
     <%= reference.relationship %><%= t("views.application.copy.full_stop") %>
     <%= t("views.references._reference.copy.known_since", date: reference.known_since.strftime("%Y")) %><%= t("views.application.copy.full_stop") %>
   </p>
+
+  <%= render reference.addresses %>
+  <br />
 </div>
