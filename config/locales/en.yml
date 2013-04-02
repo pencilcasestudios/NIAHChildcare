@@ -552,8 +552,10 @@ en:
             available_to_start_at: "Start on %{start_date}"
             commitment_preferences:
               full_time: "Have a full-time placement"
+              part_time: "Have a part-time placement"
             work_accommodation_preferences:
-              live_in: "Live-in the placement-provided accommodation"
+              live_in: "(Live-in) Use the placement-provided accommodation"
+              live_out: "(Live-out) Use my own accommodation"
         title: Your nanny profile
         title_admin: Nanny profile
 
