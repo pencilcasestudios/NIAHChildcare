@@ -9,13 +9,13 @@
           | <%= link_to_unless_current t("views.application._footer.links.terms"), terms_path %>
           | <%= link_to_unless_current t("views.application._footer.links.contact"), contact_path %>
           | <%= link_to_unless_current t("views.application._footer.links.services_and_fees"), services_and_fees_path %>
+          | <%= link_to_unless_current image_tag("social_media/f_logo-16x16.png", alt: t("application.client.social_media.facebook.alt_text")), t("application.client.social_media.facebook.url") %>
           <% if user_signed_in? %>
             | <%= link_to_unless_current t("views.application._footer.links.account_settings"), edit_user_path(current_user) %>
             | <%= link_to_unless_current t("views.application._footer.links.sign_out"), sign_out_path %>
           <% else %>
             | <%= link_to_unless_current t("views.application._footer.links.register"), register_path %>
             | <%= link_to_unless_current t("views.application._footer.links.sign_in"), sign_in_path %>
-            | <%= link_to_unless_current image_tag("social_media/f_logo-16x16.png", alt: t("application.client.social_media.facebook.alt_text")), t("application.client.social_media.facebook.url") %>
           <% end %>
           |
         </p>
