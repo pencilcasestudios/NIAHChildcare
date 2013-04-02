@@ -514,6 +514,7 @@ en:
           first_aid_certification_expires_at: "Expires on %{expiration_date}"
           has_a_valid_drivers_license_html: "I have a valid driver&rsquo;s license"
           has_been_convicted_of_a_felony: I have been convicted of of a felony
+          ideally: "Ideally, I would like to"
           is_authorised_to_work_in_the_united_states: I am authorized to work in the United States
           is_certified_in_child_cpr: "I am certified in Child CPR"
           is_certified_in_child_first_aid: "I am certified in Child First Aid"
@@ -541,6 +542,13 @@ en:
           note: New note
           notes: Notes
           resume_html: "Download resum&eacute;"
+        lists:
+          list_items:
+            available_to_start_at: "Start on %{start_date}"
+            commitment_preferences:
+              full_time: "Have a full-time placement"
+            work_accommodation_preferences:
+              live_in: "Live-in the placement-provided accommodation"
         title: Your nanny profile
         title_admin: Nanny profile
 

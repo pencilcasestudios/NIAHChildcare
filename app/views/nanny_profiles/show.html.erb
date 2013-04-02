@@ -223,23 +223,11 @@
 
 
 
-      <% if @nanny_profile.has_been_convicted_of_a_felony? %>
-        <hr />
-
-        <div class="row">
-          <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headings.has_been_convicted_of_a_felony") %></p>
-          </div><!-- /.three .columns .heading -->
-          <div class="nine columns">
-            <p><%= t("views.nanny_profiles.show.copy.has_been_convicted_of_a_felony") %><%= t("views.application.copy.full_stop") %></p>
-            <%= simple_format @nanny_profile.felony_conviction_description %>
-          </div><!-- /.nine .columns -->
-        </div><!-- /.row -->
-      <% end %>
 
 
 
 
+      <!-- Languages spoken -->
       <% if @nanny_profile.languages_spoken.present? %>
         <hr />
 
@@ -256,6 +244,7 @@
 
 
 
+      <!-- Childcare experience -->
       <% if @nanny_profile.childcare_experience_description.present? %>
         <hr />
 
@@ -288,7 +277,10 @@
 
 
 
-      <% if @nanny_profile.ideal_work_description.present? %>
+      <!-- Ideal work situation -->
+      <% if @nanny_profile.commitment_preference.present? ||
+            @nanny_profile.ideal_work_description.present?
+      %>
         <hr />
 
         <div class="row">
@@ -296,7 +288,22 @@
             <p><%= t("views.nanny_profiles.show.headings.ideal_work_description") %></p>
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
-            <% if @nanny_profile.available_to_start_at.present? %><p><%= @nanny_profile.available_to_start_at %></p><% end %>
+            <p><%= t("views.nanny_profiles.show.copy.ideally") %></p>
+
+            <ul class="indented">
+              <% if @nanny_profile.commitment_preference.present? %>
+                <li><%= t("views.nanny_profiles.show.lists.list_items.commitment_preferences.#{@nanny_profile.commitment_preference}") %></li>
+              <% end %>
+
+              <% if @nanny_profile.work_accommodation_preference.present? %>
+                <li><%= t("views.nanny_profiles.show.lists.list_items.work_accommodation_preferences.#{@nanny_profile.work_accommodation_preference}") %></li>
+              <% end %>
+
+              <% if @nanny_profile.available_to_start_at.present? %>
+                <li><%= t("views.nanny_profiles.show.lists.list_items.available_to_start_at", start_date: @nanny_profile.available_to_start_at.strftime("%A, %e %B %Y")) %></li>
+              <% end %>
+            </ul>
+
             <%= simple_format @nanny_profile.ideal_work_description %>
           </div><!-- /.nine .columns -->
         </div><!-- /.row -->
@@ -314,6 +321,23 @@
           </div><!-- /.three .columns .heading -->
           <div class="nine columns">
             <%= simple_format @nanny_profile.work_location_preference_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.has_been_convicted_of_a_felony? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headings.has_been_convicted_of_a_felony") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <p><%= t("views.nanny_profiles.show.copy.has_been_convicted_of_a_felony") %><%= t("views.application.copy.full_stop") %></p>
+            <%= simple_format @nanny_profile.felony_conviction_description %>
           </div><!-- /.nine .columns -->
         </div><!-- /.row -->
       <% end %>
