@@ -457,7 +457,7 @@ en:
           has_been_convicted_of_a_felony: I have been convicted of a felony
           hobbies_description: My hobbies and interests
           ideal_work_description: My ideal work situation would look like this
-          is_authorised_to_work_in_the_united_states: I am authorised to work in the USA
+          is_authorised_to_work_in_the_united_states: I am authorized to work in the USA
           is_certified_in_child_cpr: I am certified in Child CPR
           is_certified_in_child_first_aid: I am certified in Child First Aid
           is_willing_to_become_cpr_certified: I am not but am willing to become certified in Child CPR
@@ -512,9 +512,9 @@ en:
           does_not_have_a_valid_drivers_license_html: "I do <em>not</em> have a valid driver&rsquo;s license"
           has_a_valid_drivers_license_html: "I have a valid driver&rsquo;s license"
           has_been_convicted_of_a_felony: I have been convicted of of a felony
-          is_authorised_to_work_in_the_united_states: I am authorised to work in the United States
+          is_authorised_to_work_in_the_united_states: I am authorized to work in the United States
           is_certified_in_child_first_aid: "I am certified in Child First Aid"
-          is_not_authorised_to_work_in_the_united_states_html: "I am <em>not</em> authorised to work in the United States"
+          is_not_authorised_to_work_in_the_united_states_html: "I am <em>not</em> authorized to work in the United States"
           is_not_certified_in_child_cpr_html: "I am <em>not</em> certified in Child CPR"
           is_not_certified_in_child_first_aid_html: "I am <em>not</em> certified in Child First Aid"
         headings:
