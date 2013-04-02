@@ -278,8 +278,13 @@
 
 
       <!-- Ideal work situation -->
-      <% if @nanny_profile.commitment_preference.present? ||
-            @nanny_profile.ideal_work_description.present?
+      <% if
+        @nanny_profile.commitment_preference.present? ||
+        @nanny_profile.ideal_work_description.present? ||
+        @nanny_profile.work_accommodation_preference.present? ||
+        @nanny_profile.available_to_start_at.present? ||
+        @nanny_profile.ideal_work_description ||
+        @nanny_profile.work_location_preference_description
       %>
         <hr />
 
@@ -304,22 +309,10 @@
               <% end %>
             </ul>
 
+            <p><strong class="heading"><%= t("views.nanny_profiles.show.headings.ideal_work_description") %></strong></p>
             <%= simple_format @nanny_profile.ideal_work_description %>
-          </div><!-- /.nine .columns -->
-        </div><!-- /.row -->
-      <% end %>
 
-
-
-
-      <% if @nanny_profile.work_location_preference_description.present? %>
-        <hr />
-
-        <div class="row">
-          <div class="three columns heading">
-            <p><%= t("views.nanny_profiles.show.headings.work_location_preference_description") %></p>
-          </div><!-- /.three .columns .heading -->
-          <div class="nine columns">
+            <p><strong class="heading"><%= t("views.nanny_profiles.show.headings.work_location_preference_description") %></strong></p>
             <%= simple_format @nanny_profile.work_location_preference_description %>
           </div><!-- /.nine .columns -->
         </div><!-- /.row -->
@@ -338,6 +331,22 @@
           <div class="nine columns">
             <p><%= t("views.nanny_profiles.show.copy.has_been_convicted_of_a_felony") %><%= t("views.application.copy.full_stop") %></p>
             <%= simple_format @nanny_profile.felony_conviction_description %>
+          </div><!-- /.nine .columns -->
+        </div><!-- /.row -->
+      <% end %>
+
+
+
+
+      <% if @nanny_profile.references.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headings.references") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+            <%= render @nanny_profile.references %>
           </div><!-- /.nine .columns -->
         </div><!-- /.row -->
       <% end %>

@@ -535,6 +535,7 @@ en:
           licenses_and_certification: Licenses and certification
           names: Names
           previous_full_names: Previous full names
+          references: References
           resume_html: "Resum&eacute;"
           work_location_preference_description: Cities and states where I would like to work
         links:
@@ -576,6 +577,24 @@ en:
         title: Notes
       new:
         title: New note
+
+    references:
+      _reference:
+        copy:
+          known_since: "Known since %{date}"
+
+    sessions:
+      _form:
+        buttons:
+          submit: Sign in
+        labels:
+          identifier: Email or cell phone number
+          password: Password
+        placeholders:
+          identifier: Email or cell phone number
+          password: Password
+      new:
+        title: Sign in
 
     users:
       _errors:
@@ -639,19 +658,6 @@ en:
           edit: Edit
         title: Your profile
         title_admin: User profile
-
-    sessions:
-      _form:
-        buttons:
-          submit: Sign in
-        labels:
-          identifier: Email or cell phone number
-          password: Password
-        placeholders:
-          identifier: Email or cell phone number
-          password: Password
-      new:
-        title: Sign in
 
     simple_captcha:
       _simple_captcha:
