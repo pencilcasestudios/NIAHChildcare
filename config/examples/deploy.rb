@@ -36,27 +36,38 @@
 
 # ON THE DEVELOPMENT MACHINE
 # STAGING DEPLOYMENT
-# $ git checkout master
-# $ git merge work
-# $ git push production
-# $ cap deploy:setup        # Update configuration files and create the database after this
-# $ cap deploy:check
-# $ cap deploy:update       # May require verifying the host key.
-# $ cap deploy:migrate
-# $ cap db:seed
-# $ cap deploy:start
+# git checkout master
+# git merge work
+# git push production
+# cap deploy:setup
+# Then update configuration files and create the database
+
+# cap deploy:check
+# cap deploy:update
+# May require verifying the host key.
+
+# cap deploy:migrate
+# cap db:seed
+# cap deploy:start
+# notify-send "App Deployment complete"
+
 
 # PRODUCTION DEPLOYMENT
-# $ git checkout master
-# $ git merge work
-# $ git push production
-# $ cap production deploy:setup        # Update configuration files and create the database after this
-# $ cap production deploy:check
-# $ cap production deploy:update       # May require verifying the host key.
-# $ cap production deploy:migrate
-# $ cap production db:seed
-# $ cap production deploy:start
-# $ git tag "`date +published_%Y-%m-%d_%H%M%S`"
+# git checkout master
+# git merge work
+# git push production
+# cap production deploy:setup
+# Then update configuration files and create the database
+
+# cap production deploy:check
+# cap production deploy:update
+# May require verifying the host key
+
+# cap production deploy:migrate
+# cap production db:seed
+# cap production deploy:start
+# git tag "`date +published_%Y-%m-%d_%H%M%S`"
+# notify-send "App Deployment complete"
 
 
 
