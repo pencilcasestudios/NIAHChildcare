@@ -30,7 +30,7 @@
     <div class="row">
       <div class="six columns">
         <%= f.label :current_address_since_at, t("views.nanny_profiles._form.labels.current_address_since_at") %>
-        <%= f.date_select :current_address_since_at, prompt: true %>
+        <%= f.date_select :current_address_since_at, prompt: true, start_year: (Time.now.year - 70), end_year: Time.now.year, discard_day: true %>
       </div>
       <div class="six columns">
         <%= f.label :contact_preference, t("views.nanny_profiles._form.labels.contact_preference") %>

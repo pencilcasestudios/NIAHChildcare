@@ -22,11 +22,11 @@
   <div class="row">
     <div class="six columns">
       <%= f.label :started_at, t("views.nanny_profiles._education_fields.labels.started_at") %>
-      <%= f.date_select :started_at, prompt: true %>
+      <%= f.date_select :started_at, prompt: true, start_year: (Time.now.year - 70), end_year: Time.now.year, discard_day: true %>
     </div><!-- /.#columns -->
     <div class="six columns">
       <%= f.label :ended_at, t("views.nanny_profiles._education_fields.labels.ended_at") %>
-      <%= f.date_select :ended_at, prompt: true %>
+      <%= f.date_select :ended_at, prompt: true, start_year: (Time.now.year - 70), end_year: Time.now.year, discard_day: true %>
     </div><!-- /.#columns -->
   </div><!-- /.row -->
 

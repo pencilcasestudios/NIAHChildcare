@@ -13,4 +13,6 @@ class Education < ActiveRecord::Base
   attr_accessible :addresses_attributes
 
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
+
+  validates :name, presence: true
 end

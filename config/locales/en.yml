@@ -491,6 +491,10 @@ en:
         title: New nanny profile
       show:
         copy:
+          contact_preferences:
+            email: By email
+            phone: By phone
+          current_address_since_at: "I have lived at my current address since %{date}"
           does_not_have_a_valid_drivers_license_html: "I do <em>not</em> have a valid driver&rsquo;s license"
           has_a_valid_drivers_license_html: "I have a valid driver&rsquo;s license"
           has_been_convicted_of_a_felony: I have been convicted of of a felony
@@ -502,7 +506,9 @@ en:
         headings:
           address: Address
           childcare_experience_description: Childcare experience
+          contact_preference: I can best be reached
           date_of_birth: Date of birth
+          education: Education
           has_been_convicted_of_a_felony: Felony convictions
           hobbies_description: Hobbies and interests
           ideal_work_description: My ideal work situation
