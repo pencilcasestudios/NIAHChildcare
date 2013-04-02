@@ -1,0 +1,27 @@
+<div class="employer">
+  <p>
+    <strong class="name"><%= employer.name %></strong><br />
+
+    <% if employer.started_at.present? || employer.ended_at.present? %>
+      <% if employer.started_at.present? %>
+        <%= employer.started_at.strftime("%B %Y") %>
+      <% end %>
+      &mdash;
+      <% if employer.ended_at.present? %>
+        <%= employer.ended_at.strftime("%B %Y") %>
+      <% end %>
+      <br />
+    <% end %>
+  </p>
+
+  <% if employer.supervisor_name.present? %>
+    <p><%= t("views.employers._employer.copy.supervisor_name", supervisor: employer.supervisor_name) %><%= t("views.application.copy.full_stop") %></p>
+  <% end %>
+
+  <% if employer.reason_for_leaving.present? %>
+    <p><strong class="heading"><%= t("views.employers._employer.headings.reason_for_leaving", company: employer.name) %></strong></p>
+    <%= simple_format employer.reason_for_leaving %>
+  <% end %>
+
+  <%= render employer.addresses %>
+</div>

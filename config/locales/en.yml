@@ -224,6 +224,12 @@ en:
           interests_description: Interests
           special_needs_description: Special needs
 
+    employers:
+      _employer:
+        copy:
+          supervisor_name: "I was supervised by %{supervisor}"
+        headings:
+          reason_for_leaving: "I no longer work at %{company} because"
     family_profiles:
       _address_fields:
         placeholders:
@@ -491,6 +497,7 @@ en:
         title: New nanny profile
       show:
         copy:
+          can_contact_current_employer: "I give Needle in a Haystack Childcare, LLC, permission to contact my current employer."
           contact_preferences:
             email: By email
             phone: By phone
@@ -509,6 +516,7 @@ en:
           contact_preference: I can best be reached
           date_of_birth: Date of birth
           education: Education
+          employers: Work history
           has_been_convicted_of_a_felony: Felony convictions
           hobbies_description: Hobbies and interests
           ideal_work_description: My ideal work situation

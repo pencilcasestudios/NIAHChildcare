@@ -137,6 +137,29 @@
 
 
 
+      <!-- Work History -->
+      <% if @nanny_profile.employers.present? || @nanny_profile.can_contact_current_employer? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.nanny_profiles.show.headings.employers") %></p>
+          </div><!-- /.three .columns .heading -->
+          <div class="nine columns">
+
+            <% if @nanny_profile.can_contact_current_employer? %>
+              <p><%= t("views.nanny_profiles.show.copy.can_contact_current_employer") %></p>
+            <% end %>
+
+            <%= render @nanny_profile.employers %>
+
+          </div>
+        </div>
+      <% end %>
+
+
+
+
       <hr />
 
 

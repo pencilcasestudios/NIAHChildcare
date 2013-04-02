@@ -1,26 +1,26 @@
 <fieldset>
-  <!-- <%= f.label :name, t("views.nanny_profiles._employer_fields.labels.name") %> -->
+  <%= f.label :name, t("views.nanny_profiles._employer_fields.labels.name") %>
   <%= f.text_field :name, placeholder: t("views.nanny_profiles._employer_fields.placeholders.name") %>
 
   <%= f.fields_for :addresses %>
   <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._employer_fields.links.add_an_address"), :addresses %></p>
 
 
-  <!-- <%= f.label :supervisor_name, t("views.nanny_profiles._employer_fields.labels.supervisor_name") %> -->
-  <%= f.text_field :name, placeholder: t("views.nanny_profiles._employer_fields.placeholders.supervisor_name") %>
+  <%= f.label :supervisor_name, t("views.nanny_profiles._employer_fields.labels.supervisor_name") %>
+  <%= f.text_field :supervisor_name, placeholder: t("views.nanny_profiles._employer_fields.placeholders.supervisor_name") %>
 
   <div class="row">
     <div class="six columns">
       <%= f.label :started_at, t("views.nanny_profiles._employer_fields.labels.started_at") %>
-      <%= f.date_select :started_at, prompt: true %>
+      <%= f.date_select :started_at, prompt: true, start_year: (Time.now.year - 70), end_year: (Time.now.year), discard_day: true %>
     </div><!-- /.#columns -->
     <div class="six columns">
       <%= f.label :ended_at, t("views.nanny_profiles._employer_fields.labels.ended_at") %>
-      <%= f.date_select :ended_at, prompt: true %>
+      <%= f.date_select :ended_at, prompt: true, start_year: (Time.now.year - 70), end_year: (Time.now.year), discard_day: true %>
     </div><!-- /.#columns -->
   </div><!-- /.row -->
 
-  <!-- <%= f.label :reason_for_leaving, t("views.nanny_profiles._employer_fields.labels.reason_for_leaving") %> -->
+  <%= f.label :reason_for_leaving, t("views.nanny_profiles._employer_fields.labels.reason_for_leaving") %>
   <%= f.text_area :reason_for_leaving, rows: 8, placeholder: t("views.nanny_profiles._employer_fields.placeholders.reason_for_leaving") %>
 
   <p class="remove_field"><%= f.link_to_remove t("views.nanny_profiles._employer_fields.links.remove_this_employer") %></p>
