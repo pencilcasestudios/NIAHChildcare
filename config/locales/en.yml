@@ -433,6 +433,7 @@ en:
         copy:
           authorisation_to_work_in_the_united_states_documentation_required_html: "<p>Proper documentation will be required.</p>"
           background_checks_html: "<p><strong>Background checks</strong><br />\nNeedle in a Haystack Childcare, believes that engaging qualified individuals contributes to the overall strategic success of the company. Background checks serve as an important part of the selection process at Needle in a Haystack Childcare, LLC. This type of information is collected as a means of promoting a safe work environment for current and future employees and clients.</p>"
+          can_contact_current_employer: "I give Needle in a Haystack Childcare, LLC, permission to contact my current employer."
           driving_record_checks_html: "<p><strong>Driving record checks</strong><br />\nNeedle in a Haystack Childcare, LLC, will check the motor vehicle records of any nanny applicant where driving is an essential job function or where a car must be used for business travel purposes. The driving record check will include review of any appropriate state records based on the employee&rsquo;s registration and resum&eacute;. If driving is an essential job function or where a car must be used for business travel purposes and the applicant does not have a valid driver&rsquo;s license, the applicant will be eliminated from consideration. If an applicant has an unacceptable driving record, the applicant will be eliminated from consideration as well.</p>"
           drug_screens_html: "<p><strong>Drug screens</strong><br />\nAll candidates who have received a written offer of engagement may be required to undergo testing for commonly-abused controlled substances. If asked to undergo a screening any candidate who fails the controlled substances testing will be eliminated from consideration.</p>"
           employers_html: "<p>Please list your employment history. Start with your current or most recent job first.</p>"
@@ -441,7 +442,6 @@ en:
           reference_check_html: "<p><strong>Reference check policy</strong><br />\nTo ensure that individuals who sign with Needle in a Haystack Childcare, LLC are well-qualified and have a strong potential to be successful, it is the policy of the company to check all the employment references of applicants prior to extending a job offer.</p>"
           references: "List three personal references that know you well. Please exclude relatives and former employers/supervisors listed above."
           statement_of_truth_html: "I hereby certify that the information I have provided above is true and correct to best of my knowledge. I have read the policies and procedures set forth in this registration. I understand and agree to abide by them."
-          can_contact_current_employer: "I give Needle in a Haystack Childcare, LLC, permission to contact my current employer."
         labels:
           available_to_start_at: I am available to start on
           childcare_experience_description: My special needs childcare experience
@@ -525,6 +525,8 @@ en:
           is_not_authorised_to_work_in_the_united_states_html: "I am <em>not</em> authorized to work in the United States"
           is_not_certified_in_child_cpr_html: "I am <em>not</em> certified in Child CPR"
           is_not_certified_in_child_first_aid_html: "I am <em>not</em> certified in Child First Aid"
+          is_willing_to_become_cpr_certified: I am not but am willing to become certified in Child CPR
+          is_willing_to_become_first_aid_certified: I am not but am willing to become certified in Child First Aid
         headings:
           address: Address
           childcare_experience_description: Childcare experience
