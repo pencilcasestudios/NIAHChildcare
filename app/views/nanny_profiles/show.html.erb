@@ -283,8 +283,8 @@
         @nanny_profile.ideal_work_description.present? ||
         @nanny_profile.work_accommodation_preference.present? ||
         @nanny_profile.available_to_start_at.present? ||
-        @nanny_profile.ideal_work_description ||
-        @nanny_profile.work_location_preference_description
+        @nanny_profile.ideal_work_description.present? ||
+        @nanny_profile.work_location_preference_description.present?
       %>
         <hr />
 
