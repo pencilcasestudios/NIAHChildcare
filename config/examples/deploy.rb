@@ -140,6 +140,14 @@ set :branch, DEPLOYMENT_CONFIG["repository_deployment_branch"]
 
 
 
+# Ref: https://coderwall.com/p/fnhahg
+# Symbolically link the uploads folder to handle resumes uploaded
+set :uploads_dirs, %w(uploads)
+set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
+
+
+
+
 namespace :deploy do
   task :start do ; end
 
