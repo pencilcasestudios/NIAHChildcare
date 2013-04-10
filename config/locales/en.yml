@@ -665,6 +665,8 @@ en:
           email: Email
         links:
           edit: Edit
+          family_profile: Family profile
+          nanny_portrait: Nanny portrait
           nanny_profile: Nanny profile
         title: Your profile
         title_admin: User profile

@@ -13,7 +13,7 @@ class FamilyProfilesController < ApplicationController
     @family_profile.addresses.build(email: current_user.email, phone: current_user.cell_phone_number)
     @family_profile.children.build
     @family_profile.guardians.build(full_name: current_user.full_name)
-    @family_profile.references.build
+    #@family_profile.references.build
   end
 
   def create

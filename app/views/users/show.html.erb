@@ -30,10 +30,39 @@
         <small><%= t("models.user.roles.#{@user.role}") %></small>
       </h2>
 
-      <p>
-        <strong><%= t("views.users.show.copy.cell_phone_number") %><%= t("views.application.copy.full_colon") %></strong> <%= link_to @user.cell_phone_number, "tel:#{@user.cell_phone_number}" %><br />
-        <strong><%= t("views.users.show.copy.email") %><%= t("views.application.copy.full_colon") %></strong> <%= mail_to @user.email, @user.email, encrypt: "hex" %><br />
-      </p>
+      <div class="row">
+        <div class="six columns">
+          <p>
+            <strong><%= t("views.users.show.copy.cell_phone_number") %><%= t("views.application.copy.full_colon") %></strong> <%= link_to @user.cell_phone_number, "tel:#{@user.cell_phone_number}" %><br />
+            <strong><%= t("views.users.show.copy.email") %><%= t("views.application.copy.full_colon") %></strong> <%= mail_to @user.email, @user.email, encrypt: "hex" %><br />
+          </p>
+        </div>
+        <div class="six columns">
+          <% if @user.nanny? && @user.nanny_profiles.present? %>
+            <p>
+              <% @user.nanny_profiles.each do |profile| %>
+                <%= link_to t("views.users.show.links.nanny_profile"), profile %><br />
+              <% end %>
+            </p>
+          <% end %>
+
+          <% if @user.family? && @user.family_profiles.present? %>
+            <% @user.family_profiles.each do |profile| %>
+              <div class="row">
+                <div class="six columns">
+                   <%= link_to t("views.users.show.links.family_profile"), profile %>
+                </div>
+                <div class="six columns">
+                  <% profile.nanny_portraits.each do |portrait| %>
+                   <%= link_to t("views.users.show.links.nanny_portrait"), portrait %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+
+          <% end %>
+        </div>
+      </div>
     </section>
   </div><!-- /.# .colummns -->
 </div><!-- /.row -->
