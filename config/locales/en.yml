@@ -162,6 +162,7 @@ en:
     message:
       default: "The security check text did not match the image"
       user: "The security check text did not match the image"
+    placeholder: Enter the text you see above
 
 
 
@@ -664,6 +665,7 @@ en:
           email: Email
         links:
           edit: Edit
+          nanny_profile: Nanny profile
         title: Your profile
         title_admin: User profile
 
@@ -671,6 +673,7 @@ en:
       _simple_captcha:
         hints:
           no_robots: This stops robots pretending to be people from registering.
+
     welcome:
       _admin:
         copy:
