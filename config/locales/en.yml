@@ -4,6 +4,7 @@ en:
       email: "Info@NIAHChildcare.com"
       mail_html: "<p>Needle in a Haystack Special Needs Childcare Agency<br />\nRiverside Center<br />\n275 Grove Street<br />\nSuite 2-400<br />\nNewton<br />\nMassachusetts<br />\n02466\n</p>"
       phone: "617-678-6200"
+      website: http://NIAHchildcare.com
       social_media:
         facebook:
           alt_text: "Like our page on Facebook"
@@ -90,6 +91,14 @@ en:
 
 
 
+
+# Mailers
+  mailers:
+    _footer: "\nThank you,\n\n%{application_name}\n\n---\nWebsite: %{website}\nFacebook: %{facebook}\nEmail: %{email}\nPhone: %{phone}"
+    emailer:
+      registration_notification:
+        subject: "[%{application_name}] New user registration #%{user_id}"
+        body: "Hello,\n\nA new user has registered on %{application_name}."
 
 # Models
   models:
