@@ -16,6 +16,7 @@ bundle update
 gem cleanup
 rake db:drop
 rake db:setup
+notify-send "NIAH Childcare app database setup complete"
 rake db:test:prepare
 bundle exec guard
 
