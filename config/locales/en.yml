@@ -231,6 +231,7 @@ en:
           supervisor_name: "I was supervised by %{supervisor}"
         headings:
           reason_for_leaving: "I no longer work at %{company} because"
+
     family_profiles:
       _address_fields:
         placeholders:
@@ -310,6 +311,7 @@ en:
           guardians: Parents or guardians
           interests_description: Family interests
           pets_description: Family pets
+          references: References
         title: Your family profile
         title_admin: Family profile
         links:

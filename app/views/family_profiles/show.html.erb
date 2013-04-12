@@ -126,6 +126,19 @@
 
 
 
+      <% if @family_profile.references.present? %>
+        <hr />
+
+        <div class="row">
+          <div class="three columns heading">
+            <p><%= t("views.family_profiles.show.headings.references") %></p>
+          </div>
+          <div class="nine columns">
+            <%= render @family_profile.references %>
+          </div>
+        </div>
+      <% end %>
+
     </section><!-- /.content -->
   </div><!-- /.eight .columns -->
 </div><!-- /.row -->
