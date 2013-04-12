@@ -47,9 +47,9 @@
 
             <% if @nanny_portrait.start_at.present? || @nanny_portrait.end_at.present? %>
               <p>
-                <%= @nanny_portrait.start_at.strftime("%e %B %Y") %>
+                <%= @nanny_portrait.start_at.strftime("%e %B %Y") if @nanny_portrait.start_at.present? %>
                 &mdash;
-                <%= @nanny_portrait.end_at.strftime("%e %B %Y") %>
+                <%= @nanny_portrait.end_at.strftime("%e %B %Y") if @nanny_portrait.end_at.present? %>
               </p>
             <% end %>
 
