@@ -1,0 +1,22 @@
+<fieldset>
+  <legend><%= t("views.family_profiles._form.legends.reference") %></legend>
+  <div class="row">
+    <div class="four columns">
+      <%= f.label :full_name, t("views.family_profiles._form.labels.full_name") %>
+      <%= f.text_field :full_name %>
+    </div>
+    <div class="four columns">
+      <%= f.label :relationship, t("views.family_profiles._form.labels.relationship") %>
+      <%= f.text_field :relationship %>
+    </div>
+    <div class="four columns">
+      <%= f.label :known_since, t("views.family_profiles._form.labels.known_since") %>
+      <%= f.date_select :known_since, prompt: true, discard_day: true, discard_month: true, start_year: (Time.now.year - 50), end_year: Time.now.year %>
+    </div>
+  </div>
+
+  <%= f.fields_for :addresses %>
+  <p class="add_field"><%= f.link_to_add t("views.nanny_profiles._reference_fields.links.add_an_address"), :addresses %></p>
+
+  <p class="remove_field"><%= f.link_to_remove t("views.nanny_profiles._reference_fields.links.remove_this_reference") %></p>
+</fieldset>
