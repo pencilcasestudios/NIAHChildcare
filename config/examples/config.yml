@@ -33,7 +33,8 @@ defaults: &defaults
   application_server_name: "niahchildcare.com"
 
   # Administrator group email address
-  administrator_group_email: "administrators@niahchildcare.com"
+  #administrator_group_email: "administrators@niahchildcare.com"
+  administrator_group_email: "itsupport@pencilcasestudios.com"
 
 
 
