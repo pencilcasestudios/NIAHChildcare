@@ -48,6 +48,7 @@ describe "User management" do
 
           current_path.should eq(sign_in_path)
           page.should have_content(I18n.t("controllers.users_controller.actions.create.success"))
+          last_email.to.should include(email)
         end
 
         it "rejects sign up with missing email" do

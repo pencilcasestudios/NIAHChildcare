@@ -16,6 +16,11 @@ Spork.prefork do
     config.mock_with :rspec
     config.order = "random"
     config.use_transactional_fixtures = true
+
+    # Ref: http://railscasts.com/episodes/275-how-i-test?view=asciicast
+    # Email test helpers
+    config.include(MailerMacros)
+    config.before(:each) { reset_email }
   end
 end
 
