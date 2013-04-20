@@ -23,11 +23,11 @@ defaults: &defaults
   mode: protected
 
   # Email settings
-  email_address: "relay-hosting.secureserver.net"
+  email_address: "smtpout.secureserver.net"
   email_domain: "www.sangwapo.clientcase.net"
   email_password: "password" # Update this in production
   email_port: 25
-  email_user_name: "info@niahchildcare.com"
+  email_user_name: "notifications@niahchildcare.com"
 
   # ActionMailer settings
   application_server_name: "niahchildcare.com"
