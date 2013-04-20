@@ -24,7 +24,7 @@ defaults: &defaults
 
   # Email settings
   email_address: "smtpout.secureserver.net"
-  email_domain: "www.sangwapo.clientcase.net"
+  email_domain: "www.niahchildcare.com"
   email_password: "password" # Update this in production
   email_port: 25
   email_user_name: "notifications@niahchildcare.com"
