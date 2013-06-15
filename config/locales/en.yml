@@ -97,7 +97,7 @@ en:
     _footer: "\nThank you,\n\n%{application_name}\n\n---\nWebsite: %{website}\nFacebook: %{facebook}\nEmail: %{email}\nPhone: %{phone}"
     emailer:
       notify_admins_of_new_user_registration:
-        body: "Hello,\n\nA new user has registered on %{application_name}."
+        body: "Hello,\n\nA new user has registered on the %{application_name} website."
         environment:
           test: "This is a test: "
         subject: "%{environment}[%{application_name}] New user registration #%{user_id}"
