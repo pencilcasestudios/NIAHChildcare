@@ -3,7 +3,7 @@ class Emailer < ActionMailer::Base
 
     # If we are not deploying the live production site, flag this in the subject line
     environment = t("mailers.emailer.notify_admins_of_new_user_registration.environment.test")
-    if AppConfig.mode == "protected"
+    if AppConfig.mode == "unprotected"
       environment = ""
     end
 
