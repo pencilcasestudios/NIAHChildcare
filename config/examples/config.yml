@@ -34,7 +34,7 @@ defaults: &defaults
 
   # Email address to send notifications to
   admin_at_niahchildcare: "admin@niahchildcare.com"
-  itsupport_at_pencilcasestudios: "itsupport@pencilcasestudios.com"
+  itsupport_at_pencilcasestudios: "itsupport+niahchildcare@pencilcasestudios.com"
 
 
 
