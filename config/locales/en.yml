@@ -98,7 +98,9 @@ en:
     emailer:
       notify_admins_of_new_user_registration:
         body: "Hello,\n\nA new user has registered on %{application_name}."
-        subject: "[%{application_name}] New user registration #%{user_id}"
+        environment:
+          test: "This is a test: "
+        subject: "%{environment}[%{application_name}] New user registration #%{user_id}"
         to:
           admin_at_niahchildcare: NIAH Childcare Administrator
           itsupport_at_pencilcasestudios: Pencil Case Studios IT Support
