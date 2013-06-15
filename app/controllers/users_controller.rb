@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       #Emailer.delay.registration_confirmation(@user)
 
       # Email the admin
-      Emailer.delay.registration_notification(@user)
+      Emailer.delay.notify_admins_of_new_user_registration(@user)
 
       flash[:success] = t("controllers.users_controller.actions.create.success")
       redirect_to sign_in_path

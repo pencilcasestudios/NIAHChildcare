@@ -96,11 +96,12 @@ en:
   mailers:
     _footer: "\nThank you,\n\n%{application_name}\n\n---\nWebsite: %{website}\nFacebook: %{facebook}\nEmail: %{email}\nPhone: %{phone}"
     emailer:
-      registration_notification:
+      notify_admins_of_new_user_registration:
         body: "Hello,\n\nA new user has registered on %{application_name}."
         subject: "[%{application_name}] New user registration #%{user_id}"
         to:
-          name: Administrators
+          admin_at_niahchildcare: NIAH Childcare Administrator
+          itsupport_at_pencilcasestudios: Pencil Case Studios IT Support
 
 # Models
   models:
