@@ -1,9 +1,9 @@
 class Emailer < ActionMailer::Base
   def notify_admins_of_new_user_registration(user)
 
-    # If we are not in the production environment, flag this in the subject line
+    # If we are not deploying the live production site, flag this in the subject line
     environment = t("mailers.emailer.notify_admins_of_new_user_registration.environment.test")
-    if Rails.env == "production"
+    if AppConfig.mode == "protected"
       environment = ""
     end
 
