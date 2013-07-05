@@ -24,7 +24,9 @@
                 <li id="tab_home" class="has-dropdown">
                   <%= link_to t("views.application._navigation.links.home"), root_path %>
                   <ul class="dropdown">
-                    <li><%= link_to t("views.application._navigation.links.users"), root_path(anchor: "users") %></li>
+                    <li><%= link_to t("views.application._navigation.links.active_users"), root_path(anchor: "users") %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to t("views.application._navigation.links.active_and_inactive_users"), users_path %></li>
                     <li class="divider"></li>
                     <li><%= link_to t("views.application._navigation.links.family_profiles"), root_path(anchor: "family_profiles") %></li>
                     <li class="divider"></li>

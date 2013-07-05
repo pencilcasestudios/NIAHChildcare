@@ -19,7 +19,12 @@ NIAHChildcare::Application.routes.draw do
   resources :nanny_portraits
   resources :nanny_profiles
   resources :sessions
-  resources :users
+  resources :users do
+    member do
+      put :archive
+      put :unarchive
+    end
+  end
 
   resources :family_profiles do
     resources :nanny_portraits

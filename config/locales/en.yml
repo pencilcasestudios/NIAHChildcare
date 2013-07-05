@@ -70,8 +70,12 @@ en:
 
     users_controller:
       actions:
+        archive:
+          success: "User %{id} has been archived"
         create:
           success: Your account was successfully created. You may now sign in.
+        unarchive:
+          success: "User %{id} has been unarchived"
         update:
           success: Your account was successfully updated.
 
@@ -147,6 +151,9 @@ en:
         administrator: Administrator
         family: Family
         nanny: Nanny
+      states:
+        archived: Archived
+        registered: Registered
 
 
 
@@ -198,6 +205,8 @@ en:
         links:
           about: About
           account_settings: Account settings
+          active_and_inactive_users: All users
+          active_users: Active users
           contact: Contact
           family_profiles: Family Profiles
           home: Home
@@ -209,7 +218,6 @@ en:
           sign_in: Sign in
           sign_out: Sign out
           terms: Terms
-          users: Users
       _footer:
         copy:
           website_by: Website by
@@ -664,11 +672,13 @@ en:
       index:
         table:
           headings:
+            actions: Actions
             full_name: Full name
             number: "#"
-            role: Registration type
+            role: Role
             since: Registered on
-        title: Registered users
+            state: State
+        title: All users
       edit:
         title: Account settings
         title_admin: Edit user profile
@@ -697,11 +707,13 @@ en:
         copy:
           nanny_portrait: "%{family} family nanny portrait"
         headings:
-          users: Users
+          users: Acive users
           family_profiles: Family profiles
           nanny_profiles: Nanny profiles
         links:
+          archive: Archive
           edit: Edit
+          unarchive: Unarchive
         table:
           headings:
             actions: Actions

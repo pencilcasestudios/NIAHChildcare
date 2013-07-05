@@ -43,6 +43,22 @@ class User < ActiveRecord::Base
     I18n.t("models.user.roles.administrator") =>    "administrator",
   }
 
+
+
+
+  state_machine :state, initial: :registered do
+    event :archive do
+      transition registered: :archived
+    end
+
+    event :unarchive do
+      transition archived: :registered
+    end
+  end
+
+
+
+
   def self.random_role
     ROLES[ROLES.to_a[rand ROLES.size].first]
   end

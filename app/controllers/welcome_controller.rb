@@ -5,8 +5,8 @@ class WelcomeController < ApplicationController
 
   def index
     if user_signed_in? && current_user.admin?
-      @users = User.all
-      @users_size = User.all.size
+      @users = User.where("state='registered'")
+      @users_size = @users.size
 
       @family_profiles = FamilyProfile.all
       @family_profiles_size = FamilyProfile.all.size

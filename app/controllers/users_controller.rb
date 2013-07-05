@@ -46,4 +46,16 @@ class UsersController < ApplicationController
       render action: "edit"
     end
   end
+
+  def archive
+    @user.archive
+    flash[:success] = t("controllers.users_controller.actions.archive.success", id: @user.id)
+    redirect_to users_path
+  end
+
+  def unarchive
+    @user.unarchive
+    flash[:success] = t("controllers.users_controller.actions.unarchive.success", id: @user.id)
+    redirect_to users_path
+  end
 end
