@@ -8,10 +8,12 @@ class WelcomeController < ApplicationController
       @users = User.where("state='registered'")
       @users_size = @users.size
 
-      @family_profiles = FamilyProfile.all
-      @family_profiles_size = FamilyProfile.all.size
+      # Get family profiles for registered users only
+      @family_profiles = FamilyProfile.all(joins: :user, conditions: { users: {state: "registered"}})
+      @family_profiles_size = @family_profiles.size
 
-      @nanny_profiles = NannyProfile.all
+      # Get nanny profiles for registered users only
+      @nanny_profiles = NannyProfile.all(joins: :user, conditions: { users: {state: "registered"}})
       @nanny_profiles_size = NannyProfile.all.size
     end
   end
