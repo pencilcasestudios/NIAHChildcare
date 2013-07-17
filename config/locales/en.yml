@@ -707,7 +707,7 @@ en:
         copy:
           nanny_portrait: "%{family} family nanny portrait"
         headings:
-          users: Acive users
+          users: Active users
           family_profiles: Family profiles
           nanny_profiles: Nanny profiles
         links:
