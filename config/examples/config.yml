@@ -36,6 +36,9 @@ defaults: &defaults
   admin_at_niahchildcare: "admin@niahchildcare.com"
   itsupport_at_pencilcasestudios: "itsupport+niahchildcare@pencilcasestudios.com"
 
+  # Norton Web Safe
+  norton_web_safe: "jsu2o63-hgeulspig82e1-tiretqrpub66f1-cg04edbg9uqx9ya4jc3x8l7833g59xkvulx3ncqk85k8etjc1imp75qjf4u43u7q1tg2clynpt3kaod89ox44xdc6vk"
+
 
 
 
