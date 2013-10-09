@@ -15,12 +15,12 @@ git remote add virtual niahchildcare.virtual:/var/Repositories/Git/NIAHChildcare
 git remote add production niahchildcare.com:/var/Repositories/Git/NIAHChildcare.git
 
 Link to externalised assets
-cd $HOME/Projects/Rails/NIAHChildcare/app/assets/images
+cd ~/Projects/Rails/NIAHChildcare/app/assets/images
 ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Website/Images/Backgrounds/ backgrounds
 
 Virtual machine setup
 ---------------------
-# Test SSH access
+Test SSH access:
 ssh deploy@niahchildcare.virtual
 ssh vladimir@niahchildcare.virtual
 
@@ -53,8 +53,25 @@ sudo cp niahchildcare.virtual.key niahchildcare.virtual.key.original
 sudo openssl rsa -in niahchildcare.virtual.key.original -out niahchildcare.virtual.key
 sudo openssl x509 -req -days 365 -in niahchildcare.virtual.csr -signkey niahchildcare.virtual.key -out niahchildcare.virtual.crt
 
-Test the nginx configuration
+Test the nginx configuration:
 sudo /opt/nginx/sbin/nginx -t
+
+Setup the MySQL database user:
+ssh vladimir@rails.vm
+mysql -u root -p
+create user 'niahchildcare'@'localhost' identified by 'VirtualNIAHChildcarePassword';
+grant all on NIAHChildcare_virtual.* to 'niahchildcare'@'localhost';
+
+Setup the MySQL database:
+mysql -u niahchildcare -p
+create database NIAHChildcare_virtual;
+
+Setup the Monit scripts:
+cd ~/Projects/Rails/NIAHChildcare/config/examples
+scp delayed_job.niahchildcare.virtual.monitrc vladimir@rails.vm:~
+ssh vladimir@rails.vm
+sudo mv delayed_job.niahchildcare.virtual.monitrc /etc/monit/conf.d/
+sudo /etc/init.d/monit syntax
 
 
 
