@@ -43,6 +43,11 @@ git init --bare
 cd ..
 chown -R deploy:deployers NIAHChildcare.git/
 
+Push to the Git repository:
+# From the development machine:
+cd ~/Projects/Rails/NIAHChildcare
+git push virtual master
+
 Configure nginx:
 ssh vladimir@niahchildcare.virtual
 cd /opt/nginx/conf/sites-available/
