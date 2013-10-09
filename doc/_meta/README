@@ -87,6 +87,8 @@ ssh deploy@rails.vm
 mkdir -p ~/Projects/Configurations/NIAHChildcare/virtual
 mv database.yml ~/Projects/Configurations/NIAHChildcare/virtual/
 mv config.yml ~/Projects/Configurations/NIAHChildcare/virtual/
+
+# After running cap deploy:setup
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 
