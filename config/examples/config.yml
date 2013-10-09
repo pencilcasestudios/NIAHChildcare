@@ -10,12 +10,12 @@ defaults: &defaults
   gemset_name: niahchildcare-rails.3.2.x
   repository_deployment_branch: master
   repository_server_name: niahchildcare.com
-  ruby_version: ruby-1.9.3-p448
+  ruby_version: ruby-2.0.0-p247
   server_name_production: niahchildcare.com
   server_name_staging: niahchildcare.clientcase.net
   stage_name_production: production
   stage_name_staging: staging
-  user: silumesii
+  user: deploy
 
   # Application mode:
   # 1. protected    - Authenticate with HTTP basic
