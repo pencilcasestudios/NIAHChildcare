@@ -27,6 +27,13 @@ ssh vladimir@niahchildcare.virtual
 Set up the hosts (/etc/hosts):
 127.0.0.1 niahchildcare.virtual 	www.niahchildcare.virtual
 
+Check that SSH "loops back" on the virtual machine (host key verification):
+# On the local development machine
+ssh deploy@rails.vm
+
+# On the virtual machine
+ssh niahchildcare.virtual
+
 Create the Git repository:
 ssh deploy@niahchildcare.virtual
 cd /var/Repositories/Git/
@@ -132,8 +139,9 @@ git push
 git push virtual				# May need to 'git push virtual master'
 cap deploy:setup        # Update configuration files and create the database after this
 cap deploy:check
-cap deploy:update       # May require verifying the host key.
+cap deploy:update
 cap deploy:migrate
+cap db:seed
 cap deploy:start
 
 # Capistrano for non-initial deployment
