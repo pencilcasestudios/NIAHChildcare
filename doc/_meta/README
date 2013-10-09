@@ -14,6 +14,10 @@ Setup deployment references:
 git remote add virtual niahchildcare.virtual:/var/Repositories/Git/NIAHChildcare.git
 git remote add production niahchildcare.com:/var/Repositories/Git/NIAHChildcare.git
 
+Link to externalised assets
+cd $HOME/Projects/Rails/NIAHChildcare/app/assets/images
+ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Website/Images/Backgrounds/ backgrounds
+
 Virtual machine setup
 ---------------------
 # Test SSH access

@@ -39,3 +39,9 @@ config/deploy/
 
 # Ignore uploads/
 uploads
+
+
+
+
+# Externalised assets
+app/assets/images/backgrounds
