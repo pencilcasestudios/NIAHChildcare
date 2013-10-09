@@ -68,6 +68,9 @@ sudo openssl x509 -req -days 365 -in niahchildcare.virtual.csr -signkey niahchil
 Test the nginx configuration:
 sudo /opt/nginx/sbin/nginx -t
 
+If all is well, load the new nginx configuration:
+sudo /etc/init.d/nginx reload
+
 Setup the MySQL database user:
 ssh vladimir@rails.vm
 mysql -u root -p
