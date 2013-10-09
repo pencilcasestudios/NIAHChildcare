@@ -8,3 +8,22 @@ set :repository_server_name, DEPLOYMENT_CONFIG["repository_server_name"]
 set :repository, "#{user}@#{repository_server_name}:/var/Repositories/Git/#{application}.git"
 # Don't forget to make this branch in the repository
 set :branch, DEPLOYMENT_CONFIG["repository_deployment_branch"]
+
+
+
+
+
+
+
+
+
+namespace :deploy do
+  desc "Synchronise assets"
+  task :sync_assets do
+    # Upload assets to the AssetsVault
+    run_locally "rsync --verbose --stats --progress --compress --archive --partial --recursive --times --perms --links --delete --exclude '.*' --delete-excluded ~/Projects/Rails/NIAHChildcare/app/assets/images/backgrounds/ #{user}@#{server}:#{asset_vault_path}/#{application}/Images/Backgrounds/"
+
+    # Sync assets from the AssetsVault to the deployed application
+    run "rsync --verbose --stats --progress --compress --archive --partial --recursive --times --perms --links --delete --exclude '.*' --delete-excluded #{asset_vault_path}/#{application}/Images/Backgrounds/ #{shared_path}/backgrounds"
+  end
+end

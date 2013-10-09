@@ -76,6 +76,17 @@ set :scm, :git
 
 
 # Ref: https://coderwall.com/p/fnhahg
+# Symbolically link the various upload and asset folders
+set :asset_vault_path, DEPLOYMENT_CONFIG["asset_vault_path"]
+set :uploads_dirs, %w(
+  app/assets/images/backgrounds
+)
+set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
+
+
+
+
+# Ref: https://coderwall.com/p/fnhahg
 # Symbolically link the uploads folder to handle resumes uploaded
 set :uploads_dirs, %w(uploads)
 set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
@@ -99,6 +110,14 @@ namespace :deploy do
     put File.read("config/examples/database.yml"), "#{shared_path}/config/database.yml"
     #put File.read("config/examples/twitter.yml"), "#{shared_path}/config/twitter.yml"
     puts "Now edit the config files in #{shared_path}."
+  end
+
+  task :setup_asset_vault do
+    puts "Creating asset folders in #{asset_vault_path}/#{application}"
+
+    run "mkdir -p #{asset_vault_path}/#{application}/Images/Backgrounds/"
+
+    run "chown -R deploy:deployers #{asset_vault_path}"
   end
 
   desc "Symlink extra configs and folders."
@@ -147,7 +166,11 @@ before "deploy", "rvm:install_rvm"
 
 after "deploy", "deploy:cleanup" # keeps only last 5 releases
 after "deploy:setup", "deploy:setup_shared"
+after "deploy:setup", "deploy:setup_asset_vault"
 after "deploy:finalize_update", "deploy:symlink_extras"
+
+# Synchronise assets
+before "deploy:assets:precompile", "deploy:sync_assets"
 
 # https://github.com/collectiveidea/delayed_job/wiki/Rails-3-and-Capistrano
 # Delayed Job

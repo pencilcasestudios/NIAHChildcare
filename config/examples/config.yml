@@ -33,14 +33,15 @@ defaults: &defaults
   production_stage_name: production
 
 
-
-
+  # Asset vault
+  asset_vault_path: /var/AssetsVault
 
 
   # Application mode:
   # 1. protected    - Authenticate with HTTP basic
   # 2. unprotected  - Don't authenticate with HTTP basic
   mode: protected
+
 
   # Email settings
   email_address: "smtpout.secureserver.net"
