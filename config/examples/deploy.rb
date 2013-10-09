@@ -25,7 +25,7 @@ require "rvm/capistrano"
 # https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension
 #set :deploy_env, "production"
 set :stages, [DEPLOYMENT_CONFIG["virtual_stage_name"], DEPLOYMENT_CONFIG["staging_stage_name"], DEPLOYMENT_CONFIG["production_stage_name"]]
-set :default_stage, DEPLOYMENT_CONFIG["staging_stage_name"]
+set :default_stage, DEPLOYMENT_CONFIG["virtual_stage_name"]
 
 set :rails_env, "production" # Added for delayed job
 
