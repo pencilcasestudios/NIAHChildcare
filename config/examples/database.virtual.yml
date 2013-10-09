@@ -1,0 +1,9 @@
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: NIAHChildcare_virtual
+  pool: 5
+  username: galaunia
+  password: VirtualNIAHChildcarePassword
+  host: localhost
