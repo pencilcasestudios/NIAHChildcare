@@ -22,7 +22,7 @@ namespace :deploy do
   desc "Synchronise assets"
   task :sync_assets do
     # Upload assets to the AssetsVault
-    run_locally "rsync --verbose --stats --progress --compress --archive --partial --recursive --times --perms --links --delete --exclude '.*' --delete-excluded ~/Projects/Rails/Galaunia/app/assets/images/backgrounds/ #{user}@#{DEPLOYMENT_CONFIG["virtual_server_name"]}:#{asset_vault_path}/#{application}/Images/Backgrounds/"
+    run_locally "rsync --verbose --stats --progress --compress --archive --partial --recursive --times --perms --links --delete --exclude '.*' --delete-excluded ~/Projects/Rails/#{application}/app/assets/images/backgrounds/ #{user}@#{DEPLOYMENT_CONFIG["virtual_server_name"]}:#{asset_vault_path}/#{application}/Images/Backgrounds/"
 
     # Sync assets from the AssetsVault to the deployed application
     run "rsync --verbose --stats --progress --compress --archive --partial --recursive --times --perms --links --delete --exclude '.*' --delete-excluded #{asset_vault_path}/#{application}/Images/Backgrounds/ #{shared_path}/backgrounds"
