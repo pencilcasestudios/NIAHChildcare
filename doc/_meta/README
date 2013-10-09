@@ -2,6 +2,7 @@ Setting up the application to run the first time
 ================================================
 Local machine setup
 -------------------
+cd ~/Projects/Rails/NIAHChildcare
 cp config/examples/database.yml config # Setup the database
 cp config/examples/config.yml config # Setup the configuration files
 cp config/examples/deploy.rb config # Setup the capistrano deployment recipe
