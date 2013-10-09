@@ -13,7 +13,9 @@ set :branch, DEPLOYMENT_CONFIG["virtual_repository_deployment_branch"]
 
 
 
-
+# Deployment dependencies
+# Ref: https://github.com/capistrano/capistrano/wiki/Capistrano-Tasks#deploycheck
+depend :remote, :writable, "#{asset_vault_path}/#{application}/Images/Backgrounds/"
 
 
 
