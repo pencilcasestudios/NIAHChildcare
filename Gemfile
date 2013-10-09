@@ -9,7 +9,7 @@ gem "rails", "~> 3.2.13"
 
 
 # Used accross environments
-gem "bcrypt-ruby"
+gem "bcrypt-ruby", "~> 3.0.1" # To use ActiveModel has_secure_password
 gem "cancan"
 gem "carrierwave"
 gem "daemons"
