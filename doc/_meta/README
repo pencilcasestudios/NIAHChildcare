@@ -1,22 +1,67 @@
-Setup after cloning the repository
-==================================
-After cloning the repository
-1. Copy .yml files from config/examples to config/
-2. Copy .rb files from config/examples/deploy to config/deploy/
-3. Copy the deployment (.rb) configuration from config/examples to config
-4. Set up the git remotes to the production repository
+Setting up the application to run the first time
+================================================
+Local machine setup
+-------------------
+cp config/examples/database.yml config # Setup the database
+cp config/examples/config.yml config # Setup the configuration files
+cp config/examples/deploy.rb config # Setup the capistrano deployment recipe
+cp config/examples/deploy/*.rb config/deploy # Setup deployment stage configuration
+
+Set up the hosts (/etc/hosts)
+127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
+
+Setup deployment references:
+git remote add virtual niahchildcare.virtual:/var/Repositories/Git/NIAHChildcare.git
+git remote add production niahchildcare.com:/var/Repositories/Git/NIAHChildcare.git
+
+Virtual machine setup
+---------------------
+# Test SSH access
+ssh deploy@niahchildcare.virtual
+ssh vladimir@niahchildcare.virtual
+
+Set up the hosts (/etc/hosts):
+127.0.0.1 niahchildcare.virtual 	www.niahchildcare.virtual
+
+Create the Git repository:
+ssh deploy@niahchildcare.virtual
+cd /var/Repositories/Git/
+mkdir NIAHChildcare.git
+cd NIAHChildcare.git
+git init --bare
+cd ..
+chown -R deploy:deployers NIAHChildcare.git/
+
+Configure nginx:
+ssh vladimir@niahchildcare.virtual
+cd /opt/nginx/conf/sites-available/
+# Set up the nginx configuration
+cd /opt/nginx/conf/sites-enabled/
+sudo ln -s /opt/nginx/conf/sites-available/niahchildcare.virtual.conf niahchildcare.virtual
+
+Generate an SSL certificate and key:
+cd /opt/nginx/ssl
+sudo mkdir NIAHChildcare
+cd NIAHChildcare
+sudo openssl genrsa -des3 -out niahchildcare.virtual.key 1024
+sudo openssl req -new -key niahchildcare.virtual.key -out niahchildcare.virtual.csr
+sudo cp niahchildcare.virtual.key niahchildcare.virtual.key.original
+sudo openssl rsa -in niahchildcare.virtual.key.original -out niahchildcare.virtual.key
+sudo openssl x509 -req -days 365 -in niahchildcare.virtual.csr -signkey niahchildcare.virtual.key -out niahchildcare.virtual.crt
+
+Test the nginx configuration
+sudo /opt/nginx/sbin/nginx -t
+
 
 
 
 Testing
 =======
-
 # Guard for testing
 bundle update
 gem cleanup
 rake db:drop
 rake db:setup
-notify-send "NIAH Childcare app database setup complete"
 rake db:test:prepare
 guard
 
@@ -25,7 +70,6 @@ guard
 
 Gem management
 ==============
-
 MAINTAIN GEM BUNDLE
 bundle update
 gem cleanup
@@ -36,38 +80,39 @@ gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 
 
 
-Setting up testing
-==================
+Application Deployment
+======================
+# Capistrano steps for initial deployment
+# VIRTUAL MACHINE DEPLOYMENT
+git checkout master
+git merge work
+git push
+git push virtual				# May need to 'git push virtual master'
+cap deploy:setup        # Update configuration files and create the database after this
+cap deploy:check
+cap deploy:update       # May require verifying the host key.
+cap deploy:migrate
+cap deploy:start
 
-# Ref
-http://railscasts.com/episodes/275-how-i-test?view=asciicast
-http://railscasts.com/episodes/285-spork?view=asciicast
+# Capistrano for non-initial deployment
+# STAGING DEPLOYMENT
+git checkout master
+git merge work
+git push
+git push production
+cap deploy
 
-# Gemfile
-gem "jquery-rails"
-gem "rb-fsevent"
-
-
-rails generate rspec:install
-spork --bootstrap
-
-guard init spork
-guard init bundler
-guard init rspec
-
-mkdir spec/support spec/models spec/routing
-
-Configure Guardfile (DRB ports etc)
-
-Configure spec_helper.rb
-
-Test!
+# Capistrano for non-initial deployment
+# PRODUCTION DEPLOYMENT
+git checkout master
+git merge work
+git push
+git push production
+cap production deploy
+git tag "`date +published_%Y-%m-%d_%H%M%S`"
 
 
 
-
-Generating Tests
-================
 
 
 
