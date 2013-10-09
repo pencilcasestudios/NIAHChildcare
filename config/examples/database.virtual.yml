@@ -4,6 +4,6 @@ production:
   reconnect: false
   database: NIAHChildcare_virtual
   pool: 5
-  username: galaunia
+  username: niahchildcare
   password: VirtualNIAHChildcarePassword
   host: localhost
