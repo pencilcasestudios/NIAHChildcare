@@ -45,6 +45,8 @@ set :rvm_ruby_string, "#{rvm_ruby_gemset}"                          # Select the
 
 
 
+depend :remote, :command, "mysql"
+depend :remote, :command, "rvm"
 depend :remote, :gem, "bundler", ">=1.0.21"
 depend :remote, :gem, "rake", ">=0.9.2.2"
 

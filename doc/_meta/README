@@ -67,11 +67,30 @@ mysql -u niahchildcare -p
 create database NIAHChildcare_virtual;
 
 Setup the Monit scripts:
+# From the development machine
 cd ~/Projects/Rails/NIAHChildcare/config/examples
 scp delayed_job.niahchildcare.virtual.monitrc vladimir@rails.vm:~
 ssh vladimir@rails.vm
+
+# From the virtual machine
 sudo mv delayed_job.niahchildcare.virtual.monitrc /etc/monit/conf.d/
 sudo /etc/init.d/monit syntax
+
+Setup the YAML configuration files:
+# From the development machine
+cd ~/Projects/Rails/NIAHChildcare/config/examples
+scp config.virtual.yml deploy@rails.vm:~/config.yml
+scp database.virtual.yml deploy@rails.vm:~/database.yml
+ssh deploy@rails.vm
+
+# From the virtual machine
+mkdir -p ~/Projects/Configurations/NIAHChildcare/virtual
+mv database.yml ~/Projects/Configurations/NIAHChildcare/virtual/
+mv config.yml ~/Projects/Configurations/NIAHChildcare/virtual/
+cd ~/Projects/Configurations/NIAHChildcare/virtual
+cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
+
+
 
 
 
