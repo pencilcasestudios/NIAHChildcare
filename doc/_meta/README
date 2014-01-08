@@ -116,6 +116,7 @@ cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 Testing
 =======
 # Guard for testing
+cd ~/Projects/Rails/NIAHChildcare
 bundle update
 gem cleanup
 rake db:drop
