@@ -32,7 +32,7 @@
 config/config.yml
 config/database.yml
 config/deploy.rb
-config/deploy/
+config/deploy/*.rb
 
 
 
@@ -44,4 +44,4 @@ uploads
 
 
 # Externalised assets
-app/assets/images/backgrounds
+app/assets/images
