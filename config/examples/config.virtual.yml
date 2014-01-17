@@ -5,7 +5,7 @@ defaults: &defaults
 
   application_name: NIAHChildcare
   gemset_name: niahchildcare-rails.3.2.x
-  ruby_version: ruby-2.0.0-p247
+  ruby_version: ruby-2.1.0
   user: deploy
 
 
