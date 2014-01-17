@@ -40,12 +40,12 @@ describe "Assets" do
       get "/assets/favicon.ico"
       response.status.should be(200)
 
-      get "/assets/logo-340x340.png"
+      get "/assets/logos/logo-340x340.png"
       response.status.should be(200)
 
 
       # Images
-      get "/assets/NIAHChildcare_logo_with_text-930x539.png"
+      get "/assets/logos/NIAHChildcare_logo_with_text-930x539.png"
       response.status.should be(200)
 
       # Background images
