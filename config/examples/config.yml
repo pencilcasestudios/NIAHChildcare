@@ -1,6 +1,6 @@
 defaults: &defaults
   http_basic_name: preview
-  http_basic_password: future # Update this in production
+  http_basic_password: local # Update this in production
   test_user_password: password
 
   application_name: NIAHChildcare
