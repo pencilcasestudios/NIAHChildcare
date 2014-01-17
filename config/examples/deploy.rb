@@ -79,7 +79,7 @@ set :scm, :git
 # Symbolically link the various upload and asset folders
 set :asset_vault_path, DEPLOYMENT_CONFIG["asset_vault_path"]
 set :uploads_dirs, %w(
-  app/assets/images/backgrounds
+  app/assets/images
 )
 set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
 
