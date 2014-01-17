@@ -16,8 +16,8 @@ git remote add virtual niahchildcare.virtual:/var/Repositories/Git/NIAHChildcare
 git remote add production niahchildcare.com:/var/Repositories/Git/NIAHChildcare.git
 
 Link to externalised assets
-cd ~/Projects/Rails/NIAHChildcare/app/assets/images
-ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Website/Images/Backgrounds/ backgrounds
+cd ~/Projects/Rails/NIAHChildcare/app/assets
+ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images/ images
 
 Virtual machine setup
 ---------------------
