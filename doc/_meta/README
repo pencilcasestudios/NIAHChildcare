@@ -132,9 +132,25 @@ mkdir -p ~/Projects/Configurations/NIAHChildcare/virtual
 mv database.yml ~/Projects/Configurations/NIAHChildcare/virtual/
 mv config.yml ~/Projects/Configurations/NIAHChildcare/virtual/
 
+# Capistrano steps for initial deployment
+# VIRTUAL MACHINE DEPLOYMENT
+git checkout master
+git merge work
+git push
+git push virtual				# May need to 'git push virtual master'
+cap deploy:setup        # Update configuration files and create the database after this
+
 # After running cap deploy:setup
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
+
+cap deploy:check
+cap deploy:update
+cap deploy:migrate
+cap db:seed
+cap deploy:start
+
+
 
 
 
