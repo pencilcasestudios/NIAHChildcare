@@ -12,7 +12,7 @@ Set up the hosts (/etc/hosts)
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
 
 Setup deployment references:
-git remote add virtual rails.vm/var/Repositories/Git/NIAHChildcare.git
+git remote add virtual rails.vm:/var/Repositories/Git/NIAHChildcare.git
 git remote add production niahchildcare.com:/var/Repositories/Git/NIAHChildcare.git
 
 Link to externalised assets
