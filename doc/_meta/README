@@ -12,7 +12,7 @@ Set up the hosts (/etc/hosts)
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
 
 Setup deployment references:
-git remote add virtual niahchildcare.virtual:/var/Repositories/Git/NIAHChildcare.git
+git remote add virtual rails.vm/var/Repositories/Git/NIAHChildcare.git
 git remote add production niahchildcare.com:/var/Repositories/Git/NIAHChildcare.git
 
 Link to externalised assets
@@ -22,8 +22,8 @@ ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images/ images
 Virtual machine setup
 ---------------------
 Test SSH access:
-ssh deploy@niahchildcare.virtual
-ssh vladimir@niahchildcare.virtual
+ssh deploy@rails.vm
+ssh vladimir@rails.vm
 
 Set up the hosts (/etc/hosts):
 127.0.0.1 niahchildcare.virtual 	www.niahchildcare.virtual
@@ -36,7 +36,7 @@ ssh deploy@rails.vm
 ssh niahchildcare.virtual
 
 Create the Git repository:
-ssh deploy@niahchildcare.virtual
+ssh deploy@rails.vm
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
@@ -50,7 +50,7 @@ cd ~/Projects/Rails/NIAHChildcare
 git push virtual master
 
 Configure nginx:
-ssh vladimir@niahchildcare.virtual
+ssh vladimir@rails.vm
 cd /opt/nginx/conf/sites-available/
 # Set up the nginx configuration
 cd /opt/nginx/conf/sites-enabled/
