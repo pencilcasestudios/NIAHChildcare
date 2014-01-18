@@ -27,7 +27,7 @@ module ApplicationHelper
       title: t("application.tagline_html"),
       open_graph: {
         description: t("application.meta_tags.description"),
-        image: root_url + asset_path("logo-340x340.png"),
+        image: root_url + asset_path("logos/logo-340x340.png"),
         title: t("application.tagline_html"),
         type: :website,
         url: root_url,
