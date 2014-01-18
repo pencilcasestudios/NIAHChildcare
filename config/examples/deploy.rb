@@ -115,7 +115,7 @@ namespace :deploy do
   task :setup_asset_vault do
     puts "Creating asset folders in #{asset_vault_path}/#{application}"
 
-    run "mkdir -p #{asset_vault_path}/#{application}/Images/Backgrounds/"
+    run "mkdir -p #{asset_vault_path}/#{application}/Images/"
 
     run "chown -R deploy:deploy #{asset_vault_path}"
   end
