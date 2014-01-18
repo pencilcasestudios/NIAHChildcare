@@ -141,6 +141,7 @@ git push virtual				# May need to 'git push virtual master'
 cap deploy:setup        # Update configuration files and create the database after this
 
 # After running cap deploy:setup
+# On the virtual machine
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 
