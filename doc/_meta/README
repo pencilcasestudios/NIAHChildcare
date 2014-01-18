@@ -45,7 +45,7 @@ mkdir NIAHChildcare.git
 cd NIAHChildcare.git
 git init --bare
 cd ..
-chown -R deploy:deployers NIAHChildcare.git/
+chown -R deploy:deploy NIAHChildcare.git/
 
 Push to the Git repository:
 # From the development machine:

@@ -117,7 +117,7 @@ namespace :deploy do
 
     run "mkdir -p #{asset_vault_path}/#{application}/Images/Backgrounds/"
 
-    run "chown -R deploy:deployers #{asset_vault_path}"
+    run "chown -R deploy:deploy #{asset_vault_path}"
   end
 
   desc "Symlink extra configs and folders."
