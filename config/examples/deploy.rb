@@ -32,6 +32,7 @@ set :rails_env, "production" # Added for delayed job
 # Customise these application-specific settings by updating config.yml used by Settingslogic
 # DEPLOYMENT_CONFIG is initialised in Capfile
 set :application, DEPLOYMENT_CONFIG["application_name"]
+set :applications_folder, DEPLOYMENT_CONFIG["applications_folder"]
 set :gemset_name, DEPLOYMENT_CONFIG["gemset_name"]
 set :ruby_version, DEPLOYMENT_CONFIG["ruby_version"]
 # set :server_name, DEPLOYMENT_CONFIG["server_name"] - Server name now gets configured in config/deploy/{stage_name}.rb
@@ -47,8 +48,8 @@ set :rvm_ruby_string, "#{rvm_ruby_gemset}"                          # Select the
 
 depend :remote, :command, "mysql"
 depend :remote, :command, "rvm"
-depend :remote, :gem, "bundler", ">=1.0.21"
-depend :remote, :gem, "rake", ">=0.9.2.2"
+depend :remote, :gem, "bundler", "#{DEPLOYMENT_CONFIG["miniumum_version_of_bundler"]}"
+depend :remote, :gem, "rake", "#{DEPLOYMENT_CONFIG["miniumum_version_of_rake"]}"
 
 
 
