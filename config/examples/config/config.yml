@@ -1,6 +1,10 @@
 defaults: &defaults
+  # HTTP access mode:
+  # 1. closed - Authenticate with HTTP basic
+  # 2. open - Don't authenticate with HTTP basic
+  http_basic_access_mode: closed
   http_basic_name: preview
-  http_basic_password: local # Update this in production
+  http_basic_password: dev # Update this in production
   test_user_password: password
 
   application_name: NIAHChildcare
@@ -9,38 +13,32 @@ defaults: &defaults
   user: deploy
 
 
-  miniumum_version_of_bundler: 1.5.1
-  miniumum_version_of_rake: 10.1.0
+  miniumum_version_of_bundler: ">=1.5.2"
+  miniumum_version_of_rake: ">=10.1.0"
 
 
   # Multi-stage recipe settings
   # Virtual deployment
   virtual_deployment_path: virtual
   virtual_repository_deployment_branch: master
-  virtual_server_name: niahchildcare.virtual
+  virtual_server_name: rails.vps
   virtual_stage_name: virtual
 
   # Staging deployment
   staging_deployment_path: staging
   staging_repository_deployment_branch: master
-  staging_server_name: niahchildcare.clientcase.net
+  staging_server_name: genesis.vps
   staging_stage_name: staging
 
   # Production deployment
   production_deployment_path: production
   production_repository_deployment_branch: master
-  production_server_name: niahchildcare.com
+  production_server_name: deuteronomy.vps
   production_stage_name: production
 
 
   # Asset vault
   asset_vault_path: /var/AssetsVault
-
-
-  # Application mode:
-  # 1. protected    - Authenticate with HTTP basic
-  # 2. unprotected  - Don't authenticate with HTTP basic
-  mode: protected
 
 
   # Email settings
@@ -68,3 +66,8 @@ test:
 
 production:
   <<: *defaults
+
+  # HTTP access mode:
+  # 1. closed - Authenticate with HTTP basic
+  # 2. open - Don't authenticate with HTTP basic
+  http_basic_access_mode: closed
