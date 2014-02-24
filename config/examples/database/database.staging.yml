@@ -2,28 +2,28 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: NIAHChildcare_virtual_development
+  database: NIAHChildcare_staging_development
   pool: 5
   username: niahchildcare
-  password: VirtualNIAHChildcarePassword
+  password: StagingNIAHChildcarePassword
   host: localhost
 
 test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: NIAHChildcare_virtual_test
+  database: NIAHChildcare_staging_test
   pool: 5
   username: niahchildcare
-  password: VirtualNIAHChildcarePassword
+  password: StagingNIAHChildcarePassword
   host: localhost
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: NIAHChildcare_virtual
+  database: NIAHChildcare_staging
   pool: 5
   username: niahchildcare
-  password: VirtualNIAHChildcarePassword
+  password: StagingNIAHChildcarePassword
   host: localhost
