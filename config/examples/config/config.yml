@@ -8,6 +8,7 @@ defaults: &defaults
   test_user_password: password
 
   application_name: NIAHChildcare
+  applications_folder: "/var/Apps"
   gemset_name: niahchildcare-rails.3.2.x
   ruby_version: ruby-2.1.0
   user: deploy
