@@ -71,4 +71,4 @@ production:
   # HTTP access mode:
   # 1. closed - Authenticate with HTTP basic
   # 2. open - Don't authenticate with HTTP basic
-  http_basic_access_mode: closed
+  http_basic_access_mode: open
