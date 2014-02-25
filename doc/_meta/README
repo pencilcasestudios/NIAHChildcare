@@ -727,11 +727,14 @@ sudo service monit reload
 
 Hints
 =====
-Ruby
+Git
+---
+git push origin --delete <branchName>
+
+
+gzip
 ----
-Working with gemsets:
-rvm @global do gem update
-rvm @global do gem cleanup
+gzip database.sql
 
 
 MariaDB
@@ -747,9 +750,11 @@ mysql -u USERNAME -p DATABASE_NAME < BACKUPFILE
 set password for 'username'@'localhost' = password('cleartext password');
 
 
-gzip
+Ruby
 ----
-gzip database.sql
+Working with gemsets:
+rvm @global do gem update
+rvm @global do gem cleanup
 
 
 
