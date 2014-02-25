@@ -280,6 +280,7 @@ mv config.yml ~/Projects/Configurations/NIAHChildcare/virtual/
 # From the development machine
 # Capistrano steps for initial deployment
 # VIRTUAL MACHINE DEPLOYMENT
+cd ~/Projects/Clients/NIAHChildcare/
 git checkout master
 git merge dev
 git push
@@ -481,6 +482,7 @@ mv config.yml ~/Projects/Configurations/NIAHChildcare/staging/
 # From the development machine
 # Capistrano steps for initial deployment
 # STAGING MACHINE DEPLOYMENT
+cd ~/Projects/Clients/NIAHChildcare/
 git checkout master
 git merge dev
 git push
