@@ -214,10 +214,10 @@ sudo openssl genrsa -des3 -out niahchildcare.virtual.key 1024
 
 sudo openssl req -new -key niahchildcare.virtual.key -out niahchildcare.virtual.csr
 
-		Country Name: ZM
-		Province: Lusaka Province
-		Locality Name: Lusaka
-		Organisation Name: NIAHChildcare Farms
+		Country Name: US
+		Province: Massachusetts
+		Locality Name: Newton
+		Organisation Name: Needle in a Haystack Special Needs Childcare Agency
 		Orgnisational Unit Name: <Blank>
 		Common Name: niahchildcare.virtual.
 		Email: itsupport@pencilcasestudios.com
@@ -412,10 +412,10 @@ sudo openssl genrsa -des3 -out niahchildcare.clientcase.net.key 1024
 
 sudo openssl req -new -key niahchildcare.clientcase.net.key -out niahchildcare.clientcase.net.csr
 
-		Country Name: ZM
-		Province: Lusaka Province
-		Locality Name: Lusaka
-		Organisation Name: NIAHChildcare Farms
+		Country Name: US
+		Province: Massachusetts
+		Locality Name: Newton
+		Organisation Name: Needle in a Haystack Special Needs Childcare Agency
 		Orgnisational Unit Name: <Blank>
 		Common Name: niahchildcare.clientcase.net.
 		Email: itsupport@pencilcasestudios.com
@@ -613,10 +613,10 @@ sudo openssl genrsa -des3 -out niahchildcare.com.key 1024
 
 sudo openssl req -new -key niahchildcare.com.key -out niahchildcare.com.csr
 
-		Country Name: ZM
-		Province: Lusaka Province
-		Locality Name: Lusaka
-		Organisation Name: NIAHChildcare Farms
+		Country Name: US
+		Province: Massachusetts
+		Locality Name: Newton
+		Organisation Name: Needle in a Haystack Special Needs Childcare Agency
 		Orgnisational Unit Name: <Blank>
 		Common Name: niahchildcare.com.
 		Email: itsupport@pencilcasestudios.com
