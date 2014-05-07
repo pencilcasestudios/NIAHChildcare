@@ -64,6 +64,7 @@ en:
       actions:
         create:
           notices:
+            email_not_sent: "That email address was not found."
             email_sent: "An email has been sent with password reset instructions."
 
     sessions_controller:

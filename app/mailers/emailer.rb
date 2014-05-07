@@ -23,11 +23,7 @@ class Emailer < ActionMailer::Base
   # Ref: http://railscasts.com/episodes/275-how-i-test?view=asciicast
   # Email password reset instructions
   def password_reset(user)
-    #mail(
-    #  from: "from@example.com",
-    #  subject: "Password Reset",
-    #  to: user.email,
-    #)
+    @user = user
 
     mail(
       from: "#{t("application.name")} <#{AppConfig.email_user_name}>",
