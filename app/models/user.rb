@@ -78,4 +78,11 @@ class User < ActiveRecord::Base
   def full_name
     [self.first_name, self.middle_name, self.last_name].compact.reject{|element| element.empty?}.join(" ")
   end
+
+  # http://railscasts.com/episodes/275-how-i-test?view=asciicast
+  def send_password_reset
+    #Emailer.delay.password_reset(user)
+    #Emailer.password_reset(user).deliver
+    Emailer.password_reset(self).deliver
+  end
 end
