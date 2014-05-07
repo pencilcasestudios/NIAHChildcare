@@ -60,6 +60,12 @@ en:
         create:
           success: Your note was successfully created.
 
+    password_resets_controller:
+      actions:
+        create:
+          notices:
+            email_sent: "An email has been sent with password reset instructions."
+
     sessions_controller:
       actions:
         create:
@@ -108,6 +114,11 @@ en:
         to:
           admin_at_niahchildcare: NIAH Childcare Administrator
           itsupport_at_pencilcasestudios: Pencil Case Studios IT Support
+      password_reset:
+        body: "Hello,\n\nA new user has registered on the %{application_name} website."
+        environment:
+          test: "This is a test: "
+        subject: "%{environment}[%{application_name}] Password reset"
 
 # Models
   models:
@@ -616,6 +627,19 @@ en:
         copy:
           known_since: "Known since %{date}"
 
+    password_resets:
+      _form:
+        buttons:
+          submit: Reset password
+        copy:
+          forgot_password: "After you submit this form, an email will be sent to you with instructions of how to reset your password."
+        labels:
+          identifier: Email
+        placeholders:
+          identifier: Email
+      new:
+        title: Reset password
+
     sessions:
       _form:
         buttons:
@@ -623,6 +647,8 @@ en:
         labels:
           identifier: Email or cell phone number
           password: Password
+        links:
+          forgot_password: Forgot password
         placeholders:
           identifier: Email or cell phone number
           password: Password

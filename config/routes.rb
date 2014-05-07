@@ -1,4 +1,5 @@
 NIAHChildcare::Application.routes.draw do
+
   # Welcome
   match "about", to: "welcome#about", as: "about"
   match "contact", to: "welcome#contact", as: "contact"
@@ -18,7 +19,9 @@ NIAHChildcare::Application.routes.draw do
   resources :family_profiles
   resources :nanny_portraits
   resources :nanny_profiles
+  resources :password_resets
   resources :sessions
+
   resources :users do
     member do
       put :archive

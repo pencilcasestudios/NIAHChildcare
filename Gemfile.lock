@@ -96,7 +96,7 @@ GEM
     formatador (0.2.4)
     fssm (0.2.10)
     galetahub-simple_captcha (0.1.5)
-    guard (2.6.0)
+    guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
