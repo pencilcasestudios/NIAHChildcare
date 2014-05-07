@@ -81,8 +81,18 @@ class User < ActiveRecord::Base
 
   # http://railscasts.com/episodes/275-how-i-test?view=asciicast
   def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
     #Emailer.delay.password_reset(user)
     #Emailer.password_reset(user).deliver
     Emailer.password_reset(self).deliver
+  end
+
+  # http://railscasts.com/episodes/275-how-i-test?view=asciicast
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
   end
 end

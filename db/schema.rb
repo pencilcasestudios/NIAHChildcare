@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402043334) do
+ActiveRecord::Schema.define(:version => 20140507164939) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addresseable_id"
@@ -206,8 +206,10 @@ ActiveRecord::Schema.define(:version => 20130402043334) do
     t.string   "role"
     t.string   "state"
     t.string   "time_zone"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   create_table "versions", :force => true do |t|

@@ -80,4 +80,26 @@ describe User do
       user.errors[:cell_phone_number].should == [I18n.t("validators.cell_phone_number_format.error")]
     end
   end
+
+  # http://railscasts.com/episodes/275-how-i-test?view=asciicast
+  describe "sends password reset" do
+    let(:user) { FactoryGirl.create(:user) } # assigns user to a new user from the factory before each spec is run.
+
+    it "generates a unique password_reset_token each time" do
+      user.send_password_reset
+      last_token = user.password_reset_token
+      user.send_password_reset
+      user.password_reset_token.should_not eq(last_token)
+    end
+
+    it "saves the time the password reset was sent" do
+      user.send_password_reset
+      user.reload.password_reset_sent_at.should be_present
+    end
+
+    it "delivers email to user" do
+      user.send_password_reset
+      last_email.to.should include (user.email)
+    end
+  end
 end
