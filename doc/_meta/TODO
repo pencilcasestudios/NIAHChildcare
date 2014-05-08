@@ -36,6 +36,19 @@ TODO - Figure out a way to test delayed email deliveries (so that the config/ini
 
 
 
+
+
+
+
+
+Fix deprecation warnings
+========================
+DEPRECATION WARNING: CarrierWave::MimeTypes is deprecated and will be removed in the future, get the content_type from the SanitizedFile object directly. (will be removed from version 0.11.0). (called from include at /home/silumesii/Documents/Work/Pencil Case Studios/Projects/Rails/NIAHChildcare/app/uploaders/resume_uploader.rb:7)
+
+
+
+
+
 DONE
 ====
 DONE - Database backup to S3
