@@ -84,9 +84,9 @@ class User < ActiveRecord::Base
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
     save!
-    #Emailer.delay.password_reset(user)
-    #Emailer.password_reset(user).deliver
-    Emailer.password_reset(self).deliver
+
+    #Emailer.password_reset(self).deliver
+    Emailer.delay.password_reset(self)
   end
 
   # http://railscasts.com/episodes/275-how-i-test?view=asciicast

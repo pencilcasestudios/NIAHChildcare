@@ -31,6 +31,9 @@ TODO - Downloadable/printable client information
 TODO - Database backup to Dropbox
 
 
+TODO - Figure out a way to test delayed email deliveries (so that the config/initialisers/delayed_job.rb isn't necessary)
+
+
 
 
 DONE
