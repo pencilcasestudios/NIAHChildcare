@@ -63,9 +63,13 @@ en:
     password_resets_controller:
       actions:
         create:
-          notices:
-            email_not_sent: "That email address was not found."
-            email_sent: "An email has been sent with password reset instructions."
+          error: "That email address was not found."
+          success: "An email has been sent with password reset instructions."
+        update:
+          errors:
+            reset_expired: "Password reset has expired."
+            password_mismatch: "The passwords did not match."
+          success: "Your password has been reset. Try not to forget it."
 
     sessions_controller:
       actions:
@@ -629,17 +633,23 @@ en:
           known_since: "Known since %{date}"
 
     password_resets:
-      _form:
-        buttons:
-          submit: Reset password
-        copy:
-          forgot_password: "After you submit this form, an email will be sent to you with instructions of how to reset your password."
-        labels:
-          identifier: Email
-        placeholders:
-          identifier: Email
+      edit:
+        title: Update password
+        forms:
+          buttons:
+            submit: "Update password"
+          placeholders:
+            password: Password
+            password_confirmation: Password confirmation
       new:
+        copy:
+          reset_password: An email will be sent to you with instructions on how to reset your password.
         title: Reset password
+        forms:
+          buttons:
+            submit: Reset password
+          placeholders:
+            identifier: Email
 
     sessions:
       _form:

@@ -10,9 +10,29 @@ class PasswordResetsController < ApplicationController
 		if user
 			# Email the user
 			user.send_password_reset
-			redirect_to sign_in_path, notice: t("controllers.password_resets_controller.actions.create.notices.email_sent")
+			flash[:success] = t("controllers.password_resets_controller.actions.create.success")
+			redirect_to sign_in_path
 		else
-			redirect_to sign_in_path, notice: t("controllers.password_resets_controller.actions.create.notices.email_not_sent")
+			flash[:error] = t("controllers.password_resets_controller.actions.create.error")
+			redirect_to sign_in_path
 		end
   end
+
+  def edit
+    @user = User.find_by_password_reset_token!(params[:id])
+  end
+
+	def update
+		@user = User.find_by_password_reset_token!(params[:id])
+		if @user.password_reset_sent_at < AppConfig.password_reset_window.hours.ago
+			flash[:error] =  t("controllers.password_resets_controller.actions.update.errors.reset_expired")
+			redirect_to new_password_reset_path
+		elsif @user.update_attributes(params[:user])
+			flash[:success] =  t("controllers.password_resets_controller.actions.update.success")
+			redirect_to sign_in_path
+		else
+			flash.now[:error] = t("controllers.password_resets_controller.actions.update.errors.password_mismatch")
+			render :edit
+		end
+	end
 end

@@ -10,7 +10,16 @@
   </div>
   <div class="six columns">
     <section class="content">
-      <%= render "form" %>
+
+      <%= form_tag password_resets_path, class: "form-stacked" do %>
+        <%= text_field_tag :identifier, params[:identifier], placeholder: t("views.password_resets.new.forms.placeholders.identifier") %>
+
+        <%= submit_tag t("views.password_resets.new.forms.buttons.submit"), class: "button" %>
+      <% end %>
+
+      <hr />
+
+      <p><%= t("views.password_resets.new.copy.reset_password") %></p>
     </section>
   </div><!-- /.twelve .columns -->
 </div><!-- /.row -->

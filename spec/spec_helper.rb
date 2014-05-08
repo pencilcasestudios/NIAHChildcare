@@ -28,4 +28,5 @@ Spork.each_run do
   FactoryGirl.reload
   I18n.reload!
   load "#{Rails.root}/config/routes.rb"
+  AppConfig.reload!
 end

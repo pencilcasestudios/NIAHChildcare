@@ -1,0 +1,26 @@
+<%= render "background" %>
+
+<div class="row">
+  <div class="six columns">
+    <section class="header">
+      <header>
+        <h1><%= title t("views.password_resets.edit.title") %></h1>
+      </header>
+    </section>
+  </div>
+  <div class="six columns">
+    <section class="content">
+
+      <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
+        <!-- <%= f.label :password, t("views.password_resets.edit.forms.labels.password") %> -->
+        <%= f.password_field :password, placeholder: t("views.password_resets.edit.forms.placeholders.password") %>
+
+        <!-- <%= f.label :password_confirmation, t("views.password_resets.edit.forms.labels.password_confirmation") %> -->
+        <%= f.password_field :password_confirmation, placeholder: t("views.password_resets.edit.forms.placeholders.password_confirmation") %>
+
+        <%= f.submit t("views.password_resets.edit.forms.buttons.submit"), class: "button" %>
+      <% end %>
+
+    </section>
+  </div><!-- /.twelve .columns -->
+</div><!-- /.row -->
