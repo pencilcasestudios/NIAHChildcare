@@ -3,6 +3,9 @@ defaults: &defaults
   # 1. closed - Authenticate with HTTP basic
   # 2. open - Don't authenticate with HTTP basic
   http_basic_access_mode: closed
+  CLOSED: closed
+  OPEN: open
+
   http_basic_name: preview
   http_basic_password: niahchildcare # Update this in production
   test_user_password: password
@@ -58,6 +61,9 @@ defaults: &defaults
 
   # Norton Web Safe
   norton_web_safe: "jsu2o63-hgeulspig82e1-tiretqrpub66f1-cg04edbg9uqx9ya4jc3x8l7833g59xkvulx3ncqk85k8etjc1imp75qjf4u43u7q1tg2clynpt3kaod89ox44xdc6vk"
+
+  # Password reset window (in hours)
+  password_reset_window: 25
 
 development:
   <<: *defaults
