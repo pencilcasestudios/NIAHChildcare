@@ -21,6 +21,7 @@ gem "mime-types" # Ref: https://github.com/jnicklas/carrierwave#setting-the-cont
 gem "nested_form"
 gem "paper_trail"
 gem "pcs_vegas"
+gem "roman-numerals"
 gem "settingslogic"
 gem "state_machine"
 
