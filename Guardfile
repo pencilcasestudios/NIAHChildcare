@@ -1,12 +1,15 @@
-# Guardfile
-# Ref: https://github.com/guard/guard#readme
-
-
-
-
 # Configuration variables
 wait_time = 180
 port_number = 6001
+
+
+
+
+guard 'bundler', cmd: "rspec --drb --drb-port #{port_number}" do
+  watch('Gemfile')
+  # Uncomment next line if Gemfile contain `gemspec' command
+  # watch(/^.+\.gemspec/)
+end
 
 
 
@@ -21,15 +24,6 @@ guard 'spork', cucumber: false, test_unit: false, rspec_env: { 'RAILS_ENV' => 't
   watch('spec/spec_helper.rb') { :rspec }
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
-end
-
-
-
-
-guard 'bundler', cmd: "rspec --drb --drb-port #{port_number}" do
-  watch('Gemfile')
-  # Uncomment next line if Gemfile contain `gemspec' command
-  # watch(/^.+\.gemspec/)
 end
 
 
