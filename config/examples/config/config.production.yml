@@ -13,7 +13,7 @@ defaults: &defaults
   application_name: NIAHChildcare
   applications_folder: "/var/Apps"
   gemset_name: niahchildcare-rails.3.2.x
-  ruby_version: ruby-2.1.0
+  ruby_version: ruby-2.1.5
   user: deploy
 
 
