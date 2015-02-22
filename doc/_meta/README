@@ -302,6 +302,7 @@ ssh deploy@rails.vm
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 
+cd ~/Code/NIAHChildcare/
 cap virtual deploy:check
 cap virtual deploy:update
 # Create databases
