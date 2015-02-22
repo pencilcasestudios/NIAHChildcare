@@ -296,8 +296,9 @@ git push
 git push virtual # May need to 'git push virtual master'
 cap virtual deploy:setup # Update configuration files and create the database after this
 
-# From the virtual machine (as the deploy user)
+# From the virtual machine
 # After running cap virtual deploy:setup
+ssh deploy@rails.vm
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 
