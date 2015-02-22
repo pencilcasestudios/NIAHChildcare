@@ -1,7 +1,7 @@
-----------------------------------------------------------------------
-Development setup
-Setting up the development environment after a fresh repository clone
-----------------------------------------------------------------------
+#----------------------------------------------------------------------
+# Development setup
+# Setting up the development environment after a fresh repository clone
+#----------------------------------------------------------------------
 cd ~/Code/NIAHChildcare
 cp config/examples/database/database.yml config # Setup the database
 cp config/examples/config/config.yml config # Setup the configuration files
@@ -12,10 +12,10 @@ cp config/examples/deploy/*.rb config/deploy # Setup deployment stage configurat
 cd ~/Code/NIAHChildcare/app/assets
 ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 
-Set up the hosts (/etc/hosts)
+# Set up the hosts (/etc/hosts)
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
 
-Setup deployment references:
+# Setup deployment references:
 git remote add virtual deploy@rails.vm:/var/Repositories/Git/NIAHChildcare.git
 git remote add staging deploy@asher.vps:/var/Repositories/Git/NIAHChildcare.git
 git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
@@ -23,8 +23,8 @@ git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
 
 
 
-Tests
-=====
+# Tests
+#+=====
 # Git
 git push virtual
 git push staging
@@ -48,8 +48,8 @@ guard
 
 
 
-Running the Application
-=======================
+# Running the Application
+#========================
 cd ~/Code/NIAHChildcare
 rails server # In one terminal window - to run the application
 
@@ -62,9 +62,9 @@ rails console # In another terminal window - to manage administrators
 
 
 
-Administration
-==============
-Creating an administrator
+# Administration
+#===============
+# Creating an administrator
 # In the Rails console, select the user:
 u = User.first
 u.admin?
@@ -77,13 +77,13 @@ u.admin?
 
 
 
-Gem management
-==============
-MAINTAIN GEM BUNDLE
+# Gem management
+#===============
+# MAINTAIN GEM BUNDLE
 bundle update
 gem cleanup
 
-DELETE ALL INSTALLED GEMS
+# DELETE ALL INSTALLED GEMS
 gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 
 
@@ -136,74 +136,66 @@ git tag "`date +production_%Y-%m-%d_%H%M%S`"
 
 
 
-----------------------------------------------------------------------
-Virtual setup
-----------------------------------------------------------------------
-Need:
-Git
-ImageMagick
-MariaDB					# Remember to install libmariadbclient-dev (for the mysql2 gem to work)
-nginx
-nodejs				# JavaScript runtime
-RVM
-SSH
+#----------------------------------------------------------------------
+# Virtual setup
+#----------------------------------------------------------------------
 
-
-Test SSH access:
+# Test SSH access:
 ssh deploy@rails.vm
 ssh vladimir@rails.vm
 
-Set up the hosts (/etc/hosts):
+# Set up the hosts (/etc/hosts):
 ssh vladimir@rails.vm
-Make sure the following line is in /etc/hosts:
+
+# Make sure the following line is in /etc/hosts:
 127.0.0.1 rails.vm
 
 # Test with:
 ping rails.vm
 
-Check that SSH "loops back" on the virtual machine (host key verification):
+# Check that SSH "loops back" on the virtual machine (host key verification):
 # On the local development machine
 ssh deploy@rails.vm
 
 # On the virtual machine
 ssh deploy@rails.vm
 
-Or
+# Or
 
-If the "loop back" fails:
+# If the "loop back" fails:
 ssh-keygen
 ssh-copy-id deploy@rails.vm
 
 
-Set up the Repository folder
+# Set up the Repository folder
 ssh vladimir@rails.vm
 sudo mkdir -p /var/Repositories/Git
-sudo chown -R deploy:deploy /var/Repositories
+sudo chown deploy:deploy /var/Repositories
 
-Create the Git repository:
+# Create the Git repository:
 ssh deploy@rails.vm
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
 git init --bare
 
-Push to the Git repository:
+# Push to the Git repository:
 # From the development machine:
 cd ~/Code/NIAHChildcare
 git remote add virtual deploy@rails.vm:/var/Repositories/Git/NIAHChildcare.git
-git push virtual # or git push virtual master
+git push virtual master # or git push virtual
 
 
 Set up the Apps folder
 ssh vladimir@rails.vm
 sudo mkdir -p /var/Apps
-sudo chown -R deploy:deploy /var/Apps
+sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
 ssh vladimir@rails.vm
 sudo mkdir -p /var/AssetsVault
-sudo chown -R deploy:deploy /var/AssetsVault
+sudo chown deploy:deploy /var/AssetsVault
 
 
 # Configure nginx
@@ -219,7 +211,7 @@ sudo mv ~/niahchildcare.virtual.conf /etc/nginx/sites-available
 sudo ln -nfs /etc/nginx/sites-available/niahchildcare.virtual.conf /etc/nginx/sites-enabled/niahchildcare.virtual
 
 
-Generate an SSL certificate and key:
+# Generate an SSL certificate and key:
 sudo mkdir -p /etc/nginx/ssl
 cd /etc/nginx/ssl
 sudo mkdir -p NIAHChildcare
@@ -242,16 +234,17 @@ sudo openssl req -new -key niahchildcare.virtual.key -out niahchildcare.virtual.
 
 sudo cp niahchildcare.virtual.key niahchildcare.virtual.key.original
 sudo openssl rsa -in niahchildcare.virtual.key.original -out niahchildcare.virtual.key
+
 sudo openssl x509 -req -days 365 -in niahchildcare.virtual.csr -signkey niahchildcare.virtual.key -out niahchildcare.virtual.crt
 
 
-Test the nginx configuration:
-sudo nginx -t
+# Test the nginx configuration:
+sudo service nginx configtest
 
-If all is well, load the new nginx configuration:
+# If all is well, load the new nginx configuration:
 sudo service nginx reload
 
-Setup the MariaDB database user:
+# Setup the MariaDB database user:
 ssh vladimir@rails.vm
 mysql -u root -p
 create user 'niahchildcare'@'localhost' identified by 'VirtualNIAHChildcarePassword';
@@ -259,7 +252,7 @@ grant all on NIAHChildcare_virtual.* to 'niahchildcare'@'localhost';
 grant all on NIAHChildcare_virtual_development.* to 'niahchildcare'@'localhost';
 grant all on NIAHChildcare_virtual_test.* to 'niahchildcare'@'localhost';
 
-Setup the MariaDB database:
+# Setup the MariaDB database:
 mysql -u niahchildcare -p
 create database NIAHChildcare_virtual;
 create database NIAHChildcare_virtual_development;
@@ -271,14 +264,14 @@ create database NIAHChildcare_virtual_test;
 cd ~/Code/NIAHChildcare/config/examples/monit
 scp delayed_job.niahchildcare.virtual.monitrc vladimir@rails.vm:~
 cd ~/Code/NIAHChildcare
-ssh vladimir@rails.vm
 
 # From the virtual machine
+ssh vladimir@rails.vm
 sudo mv ~/delayed_job.niahchildcare.virtual.monitrc /etc/monit/conf.d/
 sudo service monit syntax
 
 
-Setup the YAML configuration files:
+# Setup the YAML configuration files:
 # From the development machine
 cd ~/Code/NIAHChildcare/config/examples/config
 scp config.virtual.yml deploy@rails.vm:~/config.yml
@@ -377,7 +370,7 @@ ssh-copy-id deploy@asher.vps
 Set up the Repository folder
 ssh silumesii@asher.vps
 sudo mkdir -p /var/Repositories/Git
-sudo chown -R deploy:deploy /var/Repositories
+sudo chown deploy:deploy /var/Repositories
 
 Create the Git repository:
 ssh deploy@asher.vps
@@ -396,13 +389,13 @@ git push staging # or git push staging master
 Set up the Apps folder
 ssh vladimir@rails.vm
 sudo mkdir -p /var/Apps
-sudo chown -R deploy:deploy /var/Apps
+sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
 ssh vladimir@rails.vm
 sudo mkdir -p /var/AssetsVault
-sudo chown -R deploy:deploy /var/AssetsVault
+sudo chown deploy:deploy /var/AssetsVault
 
 
 # Configure nginx
@@ -445,9 +438,9 @@ sudo openssl x509 -req -days 365 -in niahchildcare.clientcase.net.csr -signkey n
 
 
 Test the nginx configuration:
-sudo nginx -t
+sudo service nginx configtest
 
-If all is well, load the new nginx configuration:
+# If all is well, load the new nginx configuration:
 sudo service nginx reload
 
 Setup the MariaDB database user:
@@ -579,7 +572,7 @@ ssh-copy-id deploy@gad.vps
 Set up the Repository folder
 ssh silumesii@gad.vps
 sudo mkdir -p /var/Repositories/Git
-sudo chown -R deploy:deploy /var/Repositories
+sudo chown deploy:deploy /var/Repositories
 
 Create the Git repository:
 ssh deploy@gad.vps
@@ -598,13 +591,13 @@ git push production # or git push production master
 Set up the Apps folder
 ssh silumesii@gad.vps
 sudo mkdir -p /var/Apps
-sudo chown -R deploy:deploy /var/Apps
+sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
 ssh silumesii@gad.vps
 sudo mkdir -p /var/AssetsVault
-sudo chown -R deploy:deploy /var/AssetsVault
+sudo chown deploy:deploy /var/AssetsVault
 
 
 # Configure nginx
@@ -647,9 +640,9 @@ sudo openssl x509 -req -days 365 -in niahchildcare.com.csr -signkey niahchildcar
 
 
 Test the nginx configuration:
-sudo nginx -t
+sudo service nginx configtest
 
-If all is well, load the new nginx configuration:
+# If all is well, load the new nginx configuration:
 sudo service nginx reload
 
 Setup the MariaDB database user:
@@ -773,6 +766,19 @@ Ruby
 Working with gemsets:
 rvm @global do gem update
 rvm @global do gem cleanup
+
+
+Command-line error messages
+---------------------------
+Problem:
+WARNING:root:could not open file '/etc/apt/sources.list.d/passenger.list'
+
+Solution:
+This is a permissions issue. See here:
+http://stackoverflow.com/questions/21817116/remove-etc-apt-sources-list-d-passenger-list
+Fix with:
+sudo chmod go=r /etc/apt/sources.list.d/passenger.list
+
 
 
 
