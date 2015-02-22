@@ -158,6 +158,9 @@ ssh vladimir@rails.vm
 Make sure the following line is in /etc/hosts:
 127.0.0.1 rails.vm
 
+# Test with:
+ping rails.vm
+
 Check that SSH "loops back" on the virtual machine (host key verification):
 # On the local development machine
 ssh deploy@rails.vm
