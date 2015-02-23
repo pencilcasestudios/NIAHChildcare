@@ -530,59 +530,54 @@ sudo service monit reload
 
 
 
-----------------------------------------------------------------------
-Production setup
-----------------------------------------------------------------------
-Need:
-Git
-ImageMagick
-MariaDB					# Remember to install libmariadbclient-dev (for the mysql2 gem to work)
-nginx
-nodejs				# JavaScript runtime
-RVM
-SSH
+#----------------------------------------------------------------------
+# Production setup
+#----------------------------------------------------------------------
 
-
-Test SSH access:
+# Test SSH access:
 ssh deploy@gad.vps
 ssh silumesii@gad.vps
 
-Set up the hosts (/etc/hosts):
+# Set up the hosts (/etc/hosts):
 ssh silumesii@gad.vps
-Make sure the following line is in /etc/hosts:
+
+# Make sure the following line is in /etc/hosts:
 127.0.0.1 gad.vps
 
-Check that SSH "loops back" on the production machine (host key verification):
+# Test with:
+ping gad.vps
+
+# Check that SSH "loops back" on the production machine (host key verification):
 # On the local development machine
 ssh deploy@gad.vps
 
 # On the production machine
 ssh deploy@gad.vps
 
-Or
+# Or
 
-If the "loop back" fails:
+# If the "loop back" fails:
 ssh-keygen
 ssh-copy-id deploy@gad.vps
 
 
-Set up the Repository folder
+# Set up the Repository folder
 ssh silumesii@gad.vps
 sudo mkdir -p /var/Repositories/Git
 sudo chown deploy:deploy /var/Repositories
 
-Create the Git repository:
+# Create the Git repository:
 ssh deploy@gad.vps
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
 git init --bare
 
-Push to the Git repository:
+# Push to the Git repository:
 # From the development machine:
 cd ~/Code/NIAHChildcare
 git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
-git push production # or git push production master
+git push production master # or git push production
 
 
 Set up the Apps folder
@@ -607,42 +602,43 @@ scp nginx.niahchildcare.com.conf silumesii@gad.vps:~/niahchildcare.com.conf
 # Set up the nginx configuration
 ssh silumesii@gad.vps
 sudo mv ~/niahchildcare.com.conf /etc/nginx/sites-available
-sudo ln -nfs /etc/nginx/sites-available/niahchildcare.com.conf /etc/nginx/sites-enabled/niahchildcare.zm
+sudo ln -nfs /etc/nginx/sites-available/niahchildcare.com.conf /etc/nginx/sites-enabled/niahchildcare.clientcase.net
 
 
-Generate an SSL certificate and key:
+# Generate an SSL certificate and key:
 sudo mkdir -p /etc/nginx/ssl
 cd /etc/nginx/ssl
 sudo mkdir -p NIAHChildcare
 cd NIAHChildcare
 sudo openssl genrsa -des3 -out niahchildcare.com.key 1024
 
-		pass phrase: niahchildcare
+# pass phrase: niahchildcare
 
 sudo openssl req -new -key niahchildcare.com.key -out niahchildcare.com.csr
 
-		Country Name: US
-		Province: Massachusetts
-		Locality Name: Newton
-		Organisation Name: Needle in a Haystack Special Needs Childcare Agency
-		Orgnisational Unit Name: <Blank>
-		Common Name: niahchildcare.com.
-		Email: itsupport@pencilcasestudios.com
-		Challenge password: <Blank>
-		Optional Company Name: <Blank>
+# Country Name: US
+# Province: Massachusetts
+# Locality Name: Newton
+# Organisation Name: Needle in a Haystack Special Needs Childcare Agency
+# Orgnisational Unit Name: <Blank>
+# Common Name: niahchildcare.clientcase.net
+# Email: itsupport@pencilcasestudios.com
+# Challenge password: <Blank>
+# Optional Company Name: <Blank>
 
 sudo cp niahchildcare.com.key niahchildcare.com.key.original
 sudo openssl rsa -in niahchildcare.com.key.original -out niahchildcare.com.key
+
 sudo openssl x509 -req -days 365 -in niahchildcare.com.csr -signkey niahchildcare.com.key -out niahchildcare.com.crt
 
 
-Test the nginx configuration:
+# Test the nginx configuration:
 sudo service nginx configtest
 
 # If all is well, load the new nginx configuration:
 sudo service nginx reload
 
-Setup the MariaDB database user:
+# Setup the MariaDB database user:
 ssh silumesii@gad.vps
 mysql -u root -p
 create user 'niahchildcare'@'localhost' identified by 'ProductionNIAHChildcarePassword';
@@ -650,8 +646,7 @@ grant all on NIAHChildcare_production.* to 'niahchildcare'@'localhost';
 grant all on NIAHChildcare_production_development.* to 'niahchildcare'@'localhost';
 grant all on NIAHChildcare_production_test.* to 'niahchildcare'@'localhost';
 
-Setup the MariaDB database:
-ssh deploy@gad.vps
+# Setup the MariaDB database:
 mysql -u niahchildcare -p
 create database NIAHChildcare_production;
 create database NIAHChildcare_production_development;
@@ -663,14 +658,14 @@ create database NIAHChildcare_production_test;
 cd ~/Code/NIAHChildcare/config/examples/monit
 scp delayed_job.niahchildcare.com.monitrc silumesii@gad.vps:~
 cd ~/Code/NIAHChildcare
-ssh silumesii@gad.vps
 
 # From the production machine
+ssh silumesii@gad.vps
 sudo mv ~/delayed_job.niahchildcare.com.monitrc /etc/monit/conf.d/
 sudo service monit syntax
 
 
-Setup the YAML configuration files:
+# Setup the YAML configuration files:
 # From the development machine
 cd ~/Code/NIAHChildcare/config/examples/config
 scp config.production.yml deploy@gad.vps:~/config.yml
@@ -684,25 +679,24 @@ cd
 mkdir -p ~/Projects/Configurations/NIAHChildcare/production
 mv database.yml ~/Projects/Configurations/NIAHChildcare/production/
 mv config.yml ~/Projects/Configurations/NIAHChildcare/production/
-# After this, update:
-# 1. the production database password
-# 2. the production email password
 
 # From the development machine
 # Capistrano steps for initial deployment
-# PRODUCTION MACHINE DEPLOYMENT
-cd ~/Code/NIAHChildcare
+# VIRTUAL MACHINE DEPLOYMENT
+cd ~/Code/NIAHChildcare/
 git checkout master
 git merge dev
 git push
 git push production # May need to 'git push production master'
 cap production deploy:setup # Update configuration files and create the database after this
 
-# From the production machine (as the deploy user)
+# From the production machine
 # After running cap production deploy:setup
+ssh deploy@gad.vps
 cd ~/Projects/Configurations/NIAHChildcare/production
 cp *.yml /var/Apps/NIAHChildcare/production/shared/config/
 
+cd ~/Code/NIAHChildcare/
 cap production deploy:check
 cap production deploy:update
 # Create databases
