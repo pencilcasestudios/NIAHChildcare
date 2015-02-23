@@ -218,19 +218,19 @@ sudo mkdir -p NIAHChildcare
 cd NIAHChildcare
 sudo openssl genrsa -des3 -out niahchildcare.virtual.key 1024
 
-		pass phrase: niahchildcare
+# pass phrase: niahchildcare
 
 sudo openssl req -new -key niahchildcare.virtual.key -out niahchildcare.virtual.csr
 
-		Country Name: US
-		Province: Massachusetts
-		Locality Name: Newton
-		Organisation Name: Needle in a Haystack Special Needs Childcare Agency
-		Orgnisational Unit Name: <Blank>
-		Common Name: niahchildcare.virtual.
-		Email: itsupport@pencilcasestudios.com
-		Challenge password: <Blank>
-		Optional Company Name: <Blank>
+# Country Name: US
+# Province: Massachusetts
+# Locality Name: Newton
+# Organisation Name: Needle in a Haystack Special Needs Childcare Agency
+# Orgnisational Unit Name: <Blank>
+# Common Name: niahchildcare.virtual.
+# Email: itsupport@pencilcasestudios.com
+# Challenge password: <Blank>
+# Optional Company Name: <Blank>
 
 sudo cp niahchildcare.virtual.key niahchildcare.virtual.key.original
 sudo openssl rsa -in niahchildcare.virtual.key.original -out niahchildcare.virtual.key
@@ -333,69 +333,64 @@ sudo service monit reload
 
 
 
-----------------------------------------------------------------------
-Staging setup
-----------------------------------------------------------------------
-Need:
-Git
-ImageMagick
-MariaDB					# Remember to install libmariadbclient-dev (for the mysql2 gem to work)
-nginx
-nodejs				# JavaScript runtime
-RVM
-SSH
+#----------------------------------------------------------------------
+# Staging setup
+#----------------------------------------------------------------------
 
-
-Test SSH access:
+# Test SSH access:
 ssh deploy@asher.vps
 ssh silumesii@asher.vps
 
-Set up the hosts (/etc/hosts):
+# Set up the hosts (/etc/hosts):
 ssh silumesii@asher.vps
-Make sure the following line is in /etc/hosts:
+
+# Make sure the following line is in /etc/hosts:
 127.0.0.1 asher.vps
 
-Check that SSH "loops back" on the staging machine (host key verification):
+# Test with:
+ping asher.vps
+
+# Check that SSH "loops back" on the staging machine (host key verification):
 # On the local development machine
 ssh deploy@asher.vps
 
 # On the staging machine
 ssh deploy@asher.vps
 
-Or
+# Or
 
-If the "loop back" fails:
+# If the "loop back" fails:
 ssh-keygen
 ssh-copy-id deploy@asher.vps
 
 
-Set up the Repository folder
+# Set up the Repository folder
 ssh silumesii@asher.vps
 sudo mkdir -p /var/Repositories/Git
 sudo chown deploy:deploy /var/Repositories
 
-Create the Git repository:
+# Create the Git repository:
 ssh deploy@asher.vps
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
 git init --bare
 
-Push to the Git repository:
+# Push to the Git repository:
 # From the development machine:
 cd ~/Code/NIAHChildcare
 git remote add staging deploy@asher.vps:/var/Repositories/Git/NIAHChildcare.git
-git push staging # or git push staging master
+git push staging master # or git push staging
 
 
 Set up the Apps folder
-ssh vladimir@rails.vm
+ssh silumesii@asher.vps
 sudo mkdir -p /var/Apps
 sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
-ssh vladimir@rails.vm
+ssh silumesii@asher.vps
 sudo mkdir -p /var/AssetsVault
 sudo chown deploy:deploy /var/AssetsVault
 
@@ -413,39 +408,40 @@ sudo mv ~/niahchildcare.clientcase.net.conf /etc/nginx/sites-available
 sudo ln -nfs /etc/nginx/sites-available/niahchildcare.clientcase.net.conf /etc/nginx/sites-enabled/niahchildcare.clientcase.net
 
 
-Generate an SSL certificate and key:
+# Generate an SSL certificate and key:
 sudo mkdir -p /etc/nginx/ssl
 cd /etc/nginx/ssl
 sudo mkdir -p NIAHChildcare
 cd NIAHChildcare
 sudo openssl genrsa -des3 -out niahchildcare.clientcase.net.key 1024
 
-		pass phrase: niahchildcare
+# pass phrase: niahchildcare
 
 sudo openssl req -new -key niahchildcare.clientcase.net.key -out niahchildcare.clientcase.net.csr
 
-		Country Name: US
-		Province: Massachusetts
-		Locality Name: Newton
-		Organisation Name: Needle in a Haystack Special Needs Childcare Agency
-		Orgnisational Unit Name: <Blank>
-		Common Name: niahchildcare.clientcase.net.
-		Email: itsupport@pencilcasestudios.com
-		Challenge password: <Blank>
-		Optional Company Name: <Blank>
+# Country Name: US
+# Province: Massachusetts
+# Locality Name: Newton
+# Organisation Name: Needle in a Haystack Special Needs Childcare Agency
+# Orgnisational Unit Name: <Blank>
+# Common Name: niahchildcare.clientcase.net
+# Email: itsupport@pencilcasestudios.com
+# Challenge password: <Blank>
+# Optional Company Name: <Blank>
 
 sudo cp niahchildcare.clientcase.net.key niahchildcare.clientcase.net.key.original
 sudo openssl rsa -in niahchildcare.clientcase.net.key.original -out niahchildcare.clientcase.net.key
+
 sudo openssl x509 -req -days 365 -in niahchildcare.clientcase.net.csr -signkey niahchildcare.clientcase.net.key -out niahchildcare.clientcase.net.crt
 
 
-Test the nginx configuration:
+# Test the nginx configuration:
 sudo service nginx configtest
 
 # If all is well, load the new nginx configuration:
 sudo service nginx reload
 
-Setup the MariaDB database user:
+# Setup the MariaDB database user:
 ssh silumesii@asher.vps
 mysql -u root -p
 create user 'niahchildcare'@'localhost' identified by 'StagingNIAHChildcarePassword';
@@ -453,7 +449,7 @@ grant all on NIAHChildcare_staging.* to 'niahchildcare'@'localhost';
 grant all on NIAHChildcare_staging_development.* to 'niahchildcare'@'localhost';
 grant all on NIAHChildcare_staging_test.* to 'niahchildcare'@'localhost';
 
-Setup the MariaDB database:
+# Setup the MariaDB database:
 mysql -u niahchildcare -p
 create database NIAHChildcare_staging;
 create database NIAHChildcare_staging_development;
@@ -465,14 +461,14 @@ create database NIAHChildcare_staging_test;
 cd ~/Code/NIAHChildcare/config/examples/monit
 scp delayed_job.niahchildcare.clientcase.net.monitrc silumesii@asher.vps:~
 cd ~/Code/NIAHChildcare
-ssh silumesii@asher.vps
 
 # From the staging machine
+ssh silumesii@asher.vps
 sudo mv ~/delayed_job.niahchildcare.clientcase.net.monitrc /etc/monit/conf.d/
 sudo service monit syntax
 
 
-Setup the YAML configuration files:
+# Setup the YAML configuration files:
 # From the development machine
 cd ~/Code/NIAHChildcare/config/examples/config
 scp config.staging.yml deploy@asher.vps:~/config.yml
@@ -486,13 +482,10 @@ cd
 mkdir -p ~/Projects/Configurations/NIAHChildcare/staging
 mv database.yml ~/Projects/Configurations/NIAHChildcare/staging/
 mv config.yml ~/Projects/Configurations/NIAHChildcare/staging/
-# After this, update:
-# 1. the production database password
-# 2. the production email password
 
 # From the development machine
 # Capistrano steps for initial deployment
-# STAGING MACHINE DEPLOYMENT
+# VIRTUAL MACHINE DEPLOYMENT
 cd ~/Code/NIAHChildcare/
 git checkout master
 git merge dev
@@ -500,11 +493,13 @@ git push
 git push staging # May need to 'git push staging master'
 cap staging deploy:setup # Update configuration files and create the database after this
 
-# From the staging machine (as the deploy user)
+# From the staging machine
 # After running cap staging deploy:setup
+ssh deploy@asher.vps
 cd ~/Projects/Configurations/NIAHChildcare/staging
 cp *.yml /var/Apps/NIAHChildcare/staging/shared/config/
 
+cd ~/Code/NIAHChildcare/
 cap staging deploy:check
 cap staging deploy:update
 # Create databases
