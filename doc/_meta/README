@@ -105,7 +105,7 @@ git push bitbucket master --tags
 # STAGING
 cd ~/Code/NIAHChildcare
 git checkout master
-git merge virtual
+git merge dev
 git push
 git push staging
 cap staging deploy
@@ -116,7 +116,7 @@ git push bitbucket master --tags
 # PRODUCTION
 cd ~/Code/NIAHChildcare
 git checkout master
-git merge staging
+git merge dev
 git push
 git push production
 cap production deploy
