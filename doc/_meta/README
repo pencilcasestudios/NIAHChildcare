@@ -100,6 +100,7 @@ git push virtual
 cap virtual deploy
 git tag "`date +virtual_%Y-%m-%d_%H%M%S`"
 git push bitbucket master
+git push origin master --tags
 git push bitbucket master --tags
 
 # STAGING
@@ -111,6 +112,7 @@ git push staging
 cap staging deploy
 git tag "`date +staging_%m-%d_%H%M%S`"
 git push bitbucket master
+git push origin master --tags
 git push bitbucket master --tags
 
 # PRODUCTION
@@ -122,6 +124,7 @@ git push production
 cap production deploy
 git tag "`date +production_%Y-%m-%d_%H%M%S`"
 git push bitbucket master
+git push origin master --tags
 git push bitbucket master --tags
 
 
