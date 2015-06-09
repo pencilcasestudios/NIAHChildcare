@@ -2,14 +2,14 @@
 # Development setup
 # Setting up the development environment after a fresh repository clone
 #----------------------------------------------------------------------
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 cp config/examples/database/database.yml config # Setup the database
 cp config/examples/config/config.yml config # Setup the configuration files
 cp config/examples/deploy.rb config # Setup the capistrano deployment recipe
 cp config/examples/deploy/*.rb config/deploy # Setup deployment stage configuration
 
 # Symbolically link image assets
-cd ~/Code/NIAHChildcare/app/assets
+cd ~/Code/Rails/NIAHChildcare/app/assets
 ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 
 # Set up the hosts (/etc/hosts)
@@ -30,7 +30,7 @@ git push virtual
 git push staging
 git push production
 
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 bundle update
 gem cleanup
 
@@ -39,7 +39,7 @@ gem cleanup
 
 
 # Guard for testing
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 rake db:drop
 rake db:setup
 rake db:test:prepare
@@ -50,13 +50,13 @@ guard
 
 # Running the Application
 #========================
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 rails server # In one terminal window - to run the application
 
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 rake jobs:work # In another terminal window - to run delayed job
 
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 rails console # In another terminal window - to manage administrators
 
 
@@ -92,7 +92,7 @@ gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 Continuous Application Deployment
 =================================
 # VIRTUAL
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 git checkout master
 git merge dev
 git push
@@ -104,7 +104,7 @@ git push origin master --tags
 git push bitbucket master --tags
 
 # STAGING
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 git checkout master
 git merge dev
 git push
@@ -116,7 +116,7 @@ git push origin master --tags
 git push bitbucket master --tags
 
 # PRODUCTION
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 git checkout master
 git merge dev
 git push
@@ -189,7 +189,7 @@ git init --bare
 
 # Push to the Git repository:
 # From the development machine:
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 git remote add virtual deploy@rails.vm:/var/Repositories/Git/NIAHChildcare.git
 git push virtual master # or git push virtual
 
@@ -208,7 +208,7 @@ sudo chown deploy:deploy /var/AssetsVault
 
 # Configure nginx
 # On the development machine
-cd ~/Code/NIAHChildcare/config/examples/nginx
+cd ~/Code/Rails/NIAHChildcare/config/examples/nginx
 scp nginx.niahchildcare.virtual.conf vladimir@rails.vm:~/niahchildcare.virtual.conf
 
 
@@ -269,9 +269,9 @@ create database NIAHChildcare_virtual_test;
 
 # Setup the Monit scripts:
 # From the development machine
-cd ~/Code/NIAHChildcare/config/examples/monit
+cd ~/Code/Rails/NIAHChildcare/config/examples/monit
 scp delayed_job.niahchildcare.virtual.monitrc vladimir@rails.vm:~
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 
 # From the virtual machine
 ssh vladimir@rails.vm
@@ -281,11 +281,11 @@ sudo service monit syntax
 
 # Setup the YAML configuration files:
 # From the development machine
-cd ~/Code/NIAHChildcare/config/examples/config
+cd ~/Code/Rails/NIAHChildcare/config/examples/config
 scp config.virtual.yml deploy@rails.vm:~/config.yml
-cd ~/Code/NIAHChildcare/config/examples/database
+cd ~/Code/Rails/NIAHChildcare/config/examples/database
 scp database.virtual.yml deploy@rails.vm:~/database.yml
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 ssh deploy@rails.vm
 
 # From the virtual machine (as the deploy user)
@@ -297,7 +297,7 @@ mv config.yml ~/Projects/Configurations/NIAHChildcare/virtual/
 # From the development machine
 # Capistrano steps for initial deployment
 # VIRTUAL MACHINE DEPLOYMENT
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 git checkout master
 git merge dev
 git push
@@ -310,7 +310,7 @@ ssh deploy@rails.vm
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 cap virtual deploy:check
 cap virtual deploy:update
 # Create databases
@@ -386,7 +386,7 @@ git init --bare
 
 # Push to the Git repository:
 # From the development machine:
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 git remote add staging deploy@asher.vps:/var/Repositories/Git/NIAHChildcare.git
 git push staging master # or git push staging
 
@@ -405,7 +405,7 @@ sudo chown deploy:deploy /var/AssetsVault
 
 # Configure nginx
 # On the development machine
-cd ~/Code/NIAHChildcare/config/examples/nginx
+cd ~/Code/Rails/NIAHChildcare/config/examples/nginx
 scp nginx.niahchildcare.clientcase.net.conf silumesii@asher.vps:~/niahchildcare.clientcase.net.conf
 
 
@@ -466,9 +466,9 @@ create database NIAHChildcare_staging_test;
 
 # Setup the Monit scripts:
 # From the development machine
-cd ~/Code/NIAHChildcare/config/examples/monit
+cd ~/Code/Rails/NIAHChildcare/config/examples/monit
 scp delayed_job.niahchildcare.clientcase.net.monitrc silumesii@asher.vps:~
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 
 # From the staging machine
 ssh silumesii@asher.vps
@@ -478,11 +478,11 @@ sudo service monit syntax
 
 # Setup the YAML configuration files:
 # From the development machine
-cd ~/Code/NIAHChildcare/config/examples/config
+cd ~/Code/Rails/NIAHChildcare/config/examples/config
 scp config.staging.yml deploy@asher.vps:~/config.yml
-cd ~/Code/NIAHChildcare/config/examples/database
+cd ~/Code/Rails/NIAHChildcare/config/examples/database
 scp database.staging.yml deploy@asher.vps:~/database.yml
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 ssh deploy@asher.vps
 
 # From the staging machine (as the deploy user)
@@ -494,7 +494,7 @@ mv config.yml ~/Projects/Configurations/NIAHChildcare/staging/
 # From the development machine
 # Capistrano steps for initial deployment
 # VIRTUAL MACHINE DEPLOYMENT
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 git checkout master
 git merge dev
 git push
@@ -507,7 +507,7 @@ ssh deploy@asher.vps
 cd ~/Projects/Configurations/NIAHChildcare/staging
 cp *.yml /var/Apps/NIAHChildcare/staging/shared/config/
 
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 cap staging deploy:check
 cap staging deploy:update
 # Create databases
@@ -583,7 +583,7 @@ git init --bare
 
 # Push to the Git repository:
 # From the development machine:
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
 git push production master # or git push production
 
@@ -602,7 +602,7 @@ sudo chown deploy:deploy /var/AssetsVault
 
 # Configure nginx
 # On the development machine
-cd ~/Code/NIAHChildcare/config/examples/nginx
+cd ~/Code/Rails/NIAHChildcare/config/examples/nginx
 scp nginx.niahchildcare.com.conf silumesii@gad.vps:~/niahchildcare.com.conf
 
 
@@ -663,9 +663,9 @@ create database NIAHChildcare_production_test;
 
 # Setup the Monit scripts:
 # From the development machine
-cd ~/Code/NIAHChildcare/config/examples/monit
+cd ~/Code/Rails/NIAHChildcare/config/examples/monit
 scp delayed_job.niahchildcare.com.monitrc silumesii@gad.vps:~
-cd ~/Code/NIAHChildcare
+cd ~/Code/Rails/NIAHChildcare
 
 # From the production machine
 ssh silumesii@gad.vps
@@ -675,11 +675,11 @@ sudo service monit syntax
 
 # Setup the YAML configuration files:
 # From the development machine
-cd ~/Code/NIAHChildcare/config/examples/config
+cd ~/Code/Rails/NIAHChildcare/config/examples/config
 scp config.production.yml deploy@gad.vps:~/config.yml
-cd ~/Code/NIAHChildcare/config/examples/database
+cd ~/Code/Rails/NIAHChildcare/config/examples/database
 scp database.production.yml deploy@gad.vps:~/database.yml
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 ssh deploy@gad.vps
 
 # From the production machine (as the deploy user)
@@ -691,7 +691,7 @@ mv config.yml ~/Projects/Configurations/NIAHChildcare/production/
 # From the development machine
 # Capistrano steps for initial deployment
 # VIRTUAL MACHINE DEPLOYMENT
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 git checkout master
 git merge dev
 git push
@@ -704,7 +704,7 @@ ssh deploy@gad.vps
 cd ~/Projects/Configurations/NIAHChildcare/production
 cp *.yml /var/Apps/NIAHChildcare/production/shared/config/
 
-cd ~/Code/NIAHChildcare/
+cd ~/Code/Rails/NIAHChildcare/
 cap production deploy:check
 cap production deploy:update
 # Create databases
