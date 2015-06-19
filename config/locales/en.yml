@@ -2,7 +2,8 @@ en:
   application:
     client:
       email: "Info@NIAHChildcare.com"
-      mail_html: "<p>Needle in a Haystack Special Needs Childcare Agency<br />\nRiverside Center<br />\n275 Grove Street<br />\nSuite 2-400<br />\nNewton<br />\nMassachusetts<br />\n02466\n</p>"
+      #mail_html: "<p>Needle in a Haystack Special Needs Childcare Agency<br />\nRiverside Center<br />\n275 Grove Street<br />\nSuite 2-400<br />\nNewton<br />\nMassachusetts<br />\n02466\n</p>"
+      mail_html: "<p>Needle in a Haystack Special Needs Childcare Agency</p>"
       phone: "617-678-6200"
       website: http://NIAHchildcare.com
       social_media:
