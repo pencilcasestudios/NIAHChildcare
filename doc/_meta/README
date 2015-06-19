@@ -89,8 +89,8 @@ gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 
 
 
-Continuous Application Deployment
-=================================
+# Continuous Application Deployment
+#==================================
 # VIRTUAL
 cd ~/Code/Rails/NIAHChildcare
 git checkout master
