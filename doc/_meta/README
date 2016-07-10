@@ -765,6 +765,11 @@ mysql -u USERNAME -p DATABASE_NAME < BACKUPFILE
 set password for 'username'@'localhost' = password('cleartext password');
 
 
+Nginx
+-----
+sudo passenger-memory-stats
+
+
 Ruby
 ----
 Working with gemsets:
