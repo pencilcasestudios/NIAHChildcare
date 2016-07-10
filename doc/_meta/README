@@ -24,12 +24,17 @@ git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
 
 
 # Tests
-#+=====
+#======
 # Git
 git push virtual
 git push staging
 git push production
 
+
+
+
+# Update bundled gems
+#====================
 cd ~/Code/Rails/NIAHChildcare
 bundle update
 gem cleanup
@@ -37,8 +42,8 @@ gem cleanup
 
 
 
-
-# Guard for testing
+# Running tests with Guard
+#=========================
 cd ~/Code/Rails/NIAHChildcare
 rake db:drop
 rake db:setup
