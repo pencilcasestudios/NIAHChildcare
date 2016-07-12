@@ -49,7 +49,9 @@ defaults: &defaults
   email_address: "smtpout.secureserver.net"
   email_domain: "www.niahchildcare.com"
   email_password: "password" # Update this in production
-  email_port: 465
+  #email_port: 465
+  email_port: 25
+
   email_user_name: "notifications@niahchildcare.com"
 
   # ActionMailer settings
