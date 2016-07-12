@@ -740,20 +740,21 @@ sudo service monit reload
 
 
 
-Hints
-=====
-Git
----
+# Hints
+#======
+
+# Git
+#----
 git push origin --delete <branchName>
 
 
-gzip
-----
+# gzip
+#-----
 gzip database.sql
 
 
-MariaDB
--------
+# MariaDB
+#--------
 # Database export:
 # The EXTENSION can be something like "sql"
 mysqldump -u USERNAME -p DATABASE_NAME > ~/OUTPUTFILE.EXTENSION
@@ -765,8 +766,8 @@ mysql -u USERNAME -p DATABASE_NAME < BACKUPFILE
 set password for 'username'@'localhost' = password('cleartext password');
 
 
-Nginx
------
+# Nginx
+#------
 sudo passenger-memory-stats
 
 
