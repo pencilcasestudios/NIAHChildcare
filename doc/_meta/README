@@ -771,22 +771,22 @@ set password for 'username'@'localhost' = password('cleartext password');
 sudo passenger-memory-stats
 
 
-Ruby
-----
-Working with gemsets:
+# Ruby
+#-----
+# Working with gemsets:
 rvm @global do gem update
 rvm @global do gem cleanup
 
 
-Command-line error messages
----------------------------
-Problem:
-WARNING:root:could not open file '/etc/apt/sources.list.d/passenger.list'
+# Command-line error messages
+#----------------------------
+# Problem:
+# WARNING:root:could not open file '/etc/apt/sources.list.d/passenger.list'
 
-Solution:
-This is a permissions issue. See here:
-http://stackoverflow.com/questions/21817116/remove-etc-apt-sources-list-d-passenger-list
-Fix with:
+# Solution:
+# This is a permissions issue. See here:
+# http://stackoverflow.com/questions/21817116/remove-etc-apt-sources-list-d-passenger-list
+# Fix with:
 sudo chmod go=r /etc/apt/sources.list.d/passenger.list
 
 
