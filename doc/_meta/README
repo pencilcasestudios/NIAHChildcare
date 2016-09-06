@@ -10,7 +10,8 @@ cp config/examples/deploy/*.rb config/deploy # Setup deployment stage configurat
 
 # Symbolically link image assets
 cd ~/Code/Rails/NIAHChildcare/app/assets
-ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
+rm images
+ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 
 # Set up the hosts (/etc/hosts)
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
