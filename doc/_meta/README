@@ -16,7 +16,7 @@ ln -s ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
 
 # Setup deployment references:
-git remote add virtual deploy@rails.vm:/var/Repositories/Git/NIAHChildcare.git
+git remote add virtual deploy@rails.pcsvm:/var/Repositories/Git/NIAHChildcare.git
 git remote add staging deploy@asher.vps:/var/Repositories/Git/NIAHChildcare.git
 git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
 
@@ -154,39 +154,39 @@ git push bitbucket master --tags
 #----------------------------------------------------------------------
 
 # Test SSH access:
-ssh deploy@rails.vm
-ssh vladimir@rails.vm
+ssh deploy@rails.pcsvm
+ssh vladimir@rails.pcsvm
 
 # Set up the hosts (/etc/hosts):
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 
 # Make sure the following line is in /etc/hosts:
-127.0.0.1 rails.vm
+127.0.0.1 rails.pcsvm
 
 # Test with:
-ping rails.vm
+ping rails.pcsvm
 
 # Check that SSH "loops back" on the virtual machine (host key verification):
 # On the local development machine
-ssh deploy@rails.vm
+ssh deploy@rails.pcsvm
 
 # On the virtual machine
-ssh deploy@rails.vm
+ssh deploy@rails.pcsvm
 
 # Or
 
 # If the "loop back" fails:
 ssh-keygen
-ssh-copy-id deploy@rails.vm
+ssh-copy-id deploy@rails.pcsvm
 
 
 # Set up the Repository folder
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 sudo mkdir -p /var/Repositories/Git
 sudo chown deploy:deploy /var/Repositories
 
 # Create the Git repository:
-ssh deploy@rails.vm
+ssh deploy@rails.pcsvm
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
@@ -195,18 +195,18 @@ git init --bare
 # Push to the Git repository:
 # From the development machine:
 cd ~/Code/Rails/NIAHChildcare
-git remote add virtual deploy@rails.vm:/var/Repositories/Git/NIAHChildcare.git
+git remote add virtual deploy@rails.pcsvm:/var/Repositories/Git/NIAHChildcare.git
 git push virtual master # or git push virtual
 
 
 Set up the Apps folder
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 sudo mkdir -p /var/Apps
 sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 sudo mkdir -p /var/AssetsVault
 sudo chown deploy:deploy /var/AssetsVault
 
@@ -214,12 +214,12 @@ sudo chown deploy:deploy /var/AssetsVault
 # Configure nginx
 # On the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/nginx
-scp nginx.niahchildcare.virtual.conf vladimir@rails.vm:~/niahchildcare.virtual.conf
+scp nginx.niahchildcare.virtual.conf vladimir@rails.pcsvm:~/niahchildcare.virtual.conf
 
 
 # On the virtual machine
 # Set up the nginx configuration
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 sudo mv ~/niahchildcare.virtual.conf /etc/nginx/sites-available
 sudo ln -nfs /etc/nginx/sites-available/niahchildcare.virtual.conf /etc/nginx/sites-enabled/niahchildcare.virtual
 
@@ -258,7 +258,7 @@ sudo service nginx configtest
 sudo service nginx reload
 
 # Setup the MariaDB database user:
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 mysql -u root -p
 create user 'niahchildcare'@'localhost' identified by 'VirtualNIAHChildcarePassword';
 grant all on NIAHChildcare_virtual.* to 'niahchildcare'@'localhost';
@@ -275,11 +275,11 @@ create database NIAHChildcare_virtual_test;
 # Setup the Monit scripts:
 # From the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/monit
-scp delayed_job.niahchildcare.virtual.monitrc vladimir@rails.vm:~
+scp delayed_job.niahchildcare.virtual.monitrc vladimir@rails.pcsvm:~
 cd ~/Code/Rails/NIAHChildcare
 
 # From the virtual machine
-ssh vladimir@rails.vm
+ssh vladimir@rails.pcsvm
 sudo mv ~/delayed_job.niahchildcare.virtual.monitrc /etc/monit/conf.d/
 sudo service monit syntax
 
@@ -287,11 +287,11 @@ sudo service monit syntax
 # Setup the YAML configuration files:
 # From the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/config
-scp config.virtual.yml deploy@rails.vm:~/config.yml
+scp config.virtual.yml deploy@rails.pcsvm:~/config.yml
 cd ~/Code/Rails/NIAHChildcare/config/examples/database
-scp database.virtual.yml deploy@rails.vm:~/database.yml
+scp database.virtual.yml deploy@rails.pcsvm:~/database.yml
 cd ~/Code/Rails/NIAHChildcare/
-ssh deploy@rails.vm
+ssh deploy@rails.pcsvm
 
 # From the virtual machine (as the deploy user)
 cd
@@ -311,7 +311,7 @@ cap virtual deploy:setup # Update configuration files and create the database af
 
 # From the virtual machine
 # After running cap virtual deploy:setup
-ssh deploy@rails.vm
+ssh deploy@rails.pcsvm
 cd ~/Projects/Configurations/NIAHChildcare/virtual
 cp *.yml /var/Apps/NIAHChildcare/virtual/shared/config/
 

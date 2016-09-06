@@ -25,7 +25,7 @@ defaults: &defaults
   # Virtual deployment
   virtual_deployment_path: virtual
   virtual_repository_deployment_branch: master
-  virtual_server_name: rails.vm
+  virtual_server_name: rails.pcsvm
   virtual_stage_name: virtual
 
   # Staging deployment
