@@ -35,7 +35,13 @@ NIAHChildcare::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  # https://github.com/ryanb/letter_opener
   # Open development email in a browser
+  # Ref: https://github.com/ryanb/letter_opener
+  # Ref: https://github.com/ryanb/letter_opener#rails-setup
   config.action_mailer.delivery_method = :letter_opener
+
+  # Ref: https://github.com/the-refinery/sparkpost_rails#getting-started
+  # Ref: http://thehungrycoder.com/ruby-on-rails/integrate-sparkpost-in-your-rails-app.html
+  #config.action_mailer.delivery_method = :sparkpost
+  config.action_mailer.raise_delivery_errors = true
 end
