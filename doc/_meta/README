@@ -17,6 +17,7 @@ ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
 
 # Setup deployment references:
+cd ~/Code/Rails/NIAHChildcare
 git remote add virtual deploy@rails.pcsvm:/var/Repositories/Git/NIAHChildcare.git
 git remote add staging deploy@asher.pcsvps:/var/Repositories/Git/NIAHChildcare.git
 git remote add production deploy@gad.pcsvps:/var/Repositories/Git/NIAHChildcare.git
