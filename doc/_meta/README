@@ -12,6 +12,7 @@ cp config/examples/deploy/*.rb config/deploy # Setup deployment stage configurat
 cd ~/Code/Rails/NIAHChildcare/app/assets
 rm images
 ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
+cd ~/Code/Rails/NIAHChildcare
 
 # Set up the hosts (/etc/hosts)
 127.0.0.1	niahchildcare.dev		www.niahchildcare.dev
