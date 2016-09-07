@@ -31,7 +31,7 @@ defaults: &defaults
   # Staging deployment
   staging_deployment_path: staging
   staging_repository_deployment_branch: master
-  staging_server_name: asher.vps
+  staging_server_name: asher.pcsvps
   staging_stage_name: staging
 
   # Production deployment

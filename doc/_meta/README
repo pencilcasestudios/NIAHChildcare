@@ -18,7 +18,7 @@ ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 
 # Setup deployment references:
 git remote add virtual deploy@rails.pcsvm:/var/Repositories/Git/NIAHChildcare.git
-git remote add staging deploy@asher.vps:/var/Repositories/Git/NIAHChildcare.git
+git remote add staging deploy@asher.pcsvps:/var/Repositories/Git/NIAHChildcare.git
 git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
 
 
@@ -352,39 +352,39 @@ sudo service monit reload
 #----------------------------------------------------------------------
 
 # Test SSH access:
-ssh deploy@asher.vps
-ssh silumesii@asher.vps
+ssh deploy@asher.pcsvps
+ssh silumesii@asher.pcsvps
 
 # Set up the hosts (/etc/hosts):
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 
 # Make sure the following line is in /etc/hosts:
-127.0.0.1 asher.vps
+127.0.0.1 asher.pcsvps
 
 # Test with:
-ping asher.vps
+ping asher.pcsvps
 
 # Check that SSH "loops back" on the staging machine (host key verification):
 # On the local development machine
-ssh deploy@asher.vps
+ssh deploy@asher.pcsvps
 
 # On the staging machine
-ssh deploy@asher.vps
+ssh deploy@asher.pcsvps
 
 # Or
 
 # If the "loop back" fails:
 ssh-keygen
-ssh-copy-id deploy@asher.vps
+ssh-copy-id deploy@asher.pcsvps
 
 
 # Set up the Repository folder
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 sudo mkdir -p /var/Repositories/Git
 sudo chown deploy:deploy /var/Repositories
 
 # Create the Git repository:
-ssh deploy@asher.vps
+ssh deploy@asher.pcsvps
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
@@ -393,18 +393,18 @@ git init --bare
 # Push to the Git repository:
 # From the development machine:
 cd ~/Code/Rails/NIAHChildcare
-git remote add staging deploy@asher.vps:/var/Repositories/Git/NIAHChildcare.git
+git remote add staging deploy@asher.pcsvps:/var/Repositories/Git/NIAHChildcare.git
 git push staging master # or git push staging
 
 
 Set up the Apps folder
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 sudo mkdir -p /var/Apps
 sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 sudo mkdir -p /var/AssetsVault
 sudo chown deploy:deploy /var/AssetsVault
 
@@ -412,12 +412,12 @@ sudo chown deploy:deploy /var/AssetsVault
 # Configure nginx
 # On the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/nginx
-scp nginx.niahchildcare.clientcase.net.conf silumesii@asher.vps:~/niahchildcare.clientcase.net.conf
+scp nginx.niahchildcare.clientcase.net.conf silumesii@asher.pcsvps:~/niahchildcare.clientcase.net.conf
 
 
 # On the staging machine
 # Set up the nginx configuration
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 sudo mv ~/niahchildcare.clientcase.net.conf /etc/nginx/sites-available
 sudo ln -nfs /etc/nginx/sites-available/niahchildcare.clientcase.net.conf /etc/nginx/sites-enabled/niahchildcare.clientcase.net
 
@@ -456,7 +456,7 @@ sudo service nginx configtest
 sudo service nginx reload
 
 # Setup the MariaDB database user:
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 mysql -u root -p
 create user 'niahchildcare'@'localhost' identified by 'StagingNIAHChildcarePassword';
 grant all on NIAHChildcare_staging.* to 'niahchildcare'@'localhost';
@@ -473,11 +473,11 @@ create database NIAHChildcare_staging_test;
 # Setup the Monit scripts:
 # From the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/monit
-scp delayed_job.niahchildcare.clientcase.net.monitrc silumesii@asher.vps:~
+scp delayed_job.niahchildcare.clientcase.net.monitrc silumesii@asher.pcsvps:~
 cd ~/Code/Rails/NIAHChildcare
 
 # From the staging machine
-ssh silumesii@asher.vps
+ssh silumesii@asher.pcsvps
 sudo mv ~/delayed_job.niahchildcare.clientcase.net.monitrc /etc/monit/conf.d/
 sudo service monit syntax
 
@@ -485,11 +485,11 @@ sudo service monit syntax
 # Setup the YAML configuration files:
 # From the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/config
-scp config.staging.yml deploy@asher.vps:~/config.yml
+scp config.staging.yml deploy@asher.pcsvps:~/config.yml
 cd ~/Code/Rails/NIAHChildcare/config/examples/database
-scp database.staging.yml deploy@asher.vps:~/database.yml
+scp database.staging.yml deploy@asher.pcsvps:~/database.yml
 cd ~/Code/Rails/NIAHChildcare/
-ssh deploy@asher.vps
+ssh deploy@asher.pcsvps
 
 # From the staging machine (as the deploy user)
 cd
@@ -509,7 +509,7 @@ cap staging deploy:setup # Update configuration files and create the database af
 
 # From the staging machine
 # After running cap staging deploy:setup
-ssh deploy@asher.vps
+ssh deploy@asher.pcsvps
 cd ~/Projects/Configurations/NIAHChildcare/staging
 cp *.yml /var/Apps/NIAHChildcare/staging/shared/config/
 
