@@ -19,7 +19,7 @@ ln -nfs ~/Dropbox/Needle\ in\ a\ Haystack/Repositories/Images images
 # Setup deployment references:
 git remote add virtual deploy@rails.pcsvm:/var/Repositories/Git/NIAHChildcare.git
 git remote add staging deploy@asher.pcsvps:/var/Repositories/Git/NIAHChildcare.git
-git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
+git remote add production deploy@gad.pcsvps:/var/Repositories/Git/NIAHChildcare.git
 
 
 
@@ -549,39 +549,39 @@ sudo service monit reload
 #----------------------------------------------------------------------
 
 # Test SSH access:
-ssh deploy@gad.vps
-ssh silumesii@gad.vps
+ssh deploy@gad.pcsvps
+ssh silumesii@gad.pcsvps
 
 # Set up the hosts (/etc/hosts):
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 
 # Make sure the following line is in /etc/hosts:
-127.0.0.1 gad.vps
+127.0.0.1 gad.pcsvps
 
 # Test with:
-ping gad.vps
+ping gad.pcsvps
 
 # Check that SSH "loops back" on the production machine (host key verification):
 # On the local development machine
-ssh deploy@gad.vps
+ssh deploy@gad.pcsvps
 
 # On the production machine
-ssh deploy@gad.vps
+ssh deploy@gad.pcsvps
 
 # Or
 
 # If the "loop back" fails:
 ssh-keygen
-ssh-copy-id deploy@gad.vps
+ssh-copy-id deploy@gad.pcsvps
 
 
 # Set up the Repository folder
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 sudo mkdir -p /var/Repositories/Git
 sudo chown deploy:deploy /var/Repositories
 
 # Create the Git repository:
-ssh deploy@gad.vps
+ssh deploy@gad.pcsvps
 cd /var/Repositories/Git/
 mkdir NIAHChildcare.git
 cd NIAHChildcare.git
@@ -590,18 +590,18 @@ git init --bare
 # Push to the Git repository:
 # From the development machine:
 cd ~/Code/Rails/NIAHChildcare
-git remote add production deploy@gad.vps:/var/Repositories/Git/NIAHChildcare.git
+git remote add production deploy@gad.pcsvps:/var/Repositories/Git/NIAHChildcare.git
 git push production master # or git push production
 
 
 Set up the Apps folder
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 sudo mkdir -p /var/Apps
 sudo chown deploy:deploy /var/Apps
 
 
 Create the AssetsVault folder
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 sudo mkdir -p /var/AssetsVault
 sudo chown deploy:deploy /var/AssetsVault
 
@@ -609,12 +609,12 @@ sudo chown deploy:deploy /var/AssetsVault
 # Configure nginx
 # On the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/nginx
-scp nginx.niahchildcare.com.conf silumesii@gad.vps:~/niahchildcare.com.conf
+scp nginx.niahchildcare.com.conf silumesii@gad.pcsvps:~/niahchildcare.com.conf
 
 
 # On the production machine
 # Set up the nginx configuration
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 sudo mv ~/niahchildcare.com.conf /etc/nginx/sites-available
 sudo ln -nfs /etc/nginx/sites-available/niahchildcare.com.conf /etc/nginx/sites-enabled/niahchildcare.clientcase.net
 
@@ -653,7 +653,7 @@ sudo service nginx configtest
 sudo service nginx reload
 
 # Setup the MariaDB database user:
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 mysql -u root -p
 create user 'niahchildcare'@'localhost' identified by 'ProductionNIAHChildcarePassword';
 grant all on NIAHChildcare_production.* to 'niahchildcare'@'localhost';
@@ -670,11 +670,11 @@ create database NIAHChildcare_production_test;
 # Setup the Monit scripts:
 # From the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/monit
-scp delayed_job.niahchildcare.com.monitrc silumesii@gad.vps:~
+scp delayed_job.niahchildcare.com.monitrc silumesii@gad.pcsvps:~
 cd ~/Code/Rails/NIAHChildcare
 
 # From the production machine
-ssh silumesii@gad.vps
+ssh silumesii@gad.pcsvps
 sudo mv ~/delayed_job.niahchildcare.com.monitrc /etc/monit/conf.d/
 sudo service monit syntax
 
@@ -682,11 +682,11 @@ sudo service monit syntax
 # Setup the YAML configuration files:
 # From the development machine
 cd ~/Code/Rails/NIAHChildcare/config/examples/config
-scp config.production.yml deploy@gad.vps:~/config.yml
+scp config.production.yml deploy@gad.pcsvps:~/config.yml
 cd ~/Code/Rails/NIAHChildcare/config/examples/database
-scp database.production.yml deploy@gad.vps:~/database.yml
+scp database.production.yml deploy@gad.pcsvps:~/database.yml
 cd ~/Code/Rails/NIAHChildcare/
-ssh deploy@gad.vps
+ssh deploy@gad.pcsvps
 
 # From the production machine (as the deploy user)
 cd
@@ -706,7 +706,7 @@ cap production deploy:setup # Update configuration files and create the database
 
 # From the production machine
 # After running cap production deploy:setup
-ssh deploy@gad.vps
+ssh deploy@gad.pcsvps
 cd ~/Projects/Configurations/NIAHChildcare/production
 cp *.yml /var/Apps/NIAHChildcare/production/shared/config/
 

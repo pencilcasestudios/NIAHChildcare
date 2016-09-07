@@ -37,7 +37,7 @@ defaults: &defaults
   # Production deployment
   production_deployment_path: production
   production_repository_deployment_branch: master
-  production_server_name: gad.vps
+  production_server_name: gad.pcsvps
   production_stage_name: production
 
 
